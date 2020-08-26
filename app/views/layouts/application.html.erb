@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <div>
+      <h1>
+        <a href="http://localhost:3000">Acceuil</a>
+      </h1>
+      
+      <% if user_signed_in? %>
+        <a href="<%=user_path(current_user.id)%>">Mon profil</a>
+        <a href="<%= destroy_user_session_path %>" data-method="delete">Se deconecter</a>
+      <% else %>
+        <a href="<%= new_user_registration_path %>">S'inscrire</a>
+        <a href="<%= new_user_session_path %>">Se connecter</a>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
