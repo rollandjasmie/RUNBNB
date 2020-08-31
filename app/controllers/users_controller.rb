@@ -13,12 +13,6 @@ class UsersController < ApplicationController
   		
   		@user.update(user_params)
   		redirect_to user_path(params[:id])
-  	# 	respond_to do |format|
-			# format.html { redirect_to books_path }
-			# format.js { }
-  	# 	 end
-#   		document.getElementById("book-list").insertAdjacentHTML("beforeend", "<%= j
-# render 'book', book: @book %>")
   	end
   	
 

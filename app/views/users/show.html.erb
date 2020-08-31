@@ -1,44 +1,41 @@
 <%if @user.avatar.attached?%>
-<%= image_tag @user.avatar, alt: 'avatar' %>
+	<%= image_tag @user.avatar, alt: 'avatar' %>
 <%end%>
+
 <%= form_tag user_avatars_path(@user.id), multipart: true  do %>
-<%= file_field_tag :avatar %>
-<%= submit_tag "mettre à jour" %>
+	<%= file_field_tag :avatar %>
+	<%= submit_tag "mettre à jour" %>
 <% end %>
 
 
+<h4 >
+	<p>Bonjour je m'appelle,<%= @user.name %></p>	
+</h4>
+<p style="color: blue"> Prénom et Nom </p>
+<%= @user.name %> <%= @user.first_name%><a href="/users/edit" style="color: red">Modifier</a>
 
-<h1 style="color: pink">votre profil</h1>
-<p style="color: blue">votre nom</p>
-<%= @user.name %>
-</div>
-<p style="color: blue">votre prénom</p>
-<%= @user.first_name%>
-<p style="color: blue">votre adresse email</p>
-<%= @user.email%>
-<p style="color: blue">votre date de naissance</p>
-<%= @user.date_of_birth%>
-<p style="color: blue">votre adresse</p>
-<%= @user.adresse%>
-<p style="color: blue">votre numéro de téléphone</p>
-<%= @user.mobile%>
-<p>
-	<a href="/users/edit">Editer votre profil</a>
-</p>
-<!-- <script type="text/javascript">
-	let menu_teo = document.querySelector(".teo");
-	let menu_form = document.querySelector(".menu-form")
-	let menu_status = false;
+<p style="color: blue">Sexe</p>
+<%= @user.sexe%><a href="/users/edit" style="color: red">Modifier</a>
 
-	function menu_d (){
-		if(menu_status == false){
-			menu_form.style.marginleft ="-400";
-			menu_status = true;
-		}
-		else if (menu_status == true){
-			menu_form.style.marginLeft = "400px";
-			menu_status = false;
-		}
-	}
-	menu_teo.onclick = menu_d;
-</script> -->
+<p style="color: blue">Date de naissance</p>
+<%= @user.date_of_birth%><a href="/users/edit" style="color: red">Modifier</a>
+
+<p style="color: blue">Adresse e-mail</p>
+<%= @user.email%><a href="/users/edit" style="color: red">Modifier</a>
+
+<p style="color: blue">Numéro de téléphone</p>
+<%= @user.mobile%><a href="/users/edit" style="color: red">Modifier</a>
+
+<p style="color: blue">Adresse</p>
+<%= @user.adresse%><a href="/users/edit" style="color: red">Modifier</a>
+
+<p style="color: blue">Numéro d'urgence</p>
+<%= @user.urgence%><a href="/users/edit" style="color: red">Modifier</a>
+
+
+
+
+
+  
+
+  

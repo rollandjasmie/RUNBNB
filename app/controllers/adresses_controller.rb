@@ -8,14 +8,11 @@ class AdressesController < ApplicationController
 
   def create
   	param = params.require(:adresse).permit(:pays,:adresse,:code,:ville)
-  	@adresse = Adresse.new(adresse:params[:adresse],pays:params[:pays],code:params[:code],ville:params[:ville],logement_id:params[:logement_id])
-  	# @adresse = params[:logement_id]
-  	puts "=============================================="
-  	 @l = Logement.find(params[:logement_id])
-  	 puts @l
-  	puts "==============================================="
+  	@adresse = Adresse.new(param)
+  	@adresse.logement_id = params[:logement_id]
+  	@logement_id = @adresse.logement_id
   	if @adresse.save
-  		redirect_to '/'
+  		redirect_to new_logement_information_path(@logement_id)
   	end
   end
 
