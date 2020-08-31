@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
+  get 'avatars/create'
   root to: "users#index"
+  
   devise_for :users
-  resources :users, only:[:show,:update]
+  
+  resources :users, only:[:show,:update] do
+  		resources :avatars, only: [:create]  		
+	end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+	resources :logements, only:[:new,:create,:update] do
+		resources :adresses,only:[:new,:create,:update]
+	end
+
 end
+

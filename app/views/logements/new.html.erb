@@ -1,0 +1,11 @@
+Inscrivez votre hébergement sur Runbnb</br>
+<%=form_for @logement,url:{action: "create"} do |f|%>
+Quel est le nom de votre l'héregement ?</br>
+<%=f.label "Nom de l'hébergement"%></br>
+<%=f.text_field :name%></br>
+choisissez le type de hébérgement que vous souhaitez inscrire sur Runbnb</br></br></br>
+<%= f.select :categorie,options_for_select(["Appartement","Maison/Vila","Bangalow/Châlet","Hotel","chambre d'hote/Gite"])%>
+<p>Que peuvent réserver les client?</p>
+<%= f.select :types,options_for_select(["Chambre privée","Hébergement entier"])%></br></br></br></br>
+<%= f.submit "continuer"%>
+<% end%>

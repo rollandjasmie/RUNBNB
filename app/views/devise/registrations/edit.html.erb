@@ -14,6 +14,16 @@
   </div>
   
   <div class="field">
+    <%= f.label :Sexe %><br />
+    <%= f.text_field :sexe, autofocus: true, autocomplete: "sexe" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :Date_de_naissance %><br />
+    <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth" %>
+  </div>
+
+  <div class="field">
     <%= f.label :Adresse_email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -24,8 +34,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :Date_de_naissance %><br />
-    <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth" %>
+    <%= f.label :Adresse %><br />
+    <%= f.email_field :adresse, autofocus: true, autocomplete: "adresse" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :numéro_d_urgence %><br />
+    <%= f.email_field :urgence, autofocus: true, autocomplete: "urgence" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

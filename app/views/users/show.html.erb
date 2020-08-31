@@ -1,3 +1,13 @@
+<%if @user.avatar.attached?%>
+<%= image_tag @user.avatar, alt: 'avatar' %>
+<%end%>
+<%= form_tag user_avatars_path(@user.id), multipart: true  do %>
+<%= file_field_tag :avatar %>
+<%= submit_tag "mettre à jour" %>
+<% end %>
+
+
+
 <h1 style="color: pink">votre profil</h1>
 <p style="color: blue">votre nom</p>
 <%= @user.name %>

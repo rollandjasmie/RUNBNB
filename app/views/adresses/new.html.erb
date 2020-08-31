@@ -1,0 +1,14 @@
+<p>Où se situe l'hébergement que vous inscrivez ?</p>
+<%=form_for @adresse,url:{action:"create"} do |f|%>
+<%=f.label 'Pays / région' %></br>
+<%=f.text_field :pays%></br>
+<%=f.label 'Trouvez votre adresse' %></br>
+<%=f.text_field :adresse%></br>
+<%=f.label 'Code postal' %></br>
+<%=f.text_field :code%></br>
+<%=f.label 'ville' %></br>
+<%=f.text_field :ville%></br></br>
+<%=f.submit 'continuer' %>
+<% end %>
+
+
