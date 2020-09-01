@@ -8,29 +8,199 @@
 <% end %>
 
 
-<h4 >
-	<p>Bonjour je m'appelle,<%= @user.name %></p>	
-</h4>
-<p style="color: blue"> Prénom et Nom </p>
-<%= @user.name %> <%= @user.first_name%><a href="/users/edit" style="color: red">Modifier</a>
+<h3>
+	<p>Bonjour je m'appelle,<%= @user.name %></p>
+</h3>
+<h6>
+	<p>Membre dépuis <%=@date%>
+</h6>
+<h5>infos personnelles</h5>
+<span style="color: blue">Prénom et Nom</span>	
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong">Modifier</button>
+<!-- Modal 1 -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Prénom et Nom</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+   <%= form_for(@user) do |f| %>
+<%= f.text_field :name %><br><br>
+<%= f.text_field :first_name %><br>
 
-<p style="color: blue">Sexe</p>
-<%= @user.sexe%><a href="/users/edit" style="color: red">Modifier</a>
 
-<p style="color: blue">Date de naissance</p>
-<%= @user.date_of_birth%><a href="/users/edit" style="color: red">Modifier</a>
 
-<p style="color: blue">Adresse e-mail</p>
-<%= @user.email%><a href="/users/edit" style="color: red">Modifier</a>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div><br>
+<%= @user.name %> <%= @user.first_name%>
+<% end %><br>
+<!-- Modal 2 -->
 
-<p style="color: blue">Numéro de téléphone</p>
-<%= @user.mobile%><a href="/users/edit" style="color: red">Modifier</a>
+<span style="color: blue">Sexe</span>
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong1">Modifier</button>
+<!-- Modal 1 -->
+<div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Sexe</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+<%= form_for(@user) do |f| %>    
+<%= f.text_field :sexe %><br>
 
-<p style="color: blue">Adresse</p>
-<%= @user.adresse%><a href="/users/edit" style="color: red">Modifier</a>
+      </div>
+      <div class="modal-footer">
+      <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div><br>
+<%= @user.sexe%>
+<% end %><br><br>
+<span style="color: blue">Date de naissance</span>
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong2">Modifier</button>
+<!-- Modal 1 -->
+<div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Date de naissance</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+      	<%= form_for(@user) do |f| %>
+		<%= f.date_field :date_of_birth	 %><br>
+	
+      </div>
+      <div class="modal-footer">
+       <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div><br>
+<%= @user.date_of_birth%>
+<% end %><br><br>
 
-<p style="color: blue">Numéro d'urgence</p>
-<%= @user.urgence%><a href="/users/edit" style="color: red">Modifier</a>
+<span style="color: blue">Adresse e-mail</span>
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong3">Modifier</button>
+<!-- Modal 1 -->
+<div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle3">Adresse e-mail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+      	<%= form_for(@user) do |f| %>    
+		<%= f.email_field :email %><br>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div><br>
+<%= @user.email%>
+<% end %><br><br>
+
+<span style="color: blue">Numéro de téléphone</span>
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong4">Modifier</button>
+<!-- Modal 1 -->
+<div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Numéro de téléphone</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+      	<%= form_for(@user) do |f| %>    
+		<%= f.telephone_field :mobile %><br>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div><br>
+<%= @user.mobile%>
+<% end %><br><br>
+
+<span style="color: blue">Adresse</span>
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong5">Modifier</button>
+<!-- Modal 1 -->
+<div class="modal fade" id="exampleModalLong5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Adresse</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <%= form_for(@user) do |f| %>    
+		<%= f.text_field :adresse %><br>
+
+      </div>
+      <div class="modal-footer">
+	<%= f.submit 'Enregistrer', class:"btn btn-primary" %> 
+</div>
+    </div>
+  </div>
+</div><br>
+<%= @user.adresse%>
+<% end %><br><br>
+
+<span style="color: blue">Numéro d'urgence</span>
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong6">Modifier</button>
+<!-- Modal 1 -->
+<div class="modal fade" id="exampleModalLong6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle6" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Numéro d'urgence</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+      	<%= form_for(@user) do |f| %>    
+		<%= f.telephone_field :urgence %><br>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div><br>
+<%= @user.urgence%>
+<% end %>
 
 
 
