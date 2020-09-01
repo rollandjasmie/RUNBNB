@@ -19,6 +19,11 @@
   <body>
     <div>
    
+    <% if user_signed_in? %>
+        <a href="<%=user_path(current_user.id)%>">Mon profil</a>
+      <a href="<%=new_logement_path%>">creer un hébérgement</a>
+      <% end %>
+    </div>
       
      
     <%= yield %>

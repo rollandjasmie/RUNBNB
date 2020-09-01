@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'avatars/create'
   root to: "users#index"
   
   devise_for :users
