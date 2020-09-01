@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'avatars/create'
   root to: "users#index"
+  # devise_scope :user do
+  #   get "/some/route" => "some_devise_controller"
+  # end
   
   devise_for :users
   

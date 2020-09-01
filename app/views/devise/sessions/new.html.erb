@@ -13,7 +13,7 @@
             </div>
             <div class="item">
                 <a class="anchor" href="#">Deja partenaire?</a>
-                <button class="btn"> Se connecter </button>
+                <a href="/users/sign_up" class="btn">S'inscrire </a>
             </div>
         </nav>
     </header>
@@ -53,20 +53,30 @@
             <div class="carrer">
                 <div id="signin">
                     <h2><strong>Se connecter</strong></h2>
-                    <form>
+                    
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <%= render "devise/shared/error_messages", resource: resource %>
+
                         <div>
                             <label>Adress e-mail</label>
-                            <input type="text" class="text-input" placeholder="Entrez un adresse e-mail valide">
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"text-input",placeholder:"Entrez votre e-mail"%>
+
 
                         </div>
                         <div>
                             <label>Mot de passe</label>
-                            <input type="password" class="text-input" placeholder="Entrez votre mot de passe">
+                                <%= f.password_field :password, autocomplete: "current-password", class:"text-input",placeholder:"Entrez votre mot de passe"%>
+
                         </div>
 
-                        <button type="submit" class="primary-btn">Sign in </button>
+                            <%= f.submit "Sign in",class:"primary-btn" %><%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %><br />
+                             <%= link_to "Mot de passe oublié?", new_password_path(resource_name) %><br />
+                            <% end %>
+
                 </div>
-                    </form>
+                <% end %>
+
+                    
 
              
 
@@ -81,4 +91,6 @@
 
 </html>
 
+
+  
 
