@@ -18,11 +18,15 @@
 
   <body>
     <div>
-      <h1>
-        <a href="http://localhost:3000">Acceuil</a>
-      </h1>
+   
       
-      <% if user_signed_in? %>
+     
+    <%= yield %>
+  </body>
+</html>
+
+
+<% if user_signed_in? %> 
         <a href="<%=user_path(current_user.id)%>">Mon profil</a>
         <a href="<%= destroy_user_session_path %>" data-method="delete">Se deconecter</a>
       <% else %>
@@ -30,7 +34,4 @@
         <a href="<%= new_user_session_path %>">Se connecter</a>
       <% end %>
       <a href="<%=new_logement_path%>">creer un hébérgement</a>
-    </div>
-    <%= yield %>
-  </body>
-</html>
+    </div> 
