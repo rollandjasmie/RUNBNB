@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: "users#index"
+  # devise_scope :user do
+  #   get "/some/route" => "some_devise_controller"
+  # end
   
   devise_for :users
   
