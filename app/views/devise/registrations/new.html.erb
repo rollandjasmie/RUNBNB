@@ -1,48 +1,103 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :nom %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :Prénom %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :Adresse_email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<header>
+<nav class="navbar">
+    <div class="brand">
 
-  <div class="field">
-    <%= f.label :numéro_de_téléphone %><br />
-    <%= f.telephone_field :mobile, autofocus: true, autocomplete: "mobile" %>
-  </div>
+    </div>
+    <div class="item">
+        <a class="anchor" href="#">Deja partenaire?</a>
+        <a href="/users/sign_in"  class='btn'>Se connecter</a>
+    </div>
+</nav>
+</header>
 
-  <div class="field">
-    <%= f.label :Date_de_naissance %><br />
-    <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :Mot_de_passe %>
-    <% if @minimum_password_length %>
-    <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :Confirmer %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "S'inscrire" %>
-  </div>
-<% end %>
-<!-- <p><%= link_to "Back", :back %></p> -->
-<%= render "devise/shared/links" %>
+
+<body>
+
+
+
+
+<div id="wrapper">
+    <div id="left">
+        <div id="showcase">
+            <div class="showcase-content">
+                <h2 class="showcase-text"><strong>Inscrivez votre</br>
+                    <span>hébergement</span> </br> sur  Runbnb.com </strong>
+                </h2>
+                
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="autre-text">
+        <h3 class="text"><strong>Inscrivez votre
+            <span>hébergement</span>  sur  Runbnb.com </strong>
+        </h2>
+    
+    </div>
+
+
+
+    <div class="right">
+    <div class="carrer_lava">
+        <div class="signin" style="height:918px;">
+            <h2><strong>S'inscrire </strong></h2>
+            <form>
+                <div>
+                    <label>Nom</label>
+                    <input type="text" class="text-input" placeholder="Entrez votre nom">
+
+                </div>
+                <div>
+                    <label>Prénom</label>
+                    <input type="password" class="text-input" placeholder="Entrez votre prénom">
+                </div>
+                <div>
+                    <label>Adress e-mail</label>
+                    <input type="password" class="text-input" placeholder="Entrez votre e-mail">
+                </div>
+                <div>
+                    <label>Numero de téléphone</label>
+                    <input type="password" class="text-input" placeholder="+261---">
+                </div>
+                <div>
+                    <label>Date de naissance</label>
+                    <input type="password" class="text-input" placeholder=" Entrez votre date de naissance">
+                </div>
+                <div>
+                    <label>Mot de passe</label>
+                    <input type="password" class="text-input" placeholder="***********">
+                </div>
+
+       
+                       <button class="button"><span>Commencer </span></button>
+
+
+                     <div class="small">
+                        <small>Vous avec un déja un compte? cliquez<a href="#"> ...ici </a>pour poursuivre l'inscription</samll>
+
+                     </div>
+                
+        </div>
+            </form>
+
+     
+
+
+        </div>
+
+    </div>
+
+
+</div>
+</body>
+
+
+
+
+
