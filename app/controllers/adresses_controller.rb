@@ -12,7 +12,7 @@ class AdressesController < ApplicationController
   	@adresse.logement_id = params[:logement_id]
   	@logement_id = @adresse.logement_id
   	if @adresse.save
-  		redirect_to new_logement_information_path(@logement_id)
+  		redirect_to "/"#new_logement_information_path(@logement_id)
   	end
   end
 

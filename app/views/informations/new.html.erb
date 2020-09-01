@@ -6,6 +6,8 @@ où les clients peuvent-ils dormir?
 1 lit double
 </button>
 <!-- Modal 1 -->
+<%= form_tag url_for(action: 'create'),method:'post', multipart: true do%>
+
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -16,10 +18,17 @@ où les clients peuvent-ils dormir?
         </button>
       </div>
       <div class="modal-body">
-        <%= form_tag url_for(action: 'create'), method: "post" do %>
-  		<% @info1.each do |i| %>    
-        <%= check_box_tag :chambre1%><%=i%></br>
-    <% end %>  
+       <!--  <%= form_tag #url_for(action: 'create'), method: "post" do %>
+  		<% @info1.each #do |i| %>    
+        <%= check_box_tag #:chambre1%><%=i%></br>
+    <% #end %>  --> 
+    <% @info1.each do |c| %>
+              <div class="col-md-4">
+                <%= check_box_tag"zone_ids[]", c.id, false, id: :"" %>
+                <%= c.chambre1%>
+              </div>
+            <% end %>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

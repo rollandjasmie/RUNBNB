@@ -35,12 +35,12 @@
 
   <div class="field">
     <%= f.label :Adresse %><br />
-    <%= f.email_field :adresse, autofocus: true, autocomplete: "adresse" %>
+    <%= f.text_field :adresse, autofocus: true, autocomplete: "adresse" %>
   </div>
 
   <div class="field">
     <%= f.label :numéro_d_urgence %><br />
-    <%= f.email_field :urgence, autofocus: true, autocomplete: "urgence" %>
+    <%= f.text_field :urgence, autofocus: true, autocomplete: "urgence" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

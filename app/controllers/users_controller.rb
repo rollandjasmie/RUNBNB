@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   	def show
   		if user_signed_in?
   			@user = User.find(current_user.id)
+        @date = @user.created_at
+        @date = @date.to_s       
+        @date = @date[0..3]
+        
   		end
   	end
   	def update
@@ -24,7 +28,13 @@ class UsersController < ApplicationController
   	def user_params
   		params.require(:user).permit(
       		:name,
-      		:first_name
+      		:first_name,
+          :sexe,
+          :date_of_birth,
+          :email,
+          :mobile,
+          :adresse,
+          :urgence
       		)
   	end
 end
