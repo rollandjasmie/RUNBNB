@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: runbnb_production
-  username: runbnb
-  password: <%= ENV['RUNBNB_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

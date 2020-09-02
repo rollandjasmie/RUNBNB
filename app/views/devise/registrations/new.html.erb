@@ -1,0 +1,101 @@
+
+
+<header>
+    <nav class="navbar">
+        <div class="brand">
+
+        </div>
+        <div class="item">
+            <a class="anchor" href="#">Deja partenaire?</a>
+            <a href="/users/sign_in"  class='btn'>Se connecter</a>
+        </div>
+    </nav>
+</header>
+<body>
+    <div id="wrapper">
+        <div id="left">
+            <div id="showcase">
+                <div class="showcase-content">
+                    <h2 class="showcase-text"><strong>Inscrivez votre</br>
+                        <span>hébergement</span> </br> sur  Runbnb.com </strong>
+                    </h2>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="autre-text">
+            <h3 class="text" href="<%=new_logement_path%>"><strong>Inscrivez votre
+                <span>hébergement</span>  sur  Runbnb.com </strong>
+            </h2>
+
+        </div>
+
+        <div class="right">
+            <div class="carrer_lava">
+                <div class="signin" style="height:918px;">
+                    <h2><strong>S'inscrire </strong></h2>
+                    <form>
+                        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+                        <div>
+                            <label>Nom</label>
+                                <%= f.text_field :name, autofocus: true, autocomplete: "name",class:"text-input", placeholder:"Entrez votre nom", required: 'true' %>
+
+
+                        </div> 
+                        <div>
+                            <label>Prénom</label>
+                                <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",class:"text-input", placeholder:"Entrez votre prénom", required: 'true' %>
+
+                        </div>
+                        <div>
+                            <label>Adress e-mail</label>
+                                <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"text-input", placeholder:"Entrez votre e-mail", required: 'true' %>
+
+                        </div>
+                        <div>
+                            <label>Numéro de téléphone</label>
+                                <%= f.number_field :mobile, autofocus: true, autocomplete: "mobile", class:"text-input",placeholder:"Votre numéro", required: 'true' %>
+
+                        </div>
+                        <div>
+                            <label>Date de naissance</label>
+                                <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth",class:"text-input", placeholder:"Entrez votre date de naissance", required: 'true' %>
+
+                        </div>
+                        <div>
+                            <label>Mot de passe</label>
+                                <%= f.password_field :password, autocomplete: "new-password",class:"text-input", placeholder:"***********", required: 'true' %>
+                                <label>Confirmer</label>
+                                <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"text-input", placeholder:"***********", required: 'true' %>
+
+
+                        </div>
+
+
+                        <button ><span> </span></button>
+                        <%= f.submit "Commencer",class:"button" %>
+
+
+                        <div class="small">
+                            <small>Vous avec un déja un compte? cliquez<a href="#"> ...ici </a>pour poursuivre l'inscription</samll>
+
+                            </div>
+
+                        </div>
+                        <% end %>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+
+
+
+
+  

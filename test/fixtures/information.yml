@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chambre1: MyString
+  chambre2: MyString
+  salon: MyString
+  autre: MyString
+
+two:
+  chambre1: MyString
+  chambre2: MyString
+  salon: MyString
+  autre: MyString

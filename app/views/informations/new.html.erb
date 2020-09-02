@@ -1,0 +1,42 @@
+<p>Information sur l'hébergement</p>
+où les clients peuvent-ils dormir?
+<p>chambre1</p>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+1 lit double
+</button>
+<!-- Modal 1 -->
+<%= form_tag url_for(action: 'create'),method:'post', multipart: true do%>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <!--  <%= form_tag #url_for(action: 'create'), method: "post" do %>
+  		<% @info1.each #do |i| %>    
+        <%= check_box_tag #:chambre1%><%=i%></br>
+    <% #end %>  --> 
+    <% @info1.each do |c| %>
+              <div class="col-md-4">
+                <%= check_box_tag"zone_ids[]", c.id, false, id: :"" %>
+                <%= c.chambre1%>
+              </div>
+            <% end %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"><%= submit_tag "Enregistrer" %></button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 2 -->
+
+<% end %>

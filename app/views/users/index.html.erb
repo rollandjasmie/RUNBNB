@@ -1,0 +1,11 @@
+<div style="text-align: center;color: red; ">
+ <%if user_signed_in?%>
+      <% else %>
+        <a href="<%= new_user_registration_path %>">S'inscrire</a>
+        <a href="<%= new_user_session_path %>">Se connecter</a>
+        <a href="<%=new_logement_path%>">creer un hébérgement</a>
+      <% end %>
+</div>
+	<h1 style="text-align: center;color: red; "> 
+		WELCOME
+	</h1>
