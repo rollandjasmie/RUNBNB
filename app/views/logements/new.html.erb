@@ -1,5 +1,26 @@
 
 
+	<div class="form-control">
+		<p>INFORMATION</p>
+		<p>Chambre 1</p>
+		<%Chambre.all.each do |c|%>
+			<%= c.title%> <br>
+			<%c.lit.each do |l| %>
+			<input type="checkbox" name="chambre_ids[]" value="<%=c.id%>" >
+			<%= l.title%>
+			<%end%>
+			<%end%>
+	</div>
+	<div class="">
+		<p>EQUIPEMENT</p>
+		<%Equipement.all.each do |e|%>
+			<input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
+			<%= e.title%>
+		<%end%>
+	</div>
+	</div>
+
+
 <link rel="stylesheet" type="text/css" href="/css/logements.css">
 
 
