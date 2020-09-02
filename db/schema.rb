@@ -57,21 +57,6 @@ ActiveRecord::Schema.define(version: 2020_09_02_081248) do
     t.index ["logement_id"], name: "index_chambres_on_logement_id"
   end
 
-  create_table "information", force: :cascade do |t|
-    t.string "chambre1"
-    t.integer "nombre1"
-    t.string "chambre2"
-    t.integer "nombre2"
-    t.string "salon"
-    t.integer "nombre3"
-    t.string "autre"
-    t.integer "nombre4"
-    t.bigint "logement_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["logement_id"], name: "index_information_on_logement_id"
-  end
-
   create_table "lits", force: :cascade do |t|
     t.string "title"
     t.bigint "chambre_id"
