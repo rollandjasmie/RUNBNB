@@ -8,8 +8,25 @@
 User.destroy_all
 
 a = User.create!(name:"Koto",first_name:"RAbe",email:"r@gmail.com",password:"r@gmail.com")
+puts"zahhhhhhhhhh"
+
 Logement.destroy_all
 	b =Logement.create!(categorie:"ok",types: "appartement",name: "kevin", user: a)
+
+
+Equipement.destroy_all
+ 	   Equipement.create!(title:"Bar",logement_id: b.id)
+ 	   Equipement.create!(title:"Saune",logement_id: b.id)
+ 	   Equipement.create!(title:"Jardin",logement_id: b.id)
+ 	   Equipement.create!(title:"Terrasse",logement_id: b.id)
+ 	   Equipement.create!(title:"Bain à remous/jacuzzi",logement_id: b.id)
+ 	   Equipement.create!(title:"Connexion WIFI gratuite",logement_id: b.id)
+ 	   Equipement.create!(title:"Climatisation",logement_id: b.id)
+ 	   Equipement.create!(title:"Plage",logement_id: b.id)
+ 	   Equipement.create!(title:"Borne de recharge pour voiture électrique",logement_id: b.id)
+ 	   Equipement.create!(title:"Piscine",logement_id: b.id)
+ 	   Equipement.create!(title:"Parking",logement_id: b.id)
+puts "create eq"
 
 Chambre.destroy_all
 		Chambre.create!(title: "Chambre1", logement_id: b.id)
