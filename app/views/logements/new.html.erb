@@ -28,7 +28,7 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 				
 					
 				</div>
-				<div class="type">
+				<div class="type" style="position: relative; top: 20px;">
 					<p>Que peuvent réserver les clients ?</p>
 					<%= select_tag 'types', options_for_select(["Chambre privée","Hébergement entier"]),class:'custom-select custom-select-sm',style:"width: 300px"%>
 					
@@ -58,7 +58,7 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 					</div>
 					<p>Trouvez votre adresse (ligne 1)</p>
 					<div class="form-group">
-						<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre adresse">
+						<%= text_area_tag :adresse, "" ,class:'form-control'%>
 						
 					</div>
 					<p>Code postal</p>
@@ -71,8 +71,8 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 				</div>
 			</div>
 		</div>
-		<div class="bout1">
-			<a href="#" class="myButton">précedent</a>
+		<div class="bout1" style="position: relative;
+top: 100px;">
 		<%= submit_tag 'creer'%>
 		</div>
 	</section>
