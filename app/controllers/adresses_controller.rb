@@ -15,6 +15,8 @@ class AdressesController < ApplicationController
   	end
   end
 
-  def update
+  def edit 
+    @adresse = Adresse.find(params:[id])
   end
+
 end

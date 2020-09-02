@@ -9,6 +9,7 @@ class LogementsController < ApplicationController
   def create
   	param = params.permit(:categorie,:types,:name)
     @logement = Logement.new(param)
+
     @logement.user_id = current_user.id
     @logement= @logement.save
 
@@ -27,7 +28,6 @@ class LogementsController < ApplicationController
     redirect_to '/'
        
   end   
-    
   end
 end
 
