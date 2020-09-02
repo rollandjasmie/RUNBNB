@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_073843) do
+ActiveRecord::Schema.define(version: 2020_09_01_135903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 2020_08_31_073843) do
     t.index ["logement_id"], name: "index_adresses_on_logement_id"
   end
 
+  create_table "chambres", force: :cascade do |t|
+    t.string "title"
+    t.bigint "logement_id"
+    t.bigint "lit_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lit_id"], name: "index_chambres_on_lit_id"
+    t.index ["logement_id"], name: "index_chambres_on_logement_id"
+  end
+
   create_table "information", force: :cascade do |t|
     t.string "chambre1"
     t.integer "nombre1"
@@ -60,6 +70,14 @@ ActiveRecord::Schema.define(version: 2020_08_31_073843) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["logement_id"], name: "index_information_on_logement_id"
+  end
+
+  create_table "lits", force: :cascade do |t|
+    t.string "title"
+    t.bigint "chambre_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chambre_id"], name: "index_lits_on_chambre_id"
   end
 
   create_table "logements", force: :cascade do |t|

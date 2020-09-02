@@ -6,28 +6,44 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-# Logement.destroy_all
-# Information.destroy_all
-# info1 = ['Lit double', 'Lit simple','Lit king-size','Grand-lit king-size','Lit superposé','Canapé lit']
-# loge = ["Appartement","Maison/Vila","Bangalow/Châlet","Hotel","chambre d'hote/Gite"]
 
+a = User.create!(name:"Koto",first_name:"RAbe",email:"r@gmail.com",password:"r@gmail.com")
+Logement.destroy_all
+	b =Logement.create!(categorie:"ok",types: "appartement",name: "kevin", user: a)
 
-User.create(name:"Michelle",first_name:"Verdi",email:"r@gmail.com",password:"r@gmail.com")
+Chambre.destroy_all
+		Chambre.create!(title: "Chambre1", logement_id: b.id)
+		Chambre.create!(title: "Salon", logement_id: b.id,)
+		Chambre.create!(title: "Autre espace", logement_id: b.id,)
 
-# #Longement
-# Logement.create(categorie:"Appartement",types:"Privé",user_id:1)
-# Logement.create(categorie:"Maison/Vila",types:"Privé",user_id:1)
-# Logement.create(categorie:"Bangalow/Châlet",types:"Privé",user_id:1)
-# Logement.create(categorie:"Hotel",types:"Privé",user_id:1)
-# Logement.create(categorie:"chambre d'hote/Gite",types:"Privé",user_id:1)
+puts"creer"
 
-# #Information
-# Information.create(chambre1:"Lit double",logement_id:1)
-# Information.create(chambre1:"Lit simple",logement_id:1)
-# Information.create(chambre1:"Lit king-size",logement_id:1)
-# Information.create(chambre1:"Grand-lit king-size",logement_id:1)
-# Information.create(chambre1:"Lit superposé",logement_id:1)
-# Information.create(chambre1:"Canapé li",logement_id:1)
+Lit.destroy_all
+		Lit.create!(title:"lit double",chambre_id: 1)
+		Lit.create!(title:"lit simple",chambre_id: 1)
+		Lit.create!(title:"lit king size",chambre_id: 1)
+		Lit.create!(title:"lit grand size",chambre_id: 1)
+		Lit.create!(title:"lit superposé",chambre_id: 1)
+		Lit.create!(title:"canapé-lit",chambre_id: 1)
+		Lit.create!(title:"canapé-lit double",chambre_id: 1)
 
+		Lit.create!(title:"fluton",chambre_id: 2)
+		Lit.create!(title:"lit double",chambre_id: 2)
+		Lit.create!(title:"lit simple",chambre_id: 2)
+		Lit.create!(title:"lit king size",chambre_id: 2)
+		Lit.create!(title:"lit grand size",chambre_id: 2)
+		Lit.create!(title:"lit superposé",chambre_id: 2)
+		Lit.create!(title:"canapé-lit",chambre_id: 2)
+		Lit.create!(title:"canapé-lit double",chambre_id: 2)
+		Lit.create!(title:"fluton",chambre_id: 2)
 
- 
+		Lit.create!(title:"lit double",chambre_id: 3)
+		Lit.create!(title:"lit simple",chambre_id: 3)
+		Lit.create!(title:"lit king size",chambre_id: 3)
+		Lit.create!(title:"lit grand size",chambre_id: 3)
+		Lit.create!(title:"lit superposé",chambre_id: 3)
+		Lit.create!(title:"canapé-lit",chambre_id: 3)
+		Lit.create!(title:"canapé-lit double",chambre_id: 3)
+		Lit.create!(title:"fluton",chambre_id: 3)
+
+puts "lit"
