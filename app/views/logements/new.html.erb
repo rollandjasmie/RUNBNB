@@ -1,11 +1,36 @@
-Inscrivez votre hébergement sur Runbnb</br>
-<%=form_for @logement,url:{action: "create"} do |f|%>
-Quel est le nom de votre l'héregement ?</br>
-<%=f.label "Nom de l'hébergement"%></br>
-<%=f.text_field :name%></br>
-choisissez le type de hébérgement que vous souhaitez inscrire sur Runbnb</br></br></br>
-<%= f.select :categorie,options_for_select(["Appartement","Maison/Vila","Bangalow/Châlet","Hotel","chambre d'hote/Gite"])%>
-<p>Que peuvent réserver les client?</p>
-<%= f.select :types,options_for_select(["Chambre privée","Hébergement entier"])%></br></br></br></br>
-<%= f.submit "continuer"%>
-<% end%>
+
+
+	<h1 class="titre1">Inscrivez votre hébergement sur Runbnb</h1></br>
+	<%= form_tag url_for(action:'create'), methode: "post" do%>
+	<div class="container">
+	 <div>
+		<p>Quel est le nom de votre hébergement?</p>
+		<input type="text" name="name" placeholder="nom de l'hébergement"><br>
+		<p>choisissez le type de hébérgement que vous souhaitez inscrire sur Runbnb</p>
+		<%= select_tag 'categorie', options_for_select(["Appartement","Maison/Vila","Bangalow/Châlet","Hotel","chambre d'hote/Gite"])%><br>
+	 </div>
+	<div>
+		<p>Que peuvent réserver les client?</p>
+		<%= select_tag 'types', options_for_select(["Chambre privée","Hébergement entier"])%>
+		<p>Ou se situe l'hebergement que vous inscrivez?</p>
+		<%= text_area_tag :adresse%><br>
+		<%= text_area_tag :pays%><br>
+		<%= text_area_tag :code%><br>
+		<%= text_area_tag :ville%><br>
+	</div>
+	<div>
+		<p>INFORMATION</p>
+		<p>Chambre 1</p>
+		<%Chambre.all.each do |c|%>
+		
+			<%= c.title%> <br>
+
+			<%c.lit.each do |l| %>
+			<input type="checkbox" name="chambre_ids[]" value="<%=c.id%>" >
+			<%= l.title%><br>
+			<%end%>
+			<%end%>
+	</div>
+	<%= submit_tag 'creer'%>
+	<%end%>
+	</div>
