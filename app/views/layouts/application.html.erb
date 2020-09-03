@@ -21,7 +21,7 @@
   <body> 
     <%if user_signed_in?%>
       <a href="<%=user_path(current_user.id)%>">Mon profil</a>
-      <%=link_to 'se deconecter', destroy_user_session_path, methode: :delete%>
+      <%=link_to 'se deconecter', destroy_user_session_path, method: :delete%>
        <a href="<%=new_logement_path%>">creer un hébérgement</a>
       <% end %>
     <%= yield %> 
