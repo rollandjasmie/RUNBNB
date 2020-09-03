@@ -1,35 +1,26 @@
 
-
-	<div class="form-control">
-		<p>INFORMATION</p>
-		<p>Chambre 1</p>
-		<%Chambre.all.each do |c|%>
-			<%= c.title%> <br>
-			<%c.lit.each do |l| %>
-			<input type="checkbox" name="chambre_ids[]" value="<%=c.id%>" >
-			<%= l.title%>
-			<%end%>
-			<%end%>
-	</div>
-	<div class="">
-		<p>EQUIPEMENT</p>
-		<%Equipement.all.each do |e|%>
-			<input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
-			<%= e.title%>
-		<%end%>
-	</div>
-	</div>
-
-
 <link rel="stylesheet" type="text/css" href="/css/logements.css">
 
-
-<!-- 
-ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
-
-
-<div class="conte">
+<div class="container">
 			<%= form_tag url_for(action:'create'), methode: "post" do%>
+	<div class="">
+		<p>INFORMATION</p>
+			<%Chambre.all.each do |c|%>
+
+					<%= c.title%>&nbsp&nbsp&nbsp&nbsp&nbsp
+					<%c.lit.each do |l| %><br>
+					<input type="checkbox" name="chambre_ids[]" value="<%=l.id%>">
+					<%= l.title%>
+					<%end%>
+				<%end%>
+
+				<p>EQUIPEMENT</p>
+				<%Equipement.all.each do |e|%><br>
+					<input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
+					<%= e.title%>
+
+				<%end%><br>		
+	</div>
 	<section>
 		<div class="contenu">
 			<h1 class="titre">  Inscrivez votre hébergement sur RunBnB et commencez à recevoir des clients en un rien de temps !</h1>
@@ -92,10 +83,10 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 				</div>
 			</div>
 		</div>
+	</section>
 		<div class="bout1" style="position: relative;
-top: 100px;">
+         top: 100px;">
 		<%= submit_tag 'creer'%>
 		</div>
-	</section>
 	<%end%>
 </div>
