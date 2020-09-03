@@ -3,6 +3,12 @@
 ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 <div class="conte">
 	<%= form_tag url_for(action:'create'), methode: "post" do%>
+
+
+<link rel="stylesheet" type="text/css" href="/css/logements.css">
+
+<div class="container">
+			<%= form_tag url_for(action:'create'), methode: "post" do%>
 	<section>
 		<div class="contenu">
 			<h1 class="titre">  Inscrivez votre hébergement sur RunBnB et commencez à recevoir des clients en un rien de temps !</h1>
@@ -90,5 +96,11 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 			<%= submit_tag 'creer'%>
 		</div>
 		</section>
+
+		<div class="bout1" style="position: relative;
+         top: 100px;">
+		<%= submit_tag 'creer'%>
+		</div>
+
 	<%end%>
 </div>

@@ -44,7 +44,7 @@ Lit.destroy_all
 		Lit.create!(title:"canapé-lit",chambre_id: 1)
 		Lit.create!(title:"canapé-lit double",chambre_id: 1)
 
-		Lit.create!(title:"fluton",chambre_id: 2)
+		Lit.create!(title:"futon",chambre_id: 1)
 		Lit.create!(title:"lit double",chambre_id: 2)
 		Lit.create!(title:"lit simple",chambre_id: 2)
 		Lit.create!(title:"lit king size",chambre_id: 2)
@@ -52,7 +52,7 @@ Lit.destroy_all
 		Lit.create!(title:"lit superposé",chambre_id: 2)
 		Lit.create!(title:"canapé-lit",chambre_id: 2)
 		Lit.create!(title:"canapé-lit double",chambre_id: 2)
-		Lit.create!(title:"fluton",chambre_id: 2)
+		Lit.create!(title:"futon",chambre_id: 2)
 
 		Lit.create!(title:"lit double",chambre_id: 3)
 		Lit.create!(title:"lit simple",chambre_id: 3)
@@ -61,6 +61,6 @@ Lit.destroy_all
 		Lit.create!(title:"lit superposé",chambre_id: 3)
 		Lit.create!(title:"canapé-lit",chambre_id: 3)
 		Lit.create!(title:"canapé-lit double",chambre_id: 3)
-		Lit.create!(title:"fluton",chambre_id: 3)
+		Lit.create!(title:"futon",chambre_id: 3)
 
 puts "lit"
