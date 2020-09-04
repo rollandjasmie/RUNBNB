@@ -3,12 +3,6 @@
 ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 <div class="conte">
 	<%= form_tag url_for(action:'create'), methode: "post" do%>
-
-
-<link rel="stylesheet" type="text/css" href="/css/logements.css">
-
-<div class="container">
-			<%= form_tag url_for(action:'create'), methode: "post" do%>
 	<section>
 		<div class="contenu">
 			<h1 class="titre">  Inscrivez votre hébergement sur RunBnB et commencez à recevoir des clients en un rien de temps !</h1>
@@ -73,34 +67,44 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 		</div>
 	</section>
 		<section class="étape2" style="position: relative;top: 200px;">
-		<div class="form-control">
-			<p>INFORMATION</p>
-			<p>Chambre 1</p>
-			<%Chambre.all.each do |c|%>
+		<div class="">
+			<h2>Information</h2>
+			<%Chambre.all.each do |c|%><br>
 			<%= c.title%> <br>
 			<%c.lit.each do |l| %>
 			<input type="checkbox" name="chambre_ids[]" value="<%=c.id%>" >
 			<%= l.title%>
 			<%end%>
 			<%end%>
-		</div>
-		<div class="" style="position: relative;top: 30px;">
-			<p>EQUIPEMENT</p>
-			<%Equipement.all.each do |e|%>
+		</div><br>
+		<div class="" style="">
+			<h2>Equipement</h2><br>
+			<%Equipement.all.each do |e|%><br>
 			<input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
-			<%= e.title%>
+			<%= e.title%><br>
 			<%end%>
 		</div>
-		<div class="bout1" >
-			<a href="#" class="myButton">précedent</a>
-			<%= submit_tag 'creer'%>
-		</div>
-		</section>
+		<div class="" style="">
 
+			<h2>Règle de maison</h2><br>
+			<%Regle.all.each do |d|%><br>
+			<input type="checkbox" name="regle_ids[]" value="<%=d.id%>">
+			<%= d.title%><br>
+			<%end%><br>
+				<p>arriveé</p>
+				<input type="text" name="arrive[]">
+				<input type="text" name="arrive[]">
+
+				<p>départ</p>
+				<input type="text" name="depart[]">
+				<input type="text" name="depart[]">
+
+		</div>
 		<div class="bout1" style="position: relative;
          top: 100px;">
 		<%= submit_tag 'creer'%>
 		</div>
+		</section>
 
 	<%end%>
 </div>
