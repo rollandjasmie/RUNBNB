@@ -12,7 +12,14 @@ puts"zahhhhhhhhhh"
 
 Logement.destroy_all
 	b =Logement.create!(categorie:"ok",types: "appartement",name: "kevin", user: a)
+	puts"logement"
 
+Regle.destroy_all
+		Regle.create!(title:"Hébergement fumeur",depart:"",arrive:"",logement_id: b.id)
+		Regle.create!(title:"Animaux domestique admis",depart:"",arrive:"",logement_id: b.id)
+		Regle.create!(title:"Enfant bienvenue",depart:"",arrive:"",logement_id: b.id)
+		Regle.create!(title:"Fêtes/événements autorisés",depart:"",arrive:"",logement_id: b.id)
+		puts"regle"
 
 Equipement.destroy_all
  	   Equipement.create!(title:"Bar",logement_id: b.id)
@@ -29,38 +36,38 @@ Equipement.destroy_all
 puts "create eq"
 
 Chambre.destroy_all
-		Chambre.create!(title: "Chambre1", logement_id: b.id)
-		Chambre.create!(title: "Salon", logement_id: b.id,)
-		Chambre.create!(title: "Autre espace", logement_id: b.id,)
+		c = Chambre.create!(title: "Chambre1", logement_id: b.id)
+		f = Chambre.create!(title: "Salon", logement_id: b.id,)
+		g = Chambre.create!(title: "Autre espace", logement_id: b.id,)
 
 puts"creer"
 
 Lit.destroy_all
-		Lit.create!(title:"lit double",chambre_id: 1)
-		Lit.create!(title:"lit simple",chambre_id: 1)
-		Lit.create!(title:"lit king size",chambre_id: 1)
-		Lit.create!(title:"lit grand size",chambre_id: 1)
-		Lit.create!(title:"lit superposé",chambre_id: 1)
-		Lit.create!(title:"canapé-lit",chambre_id: 1)
-		Lit.create!(title:"canapé-lit double",chambre_id: 1)
+		Lit.create!(title:"lit double",chambre_id: c.id)
+		Lit.create!(title:"lit simple",chambre_id: c.id)
+		Lit.create!(title:"lit king size",chambre_id: c.id)
+		Lit.create!(title:"lit grand size",chambre_id: c.id)
+		Lit.create!(title:"lit superposé",chambre_id: c.id)
+		Lit.create!(title:"canapé-lit",chambre_id: c.id)
+		Lit.create!(title:"canapé-lit double",chambre_id: c.id)
+		Lit.create!(title:"futon",chambre_id: c.id)
 
-		Lit.create!(title:"fluton",chambre_id: 2)
-		Lit.create!(title:"lit double",chambre_id: 2)
-		Lit.create!(title:"lit simple",chambre_id: 2)
-		Lit.create!(title:"lit king size",chambre_id: 2)
-		Lit.create!(title:"lit grand size",chambre_id: 2)
-		Lit.create!(title:"lit superposé",chambre_id: 2)
-		Lit.create!(title:"canapé-lit",chambre_id: 2)
-		Lit.create!(title:"canapé-lit double",chambre_id: 2)
-		Lit.create!(title:"fluton",chambre_id: 2)
+		Lit.create!(title:"lit double",chambre_id: f.id)
+		Lit.create!(title:"lit simple",chambre_id: f.id)
+		Lit.create!(title:"lit king size",chambre_id: f.id)
+		Lit.create!(title:"lit grand size",chambre_id: f.id)
+		Lit.create!(title:"lit superposé",chambre_id: f.id)
+		Lit.create!(title:"canapé-lit",chambre_id: f.id)
+		Lit.create!(title:"canapé-lit double",chambre_id: f.id)
+		Lit.create!(title:"futon",chambre_id: f.id)
 
-		Lit.create!(title:"lit double",chambre_id: 3)
-		Lit.create!(title:"lit simple",chambre_id: 3)
-		Lit.create!(title:"lit king size",chambre_id: 3)
-		Lit.create!(title:"lit grand size",chambre_id: 3)
-		Lit.create!(title:"lit superposé",chambre_id: 3)
-		Lit.create!(title:"canapé-lit",chambre_id: 3)
-		Lit.create!(title:"canapé-lit double",chambre_id: 3)
-		Lit.create!(title:"fluton",chambre_id: 3)
+		Lit.create!(title:"lit double",chambre_id: g.id)
+		Lit.create!(title:"lit simple",chambre_id: g.id)
+		Lit.create!(title:"lit king size",chambre_id: g.id)
+		Lit.create!(title:"lit grand size",chambre_id: g.id)
+		Lit.create!(title:"lit superposé",chambre_id: g.id)
+		Lit.create!(title:"canapé-lit",chambre_id: g.id)
+		Lit.create!(title:"canapé-lit double",chambre_id: g.id)
+		Lit.create!(title:"futon",chambre_id: g.id)
 
 puts "lit"

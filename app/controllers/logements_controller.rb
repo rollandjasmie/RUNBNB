@@ -17,16 +17,25 @@ class LogementsController < ApplicationController
     if params[:chambre_ids]
       @chambre = params[:chambre_ids]
       @chambre.each do |c|
-        Chambre.create(logement_id: @logement.id,lit_id: c.to_i)
+          @a = Chambre.create(logement_id: @logement.id,lit_id: c.to_i)
+
       end 
     end
-
     if params[:equipement_ids]
       @equipement = params[:equipement_ids]
-      puts "zah===========hdddjdbsddddddddddddddd========================="
       @equipement.each do |e|
-        Equipement.create(title: params[:title], logement_id: @logement.id)
+        Chambrequipement.create(chambre_id: @a.id, equipement_id: e.to_i)
       end    
+    end
+    if params[:regle_ids]
+      @equipement = params[:regle_ids]
+      @equipement.each do |e|
+        Reglelog.create(logement_id: @logement.id, regle_id: e.to_i)
+      end    
+    if params[:arrive] && params[:depart]
+        Regle.create(arrive: params[:arrive], depart: params[:depart],logement_id: @logement.id)
+      end
+  
     end
 
   if @adr.save
