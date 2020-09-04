@@ -3,8 +3,8 @@
 ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 <div class="conte">
 	<%= form_tag url_for(action:'create'), methode: "post" do%>
-	<section>
-		<div class="contenu">
+	<div class="contenu" style="position: relative;top: 50px;" >
+		<section>
 			<h1 class="titre">  Inscrivez votre hébergement sur RunBnB et commencez à recevoir des clients en un rien de temps !</h1>
 			<div class="content">
 				<div class="nom">
@@ -22,7 +22,7 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 					
 					
 				</div>
-				<div class="type">
+				<div class="type" style="position: relative;top: 20px;">
 					<p>Que peuvent réserver les clients ?</p>
 					<%= select_tag 'types', options_for_select(["Chambre privée","Hébergement entier"]),class:'custom-select custom-select-sm',style:"width: 300px"%>
 					
@@ -33,62 +33,119 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 			<!--  <button class="boutton" type="button">suivant</button> -->
 			<a href="#" class="myButton">Suivant</a>
 			
-		</div>
-	</section>
-	<section class="étape1">
-		<div class="adresse">
-			<h1 class="titre">ou se situe l'hébergement que vous inscrivez?</h1>
-			<div class="card bg-light" style="position: relative;top: 50px; width: 500px;">
-				<div class="card-body">
-					<p>Pays/région</p>
-					<div class="form-group">
-						<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Pays/région">
-						
+			
+		</section>
+		<section class="étape1">
+			<div class="adresse">
+				<h1 class="titre">ou se situe l'hébergement que vous inscrivez?</h1>
+				<div class="card bg-light" style="position: relative;top: 50px; width: 500px;">
+					<div class="card-body">
+						<p>Pays/région</p>
+						<div class="form-group">
+							<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Pays/région">
+							
+						</div>
+						<p>Ville</p>
+						<div class="form-group">
+							<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez une ville">
+							
+						</div>
+						<p>Trouvez votre adresse (ligne 1)</p>
+						<div class="form-group">
+							<%= text_area_tag :adresse, "" ,class:'form-control'%>
+							
+						</div>
+						<p>Code postal</p>
+						<div class="form-group">
+							<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal">
+							
+						</div>
+						<p>Trouvez votre adresse (ligne 2)</p>
+						<a href="">Ajouter</a>
 					</div>
-					<p>Ville</p>
-					<div class="form-group">
-						<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez une ville">
-						
-					</div>
-					<p>Trouvez votre adresse (ligne 1)</p>
-					<div class="form-group">
-						<%= text_area_tag :adresse, "" ,class:'form-control'%>
-						
-					</div>
-					<p>Code postal</p>
-					<div class="form-group">
-						<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal">
-						
-					</div>
-					<p>Trouvez votre adresse (ligne 2)</p>
-					<a href="">Ajouter</a>
 				</div>
 			</div>
-		</div>
-	</section>
-		<section class="étape2" style="position: relative;top: 200px;">
-		<div class="form-control">
-			<p>INFORMATION</p>
-			<p>Chambre 1</p>
-			<%Chambre.all.each do |c|%>
-			<%= c.title%> <br>
-			<%c.lit.each do |l| %>
-			<input type="checkbox" name="chambre_ids[]" value="<%=c.id%>" >
-			<%= l.title%>
-			<%end%>
-			<%end%>
-		</div>
-		<div class="" style="position: relative;top: 30px;">
-			<p>EQUIPEMENT</p>
-			<%Equipement.all.each do |e|%>
-			<input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
-			<%= e.title%>
-			<%end%>
-		</div>
-		<div class="bout1" >
-			<a href="#" class="myButton">précedent</a>
-			<%= submit_tag 'creer'%>
-		</div>
 		</section>
-	<%end%>
+		<section class="étape2" style="position: relative;top: 200px;">
+			<div class="card bg-light" style="position: relative;top: 50px; width: 500px;">
+				
+				<div class="card-body">
+					<p>Où les clients peuvent-ils dormir ?</p>
+					
+					<%Chambre.all.each do |c|%><br>
+					
+					<div style="display: flex;">
+						<div class="col-6">
+							<%= c.title%> <br>
+							<%c.id%>
+							<p class="za"></p>
+						</div>
+						<!-- 	modal -->
+						<!-- Button trigger modal -->
+						<div class="col-6" style="position: relative;left: 100px;bottom: 78px;">
+							<a href="#" class="myButton" data-toggle="modal" data-target="#staticBackdrop" style="" >
+							Ajoutez</a>
+							
+						</div>
+					</div>
+					<!-- Modal -->
+					<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								
+								<div class="modal-body">
+									<%c.lit.each do |l| %>
+									<input type="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+									<%= l.title%><br>
+									<%end%>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="myButton" data-dismiss="modal">Close</button>
+									<button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+									
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<%end%>
+				</div>
+			</div>
+		</section>
+		<section class="etape2" style="position: relative;top: 350px;">
+			<div class="card bg-light" style="width: 500px;">
+				<div class="card-body">
+					<p>EQUIPEMENT</p>
+					<%Equipement.all.each do |e|%>
+					<input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
+					<%= e.title%><br>
+					
+					<hr size="1" class="bg-light">
+					<%end%>
+				</div>
+			</div>
+			<div class="bout1" >
+				<a href="#" class="myButton">précedent</a>
+				<%= submit_tag 'creer' ,class:'myButton'%>
+			</div>
+			<%end%>
+		</section>
+	</div>
 </div>
+<p class="za"></p>
+<script type="text/javascript">
+function getSelectedCheckboxValues(name) {
+const checkboxes = document.querySelectorAll(`input[name="chambre_ids[]"]:checked`);
+let values = [];
+checkboxes.forEach((checkbox) => {
+values.push(checkbox.value);
+});
+return values;
+}
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', (event) => {
+	document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
+alert(getSelectedCheckboxValues('values'));
+});
+
+</script>

@@ -47,9 +47,28 @@ top:50px;}
 .étape1{position: relative;
 	top: 120px;}
 
-/*.bout1{
+.bout1{display: flex;
 position: relative;
-top: 100px;}*/	
+top: 40px;}	
+
+/*
+#myButton {
+	position: relative;
+	bottom: 50px;
+	
+	
+	background-color:#ffffff;
+	border-radius:5px;
+	border:1px solid #F47E54;
+	display:inline-block;
+	
+	color:#F47E54;
+	font-family:Roboto;
+	font-weight: bold;
+	font-size:17px;
+	padding:6px 31px;
+	text-decoration:none;
+}*/
 
 
 
