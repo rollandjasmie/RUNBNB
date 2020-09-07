@@ -245,7 +245,7 @@ color: #130e0ebd;
 
 }
 
-.showcase-text{
+.showcase-text1{
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
     color: #2c2929;
@@ -255,14 +255,14 @@ span{
     color: #F47E54;
 }
 
-#showcase{
+#showcase1{
     margin-right: 244px;
 }
 h2.showcase-text{
     margin-left: 0px;
    
 }
- .autre-text  {
+ .autre-text1 {
     position:absolute;
      top :538px;
     height: 111px;
@@ -290,6 +290,25 @@ h2.showcase-text{
         margin-right: 116px;
         text-decoration: none;
     
+    }
+   
+.autre-text{
+    position: absolute;
+    top: 888pxs;
+}
+
+}
+
+@media(max-width:768px){
+    .carrer_lava{
+        background-color:#d4d3d365;
+        border-radius: 14px;
+        width: 480px;
+        height: 800px;
+        margin-top: 115px;
+     
+        margin-left: 139px;
+        
     }
 
 }
@@ -352,7 +371,7 @@ a{
 
 .btn{
     width: 144px;
-    color: #F47E54;
+    color: #f4511e;
     padding: 8px;
     padding-left: 5px;
     margin-left: 12px;
@@ -439,7 +458,7 @@ a{
     display: block;
     border-radius: 8px;
     font-weight: 500;
-    background: #f96816;
+    background: #f4511e;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
@@ -454,14 +473,14 @@ a{
 }
 
 .primary-btn:hover{
-    background: #a84811;
+    background: #be5e27;
     transition: all .50s;
     cursor: pointer;
     
 
 }
 .btn:hover{
-    background: #f08340;
+    background: #af4a0c;
     transition: all .50s;
     cursor: pointer;
     color:#fff;
@@ -698,19 +717,27 @@ h2.showcase-text{
             margin-left: 155px;
             
         }
+        a{
+            margin-left: 88px;
+
+        }
 
           .autre-text  {
             display: block;
+            padding-top: 18px;
+            margin-left:100px;
+            margin-right: 33px;
         }
 
 
         .item{
             font-family: 'Roboto', sans-serif;
             float: right;
-           padding-right: 11px;
+            padding-right: 11px;
             margin-right: 0px;
             text-decoration: none;
         }
+      
         
     }
     @media(max-width:666px){
@@ -825,6 +852,65 @@ h2.showcase-text{
         font-family: sans-serif;
     }
 
+
+    @media(max-width:425px){
+        .carrer1{
+            position: absolute;
+            background-color:#d3d1d1bd;
+            border-radius: 14px;
+            width: 480px;
+            height: 465px;
+            top: 200px;
+            right: 55px;
+            
+            margin-left: 0px;
+            
+        }
+     
+          
+        .item{
+            font-family: 'Roboto', sans-serif;
+           
+             margin-left: 99px;
+            
+            text-decoration: none;
+        }
+
+        #right{
+            margin-left: 120px;
+
+        }
+        #wrapper{
+            width: 888px;
+        }
+
+        .text  {
+            position:absolute;
+            top :58px;
+            width: 555px;
+            height: 111px;
+            left: 90px;
+            
+            }
+
+    a{
+        margin-left: 122px;
+    }
+
+    .carrer{
+        position: absolute;
+        background-color:#d3d1d1bd;
+        border-radius: 14px;
+        width: 480px;
+        height: 465px;
+        top: 136px;
+        left: 160px;
+        
+        margin-left: 0px;
+        
+    }
+
+    }
 
     /* navbar css */
 

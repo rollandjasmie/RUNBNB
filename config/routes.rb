@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   		resources :avatars, only: [:create]  		
 	end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-	resources :logements, only:[:new,:create,:update] do
-		resources :adresses,only:[:new,:create,:update]
+  resources :adresses
+	resources :logements, only:[:new,:create,:update,:index] do
+		resources :adresses,only:[:new,:create,:update,:index]
     resources :informations, only:[:new,:create,:update,:edit]
 	end
 

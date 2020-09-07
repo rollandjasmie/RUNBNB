@@ -1,211 +1,516 @@
-<%if @user.avatar.attached?%>
-	<%= image_tag @user.avatar, alt: 'avatar' %>
-<%end%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-<%= form_tag user_avatars_path(@user.id), multipart: true  do %>
-	<%= file_field_tag :avatar, required: 'true' %>
-	<%= submit_tag "mettre à jour" %>
-<% end %>
-
-
-<h3>
-	<p>Bonjour je m'appelle,<%= @user.name %></p>
-</h3>
-<h6>
-	<p>Membre dépuis <%=@date%>
-</h6>
-<h5>infos personnelles</h5>
-<span style="color: blue">Prénom et Nom</span>	
-<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong">Modifier</button>
-<!-- Modal 1 -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Prénom et Nom</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-   <%= form_for(@user) do |f| %>
-<%= f.text_field :name %><br><br>
-<%= f.text_field :first_name %><br>
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
 
 
 
-      </div>
-      <div class="modal-footer">
-        <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
-      </div>
+
+
+
+<body>
+      <header>
+
+      <nav class="navbar navbar-expand-sm navbar-dark "  style="margin-top:55px;">
+
+
+  <div class="collapse navbar-collapse" id="navbarsExample03">
+    <ul class="navbar-nav mr-auto" style="margin-left:49px">
+      <li class="nav-item ">
+      <a class="nav-link"  href="#">Tout les hébergements</a>
+
+      </li>
+      <li class="nav-item  ">
+        <a class="nav-link"  ;href="#">Calendrier de tout les hébergements</a>
+      </li>
+      <li class="nav-item " >
+      <a class="nav-link" st href="#">Tout les reservations</a>
+
+      </li>
+      
+    </ul>
+    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 35px;">
+             
+              <%if @user.avatar.attached?%>
+	                    <%= image_tag @user.avatar, alt: 'avatar', class:"chip", style:"width:40px; height:40px" ,alt:"Person", width:"96", height:"96"%>
+                        <%else%>
+                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="chip" alt="avatar" style="width:40px; height:40px" alt="Person" width="96" height="96",>
+                        <%end%>
+                        Mon profile</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01" style="width: 222px;">
+              <a class="dropdown-item" style="color: black ;"   href="#">Action</a>
+              <a class="dropdown-item"style="color: black;" href="#">Another action</a>
+              <a class="dropdown-item" style="color: black;"href="#">Something else here</a>
     </div>
+    
   </div>
-</div><br>
-<%= @user.name %> <%= @user.first_name%>
-<% end %><br>
-<!-- Modal 2 -->
 
-<span style="color: blue">Sexe</span>
-<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong1">Modifier</button>
-<!-- Modal 1 -->
-<div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Sexe</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       
-<%= form_for(@user) do |f| %>    
-<%= f.text_field :sexe %><br>
 
-      </div>
-      <div class="modal-footer">
-      <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
-      </div>
-    </div>
+
+
+
   </div>
-</div><br>
-<%= @user.sexe%>
-<% end %><br><br>
-<span style="color: blue">Date de naissance</span>
-<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong2">Modifier</button>
-<!-- Modal 1 -->
-<div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Date de naissance</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       
-      	<%= form_for(@user) do |f| %>
-		<%= f.date_field :date_of_birth	 %><br>
-	
-      </div>
-      <div class="modal-footer">
-       <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
-      </div>
-    </div>
-  </div>
-</div><br>
-<%= @user.date_of_birth%>
-<% end %><br><br>
-
-<span style="color: blue">Adresse e-mail</span>
-<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong3">Modifier</button>
-<!-- Modal 1 -->
-<div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle3">Adresse e-mail</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       
-      	<%= form_for(@user) do |f| %>    
-		<%= f.email_field :email %><br>
-      </div>
-      <div class="modal-footer">
-        <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
-      </div>
-    </div>
-  </div>
-</div><br>
-<%= @user.email%>
-<% end %><br><br>
-
-<span style="color: blue">Numéro de téléphone</span>
-<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong4">Modifier</button>
-<!-- Modal 1 -->
-<div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Numéro de téléphone</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       
-      	<%= form_for(@user) do |f| %>    
-		<%= f.telephone_field :mobile %><br>
-      </div>
-      <div class="modal-footer">
-        <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
-      </div>
-    </div>
-  </div>
-</div><br>
-<%= @user.mobile%>
-<% end %><br><br>
-
-<span style="color: blue">Adresse</span>
-<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong5">Modifier</button>
-<!-- Modal 1 -->
-<div class="modal fade" id="exampleModalLong5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Adresse</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       <%= form_for(@user) do |f| %>    
-		<%= f.text_field :adresse %><br>
-
-      </div>
-      <div class="modal-footer">
-	<%= f.submit 'Enregistrer', class:"btn btn-primary" %> 
-</div>
-    </div>
-  </div>
-</div><br>
-<%= @user.adresse%>
-<% end %><br><br>
-
-<span style="color: blue">Numéro d'urgence</span>
-<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong6">Modifier</button>
-<!-- Modal 1 -->
-<div class="modal fade" id="exampleModalLong6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle6" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Numéro d'urgence</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       
-      	<%= form_for(@user) do |f| %>    
-		<%= f.telephone_field :urgence %><br>
-      </div>
-      <div class="modal-footer">
-        <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
-      </div>
-    </div>
-  </div>
-</div><br>
-<%= @user.urgence%>
-<% end %>
+</nav>
+      
+      </header>
+      
 
 
 
 
+
+<main role="main" class="container">
+  <div class="jumbotron ">
 
   
 
+
+  <style>
+   .jumbotron{
+     background-color:white;
+    width:564px;
+    height:720px;
+    float:right;
+    margin-top:78px;
+    margin-right:89px
+    
+   }
+  .btn{
+    border-color:#f08340;
+    width :101px;
+  }
+    .btn:hover{
+      background:#f08340;
+      transition: all .55s;
+      color:#fff;
+      width:100px;
+
+    }
+  </style>
+    <h5 style="position:absolute;top:188px;">Infos personnelles</h5>
+    <span style="color: #4283FF ;"><h6 style="font-weight:bold;  ">Prénom et Nom </h6> 
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong" style="margin-left:316px;position:absolute;top:302px" >Modifier</button>
+    </span>	
+
+    <!-- Modal 1 -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Prénom et Nom</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+          <div class="modal-body">
+       <%= form_for(@user) do |f| %>
+    <%= f.text_field :name %><br><br>
+    <%= f.text_field :first_name %><br>
+    
+    
+    
+          </div>
+          <div class="modal-footer">
+            <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="inpu" style="margin-bottom:20px;position:absolute;top:319px">
+  <%= @user.name %> <%= @user.first_name%>
+
+  </div>
+    <% end %><br>
+    <!-- Modal 2 -->
+    
+    <span style="color: #4283FF;position:absolute;top:370px;font-weight:bold">Sexe
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong1"  style="margin-left:283px;position:absolute;top:15px">Modifier</button>
+
+    </span>
+    <!-- Modal 1 -->
+    <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Sexe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           
+    <%= form_for(@user) do |f| %>    
+    <%= f.text_field :sexe %><br>
+    
+          </div>
+          <div class="modal-footer">
+          <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:400px">
+
+    <%= @user.sexe%>
+    </div>
+    <% end %><br><br>
+    <div style="color:#4283FF;  position:absolute;top:455px;font-weight:bold">Date de naissance  </div>
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong2" style="margin-left:316px;position:absolute;top:470px" >Modifier</button>
+
+    <!-- Modal 1 -->
+    <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Date de naissance</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           
+              <%= form_for(@user) do |f| %>
+            <%= f.date_field :date_of_birth	 %><br>
+        
+          </div>
+          <div class="modal-footer">
+           <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:485px">
+
+    <%= @user.date_of_birth%>
+    </div>
+    <% end %><br><br>
+    
+    <span style="color: #4283FF; position:absolute;top:535px;font-weight:bold ">Adresse e-mail
+
+    </span>
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong3" style="margin-left:316px; position:absolute;top:543px" >Modifier</button>
+
+    <!-- Modal 1 -->
+    <div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle3">Adresse e-mail</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           
+              <%= form_for(@user) do |f| %>    
+            <%= f.email_field :email %><br>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:565px">
+
+    <%= @user.email%>
+    </div>
+    <% end %><br><br>
+    
+    <span style="color: #4283FF; position:absolute;top:635px;font-weight:bold ">Numéro de téléphone</span>
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong4" style="margin-left:316px;position:absolute;top:649px">Modifier</button>
+    <!-- Modal 1 -->
+    <div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Numéro de téléphone</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           
+              <%= form_for(@user) do |f| %>    
+            <%= f.telephone_field :mobile %><br>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:665px">
+
+    <%= @user.mobile%>
+    </div>
+    <% end %><br>
+    
+    <span style="color: #4283FF; position:absolute;top:719px;font-weight:bold">Adresse</span>
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong5" style="margin-left:316px; position:absolute;top:729px;">Modifier</button>
+    <!-- Modal 1 -->
+    <div class="modal fade" id="exampleModalLong5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Adresse</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           <%= form_for(@user) do |f| %>    
+            <%= f.text_field :adresse %><br>
+    
+          </div>
+          <div class="modal-footer">
+        <%= f.submit 'Enregistrer', class:"btn btn-primary" %> 
+    </div>
+        </div>
+      </div>
+    </div><br>
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:739px">
+
+    <%= @user.adresse%>
+    </div>
+    <% end %><br><br>
+    
+    <span style="color: #4283FF; position:absolute;top:789px;font-weight:bold">Numéro d'urgence</span>
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong6" style="margin-left:316px;  position:absolute;top:814px;  ">Modifier</button>
+    <!-- Modal 1 -->
+    <div class="modal fade" id="exampleModalLong6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle6" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Numéro d'urgence</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           
+              <%= form_for(@user) do |f| %>    
+            <%= f.telephone_field :urgence %><br>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:829px">
+    <%= @user.urgence%>
+    </div>
+    <% end %>
+  </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+
+
+
+      <section>
+
+   <style>
+               .navbar{
+                 background-color:#26AEDE;
+               }
+
+
+                .card {
+               
+                  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                  transition: 0.3s;
+               
+                  width:280px;
+                  margin-left:72px;
+                  position:relative;
+                }
+                
+                .card:hover {
+                  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                }
+                
+                .cotainer {
+                  padding: 2px 16px;
+                }
+                .d{
+                  
+                    color:#727c90;
   
+              
+                }
+
+                @media (max-width:1189px){
+                  .jumbotron left{
+                    margin-right:0px;
+                  }
+
+                }
+                @media (max-width:1112px){
+                  .card {
+                  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                  transition: 0.3s;
+               
+                  width:230px;
+                  margin-left:72px;
+                  .s{
+                    font-size:11px;
+                  }
+
+                  .bordure{
+                    font-size:10px;
+                  }
+
+                  .z{
+                    margin-left:0px;
+                  }
+                }
+                
+                .card:hover {
+                  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                }
+                .jumbotron{
+                  margin-right:0px;
+                }
+                .d{
+                  padding-left: 11px;
+                 
+                  font-size:14px;
+
+                }
+              
+             
+
+                }
+                @media(max-width:998px){
+                  .jumbotron{
+                    margin-right:0px;
+                    width:433px;
+                @media(max-width:916px){
+                  .jumbotron{
+                      position:relative:
+                      top:222px;
+                      right:533px;
+
+                }
+                
+                  }
+              @media(max-width:847px){
+
+                   .jumbotron{
+                      display:flex-end;
+                   }
+             
+
+              
+                
+
+                }
+
+                
+              
+
+                }
+ 
+          
+                
+
+             
+
+                </style>
+                </head>
+                <body>
+                
+                <h3 style="padding-left: 75px;">
+                    <p style="padding-top:33px; font-size:22px">Bonjour je m'appelle,<%= @user.name %></p>
+
+                </h3>
+                
+                <div class="card" ">
+                    <div class="text-center">
+                    <%if @user.avatar.attached?%>
+	                    <%= image_tag @user.avatar, alt: 'avatar', class:"avatar img-circle img-thumbnail"%>
+                        <%else%>
+                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                        <%end%>
+                        <h6> Mettez votre photo de profil...</h6><br>
+                          <%= form_tag user_avatars_path(@user.id), multipart: true  do %>
+                          <%= file_field_tag :avatar, required: 'true' %>
+                     
+                          <%= submit_tag "mettre à jour" %>
+             
+                          
+                        <% end %>
+
+                        <div class="s"><br>
+
+                        <p class="d"> Obtener des réservations en rassurant les  voyageurs avec une identité confirmé</p>
+    
+                    
+                      </div>
+    
+                      </div></hr><br>
+                
+                
+                  
+                
+                  
+                </div>
+    
+            
+               <div class="bordure"><br><br><br>
+               <p  class="p">Runbnb ne communique pas les coordonées de l'hôte  aux voyageur qu'aprés la confirmation de la réservation</p>
+
+              </div>
+         
+         
+            <style>
+            .p{
+              margin-top:55px;
+              width:300px;
+              margin-left:70px;
+              font-size:14px;
+              color:#727c90;
+
+            }
+        
+            
+            </style>
+
+
+    
+      
+      </section>
+
+      <script type="text/javascript">
+      $(document).ready(function(){
+        $('.btn').click(function(){
+          $('.menu').toggleClass('active');
+        });
+      });
+    
+    
+      $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+    })
+
+
+      
+</body>
+</html>
+
+
+
+
