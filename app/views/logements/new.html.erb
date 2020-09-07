@@ -1,3 +1,7 @@
+
+
+
+
 <link rel="stylesheet" type="text/css" href="/css/logements.css">
 <!--
 ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
@@ -47,7 +51,7 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 					</div>
 					<p>Ville</p>
 					<div class="form-group">
-						<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez une ville">
+						<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez une ville" >
 						
 					</div>
 					<p>Trouvez votre adresse (ligne 1)</p>
@@ -100,6 +104,25 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 				<input type="text" name="depart[]">
 
 		</div>
+		<div>
+			<h3>Condition d'annulation </h3>
+			  <div class="btn-group">
+  <input type="radio" class="btn-check"  name="condition[]" 
+   value="1 jours" id="option1" autocomplete="off"/>
+  <label class="btn btn-secondary" for="option1"> 1 jours</label>
+
+  <input type="radio" class="btn-check" name="condition[]"
+   id="option2" autocomplete="off" value="7 jours" />
+  <label class="btn btn-secondary" for="option2">7 jours</label>
+
+  <input type="radio" class="btn-check" name="condition[]" 
+  id="option3" autocomplete="off"  value="14 jours" />
+  <label class="btn btn-secondary" for="option3">14 jours</label>
+    <input type="radio" class="btn-check" name="condition[]" 
+     value="30 jours"  id="option4" autocomplete="off" />
+  <label class="btn btn-secondary" for="option4">30 jours</label>
+</div>
+			</div>
 		<div class="bout1" style="position: relative;
          top: 100px;">
 		<%= submit_tag 'creer'%>
@@ -108,3 +131,23 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 
 	<%end%>
 </div>
+<script type="text/javascript">
+	function chercher(){
+    var ville = $("#ville").val();
+    if(ville != ""){
+        $.ajax({
+            url: "https://nominatim.openstreetmap.org/search", // URL de Nominatim
+            type: 'get', // Requête de type GET
+            data: "q="+ville+"&format=json&addressdetails=1&limit=1&polygon_svg=1" // Données envoyées (q -> adresse complète, format -> format attendu pour la réponse, limit -> nombre de réponses attendu, polygon_svg -> fournit les données de polygone de la réponse en svg)
+        }).done(function (response) {
+            if(response != ""){
+                userlat = response[0]['lat'];
+                userlon = response[0]['lon'];
+            }                
+        }).fail(function (error) {
+            alert(error);
+        });      
+    }
+}
+
+</script>

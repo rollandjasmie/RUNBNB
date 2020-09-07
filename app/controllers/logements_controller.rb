@@ -31,12 +31,15 @@ class LogementsController < ApplicationController
       @equipement = params[:regle_ids]
       @equipement.each do |e|
         Reglelog.create(logement_id: @logement.id, regle_id: e.to_i)
-      end    
+      end 
+    end  
     if params[:arrive] && params[:depart]
         Regle.create(arrive: params[:arrive], depart: params[:depart],logement_id: @logement.id)
-      end
-  
     end
+    if params[:condition]
+      Condition.create(condition: params[:condition], logement_id: @logement.id) 
+    end
+  
 
   if @adr.save
     redirect_to '/'

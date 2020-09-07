@@ -1,6 +1,6 @@
 class Logement < ApplicationRecord
 	belongs_to :user
-    
+    has_many :condition
     has_many :reglelogs
     has_many :regles, through: :reglelogs
 
