@@ -4,7 +4,7 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 <div class="conte">
 	<%= form_tag url_for(action:'create'), methode: "post" do%>
 	<div class="contenu" style="position: relative;top: 50px;" >
-		<section>
+		<section class="étape0">
 			<h1 class="titre">  Inscrivez votre hébergement sur RunBnB et commencez à recevoir des clients en un rien de temps !</h1>
 			<div class="content">
 				<div class="nom">
@@ -31,7 +31,7 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 			
 			
 			<!--  <button class="boutton" type="button">suivant</button> -->
-			<a href="#" class="myButton">Suivant</a>
+			<a href="#" class="myButton" style="position: relative; top: 50px">Suivant</a>
 			
 			
 		</section>
@@ -74,17 +74,17 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 					
 					<%Chambre.all.each do |c|%><br>
 					
-					<div style="display: flex;">
+					<div class="row">
 						<div class="col-6">
-							<%= c.title%> <br>
-							<%c.id%>
+							<%= c.title%>
 							<p class="za"></p>
 						</div>
 						<!-- 	modal -->
 						<!-- Button trigger modal -->
-						<div class="col-6" style="position: relative;left: 100px;bottom: 78px;">
-							<a href="#" class="myButton" data-toggle="modal" data-target="#staticBackdrop" style="" >
-							Ajoutez</a>
+						<div class="col-6">
+							<!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
+							Ajoutez</a> -->
+							<button type="button" class="myButton" data-toggle="modal" data-target="#staticBackdrop">ajoutez</button>
 							
 						</div>
 					</div>
@@ -111,9 +111,9 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 					<%end%>
 				</div>
 			</div>
-		
+			
 		</section>
-		<section class="etape2" style="position: relative;top: 350px;">
+		<section class="etape3" style="position: relative;top: 350px;">
 			<div class="card bg-light" style="width: 500px;">
 				<div class="card-body">
 					<p>EQUIPEMENT</p>
@@ -125,7 +125,7 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 					<%end%>
 				</div>
 			</div>
-			<div class="" style="">
+			<div class="regle" style="position: relative;top: 100px">
 				<h2>Règle de maison</h2><br>
 				<%Regle.all.each do |d|%><br>
 				<input type="checkbox" name="regle_ids[]" value="<%=d.id%>">
@@ -138,15 +138,16 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 				<input type="text" name="depart[]">
 				<input type="text" name="depart[]">
 			</div>
+		</section>
+		<section class="creer" style="position: relative;top: 500px">
 			<div class="bout1" >
 				<a href="#" class="myButton">précedent</a>
 				<%= submit_tag 'creer' ,class:'myButton'%>
 			</div>
-			<%end%>
 		</section>
 	</div>
+	<%end%>
 </div>
-<p class="za"></p>
 <script type="text/javascript">
 function getSelectedCheckboxValues(name) {
 const checkboxes = document.querySelectorAll(`input[name="chambre_ids[]"]:checked`);

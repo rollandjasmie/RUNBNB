@@ -352,25 +352,28 @@ a{
 
 .btn{
     width: 144px;
-    color: rgb(206, 50, 22);
+    color: #F47E54;
     padding: 8px;
     padding-left: 5px;
     margin-left: 12px;
     background-color: #fff;
-    border-style: groove;
-    border-width: 2px;
-    border-color: #f96816;
+   
+    border-width: 1px;
+    border-color:#F47E54;
     box-shadow: none;
     cursor: pointer;
     transition: all 0.5s;
-    border-radius: 8px;
+    border-radius: 5px;
     outline:none;
-
-         
-             
-    
+    font-family:Roboto;
    
+    font-size:17px;
 }
+
+
+.btn:hover { font-weight: bold;}
+
+
 
 #right{
     display: flex;
