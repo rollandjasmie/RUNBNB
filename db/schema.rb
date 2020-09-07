@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_122852) do
+ActiveRecord::Schema.define(version: 2020_09_07_082415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2020_09_03_122852) do
     t.bigint "logement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "longitude"
+    t.float "latitude"
     t.index ["logement_id"], name: "index_adresses_on_logement_id"
   end
 
@@ -64,6 +66,14 @@ ActiveRecord::Schema.define(version: 2020_09_03_122852) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lit_id"], name: "index_chambres_on_lit_id"
     t.index ["logement_id"], name: "index_chambres_on_logement_id"
+  end
+
+  create_table "conditions", force: :cascade do |t|
+    t.string "condition"
+    t.bigint "logement_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["logement_id"], name: "index_conditions_on_logement_id"
   end
 
   create_table "equipements", force: :cascade do |t|
