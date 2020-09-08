@@ -7,8 +7,9 @@ class LogementsController < ApplicationController
   end
 
   def create
-  	@logement = Logement.create(categorie: params[:categorie],types: params[:types],name: params[:name],user_id: current_user.id)
+  	@logement = Logement.new(categorie: params[:categorie],types: params[:types],name: params[:name],user_id: current_user.id)
     @logement.save
+    @logement.photos.attach(params[:photos])
 
     @adr = Adresse.create(pays: params[:pays],adresse: params[:adresse],
            code: params[:code],ville: params[:ville],logement_id: @logement.id)

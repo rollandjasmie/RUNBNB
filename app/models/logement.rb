@@ -7,5 +7,7 @@ class Logement < ApplicationRecord
     has_many :equipements
 	has_many :adresses
 	has_many :chambres
+    has_many_attached :photos, dependent: :destroy
+
 end
 	
