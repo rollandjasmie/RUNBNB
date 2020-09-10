@@ -39,6 +39,12 @@ class LogementsController < ApplicationController
     if params[:condition]
       Condition.create(condition: params[:condition], logement_id: @logement.id) 
     end
+
+
+    if params[:start_date] && params[:end_date]
+      Reservation.create(start_date: params[:start_date],end_date: params[:end_date], logement_id: @logement.id)
+      
+    end
   
 
   if @adr.save

@@ -1,7 +1,4 @@
 
-
-
-
 <link rel="stylesheet" type="text/css" href="/css/logements.css">
 <!--
 ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
@@ -93,7 +90,7 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 			<h2>Règle de maison</h2><br>
 			<%Regle.all.each do |d|%><br>
 			<input type="checkbox" name="regle_ids[]" value="<%=d.id%>">
-			<%= d.title%><br>
+			<%= d.title%>
 			<%end%><br>
 				<p>arriveé</p>
 				<input type="text" name="arrive[]">
@@ -107,21 +104,29 @@ ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
 		<div>
 			<h3>Condition d'annulation </h3>
 			  <div class="btn-group">
-  <input type="radio" class="btn-check"  name="condition[]" 
-   value="1 jours" id="option1" autocomplete="off"/>
-  <label class="btn btn-secondary" for="option1"> 1 jours</label>
+				  <input type="radio" class="btn-check"  name="condition[]" 
+				   value="1 jours" id="option1" autocomplete="off"/>
+				  <label class="btn btn-secondary" for="option1"> 1 jours</label>
 
-  <input type="radio" class="btn-check" name="condition[]"
-   id="option2" autocomplete="off" value="7 jours" />
-  <label class="btn btn-secondary" for="option2">7 jours</label>
+				  <input type="radio" class="btn-check" name="condition[]"
+				   id="option2" autocomplete="off" value="7 jours" />
+				  <label class="btn btn-secondary" for="option2">7 jours</label>
 
-  <input type="radio" class="btn-check" name="condition[]" 
-  id="option3" autocomplete="off"  value="14 jours" />
-  <label class="btn btn-secondary" for="option3">14 jours</label>
-    <input type="radio" class="btn-check" name="condition[]" 
-     value="30 jours"  id="option4" autocomplete="off" />
-  <label class="btn btn-secondary" for="option4">30 jours</label>
-</div>
+				  <input type="radio" class="btn-check" name="condition[]" 
+				  id="option3" autocomplete="off"  value="14 jours" />
+				  <label class="btn btn-secondary" for="option3">14 jours</label>
+
+				    <input type="radio" class="btn-check" name="condition[]" 
+				     value="30 jours"  id="option4" autocomplete="off" />
+				  <label class="btn btn-secondary" for="option4">30 jours</label>
+			</div>
+			</div>
+			<div> <br><br>
+				<h3>Calandrier de reservation</h3>
+				<%= month_calendar do | date | %> 
+				  <%= date %> 
+				<% end %>
+				</div>
 			</div>
 		<div class="bout1" style="position: relative;
          top: 100px;">
