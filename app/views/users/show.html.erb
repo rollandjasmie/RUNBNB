@@ -377,6 +377,7 @@
                     margin-left:0px;
                   }
                 }
+
                 
                 .card:hover {
                   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -438,7 +439,7 @@
 
                 </h3>
                 
-                <div class="card" ">
+                <div class="card">
                     <div class="text-center">
                     <%if @user.avatar.attached?%>
 	                    <%= image_tag @user.avatar, alt: 'avatar', class:"avatar img-circle img-thumbnail"%>
@@ -447,7 +448,7 @@
                         <%end%>
                         <h6> Mettez votre photo de profil...</h6><br>
                           <%= form_tag user_avatars_path(@user.id), multipart: true  do %>
-                          <%= file_field_tag :avatar, required: 'true' %>
+                          <%= file_field_tag :avatar, required: 'true'%>
                      
                           <%= submit_tag "mettre à jour" %>
              
@@ -462,6 +463,7 @@
                       </div>
     
                       </div></hr><br>
+
                 
                 
                   
