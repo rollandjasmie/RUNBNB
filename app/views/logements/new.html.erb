@@ -3,190 +3,7 @@
 <link rel="stylesheet" type="text/css" href="/css/logements.css">
 <!--
 ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
-<div class="conte">
-	<%= form_tag url_for(action:'create'), methode: "post" do%>
-	<div class="contenu" style="position: relative;top: 50px;" >
-		<section class="étape0">
-			<h1 class="titre">  Inscrivez votre hébergement sur RunBnB et commencez à recevoir des clients en un rien de temps !</h1>
-			<div class="content">
-				<div class="nom">
-					<p>Quel est le nom de votre hébergement?</p>
-					<div class="form-group">
-						
-						<input type="text"  class="form-control" name="name" placeholder="nom de l'hébergement">
-						
-					</div>
-				</div>
-				<div class="catégorie">
-					<p>Choisissez le type d’hébergement que vous souhaitez inscrire sur RunBnB :</p>
-					
-					<%= select_tag 'categorie', options_for_select(["Appartement","Maison/Vila","Bangalow/Châlet","Hotel","chambre d'hote/Gite"]), class:'custom-select custom-select-sm' , style:"width: 300px"%>
-					
-					
-				</div>
-				<div class="type" style="position: relative;top: 20px;">
-					<p>Que peuvent réserver les clients ?</p>
-					<%= select_tag 'types', options_for_select(["Chambre privée","Hébergement entier"]),class:'custom-select custom-select-sm',style:"width: 300px"%>
-					
-				</div>
-			</div>
-			
-			
-			<!--  <button class="boutton" type="button">suivant</button> -->
-			<a href="#" class="myButton" style="position: relative; top: 50px">Suivant</a>
-			
-			
-		</section>
-		<section class="étape1">
-			<div class="adresse">
-				<h1 class="titre">ou se situe l'hébergement que vous inscrivez?</h1>
-				<div class="card bg-light" style="position: relative;top: 50px; width: 500px;">
-					<div class="card-body">
-						<p>Pays/région</p>
-						<div class="form-group">
-							<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Pays/région">
-							
-						</div>
-						<p>Ville</p>
-						<div class="form-group">
-							<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez une ville">
-							
-						</div>
-						<p>Trouvez votre adresse (ligne 1)</p>
-						<div class="form-group">
-							<%= text_area_tag :adresse, "" ,class:'form-control'%>
-							
-						</div>
-						<p>Code postal</p>
-						<div class="form-group">
-							<input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal">
-							
-						</div>
-						<p>Trouvez votre adresse (ligne 2)</p>
-						<a href="">Ajouter</a>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="étape2" style="position: relative;top: 200px;">
-			<div class="card bg-light" style="position: relative;top: 50px; width: 500px;">
-				
-				<div class="card-body">
-					<p>Où les clients peuvent-ils dormir ?</p>
-					
-					<%Chambre.all.each do |c|%><br>
-					
-					<div class="row">
-						<div class="col-6">
-							<%= c.title%>
-							<p class="za"></p>
-						</div>
-						<!-- 	modal -->
-						<!-- Button trigger modal -->
-						<div class="col-6">
-							<!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
-							Ajoutez</a> -->
-							<button type="button" class="myButton" data-toggle="modal" data-target="#staticBackdrop">ajoutez</button>
-							
-						</div>
-					</div>
-					<!-- Modal -->
-					<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered">
-							<div class="modal-content">
-								
-								<div class="modal-body">
-									<%c.lit.each do |l| %>
-									<input type="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
-									<%= l.title%><br>
-									<%end%>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="myButton" data-dismiss="modal">Close</button>
-									<button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
-									
-								</div>
-								
-							</div>
-						</div>
-					</div>
-					<%end%>
-				</div>
-			</div>
-		<div class="" style="">
-			<h2>Equipement</h2><br>
-			<%Equipement.all.each do |e|%><br>
-			<input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
-			<%= e.title%><br>
-			<%end%>
-		</div>
-		<div class="" style="">
 
-			<h2>Règle de maison</h2><br>
-			<%Regle.all.each do |d|%><br>
-			<input type="checkbox" name="regle_ids[]" value="<%=d.id%>">
-			<%= d.title%>
-			<%end%><br>
-				<p>arriveé</p>
-				<input type="text" name="arrive[]">
-				<input type="text" name="arrive[]">
-				<p>départ</p>
-				<input type="text" name="depart[]">
-				<input type="text" name="depart[]">
-
-		</div>
-		<div>
-			<h3>Condition d'annulation </h3>
-			  <div class="btn-group">
-				  <input type="radio" class="btn-check"  name="condition[]" 
-				   value="1 jours" id="option1" autocomplete="off"/>
-				  <label class="btn btn-secondary" for="option1"> 1 jours</label>
-
-				  <input type="radio" class="btn-check" name="condition[]"
-				   id="option2" autocomplete="off" value="7 jours" />
-				  <label class="btn btn-secondary" for="option2">7 jours</label>
-
-				  <input type="radio" class="btn-check" name="condition[]" 
-				  id="option3" autocomplete="off"  value="14 jours" />
-				  <label class="btn btn-secondary" for="option3">14 jours</label>
-
-				    <input type="radio" class="btn-check" name="condition[]" 
-				     value="30 jours"  id="option4" autocomplete="off" />
-				  <label class="btn btn-secondary" for="option4">30 jours</label>
-			</div>
-			</div>
-			<div> <br><br>
-				<h3>Calandrier de reservation</h3>
-				<%= month_calendar do | date | %> 
-				  <%= date %> 
-				<% end %>
-				</div>
-			</div>
-		</section>
-		<section class="creer" style="position: relative;top: 500px">
-			<div class="bout1" >
-				<a href="#" class="myButton">précedent</a>
-				<%= submit_tag 'creer' ,class:'myButton'%>
-			</div>
-		</section>
-	</div>
-	<%end%>
-</div>
-<script type="text/javascript">
-function getSelectedCheckboxValues(name) {
-const checkboxes = document.querySelectorAll(`input[name="chambre_ids[]"]:checked`);
-let values = [];
-checkboxes.forEach((checkbox) => {
-values.push(checkbox.value);
-});
-return values;
-}
-const btn = document.querySelector('#btn');
-btn.addEventListener('click', (event) => {
-	document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
-alert(getSelectedCheckboxValues('values'));
-});
-</script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -308,9 +125,8 @@ p{
 
         span{
         display: block;
-        color: red;
-        font-style :italic;
-        margin-left:20px;
+        color: black;
+        float: left;
 
         }
 
@@ -624,15 +440,73 @@ nav.bar{
          <div class="jumbo2">
 
      
-         <h2>Information</h2>
-         <%Chambre.all.each do |c|%><br>
-         <%= c.title%> <br>
-         <%c.lit.each do |l| %>
-         <input type="checkbox" name="chambre_ids[]" value="<%=c.id%>" >
-         <%= l.title%>
-         <%end%>
-         <%end%>
+         <section class="étape2" style="position: relative;top: 200px;">
+      <span class="card bg-light" style="position: relative;top: 50px; width: 500px;">
+        
+        <span class="card-body">
+          <p4>Où les clients peuvent-ils dormir ?</p4>
+          
+          <%Chambre.all.each do |c|%><br>
+          
+          <span class="row">
+            <span class="col-6">
+              <%= c.title%>
+              <p class="za"></p>
+            </span>
+            <!--  modal -->
+            <!-- Button trigger modal -->
+            <span class="col-6">
+              <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
+              Ajoutez</a> -->
+              <button type="button" class="myButton" data-toggle="modal" data-target="#staticBackdrop">ajoutez</button>
+              
+            </span>
+          </span>
+          <!-- Modal -->
+          <span class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <span class="modal-dialog modal-dialog-centered">
+              <span class="modal-content">
+                
+                <span class="modal-body">
+                  <%c.lit.each do |l| %>
+                  <input type="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+                  <%= l.title%><br>
+                  <%end%>
+                </span>
+                <span class="modal-footer">
+                  <button type="button" class="myButton" data-dismiss="modal">Close</button>
+                  <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+                  
+                </span>
+                
+              </span>
+            </span>
+          </span>
+          <%end%>
+        </span>
+      </span>
 <br>
+
+
+<style>
+  .myButton{
+      font-size: 8px;
+  }
+  .p4{
+    width: 200px;
+    height: 15px;
+    margin-left: 22px;
+    color: black;
+  }
+
+  .col-6{
+    padding-left: 88px;
+  }
+
+  input{
+    width: 100px;
+  }
+</style>
      <div class="" style="">
          <h2>Equipement</h2><br>
          <%Equipement.all.each do |e|%><br>
@@ -654,8 +528,8 @@ nav.bar{
         
         
 
-        <button name="prev">Precédent</button>
-        <button name="next">Continuer</button>
+        <button name ="prev" class="button">Precédent</button>
+        <button name="next" class="button">Continuer</button>
 
 
     </form>
@@ -665,7 +539,7 @@ nav.bar{
 
 <script>
 var div = document.getElementsByTagName('div');
-var button = document.getElementsByTagName('button');
+var button = document.getElementsByClassName('button');
 var p = document.getElementsByTagName('p');
 var form = document.getElementsByTagName('form')[0];
 form.onsubmit =()=>{return false}
@@ -719,18 +593,40 @@ if (current_div == 0)
 
     
     </script>
-
+    <script type="text/javascript">
+  
+    function getSelectedCheckboxValues(name) {
+    const checkboxes = document.querySelectorAll(`input[name="chambre_ids[]"]:checked`);
+    let values = [];
+    checkboxes.forEach((checkbox) => {
+    values.push(checkbox.value);
+    });
+    return values;
+    }
+    const btn = document.querySelector('#btn');
+    btn.addEventListener('click', (event) => {
+      document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
+    alert(getSelectedCheckboxValues('values'));
+    });
+    
+      function chercher(){
+    var ville = $("#ville").val();
+    if(ville != ""){
+    $.ajax({
+    url: "https://nominatim.openstreetmap.org/search", // URL de Nominatim
+    type: 'get', // Requête de type GET
+    data: "q="+ville+"&format=json&addressdetails=1&limit=1&polygon_svg=1" // Données envoyées (q -> adresse complète, format -> format attendu pour la réponse, limit -> nombre de réponses attendu, polygon_svg -> fournit les données de polygone de la réponse en svg)
+    }).done(function (response) {
+    if(response != ""){
+    userlat = response[0]['lat'];
+    userlon = response[0]['lon'];
+    }
+    }).fail(function (error) {
+    alert(error);
+    });
+    }
+    }
+    
+    </script>
 
   
-
-      
-
-
-
-
-
-
-
-
-    
->>>>>>> front1

@@ -44,8 +44,6 @@ ActiveRecord::Schema.define(version: 2020_09_08_064323) do
     t.bigint "logement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "longitude"
-    t.float "latitude"
     t.index ["logement_id"], name: "index_adresses_on_logement_id"
   end
 
