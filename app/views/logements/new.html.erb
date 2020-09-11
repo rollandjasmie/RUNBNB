@@ -31,6 +31,7 @@ p{
            width: 700px;
            margin-left:200px;
        }
+     
    
        .jumbo1{
            position:relative;
@@ -144,9 +145,10 @@ p{
         }
         .jumbo3{
           position:relative;
-            background-color:#F4F4F4 ;
-            top:-84px;
-            padding-top: 22px;
+          background-color:#F4F4F4 ;
+          top:-84px;
+          padding-top: 22px;
+          right:65px;
         
 
         }
@@ -159,6 +161,10 @@ p{
 
           
 
+        }
+        form.welcome{
+          margin-left:0px;
+          padding-left:0px;
         }
 
 
@@ -314,6 +320,8 @@ nav.bar{
 .steps .clearfix{
     color: black;
 }
+
+
 }
 </style>
 <header>
@@ -387,7 +395,7 @@ nav.bar{
 
 
 <body>
-    <form action="welcome"></form>
+    <form class="welcome">
         <main role="main" class="container"> <br>
        <div class="jumbo1">
        
@@ -413,10 +421,11 @@ nav.bar{
       
                  
     </main>
-    <main role="main" class="container"> <br>
-    <div class="jumbo3">
+    <div class="container"> <br>
 
-    <h5 class="h"> ou se situe l'hébergement que vous inscrivez?</h5>
+    <main class="jumbo1">
+
+    <h5> ou se situe l'hébergement que vous inscrivez?</h5>
    
             <p3>Pays/région</p><br>
           
@@ -482,8 +491,8 @@ nav.bar{
                   <%end%>
                 </span>
                 <span class="modal-footer">
-                  <button type="button" class="myButton" data-dismiss="modal">Close</button>
-                  <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+                  <button type="button" class="myBu" data-dismiss="modal">Close</button>
+                  <button type="button" class="myBu" id="btn" data-dismiss="modal">Save</button>
                   
                 </span>
                 
@@ -529,22 +538,30 @@ nav.bar{
 
 </style>
 <main role="main" class="container"> <br><br>
-     <div class="jumbo1">
+     <div class="jumbo3">
 
           
 
          
-          <span class="card-body">
+         
            <h2>Equipement</h2><br>
            <%Equipement.all.each do |e|%><br>
            <input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
            <%= e.title%><br>
            <%end%>
-           <h5>fffff</h5>
+        
            </span>
        </div>
     </main>
-    
+    <main role="main" class="container"> <br><br>
+     <div class="jumbo1">
+
+          
+
+         
+       </div>
+    </main>
+
             
   
 
@@ -568,8 +585,8 @@ nav.bar{
         
         
 
-        <button name ="prev" class="button">Precédent</button>
-        <button name="next" class="button">Continuer</button>
+        <button name ="prev" class="bu">Precédent</button>
+        <button name="next" class="bu">Continuer</button>
 
 
     </form>
@@ -579,7 +596,7 @@ nav.bar{
 
 <script>
 var div = document.getElementsByTagName('div');
-var button = document.getElementsByClassName('button');
+var button = document.getElementsByClassName('bu');
 var p = document.getElementsByTagName('p');
 var form = document.getElementsByTagName('form')[0];
 form.onsubmit =()=>{return false}
