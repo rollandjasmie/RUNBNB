@@ -39,7 +39,7 @@ p{
            border-radius: 14px;
            padding-left: 12px;
            padding-top: 55px;
-           height: 300px;
+           height: 344px;
        }
       
        .lead{
@@ -144,15 +144,26 @@ p{
         }
         .jumbo3{
           position:relative;
-          top:-184px;
             background-color:#F4F4F4 ;
-            width: 700px;
-           border-radius: 14px;
-           padding-left: 12px;
-           padding-top: 55px;
-           height: 300px;
-           margin-left: 79px;
+            top:-84px;
+            padding-top: 22px;
+        
+
         }
+        .container1{
+          position:relative;
+          top:-199px
+            width: 700px;
+            margin-left: 0px;
+            background-color:#F4F4F4 ;
+
+          
+
+        }
+
+
+  
+  
 
         .p3{
           width:300px;
@@ -179,7 +190,7 @@ p{
           width:560px;
        
         }
-
+    
 
        .container{
             width: 700px;
@@ -381,19 +392,19 @@ nav.bar{
        <div class="jumbo1">
        
     
-        <p class="p">Quel est le nom de votre hébergement?</p> <br>
+        <h6>Quel est le nom de votre hébergement?</h6> <br>
                
                    
         <input type="text"  class="form-control" name="name" placeholder="nom de l'hébergement"><br>
 
   
-      <p class="p">Choisissez le type d’hébergement que vous souhaitez inscrire sur RunBnB :</p>
+      <h6>Choisissez le type d’hébergement que vous souhaitez inscrire sur RunBnB :</h6>
       
-      <%= select_tag 'categorie', options_for_select(["Appartement","Maison/Vila","Bangalow/Châlet","Hotel","chambre d'hote/Gite"]), class:'custom-select custom-select-sm' , style:"width: 300px ,margin-let:23px"%><br><br>
+      <%= select_tag 'categorie', options_for_select(["Appartement","Maison/Vila","Bangalow/Châlet","Hotel","chambre d'hote/Gite"]), class:'custom-select custom-select-sm' , style:"width: 300px"%><br><br>
       
   
-          <p class="p">Que peuvent réserver les clients ?</p><br>
-          <%= select_tag 'types', options_for_select(["Chambre privée","Hébergement entier"]),class:'custom-select custom-select-sm',style:"width: 300px,margin-left:23px"%>
+          <h6>Que peuvent réserver les clients ?</h6>
+          <%= select_tag 'types', options_for_select(["Chambre privée","Hébergement entier"]),class:'custom-select custom-select-sm',style:"width: 300px"%>
   
 
   
@@ -405,7 +416,7 @@ nav.bar{
     <main role="main" class="container"> <br>
     <div class="jumbo3">
 
-    <h6 class="titre"> ou se situe l'hébergement que vous inscrivez?</h6>
+    <h5 class="h"> ou se situe l'hébergement que vous inscrivez?</h5>
    
             <p3>Pays/région</p><br>
           
@@ -436,15 +447,12 @@ nav.bar{
      </div>
     
    </main>
-   <main role="main" class="container"> <br>
-         <div class="jumbo2">
+   <main role="main" class="container" > <br>
+         <div class="jumbo3" style="height:355px;padding-left:14px; border-radius:18px">
 
-     
-         <section class="étape2" style="position: relative;top: 200px;">
-      <span class="card bg-light" style="position: relative;top: 50px; width: 500px;">
         
         <span class="card-body">
-          <p4>Où les clients peuvent-ils dormir ?</p4>
+          <h5>Où les clients peuvent-ils dormir ?</h5>
           
           <%Chambre.all.each do |c|%><br>
           
@@ -455,7 +463,7 @@ nav.bar{
             </span>
             <!--  modal -->
             <!-- Button trigger modal -->
-            <span class="col-6">
+            <span class="col-7">
               <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
               Ajoutez</a> -->
               <button type="button" class="myButton" data-toggle="modal" data-target="#staticBackdrop">ajoutez</button>
@@ -484,13 +492,16 @@ nav.bar{
           </span>
           <%end%>
         </span>
+        </div> 
       </span>
+      </div>
 <br>
 
 
 <style>
   .myButton{
-      font-size: 8px;
+      font-size: 9px;
+      
   }
   .p4{
     width: 200px;
@@ -500,24 +511,53 @@ nav.bar{
   }
 
   .col-6{
-    padding-left: 88px;
+    padding-left: 0px;
+
+  }
+    .col-7{
+    left: 200px;
+   bottom:43px
   }
 
   input{
     width: 100px;
   }
+
+  .h{
+    
+  }
+
 </style>
-     <div class="" style="">
-         <h2>Equipement</h2><br>
-         <%Equipement.all.each do |e|%><br>
-         <input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
-         <%= e.title%><br>
-         <%end%>
-     </div>
+<main role="main" class="container"> <br><br>
+     <div class="jumbo1">
+
           
 
-        </div>
+         
+          <span class="card-body">
+           <h2>Equipement</h2><br>
+           <%Equipement.all.each do |e|%><br>
+           <input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
+           <%= e.title%><br>
+           <%end%>
+           <h5>fffff</h5>
+           </span>
+       </div>
+    </main>
+    
+            
   
+
+  <style>
+  a.btn .btn-light{
+    color: black;
+    position: relative;t
+    op:-60px;l
+    eft:333px
+
+  }
+  
+  </style>
 
       </main>
 
