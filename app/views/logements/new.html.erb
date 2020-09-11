@@ -395,7 +395,7 @@ nav.bar{
 
 
 <body>
-    <form class="welcome">
+    <section class="welcome">
         <main role="main" class="container"> <br>
        <div class="jumbo1">
        
@@ -423,9 +423,9 @@ nav.bar{
     </main>
     <div class="container"> <br>
 
-    <main class="jumbo1">
+    <main class="jumbo1" style="padding-top:0px;position:relative;top:-56px;height:487px">
 
-    <h5> ou se situe l'hébergement que vous inscrivez?</h5>
+    <h5 style="margin-bottom:24px;position:relative;top:-23px;"> Ou se situe l'hébergement que vous inscrivez?</h5>
    
             <p3>Pays/région</p><br>
           
@@ -458,10 +458,11 @@ nav.bar{
    </main>
    <main role="main" class="container" > <br>
          <div class="jumbo3" style="height:355px;padding-left:14px; border-radius:18px">
+         <h5 style="margin-left:99px">Où les clients peuvent-ils dormir ?</h5>
+         <main role="main" class="container" > <br>
 
-        
         <span class="card-body">
-          <h5>Où les clients peuvent-ils dormir ?</h5>
+         
           
           <%Chambre.all.each do |c|%><br>
           
@@ -544,7 +545,7 @@ nav.bar{
 
          
          
-           <h2>Equipement</h2><br>
+           <h5 style="padding-left:32px;">Equipement</h5><br>
            <%Equipement.all.each do |e|%><br>
            <input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
            <%= e.title%><br>
@@ -589,7 +590,7 @@ nav.bar{
         <button name="next" class="bu">Continuer</button>
 
 
-    </form>
+    </section>
 
     
 </body>
@@ -598,15 +599,15 @@ nav.bar{
 var div = document.getElementsByTagName('div');
 var button = document.getElementsByClassName('bu');
 var p = document.getElementsByTagName('p');
-var form = document.getElementsByTagName('form')[0];
-form.onsubmit =()=>{return false}
+var section = document.getElementsByTagName('section')[0];
+section.onsubmit =()=>{return false}
 
 var current_div = 0;
 div[current_div].style.display = "block";
 if (current_div == 0)
  {
      button[0].style.display = "none";
-     p[0].style.backgroundColor = "red" ;
+     p[0].style.backgroundColor = "royalblue" ;
       
  }
 
@@ -630,7 +631,7 @@ if (current_div == 0)
      {
          if (current_div >5 )
          {
-            form.onsubmit =()=>{return true}
+            section.onsubmit =()=>{return true}
 
          }
      }
