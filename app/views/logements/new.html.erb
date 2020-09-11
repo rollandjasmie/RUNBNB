@@ -35,7 +35,7 @@ p{
    
        .jumbo1{
            position:relative;
-           top:-4px;
+           top:10px;
            background-color:#F4F4F4 ;
            border-radius: 14px;
            padding-left: 12px;
@@ -200,7 +200,7 @@ p{
 
        .container{
             width: 700px;
-            margin-left: 79px;
+            margin-left:55px;
         }
     
        
@@ -423,7 +423,7 @@ nav.bar{
     </main>
     <div class="container"> <br>
 
-    <main class="jumbo1" style="padding-top:0px;position:relative;top:0spx;height:487px">
+    <main class="jumbo1" style="padding-top:0px;position:relative;top:0px;height:487px;">
 
     <h5 style="margin-bottom:24px;position:relative;top:-23px;"> Ou se situe l'hébergement que vous inscrivez?</h5>
    
@@ -457,11 +457,11 @@ nav.bar{
     
    </main>
    <main role="main" class="container" > <br>
-         <div class="jumbo1" style="height:355px;padding-left:14px; border-radius:18px">
-         <h5 style="margin-left:99px">Où les clients peuvent-ils dormir ?</h5>
-         <main role="main" class="container" > <br>
+         <div class="jumbo1" style="height:355px;padding-left:14px; border-radius:18px;padding-top:12px; ">
+         <h5 style="margin-left:80px">Où les clients peuvent-ils dormir ?</h5>
+         <main role="main" class="container" style=""> <br>
 
-        <span class="card-body">
+        <span class="card-body" style="padding-left:0px;">
          
           
           <%Chambre.all.each do |c|%><br>
@@ -487,7 +487,7 @@ nav.bar{
                 
                 <span class="modal-body">
                   <%c.lit.each do |l| %>
-                  <input type="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+                  <input class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
                   <%= l.title%><br>
                   <%end%>
                 </span>
@@ -554,14 +554,98 @@ nav.bar{
            </span>
        </div>
     </main>
-    <main role="main" class="container"> <br><br>
-     <div class="jumbo1">
+    <main role="main" class="container23"> <br><br>
 
-          
+    <div class="jumbo1"  style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
+    <h5 style="margin-bottom:24px;position:relative;top:-29px;"> Information sur l'hébergement</h5><br>
 
-         
-       </div>
+    
+      <h5 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h5>
+
+      <h6 style="font-size:15px";>Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </p>
+      
+
+ 
+  
+        <h5 > Adresse de l'hébergement</h5><br>
+        <a  href="/docs/4.5/components/navbar/"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+
+        <section style="font-size:15px">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </section><br>
+   
+        <h5> Emplacement sur la carte</h5><br>
+        <a href="/docs/4.5/components/navbar/" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+  
     </main>
+
+    <main role="main" class="container23"> <br><br>
+    <div class="jumbo1"style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
+   
+    <h5>Règle de la maison</h5>
+   
+          <span class="container" style="margin-left:0px;">
+           
+              <input type="checkbox" class="checkbox" >
+              <label class="vehicle"> Hébergement umeur</label><br><br>
+              <input class="checkbox"   type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+              <label  for="vehicle"> Animaux domestiques admi</label><br><br>
+              <input class="checkbox"  type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+              <label  for="vehicle"> Enfant bienvenus</label><br><br>
+              <input type="checkbox" class="checkbox" >
+              <label  for="vehicle">  fête / événement autorisés</label><br><br>
+              
+            
+
+          </span>
+          
+          </span>
+          
+            <span class="mikatra0">
+              <label class="label" for="appt">Arrivée <br> De:</label>
+
+              <input class="refy1" type="time" id="appt" name="appt"
+                    min="09:00" max="18:00" required>
+            </span>
+            
+                <span class="miakatra">
+                  <label for="appt">à <br> </label>
+
+                    <input class="refy" type="time" id="appt" name="appt"
+                    min="09:00" max="18:00" required>
+
+
+                </span>
+
+
+                   <div class="mikatra0">
+              <label class="label" for="appt">Départ <br> De:</label>
+
+              <input class="refy1" type="time" id="appt" name="appt"
+                    min="09:00" max="18:00" required>
+            </div>
+            
+                <div class="miakatra">
+                  <label for="appt">à <br> </label>
+
+                    <input class="refy" type="time" id="appt" name="appt"
+                    min="09:00" max="18:00" required>
+
+
+                </div>  
+
+      
+
+
+
+    
+
+    </div>
+
+
+    
+    </main>
+
+
+ 
 
             
   
@@ -572,8 +656,283 @@ nav.bar{
     position: relative;t
     op:-60px;l
     eft:333px
-
   }
+  .carrer1{
+    position: absolute;
+    background-color:#F4F4F4;
+    border-radius: 16px;
+     padding: 10px;
+    width: 498px;
+    height: 520px;
+    top: 122px;
+    
+ 
+    
+}
+#radio{
+    padding: 23px;
+}
+
+ h2{
+    font-size: 16px;
+}
+
+
+
+
+/* .humber{
+    background:rgb(230, 141, 8);
+    display: inline-block;
+    height: 4px;
+    position: relative;
+    width: 18px;
+
+}
+
+.humber::before,.humber::after{
+    background:#999;
+    content:"";
+    display: inline-block;
+    height:2px;
+    position :absolute;
+    width: 18px;
+} */
+.left h2{
+    font-family: 'Roboto', sans-serif;
+   font-size: 20px;
+   padding-top: 44px; 
+   padding-left: 19px; 
+
+}
+.col{    
+
+    left: 244px;
+    bottom: 241px;
+      
+  }
+
+
+
+
+  
+   .nu{
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+       align-items: center;
+       
+   }
+
+
+.checkbox {
+  float:right;
+  margin-top: 4px;
+  width: 75px;
+ 
+  
+} 
+input[type='checkbox'] {
+-webkit-appearance:none;
+
+width:20px;
+height:20px;
+background:white;
+border:2px solid rgb(141, 135, 135);
+border-radius:5px;
+
+}
+input[type='checkbox']:checked {
+background: #f96816;
+outline: none;
+
+
+}
+
+.line{
+width: 478px;
+height: 47px;
+border-bottom: 1px solid black;
+position: absolute;
+}
+
+time {
+    background-color: white;
+    display: inline-flex;
+    border: 1px solid #ccc;
+    color: #555;
+  }
+  
+  styl-time{
+    border: none;
+    color: #555;
+    text-align: center;
+    width: 60px;
+  }
+
+.col-md-6 label{
+    margin-left: 18px;
+}
+
+
+.time-wrapper{
+    width: 23px;
+}
+
+/*.btn1{
+    width: 144px;
+    color: rgb(243, 239, 239);
+    padding: 8px;
+    padding-left: 5px;
+    margin-left: 12px;
+    background-color: #f96816;
+    border-style: groove;
+
+    
+    box-shadow: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 8px;
+    outline:none;
+
+
+}
+
+.btn2{
+    width: 144px;
+    color: rgb(243, 239, 239);
+    padding: 8px;
+    padding-left: 5px;
+    margin-left: 12px;
+    background-color: #f96816;
+    border-style: groove;
+
+    
+    box-shadow: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 8px;
+    outline:none;
+
+
+}*/
+.btn{ 
+     position: relative;
+    
+    width: 144px;
+  color: rgb(243, 239, 239);
+  padding: 8px;
+  padding-left: 5px;
+  margin-left: 12px;
+  background-color: #f96816;
+  border-style: groove;
+  box-shadow: none;
+  cursor: pointer;
+  transition: all 0.5s;
+  border-radius: 8px;
+  outline:none;
+
+  top: 333px;
+  
+    }
+
+    .btn:hover {
+        background-color: #e76d08;
+        color: white;
+      }
+
+      .btn-p{
+
+
+        
+        display: flex;
+      
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: center;
+     
+        position: relative;
+        top: 277px;
+        padding-left: 33px;
+        padding-bottom: 33px;
+        
+
+    }
+ 
+
+
+
+.container-fluid{
+    margin-top: 66px;
+    padding-top: 34px;
+    margin-left: 109px;
+    width: 502px;
+    background-color: #555;
+
+}
+.miakatra0{
+    margin-left: 22px;
+}
+.refy1{
+    margin-left: 35px;
+}
+.miakatra{
+    left: 299px;
+    bottom: 68px;
+}
+
+.label{
+    margin-left: 30px;
+}
+
+
+@media  (max-width:768px){
+
+    .col-md-2{
+         left: 0px;
+         bottom: 0px;
+       
+
+    }
+
+}
+
+
+@media  (max-width:611px){
+
+    nav.tainer{
+  
+        width: 611px;
+       
+    
+    }
+
+}
+
+.btn{
+    width: 144px;
+    color: rgb(206, 50, 22);
+    padding: 8px;
+    padding-left: 5px;
+    margin-left: 12px;
+    background-color: #fff;
+    border-style: groove;
+    border-width: 2px;
+    border-color: #f96816;
+    box-shadow: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 8px;
+    outline:none;
+
+
+}
+
+
+
+#appt{
+    width: 100px;
+}
+  
   
   </style>
 
