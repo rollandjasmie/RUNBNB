@@ -108,6 +108,7 @@ p{
     }
 
     button{
+       
         margin: 20px;
         padding: 10px;
         width: 100px;
@@ -119,8 +120,15 @@ p{
         font-size:12px;
         font-weight: bold;
         color: whitesmoke;
-        float: left;
+        
+        float:left
+     
 
+    }
+
+    .sp{
+      display:block;
+  
     }
 
 
@@ -357,7 +365,7 @@ nav.bar{
             <li class="i">Photo <br>
           <section>
             <p></p>
-            <p></p> 
+      
           </section>
                 
               
@@ -456,9 +464,9 @@ nav.bar{
      </div>
     
    </main>
-   <main role="main" class="container" > <br>
+   <main role="main" class="container " > <br>
          <div class="jumbo1" style="height:355px;padding-left:14px; border-radius:18px;padding-top:12px; ">
-         <h5 style="margin-left:80px">Où les clients peuvent-ils dormir ?</h5>
+         <h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-33px">Où les clients peuvent-ils dormir ?</h5>
          <main role="main" class="container" style=""> <br>
 
         <span class="card-body" style="padding-left:0px;">
@@ -487,7 +495,7 @@ nav.bar{
                 
                 <span class="modal-body">
                   <%c.lit.each do |l| %>
-                  <input class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+                  <input type="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
                   <%= l.title%><br>
                   <%end%>
                 </span>
@@ -539,13 +547,13 @@ nav.bar{
 
 </style>
 <main role="main" class="container"> <br><br>
-     <div class="jumbo3">
+     <div class="jumbo3" style="padding-left:32px;width:500px;margin-left:0px;height:724px;">
 
           
 
          
          
-           <h5 style="padding-left:32px;">Equipement</h5><br>
+           <h5 style="padding-left:2px;">Equipement</h5><br>
            <%Equipement.all.each do |e|%><br>
            <input type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
            <%= e.title%><br>
@@ -577,62 +585,52 @@ nav.bar{
   
     </main>
 
-    <main role="main" class="container23"> <br><br>
+    <main role="main" class="container23" style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;" > <br><br>
     <div class="jumbo1"style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
    
     <h5>Règle de la maison</h5>
    
-          <span class="container" style="margin-left:0px;">
-           
-              <input type="checkbox" class="checkbox" >
-              <label class="vehicle"> Hébergement umeur</label><br><br>
-              <input class="checkbox"   type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-              <label  for="vehicle"> Animaux domestiques admi</label><br><br>
-              <input class="checkbox"  type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-              <label  for="vehicle"> Enfant bienvenus</label><br><br>
-              <input type="checkbox" class="checkbox" >
-              <label  for="vehicle">  fête / événement autorisés</label><br><br>
-              
-            
+          <span class="containo" style="width:633px;">
+       
+          <%Regle.all.each do |d|%><br>
+          <input class="mivadika" type="checkbox" name="regle_ids[]" value="<%=d.id%>">
+          <%= d.title%>e<br>
+          <%end%><br><br>
 
-          </span>
-          
-          </span>
-          
-            <span class="mikatra0">
-              <label class="label" for="appt">Arrivée <br> De:</label>
 
-              <input class="refy1" type="time" id="appt" name="appt"
-                    min="09:00" max="18:00" required>
+          <span class="mikatra0">
+          <label class="label" for="appt">Arrivée <br> De:</label>
+
+          <input class="refy1" type="time" id="appt" name="appt"
+                min="09:00" max="18:00" required>
+        </span>
+        
+            <span class="miakatra">
+              <label for="appt">à <br> </label>
+
+                <input class="refy" type="time" id="appt" name="appt"
+                min="09:00" max="18:00" required>
+
+
             </span>
-            
-                <span class="miakatra">
-                  <label for="appt">à <br> </label>
-
-                    <input class="refy" type="time" id="appt" name="appt"
-                    min="09:00" max="18:00" required>
 
 
-                </span>
+               <div class="mikatra0">
+          <label class="label" for="appt">Départ <br> De:</label>
 
+          <input class="refy1" type="time" id="appt" name="appt"
+                min="09:00" max="18:00" required>
+        </div>
+        
+            <div class="miakatra">
+              <label for="appt">à <br> </label>
 
-                   <div class="mikatra0">
-              <label class="label" for="appt">Départ <br> De:</label>
+                <input class="refy" type="time" id="appt" name="appt"
+                min="09:00" max="18:00" required>
 
-              <input class="refy1" type="time" id="appt" name="appt"
-                    min="09:00" max="18:00" required>
-            </div>
-            
-                <div class="miakatra">
-                  <label for="appt">à <br> </label>
-
-                    <input class="refy" type="time" id="appt" name="appt"
-                    min="09:00" max="18:00" required>
-
-
-                </div>  
-
-      
+          </span>
+          
+        
 
 
 
@@ -645,12 +643,14 @@ nav.bar{
     </main>
 
 
- 
 
-            
+
   
 
   <style>
+  .mivadika{
+    float:right;
+  }
   a.btn .btn-light{
     color: black;
     position: relative;t
@@ -869,19 +869,24 @@ time {
     background-color: #555;
 
 }
-.miakatra0{
-    margin-left: 22px;
-}
+
 .refy1{
-    margin-left: 35px;
+  display:block;
+    margin-left: 55px;
 }
 .miakatra{
-    left: 299px;
-    bottom: 68px;
+    left: 109px;
+    bottom: 88px;
+    margin-left:72px
+}
+
+.miakatra0{
+    display:block;
 }
 
 .label{
     margin-left: 30px;
+    
 }
 
 
@@ -932,25 +937,33 @@ time {
 #appt{
     width: 100px;
 }
+
+
+  .sp{
+    display:flex;
+    flex:1;
+  }
+
   
   
   </style>
 
-      </main>
+      
 
 
 
 
-
+  <span class="sp">
         
-        
-
+    
         <button name ="prev" class="bu">Precédent</button>
+            
+      
         <button name="next" class="bu">Continuer</button>
-
+      </span>
 
     </section>
-
+    </main>
     
 </body>
 
@@ -973,7 +986,7 @@ if (current_div == 0)
  button[1].onclick = ()=>{
      current_div++;
      var back_div = current_div -1;
-     if ((current_div >0)&& (current_div < 6  )) 
+     if ((current_div >0)&& (current_div < 7  )) 
      {
          button[0].style.display = "block";
          div[current_div].style.display= "block";
@@ -988,7 +1001,7 @@ if (current_div == 0)
      }
      else 
      {
-         if (current_div >5 )
+         if (current_div >6 )
          {
             section.onsubmit =()=>{return true}
 
