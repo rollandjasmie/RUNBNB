@@ -5,6 +5,9 @@ class LogementsController < ApplicationController
   def new
   	@logement = Logement.new
   end
+  def show
+    
+  end
 
   def create
   	@logement = Logement.new(categorie: params[:categorie],types: params[:types],name: params[:name],user_id: current_user.id)
@@ -15,10 +18,12 @@ class LogementsController < ApplicationController
            code: params[:code],ville: params[:ville],logement_id: @logement.id)
     @adresse = @adr.save 
 
-    if params[:chambre_ids]
+    if params[:chambre_ids] && params[:number]
       @chambre = params[:chambre_ids]
+ 
       @chambre.each do |c|
-          @a = Chambre.create(logement_id: @logement.id,lit_id: c.to_i)
+          @a = Chambre.create(logement_id: @logement.id,lit_id: c.to_i,)
+
 
       end 
     end

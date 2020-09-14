@@ -1,5 +1,3 @@
-
-
 <link rel="stylesheet" type="text/css" href="/css/logements.css">
 <!--
 ccccccccccooooooooooooooddddddddddddddeeeeeeeeeeee -->
@@ -83,11 +81,7 @@ p{
        margin-right: 12px;
    }
 
-   form{
-       width: 600px;
-       margin:100px auto;
 
-   }
    div{
        width:100%;
        margin:1px auto;
@@ -107,7 +101,7 @@ p{
         border-radius: 3px;
     }
 
-    button{
+    .button{
        
         margin: 20px;
         padding: 10px;
@@ -402,6 +396,8 @@ nav.bar{
 
 <body>
     <section class="welcome">
+              <%= form_tag url_for(action:'create'), methode: "post" do%>
+
         <main role="main" class="container"> <br>
        <div class="jumbo1"  style="display:block; top:55px;">
        
@@ -512,8 +508,6 @@ nav.bar{
       </span>
       </div>
 <br>
-
-
 <style>
   .myButton{
       font-size: 9px;
@@ -525,30 +519,23 @@ nav.bar{
     margin-left: 22px;
     color: black;
   }
-
   .col-6{
     padding-left: 0px;
-
   }
     .col-7{
     left: 200px;
    bottom:43px
   }
-
   input{
     width: 100px;
   }
-
   .h{
     
   }
-
 </style>
 <main role="main" class="container"> <br><br>
      <div class="jumbo3" style="padding-left:32px;width:500px;margin-left:0px;height:724px;">
-
           
-
          
          
            <h5 style="padding-left:2px;">Equipement</h5><br>
@@ -562,28 +549,22 @@ nav.bar{
     </main>
     
     <main role="main" class="container23"> <br><br>
-
     <div class="jumbo1"  style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
     <h5 style="margin-bottom:24px;position:relative;top:-29px;"> Information sur l'hébergement</h5><br>
-
     
       <h5 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h5>
-
       <h6 style="font-size:15px";>Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </p>
       
-
  
   
         <h5 > Adresse de l'hébergement</h5><br>
         <a  href="/docs/4.5/components/navbar/"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
-
         <section style="font-size:15px">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </section><br>
    
         <h5> Emplacement sur la carte</h5><br>
         <a href="/docs/4.5/components/navbar/" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
   
     </main>
-
     <main role="main" class="container23" style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;" > <br><br>
     <div class="jumbo1"style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
    
@@ -737,9 +718,7 @@ nav.bar{
     height: 4px;
     position: relative;
     width: 18px;
-
 }
-
 .humber::before,.humber::after{
     background:#999;
     content:"";
@@ -837,17 +816,13 @@ time {
     margin-left: 12px;
     background-color: #f96816;
     border-style: groove;
-
     
     box-shadow: none;
     cursor: pointer;
     transition: all 0.5s;
     border-radius: 8px;
     outline:none;
-
-
 }
-
 .btn2{
     width: 144px;
     color: rgb(243, 239, 239);
@@ -856,15 +831,12 @@ time {
     margin-left: 12px;
     background-color: #f96816;
     border-style: groove;
-
     
     box-shadow: none;
     cursor: pointer;
     transition: all 0.5s;
     border-radius: 8px;
     outline:none;
-
-
 }*/
 .btn{ 
      position: relative;
@@ -1002,11 +974,11 @@ time {
   </style>
 
 
-  <button name ="prev" class="bu">Precédent</button>
+  <span name ="prev" class="button">Precédent</span>
             
       
-  <button name="next" class="bu">Continuer</button>
-
+  <span name="next" class="button" >Continuer</span>
+<% end%>
     </section>
 
     
@@ -1015,7 +987,7 @@ time {
 
 <script>
 var div = document.getElementsByTagName('div');
-var button = document.getElementsByClassName('bu');
+var button = document.getElementsByClassName('button');
 var p = document.getElementsByTagName('p');
 var section = document.getElementsByTagName('section')[0];
 section.onsubmit =()=>{return false}
@@ -1104,5 +1076,3 @@ if (current_div == 0)
     }
     
     </script>
-
-  

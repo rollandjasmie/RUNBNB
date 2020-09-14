@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         @date = @user.created_at
         @date = @date.to_s       
         @date = @date[0..3]
-        
+        @log = @user.logements.last
   		end
   	end
   	def update
