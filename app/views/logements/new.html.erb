@@ -399,7 +399,7 @@ nav.bar{
               <%= form_tag url_for(action:'create'), methode: "post" do%>
 
         <main role="main" class="container"> <br>
-       <div class="jumbo1"  style="display:block; top:55px;">
+       <div class="jumbo1"  style="display:block; top:85px;">
        
     
         <h6>Quel est le nom de votre hébergement?</h6> <br>
@@ -425,7 +425,7 @@ nav.bar{
     </main>
     <div class="container"> <br>
 
-    <main class="jumbo1" style="padding-top:0px;position:relative;top:0px;height:487px;">
+    <main class="jumbo1" style="padding-top:0px;position:relative;top:20px;height:487px;">
 
     <h5 style="margin-bottom:24px;position:relative;top:-23px;"> Ou se situe l'hébergement que vous inscrivez?</h5>
    
@@ -651,7 +651,6 @@ nav.bar{
         <a href="/docs/4.5/components/navbar/" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
   
     </main>
-
     <main role="main" class="container23" style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;" > <br><br>
     <div class="jumbo1"style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
    
@@ -763,6 +762,38 @@ nav.bar{
       </div>
 
     </main>
+
+    <main role="main" class="container" style="position:relative;top:-112px;height:-20px;margin-left:-88px;" >
+<div class="jumbo"style="padding-top:0px;position:relative;top:-33px;height:355px; widht:222px;margin-left:66px;" >
+
+
+<h5 style="margin-bottom:24px;position:relative;top:-29px;"> Quelques informations importante avant d'inscrire votre hébergement</h5><br>
+
+
+  <h5 > Les réservations sont elle confirmées immediatement?</h5>
+  <h6>Oui, des qu'un client éffectue une réservation,celle ci confirmées immédiatement </h6><br>
+
+    <h5> Puis je choisir qui séjourne dans mon hébergement?</h5>
+    <h6>Non tout nos utilisateurs peuvent réservé  une date </h6><br>
+    
+
+
+
+    <h5> Puis je choisir les jours pour lesqueles je recois les réservations ?</h5>
+    <h6>Oui, il vous suffit de vous assurer  de votre calendrier est a jour.Fermez tout les dates pour lesquelles 
+      vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
+    </h6><br>
+    
+</div>
+
+
+</div>
+</main>
+
+
+
+</span>
+</div>
 
 
 
@@ -1107,7 +1138,7 @@ if (current_div == 0)
  button[1].onclick = ()=>{
      current_div++;
      var back_div = current_div -1;
-     if ((current_div >0)&& (current_div < 10)) 
+     if ((current_div >0)&& (current_div < 11)) 
      {
          button[0].style.display = "block";
          div[current_div].style.display= "block";
@@ -1122,7 +1153,7 @@ if (current_div == 0)
      }
      else 
      {
-         if (current_div >11 )
+         if (current_div >10 )
          {
             section.onsubmit =()=>{return true}
 
