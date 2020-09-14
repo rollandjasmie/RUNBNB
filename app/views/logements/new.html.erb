@@ -488,9 +488,95 @@ nav.bar{
               <span class="modal-content">
                 
                 <span class="modal-body">
-                  <%c.lit.each do |l| %>
-                  <input type="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+
+
+                  <%c.lits.each do |l| %>
+
                   <%= l.title%><br>
+                  <input type="checkbox" class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+                  <%end%>
+                </span>
+                <span class="modal-footer">
+                  <button type="button" class="myBu" data-dismiss="modal">Close</button>
+                  <button type="button" class="myBu" id="btn" data-dismiss="modal">Save</button>
+                  
+                </span>
+                
+              </span>
+            </span>
+          </span>
+          <%end%>
+        </span><br>
+
+        <span class="card-body" style="padding-left:0px;">
+         
+          
+          <%Salon.all.each do |c|%><br>
+          
+          <span class="row">
+            <span class="col-6">
+              <%= c.title%>
+              <p class="salon1"></p>
+            </span>
+            <!--  modal -->
+            <!-- Button trigger modal -->
+            <span class="col-7">
+              <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
+              Ajoutez</a> -->
+              <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button>
+              
+            </span>
+          </span>
+          <!-- Modal -->
+          <span class="modal fade" id="salon" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <span class="modal-dialog modal-dialog-centered">
+              <span class="modal-content">
+                
+                <span class="modal-body">
+                  <%c.canapes.each do |l| %>
+                  <%= l.title%><br>
+                  <input type="checkbox" class="checkbox" name="salon_ids[]" value="<%=l.title%>" >
+                  <%end%>
+                </span>
+                <span class="modal-footer">
+                  <button type="button" class="myBu" data-dismiss="modal">Close</button>
+                  <button type="button" class="myBu" id="btn" data-dismiss="modal">Save</button>
+                  
+                </span>
+                
+              </span>
+            </span>
+          </span>
+          <%end%>
+        </span>
+         <span class="card-body" style="padding-left:0px;">
+         
+          
+          <%Autre.all.each do |c|%><br>
+          
+          <span class="row">
+            <span class="col-6">
+              <%= c.title%>
+              <p class="autre1"></p>
+            </span>
+            <!--  modal -->
+            <!-- Button trigger modal -->
+            <span class="col-7">
+              <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
+              Ajoutez</a> -->
+              <button type="button" class="myButton" data-toggle="modal" data-target="#autre">ajoutez</button>
+              
+            </span>
+          </span>
+          <!-- Modal -->
+          <span class="modal fade" id="autre" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <span class="modal-dialog modal-dialog-centered">
+              <span class="modal-content">
+                
+                <span class="modal-body">
+                  <%c.autrelits.each do |l| %>
+                  <%= l.title%><br>
+                  <input type="checkbox" class="checkbox" name="[]" value="<%=l.title%>" >
                   <%end%>
                 </span>
                 <span class="modal-footer">
@@ -565,6 +651,7 @@ nav.bar{
         <a href="/docs/4.5/components/navbar/" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
   
     </main>
+
     <main role="main" class="container23" style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;" > <br><br>
     <div class="jumbo1"style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
    
@@ -643,8 +730,17 @@ nav.bar{
     <div class="jumbo1"  style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
     <h5 style="margin-bottom:24px;position:relative;top:-29px;"> Information sur l'hébergement</h5><br>
 
+
+
+    <main role="main" class="container23"> <br><br>
+    <div class="jumbo1"style="padding-top:0px;position:relative;top:-112px;height:487px,margin-left:4px;">
+   
+    
+             
+
     
       <h5 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h5>
+
 
       <h6 style="font-size:15px";>Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </p>
       
@@ -658,7 +754,14 @@ nav.bar{
    
         <h5> Emplacement sur la carte</h5><br>
         <a href="/docs/4.5/components/navbar/" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
-  
+
+    </div>
+    </main>
+    <main role="main" class="container">
+      <div class="jumbo1">
+          
+      </div>
+
     </main>
 
 
@@ -1054,6 +1157,34 @@ if (current_div == 0)
     const btn = document.querySelector('#btn');
     btn.addEventListener('click', (event) => {
       document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
+    alert(getSelectedCheckboxValues('values'));
+    });
+
+     function getSelectedCheckboxValues(name) {
+    const checkboxes = document.querySelectorAll(`input[name="salon_ids[]"]:checked`);
+    let values = [];
+    checkboxes.forEach((checkbox) => {
+    values.push(checkbox.value);
+    });
+    return values;
+    }
+    const btn = document.querySelector('#btn');
+    btn.addEventListener('click', (event) => {
+      document.querySelector('.salon1').innerHTML = getSelectedCheckboxValues('values')
+    alert(getSelectedCheckboxValues('values'));
+    });
+
+    function getSelectedCheckboxValues(name) {
+    const checkboxes = document.querySelectorAll(`input[name="autre_ids[]"]:checked`);
+    let values = [];
+    checkboxes.forEach((checkbox) => {
+    values.push(checkbox.value);
+    });
+    return values;
+    }
+    const btn = document.querySelector('#btn');
+    btn.addEventListener('click', (event) => {
+      document.querySelector('.autre1').innerHTML = getSelectedCheckboxValues('values')
     alert(getSelectedCheckboxValues('values'));
     });
     

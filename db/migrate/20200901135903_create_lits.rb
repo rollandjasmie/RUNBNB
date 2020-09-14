@@ -3,7 +3,7 @@ class CreateLits < ActiveRecord::Migration[6.0]
     create_table :lits do |t|
     	t.string :title
 
-    	t.belongs_to :chambre, index: true
+    	t.belongs_to :chambre, index: true    	
       t.timestamps
     end
   end
