@@ -161,15 +161,13 @@ p{
 
         }
         .container1{
-          position:relative;
-          top:-199px
-            width: 700px;
+          position:absolute;
+          top:29px
+            width: 800px;
             margin-left: 0px;
             background-color:#F4F4F4 ;
-
-          
-
         }
+
         form.welcome{
           margin-left:0px;
           padding-left:0px;
@@ -377,7 +375,7 @@ nav.bar{
                 <section>
                     <p></p>
                     <p></p> 
-                    <p></p>
+                    
                 </section>
                     
               
@@ -405,7 +403,7 @@ nav.bar{
 <body>
     <section class="welcome">
         <main role="main" class="container"> <br>
-       <div class="jumbo1">
+       <div class="jumbo1"  style="display:block; top:55px;">
        
     
         <h6>Quel est le nom de votre hébergement?</h6> <br>
@@ -562,6 +560,7 @@ nav.bar{
            </span>
        </div>
     </main>
+    
     <main role="main" class="container23"> <br><br>
 
     <div class="jumbo1"  style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
@@ -596,56 +595,96 @@ nav.bar{
           <input class="mivadika" type="checkbox" name="regle_ids[]" value="<%=d.id%>">
           <%= d.title%>e<br>
           <%end%><br><br>
+          <h6> Arriveé à </h6>
+          <input type="time" name="arrive[]">
+          <input type="time" name="arrive[]">
 
-
-          <span class="mikatra0">
-          <label class="label" for="appt">Arrivée <br> De:</label>
-
-          <input class="refy1" type="time" id="appt" name="appt"
-                min="09:00" max="18:00" required>
-        </span>
-        
-            <span class="miakatra">
-              <label for="appt">à <br> </label>
-
-                <input class="refy" type="time" id="appt" name="appt"
-                min="09:00" max="18:00" required>
-
-
-            </span>
-
-
-               <div class="mikatra0">
-          <label class="label" for="appt">Départ <br> De:</label>
-
-          <input class="refy1" type="time" id="appt" name="appt"
-                min="09:00" max="18:00" required>
-        </div>
-        
-            <div class="miakatra">
-              <label for="appt">à <br> </label>
-
-                <input class="refy" type="time" id="appt" name="appt"
-                min="09:00" max="18:00" required>
-
-          </span>
-          
-        
-
-
-
-    
-
+          <p>Départ</p>
+          <input type="time" name="depart[]">
+          <input type="time" name="depart[]">
     </div>
+    </main>
 
+    <main role="main" class="container" style="position:relative;top:-112px;height:-20px;margin-left:-88px;" >
+    <div class="jumbo"style="padding-top:0px;position:relative;top:0px;height:287px; widht:222px;margin-left:100px" >
+
+    <h6> carte</h6>
+
+</span>
+</div>
+</main>
+
+   
+
+    <main role="main" class="container" style="position:relative;top:-112px;height:-20px;margin-left:-88px;" >
+      <div class="jumbo"style="padding-top:0px;position:relative;top:0px;height:287px; widht:222px;margin-left:100px" >
+ 
+    <h5 >Condition d'annulation </h5>
+    <span class="miakatro">
+     
+      <label class="btn btn-secondary" for="option1"> 1 jours</label>
+
+      
+      <label class="btn btn-secondary" for="option2">7 jours</label>
+
+      <label class="btn btn-secondary" for="option3">14 jours</label>
+
+       
+      <label class="btn btn-secondary" for="option4">30 jours</label>
+   </span>
+   <span class="none">
+   
+     <input type="radio" class="btn-check"  name="condition[]" 
+     value="1 jours" id="option1" autocomplete="off"/>
+     <input type="radio" class="btn-check" style ="visibility:none;"name="condition[]"
+       id="option2" autocomplete="off" value="7 jours" />
+
+      <input type="radio" class="btn-check" name="condition[]" 
+      id="option3" autocomplete="off"  value="14 jours" />
+      <input type="radio" class="btn-check" name="condition[]" 
+      value="30 jours"  id="option4" autocomplete="off" />
+
+    </span>
+  </div>
+</main>
+
+<main role="main" class="container" style="position:relative;top:-112px;height:-20px;margin-left:-88px;" >
+<div class="jumbo"style="padding-top:0px;position:relative;top:0px;height:287px; widht:222px;margin-left:100px" >
+
+<h6> ici le calendrier</h6>
+
+</span>
+</div>
+</main>
+
+<main role="main" class="container23"> <br><br>
+
+    <div class="jumbo1"  style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
+    <h5 style="margin-bottom:24px;position:relative;top:-29px;"> Information sur l'hébergement</h5><br>
 
     
+      <h5 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h5>
+
+      <h6 style="font-size:15px";>Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </p>
+      
+
+ 
+  
+        <h5 > Adresse de l'hébergement</h5><br>
+        <a  href="/docs/4.5/components/navbar/"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+
+        <section style="font-size:15px">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </section><br>
+   
+        <h5> Emplacement sur la carte</h5><br>
+        <a href="/docs/4.5/components/navbar/" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+  
     </main>
 
 
 
+      
 
-  
+
 
   <style>
   .mivadika{
@@ -668,6 +707,18 @@ nav.bar{
     
  
     
+}
+
+.miakatro{
+  position:absolute;
+  top:-222px;
+  display:block;
+  font-size:12px;
+
+}
+
+.none{
+  display:none;
 }
 #radio{
     padding: 23px;
@@ -875,7 +926,9 @@ time {
     margin-left: 55px;
 }
 .miakatra{
-    left: 109px;
+   position:absolute;
+   top:33px;
+    left: 189px;
     bottom: 88px;
     margin-left:72px
 }
@@ -948,23 +1001,16 @@ time {
   
   </style>
 
-      
 
-
-
-
-  <span class="sp">
-        
-    
-        <button name ="prev" class="bu">Precédent</button>
+  <button name ="prev" class="bu">Precédent</button>
             
       
-        <button name="next" class="bu">Continuer</button>
-      </span>
+  <button name="next" class="bu">Continuer</button>
 
     </section>
-    </main>
+
     
+
 </body>
 
 <script>
@@ -986,14 +1032,14 @@ if (current_div == 0)
  button[1].onclick = ()=>{
      current_div++;
      var back_div = current_div -1;
-     if ((current_div >0)&& (current_div < 7  )) 
+     if ((current_div >0)&& (current_div < 10)) 
      {
          button[0].style.display = "block";
          div[current_div].style.display= "block";
          div[back_div].style.display = "none";
          p[current_div].style.backgroundColor ="royalblue";
          p[back_div].style.backgroundColor = "#ededed" ;
-         if (current_div ==3)
+         if (current_div ==6)
          {
              buttton[1].innerHTML = "vita"
          }
@@ -1001,7 +1047,7 @@ if (current_div == 0)
      }
      else 
      {
-         if (current_div >6 )
+         if (current_div >11 )
          {
             section.onsubmit =()=>{return true}
 
