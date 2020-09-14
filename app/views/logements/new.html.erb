@@ -105,7 +105,7 @@ p{
         border-radius: 3px;
     }
 
-   .button{
+    .button{
        
         margin: 20px;
         padding: 10px;
@@ -401,7 +401,7 @@ nav.bar{
 <body>
     <section class="welcome">
         <main role="main" class="container"> <br>
-       <div class="jumbo1"  style="display:block; top:85px;">
+       <div class="jumbo1"  style="display:block; top:15px;">
        
     
         <h6>Quel est le nom de votre hébergement?</h6> <br>
@@ -491,13 +491,13 @@ nav.bar{
                 
                 <span class="modal-body">
                   <%c.lits.each do |l| %>
-                  <%= l.title%><br>
                   <input type="checkbox" class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+                  <%= l.title%><br>
                   <%end%>
                 </span>
                 <span class="modal-footer">
-                  <button type="button" class="myBu" data-dismiss="modal">Close</button>
-                  <button type="button" class="myBu" id="btn" data-dismiss="modal">Save</button>
+                  <button type="button" class="myButton" data-dismiss="modal">Close</button>
+                  <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
                   
                 </span>
                 
@@ -532,13 +532,13 @@ nav.bar{
                 
                 <span class="modal-body">
                   <%c.canapes.each do |l| %>
-                  <%= l.title%><br>
                   <input type="checkbox" class="checkbox" name="salon_ids[]" value="<%=l.title%>" >
+                  <%= l.title%><br>
                   <%end%>
                 </span>
                 <span class="modal-footer">
-                  <button type="button" class="myBu" data-dismiss="modal">Close</button>
-                  <button type="button" class="myBu" id="btn" data-dismiss="modal">Save</button>
+                  <button type="button" class="myButton" data-dismiss="modal">Close</button>
+                  <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
                   
                 </span>
                 
@@ -573,13 +573,13 @@ nav.bar{
                 
                 <span class="modal-body">
                   <%c.autrelits.each do |l| %>
-                  <%= l.title%><br>
                   <input type="checkbox" class="checkbox" name="[]" value="<%=l.title%>" >
+                  <%= l.title%><br>
                   <%end%>
                 </span>
                 <span class="modal-footer">
-                  <button type="button" class="myBu" data-dismiss="modal">Close</button>
-                  <button type="button" class="myBu" id="btn" data-dismiss="modal">Save</button>
+                  <button type="button" class="myButton" data-dismiss="modal">Close</button>
+                  <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
                   
                 </span>
                 
@@ -871,7 +871,7 @@ nav.bar{
 
 
 .checkbox {
-  float:right;
+  
   margin-top: 4px;
   width: 75px;
  
