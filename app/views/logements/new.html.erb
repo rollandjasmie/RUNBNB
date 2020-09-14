@@ -81,7 +81,11 @@ p{
        margin-right: 12px;
    }
 
+   form{
+       width: 600px;
+       margin:100px auto;
 
+   }
    div{
        width:100%;
        margin:1px auto;
@@ -101,7 +105,7 @@ p{
         border-radius: 3px;
     }
 
-    .button{
+   .button{
        
         margin: 20px;
         padding: 10px;
@@ -396,8 +400,6 @@ nav.bar{
 
 <body>
     <section class="welcome">
-              <%= form_tag url_for(action:'create'), methode: "post" do%>
-
         <main role="main" class="container"> <br>
        <div class="jumbo1"  style="display:block; top:85px;">
        
@@ -488,10 +490,7 @@ nav.bar{
               <span class="modal-content">
                 
                 <span class="modal-body">
-
-
                   <%c.lits.each do |l| %>
-
                   <%= l.title%><br>
                   <input type="checkbox" class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
                   <%end%>
@@ -507,7 +506,6 @@ nav.bar{
           </span>
           <%end%>
         </span><br>
-
         <span class="card-body" style="padding-left:0px;">
          
           
@@ -729,17 +727,8 @@ nav.bar{
     <div class="jumbo1"  style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
     <h5 style="margin-bottom:24px;position:relative;top:-29px;"> Information sur l'hébergement</h5><br>
 
-
-
-    <main role="main" class="container23"> <br><br>
-    <div class="jumbo1"style="padding-top:0px;position:relative;top:-112px;height:487px,margin-left:4px;">
-   
-    
-             
-
     
       <h5 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h5>
-
 
       <h6 style="font-size:15px";>Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </p>
       
@@ -753,14 +742,7 @@ nav.bar{
    
         <h5> Emplacement sur la carte</h5><br>
         <a href="/docs/4.5/components/navbar/" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
-
-    </div>
-    </main>
-    <main role="main" class="container">
-      <div class="jumbo1">
-          
-      </div>
-
+  
     </main>
 
     <main role="main" class="container" style="position:relative;top:-112px;height:-20px;margin-left:-88px;" >
@@ -1111,8 +1093,8 @@ time {
   <span name ="prev" class="button">Precédent</span>
             
       
-  <span name="next" class="button" >Continuer</span>
-<% end%>
+  <span name="next" class="button">Continuer</span>
+
     </section>
 
     
@@ -1188,34 +1170,6 @@ if (current_div == 0)
     const btn = document.querySelector('#btn');
     btn.addEventListener('click', (event) => {
       document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
-    alert(getSelectedCheckboxValues('values'));
-    });
-
-     function getSelectedCheckboxValues(name) {
-    const checkboxes = document.querySelectorAll(`input[name="salon_ids[]"]:checked`);
-    let values = [];
-    checkboxes.forEach((checkbox) => {
-    values.push(checkbox.value);
-    });
-    return values;
-    }
-    const btn = document.querySelector('#btn');
-    btn.addEventListener('click', (event) => {
-      document.querySelector('.salon1').innerHTML = getSelectedCheckboxValues('values')
-    alert(getSelectedCheckboxValues('values'));
-    });
-
-    function getSelectedCheckboxValues(name) {
-    const checkboxes = document.querySelectorAll(`input[name="autre_ids[]"]:checked`);
-    let values = [];
-    checkboxes.forEach((checkbox) => {
-    values.push(checkbox.value);
-    });
-    return values;
-    }
-    const btn = document.querySelector('#btn');
-    btn.addEventListener('click', (event) => {
-      document.querySelector('.autre1').innerHTML = getSelectedCheckboxValues('values')
     alert(getSelectedCheckboxValues('values'));
     });
     
