@@ -37,37 +37,35 @@ puts "create eq"
 
 Chambre.destroy_all
 		c = Chambre.create!(title: "Chambre1", logement_id: b.id)
-		f = Chambre.create!(title: "Salon", logement_id: b.id,)
-		g = Chambre.create!(title: "Autre espace", logement_id: b.id,)
-
 puts"creer"
 
+Salon.destroy_all
+		s = Salon.create(title: 'salon', logement_id: b.id)
+
+Autre.destroy_all
+		a = Autre.create(title:'Autres espaces', logement_id: b.id)
+
 Lit.destroy_all
-		Lit.create!(title:"lit double",chambre_id: c.id)
-		Lit.create!(title:"lit simple",chambre_id: c.id)
-		Lit.create!(title:"lit king size",chambre_id: c.id)
-		Lit.create!(title:"lit grand size",chambre_id: c.id)
-		Lit.create!(title:"lit superposé",chambre_id: c.id)
-		Lit.create!(title:"canapé-lit",chambre_id: c.id)
-		Lit.create!(title:"canapé-lit double",chambre_id: c.id)
-		Lit.create!(title:"futon",chambre_id: c.id)
+		Lit.create!(title:"Lit double",chambre_id: c.id)
+		Lit.create!(title:"Lit simple",chambre_id: c.id)
+		Lit.create!(title:"Lit king size",chambre_id: c.id)
+		Lit.create!(title:"Lit grand size",chambre_id: c.id)
+		Lit.create!(title:"Lit superposé",chambre_id: c.id)
+		Lit.create!(title:"Canapé-lit",chambre_id: c.id)
+		Lit.create!(title:"Canapé-lit double",chambre_id: c.id)
+		Lit.create!(title:"Futon",chambre_id: c.id)
 
-		Lit.create!(title:"lit double",chambre_id: f.id)
-		Lit.create!(title:"lit simple",chambre_id: f.id)
-		Lit.create!(title:"lit king size",chambre_id: f.id)
-		Lit.create!(title:"lit grand size",chambre_id: f.id)
-		Lit.create!(title:"lit superposé",chambre_id: f.id)
-		Lit.create!(title:"canapé-lit",chambre_id: f.id)
-		Lit.create!(title:"canapé-lit double",chambre_id: f.id)
-		Lit.create!(title:"futon",chambre_id: f.id)
+		Canape.create!(title:"Canapé-lit",salon_id: s.id)
+		Canape.create!(title:"Canapé",salon_id: s.id)
+		
 
-		Lit.create!(title:"lit double",chambre_id: g.id)
-		Lit.create!(title:"lit simple",chambre_id: g.id)
-		Lit.create!(title:"lit king size",chambre_id: g.id)
-		Lit.create!(title:"lit grand size",chambre_id: g.id)
-		Lit.create!(title:"lit superposé",chambre_id: g.id)
-		Lit.create!(title:"canapé-lit",chambre_id: g.id)
-		Lit.create!(title:"canapé-lit double",chambre_id: g.id)
-		Lit.create!(title:"futon",chambre_id: g.id)
+		Autrelit.create!(title:"Lit double",autre_id: a.id)
+		Autrelit.create!(title:"Lit simple",autre_id: a.id)
+		Autrelit.create!(title:"Lit king size",autre_id: a.id)
+		Autrelit.create!(title:"Lit grand size",autre_id: a.id)
+		Autrelit.create!(title:"Lit superposé",autre_id: a.id)
+		Autrelit.create!(title:"Canapé-lit",autre_id: a.id)
+		Autrelit.create!(title:"Canapé-lit double",autre_id: a.id)
+		Autrelit.create!(title:"Futon",autre_id: a.id)
 
 puts "lit"

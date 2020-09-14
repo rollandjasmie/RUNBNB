@@ -486,9 +486,92 @@ nav.bar{
               <span class="modal-content">
                 
                 <span class="modal-body">
-                  <%c.lit.each do |l| %>
-                  <input class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+                  <%c.lits.each do |l| %>
                   <%= l.title%><br>
+                  <input type="checkbox" class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+                  <%end%>
+                </span>
+                <span class="modal-footer">
+                  <button type="button" class="myBu" data-dismiss="modal">Close</button>
+                  <button type="button" class="myBu" id="btn" data-dismiss="modal">Save</button>
+                  
+                </span>
+                
+              </span>
+            </span>
+          </span>
+          <%end%>
+        </span><br>
+
+        <span class="card-body" style="padding-left:0px;">
+         
+          
+          <%Salon.all.each do |c|%><br>
+          
+          <span class="row">
+            <span class="col-6">
+              <%= c.title%>
+              <p class="salon1"></p>
+            </span>
+            <!--  modal -->
+            <!-- Button trigger modal -->
+            <span class="col-7">
+              <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
+              Ajoutez</a> -->
+              <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button>
+              
+            </span>
+          </span>
+          <!-- Modal -->
+          <span class="modal fade" id="salon" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <span class="modal-dialog modal-dialog-centered">
+              <span class="modal-content">
+                
+                <span class="modal-body">
+                  <%c.canapes.each do |l| %>
+                  <%= l.title%><br>
+                  <input type="checkbox" class="checkbox" name="salon_ids[]" value="<%=l.title%>" >
+                  <%end%>
+                </span>
+                <span class="modal-footer">
+                  <button type="button" class="myBu" data-dismiss="modal">Close</button>
+                  <button type="button" class="myBu" id="btn" data-dismiss="modal">Save</button>
+                  
+                </span>
+                
+              </span>
+            </span>
+          </span>
+          <%end%>
+        </span>
+         <span class="card-body" style="padding-left:0px;">
+         
+          
+          <%Autre.all.each do |c|%><br>
+          
+          <span class="row">
+            <span class="col-6">
+              <%= c.title%>
+              <p class="autre1"></p>
+            </span>
+            <!--  modal -->
+            <!-- Button trigger modal -->
+            <span class="col-7">
+              <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
+              Ajoutez</a> -->
+              <button type="button" class="myButton" data-toggle="modal" data-target="#autre">ajoutez</button>
+              
+            </span>
+          </span>
+          <!-- Modal -->
+          <span class="modal fade" id="autre" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <span class="modal-dialog modal-dialog-centered">
+              <span class="modal-content">
+                
+                <span class="modal-body">
+                  <%c.autrelits.each do |l| %>
+                  <%= l.title%><br>
+                  <input type="checkbox" class="checkbox" name="[]" value="<%=l.title%>" >
                   <%end%>
                 </span>
                 <span class="modal-footer">
@@ -578,70 +661,29 @@ nav.bar{
     </main>
 
     <main role="main" class="container23"> <br><br>
-    <div class="jumbo1"style="padding-top:0px;position:relative;top:-52px;height:487px,margin-left:4px;">
+    <div class="jumbo1"style="padding-top:0px;position:relative;top:-112px;height:487px,margin-left:4px;">
    
-    <h5>Règle de la maison</h5>
-   
-          <span class="container" style="margin-left:0px;">
-           
-              <input type="checkbox" class="checkbox" >
-              <label class="vehicle"> Hébergement umeur</label><br><br>
-              <input class="checkbox"   type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-              <label  for="vehicle"> Animaux domestiques admi</label><br><br>
-              <input class="checkbox"  type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-              <label  for="vehicle"> Enfant bienvenus</label><br><br>
-              <input type="checkbox" class="checkbox" >
-              <label  for="vehicle">  fête / événement autorisés</label><br><br>
-              
-            
-
-          </span>
-          
-          </span>
-          
-            <span class="mikatra0">
-              <label class="label" for="appt">Arrivée <br> De:</label>
-
-              <input class="refy1" type="time" id="appt" name="appt"
-                    min="09:00" max="18:00" required>
-            </span>
-            
-                <span class="miakatra">
-                  <label for="appt">à <br> </label>
-
-                    <input class="refy" type="time" id="appt" name="appt"
-                    min="09:00" max="18:00" required>
-
-
-                </span>
-
-
-                   <div class="mikatra0">
-              <label class="label" for="appt">Départ <br> De:</label>
-
-              <input class="refy1" type="time" id="appt" name="appt"
-                    min="09:00" max="18:00" required>
-            </div>
-            
-                <div class="miakatra">
-                  <label for="appt">à <br> </label>
-
-                    <input class="refy" type="time" id="appt" name="appt"
-                    min="09:00" max="18:00" required>
-
-
-                </div>  
-
-      
-
-
-
+    
+                <h2>Règle de maison</h2><br>
+                <%Regle.all.each do |d|%><br>
+                <input type="checkbox" name="regle_ids[]" value="<%=d.id%>" >
+                <%= d.title%><br>
+                <%end%><br>
+                    <p>arriveé</p>
+                    <input type="time" name="arrive[]">
+                    <input type="time" name="arrive[]">
+    
+                    <p>départ</p>
+                    <input type="time" name="depart[]">
+                    <input type="time" name="depart[]">
     
 
     </div>
-
-
-    
+    </main>
+    <main role="main" class="container">
+      <div class="jumbo1">
+          
+      </div>
     </main>
 
 
@@ -1023,6 +1065,34 @@ if (current_div == 0)
     const btn = document.querySelector('#btn');
     btn.addEventListener('click', (event) => {
       document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
+    alert(getSelectedCheckboxValues('values'));
+    });
+
+     function getSelectedCheckboxValues(name) {
+    const checkboxes = document.querySelectorAll(`input[name="salon_ids[]"]:checked`);
+    let values = [];
+    checkboxes.forEach((checkbox) => {
+    values.push(checkbox.value);
+    });
+    return values;
+    }
+    const btn = document.querySelector('#btn');
+    btn.addEventListener('click', (event) => {
+      document.querySelector('.salon1').innerHTML = getSelectedCheckboxValues('values')
+    alert(getSelectedCheckboxValues('values'));
+    });
+
+    function getSelectedCheckboxValues(name) {
+    const checkboxes = document.querySelectorAll(`input[name="autre_ids[]"]:checked`);
+    let values = [];
+    checkboxes.forEach((checkbox) => {
+    values.push(checkbox.value);
+    });
+    return values;
+    }
+    const btn = document.querySelector('#btn');
+    btn.addEventListener('click', (event) => {
+      document.querySelector('.autre1').innerHTML = getSelectedCheckboxValues('values')
     alert(getSelectedCheckboxValues('values'));
     });
     

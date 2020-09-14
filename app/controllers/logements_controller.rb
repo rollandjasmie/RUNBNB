@@ -19,8 +19,19 @@ class LogementsController < ApplicationController
       @chambre = params[:chambre_ids]
       @chambre.each do |c|
           @a = Chambre.create(logement_id: @logement.id,lit_id: c.to_i)
-
       end 
+    if params[:salon_ids]
+      @salon = params[:salon_ids]
+      @salon.each do |s|
+        Salon.create(logement_id: @logement.id, canape_id: s.id)
+      end
+    end
+     if params[:autre_ids]
+      @autre = params[:autre_ids]
+      @autre.each do |a|
+        Autre.create(logement_id: @logement.id, autrelits_id: s.id)
+      end
+    end
     end
     if params[:equipement_ids]
       @equipement = params[:equipement_ids]
