@@ -49,7 +49,7 @@ p{
       
         position:relative;
         top:123px;
-      
+        margin-left:77px;
         padding: 10px;
         width: 100px;
         border: none;
@@ -404,7 +404,7 @@ p{
 
 
 </div>
-
+<!--  Cinqiéme Partie------------------------------------------------->
 <div class="container1">
 
           
@@ -420,7 +420,7 @@ p{
  
 </div>
 
-
+<!-- sixiéme Partie------------------------------------------------->
 <div class="container1">
 
       <h5>Règle de la maison</h5>
@@ -439,7 +439,7 @@ p{
       <input type="time" name="depart[]">
       <input type="time" name="depart[]">
 
-      <h6> Arriveé <br> De </h6>
+      <h6> Départ <br> De </h6>
       <input type="time" name="arrive[]">
       <input type="time" name="arrive[]">
 
@@ -451,6 +451,7 @@ p{
 
 
 </div>
+<!-- Septe Partie------------------------------------------------->
 
 <div class="container">
  <h2> photo</h2>
@@ -487,6 +488,71 @@ p{
       
 </div>
 
+<!-- Huitiéme Partie------------------------------------------------->
+<div class="container">
+ <h4> calendrier </h4>
+</div>
+
+<!-- Neuviéme Partie------------------------------------------------->
+
+<div class="container1">
+
+ 
+
+
+<h5 style="margin-bottom:24px;position:relative;top:-39px;"> Information sur l'hébergement</h5>
+
+  <h5 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h5>
+  <h6 style="font-size:15px;color:#696565;">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </p>
+  
+
+
+    <h5 > Adresse de l'hébergement</h5><br>
+    <a  href="#"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+    <section style="font-size:15px; color:#696565; ">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </section><br>
+
+    <h5> Emplacement sur la carte</h5><br>
+    <a href="#" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+
+
+</div>
+
+<div class="container1" style="width:555px;">
+<h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Quelques informations importante avant d'inscrire votre hébergement:</h5>
+
+
+  <h5 style="font-size:17px;" > Les réservations sont elle confirmées immediatement?</h5>
+  <h6  style="color:#696565;">Oui, des qu'un client éffectue une réservation,celle ci confirmées immédiatement </h6><br>
+
+    <h5 style="font-size:17px;"> Puis je choisir qui séjourne dans mon hébergement?</h5>
+    <h6 style="color:#696565;" >Non tout nos utilisateurs peuvent réservé  une date </h6><br>
+    
+
+
+
+    <h5 style="font-size:17px;"> Puis je choisir les jours pour lesqueles je recois les réservations ?</h5>
+    <h6 style="color:#696565;" >Oui, il vous suffit de vous assurer  de votre calendrier est a jour.Fermez tout les dates pour lesquelles 
+      vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
+    </h6><br>
+</div>
+<div class="container1" style="width:533px;">
+<h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Et voila! Vous avez fait tout le nécessaire ain de pouvoir acceillir vos Premieres clients</h5>
+<h6 > Une fois votre inscription terminer, vous pourrez:</h6>
+             <ul style="color:#696565;margin-left:22px;"  >
+              <li>Gérer votre hébergement à partir de votre de bord</li>
+              <li>Recevoir des réservations des clients qui se rendent sur notre site et gagner de l'argent</li>
+              <li>Garder le contrôle des réservations de tous les sites sur lesquelles vous êtes inscrit(e) en synchronisant votre calendrier </li>
+             
+             </ul>
+         
+             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+              <label for="vehicle1"> J'atteste qu'il s'agit d'une activité d'hébergement légale disposant de toutes les autorisation</label><br>
+              <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+              <label for="vehicle2"> J'ai lu etj'accepte kes condition générale de RunBnB</label><br>
+
+
+
+</div>
 
 
 <span class="b">
@@ -528,7 +594,7 @@ if (current_div == 0)
  button[1].onclick = ()=>{
      current_div++;
      var back_div = current_div -1;
-     if ((current_div >0)&& (current_div < 11)) 
+     if ((current_div >0)&& (current_div < 12)) 
      {
          button[0].style.display = "block";
          div[current_div].style.display= "block";
@@ -536,7 +602,7 @@ if (current_div == 0)
          p[current_div].style.backgroundColor ="royalblue";
          p[back_div].style.backgroundColor = "#ededed" ;
 
-         if (current_div ==6)
+         if (current_div ==10)
          {
              buttton[1].innerHTML = "vita"
          }
@@ -544,7 +610,7 @@ if (current_div == 0)
      }
      else 
      {
-         if (current_div >10 )
+         if (current_div >11)
          {
             section.onsubmit =()=>{return true}
 
