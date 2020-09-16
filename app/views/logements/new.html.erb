@@ -443,17 +443,21 @@ nav.bar{
             
             <p3>Trouvez votre adresse (ligne 1)</p>
         
-                <%= text_field_tag :adresse, "" ,class:'form-control'%><br>
+                <%= text_field_tag :adresse, "" ,placeholder:"votre adresse",class:'form-control'%><br>
                 
             
             <p3>Code postal</p>
        
                 <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal"><br>
-                
-            
-            <p3>Trouvez votre adresse (ligne 2)</p><br>
-            <a href="">Ajouter</a>
-      
+            <span id="caché">Trouvez votre adresse (ligne 2)
+
+            <%= text_field_tag :adresse2, "",placeholder:"votre adresse" ,class:'form-control'%><br>
+            </span><br>
+            <span  id="clicke">Trouvez votre adresse (ligne 2)<br>
+              
+              <span id="clicke1" style="color: blue"> Ajouter </span>
+           
+            </span>
 
 
 
@@ -492,10 +496,11 @@ nav.bar{
                 <span class="modal-body">
                   <%c.lits.each do |l| %>
                   <input type="checkbox" class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
-                  <%= l.title%><br>
+                  <%= l.title%><span id="mois<%=l.id%>">-</span> <span id="nombre<%=l.id%>">1</span> <span id="plus<%=l.id%>"> +</span><br>
+      
                   <%end%>
                 </span>
-                <span class="modal-footer">
+                <span class="modal-footer"> 
                   <button type="button" class="myButton" data-dismiss="modal">Close</button>
                   <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
                   
@@ -805,7 +810,12 @@ nav.bar{
  
     
 }
-
+#caché{
+  display: none;
+}
+#clicke{
+  display: block;
+}
 .miakatro{
   position:absolute;
   top:-222px;
@@ -1112,6 +1122,7 @@ var current_div = 0;
 div[current_div].style.display = "block";
 if (current_div == 0)
  {
+     
      button[0].style.display = "none";
      p[0].style.backgroundColor = "royalblue" ;
       
@@ -1190,5 +1201,36 @@ if (current_div == 0)
     });
     }
     }
+    
+    </script>
+    <script >
+      var cache = document.getElementById("caché")
+      var clicke1 = document.getElementById("clicke1")
+      var clicke = document.getElementById("clicke")
+       clicke1.onclick = function () {
+        cache.style.display= "block";
+        clicke.style.display="none"
+        }
+    </script>
+    <span id="mois<%=l.id%>">-</span> <span id="nombre<%=l.id%>">1</span><span id="plus<%=l.id%>"> +</span>
+    <script >
+      var nombre = document.getElementById("nombre" + pas)
+      var plus = document.getElementById("plus" + pas)
+      
+
+
+
+
+
+
+
+
+      for (let pas = 1; pas < 3; pas++) {
+      var nombre = document.getElementById("nombre" + pas)
+      var plus = document.getElementById("plus" + pas)
+      if pas == nombre.textContent{
+        alert(nombre.textContent +=1)
+        }
+        }
     
     </script>
