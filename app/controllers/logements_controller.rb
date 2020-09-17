@@ -15,7 +15,7 @@ class LogementsController < ApplicationController
     @logement.photos.attach(params[:photos])
 
     @adr = Adresse.create(pays: params[:pays],adresse: params[:adresse],
-           code: params[:code],ville: params[:ville],logement_id: @logement.id)
+           code: params[:code],ville: params[:ville],adresse2:params[:adresse2],logement_id: @logement.id)
     @adresse = @adr.save 
 
     if params[:chambre_ids] && params[:number]
