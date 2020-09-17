@@ -1,0 +1,671 @@
+
+<link rel="stylesheet" href="style.css">
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="carrou.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+p{
+        width: 30px;
+        height: 5px;
+        border-radius: 2px;
+        background: #ededed;
+        margin:2px 2px;
+        display: inline-flex;
+    }
+
+
+    .container{
+       position:relative;
+       top:33px;
+        width:500px;
+        height:333px;
+        padding:17px;
+        display:none;
+        background-color:#F4F4F4;
+        border-radius:14px;
+    }
+    .container1{
+        position:relative;
+        top:53px;
+        margin-left:65px;
+         width:500px;
+         height:412pxpx;
+         padding-top:22px;
+         padding:17px;
+         display:none;
+         background-color:#F4F4F4;
+         border-radius:14px;
+     }
+
+
+
+
+    .button{
+      
+        position:relative;
+        top:123px;
+        margin-left:77px;
+        padding: 10px;
+        width: 100px;
+        border: none;
+        outline:none;
+        cursor:pointer;
+        border-radius:5px;
+        background:rgb(233, 80, 10);
+        font-size:12px;
+        font-weight: bold;
+        color: whitesmoke;
+        float:left
+     
+
+    }
+
+.checkbox {
+  
+    margin-top: 4px;
+    width: 75px;
+   
+    
+  } 
+  input[type='checkbox'] {
+  -webkit-appearance:none;
+  
+  width:20px;
+  height:20px;
+  background:white;
+  border:2px solid rgb(141, 135, 135);
+  border-radius:5px;
+  
+  }
+  input[type='checkbox']:checked {
+  background: #f96816;
+  outline: none;
+  
+  
+  }
+
+
+
+
+
+
+
+      .col-6{
+          color:black;
+      }
+
+      .list{
+          padding:0px;
+      }
+
+      span{
+          color:black;
+      }
+
+       .mivadika{
+          float:right;
+      }
+      .miakatro{
+        position:absolute;
+        top:-222px;
+        display:block;
+        font-size:12px;
+      
+      }
+      .none{
+  display:none;
+}
+.btn .btn-secondary{
+  width: 33px !important;
+}
+
+    <div class="container-sm">100% wide until small breakpoint</div>
+    <div class="container-md">100% wide until medium breakpoint</div>
+    <div class="container-lg">100% wide until large breakpoint</div>
+    <div class="container-xl">100% wide until extra large breakpoint</div>
+   
+</style>
+
+
+
+<header>
+    <nav class=" tainer">
+        <ul class="nu">
+            
+           <li class="i"> Nom et emplacement <br>
+            <section>
+                <p></p>
+                <p></p> 
+                <p></p>
+
+            </section>
+              
+
+
+           </div>
+
+       
+           </li>
+            <li class="i">Configuration de l'hébergement <br>
+             <section>
+                <p></p>
+                <p></p> 
+                <p></p>
+
+             </section>
+         
+  
+            
+            
+            </li>
+            <li class="i">Photo <br>
+          <section>
+            <p></p>
+      
+          </section>
+                
+              
+           
+
+
+            </li>
+            <li class="i">Tarifs et calendrier <br>
+                <section>
+                    <p></p>
+                    <p></p> 
+                    
+                </section>
+                    
+              
+                
+            </li>
+            <li class="i">Révision et finalisation <br>
+                <section>
+                    <p></p>
+                    <p></p> 
+                    <p></p>
+
+                </section>
+                   
+           
+            </li>
+            
+        </ul> 
+            
+        </nav>
+  
+
+</header>
+
+
+<section class="welcome">
+
+<!-- Premiere parti -->
+<div class="container">
+
+            <h6>Quel est le nom de votre hébergement?</h6> <br>
+                        
+                            
+            <input type="text"  class="form-control" name="name" placeholder="nom de l'hébergement"><br>
+
+
+            <h6>Choisissez le type d’hébergement que vous souhaitez inscrire sur RunBnB :</h6>
+
+            <%= select_tag 'categorie', options_for_select(["Appartement","Maison/Vila","Bangalow/Châlet","Hotel","chambre d'hote/Gite"]), class:'custom-select custom-select-sm' , style:"width: 300px"%><br><br>
+
+
+            <h6>Que peuvent réserver les clients ?</h6>
+            <%= select_tag 'types', options_for_select(["Chambre privée","Hébergement entier"]),class:'custom-select custom-select-sm',style:"width: 300px"%>
+
+            
+
+</div>
+<!-- Deuxieme Parte:!!----------------------------------------------->
+
+<div class="container1" >
+
+
+          <p3 style="font-size:16px; margin-bottom:24px;position:relative;top:-53px;"> Ou se situe l'hébergement que vous inscrivez?</h5><br><br>
+     
+            <span style="font-size:12px; color:#2E2725;">Pays/région</span><br>
+          
+                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Pays/région"><br>
+                
+      
+            <span style="font-size:12px; color:#2E2725;">Ville</span>
+        
+                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez une ville"><br>
+                
+            
+            <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 1)</span>
+        
+                <%= text_field_tag :adresse, "" ,class:'form-control'%><br>
+                
+            
+            <span style="font-size:12px; color:#2E2725;">Code postal</span>
+       
+                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal"><br>
+                
+            
+            <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 2)</span><br>
+            <a href="#">Ajouter</a>
+
+ 
+          
+      
+
+</div>
+<!-- Troisieme Partie --------------------------------------->
+
+<div class="container">
+
+         
+         <h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-33px"> Carte</h5>
+         
+
+</div>
+
+<!-- Quatriéme Partie------------------------------------------------->
+<div class="container">
+
+<h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-3px">Où les clients peuvent-ils dormir ?</h5>
+
+
+<span class="card-body" style="padding-left:0px;">
+
+ 
+ <%Chambre.all.each do |c|%><br>
+ 
+ <span class="row">
+   <span class="col-6">
+     <%= c.title%>
+     <p class="za"></p>
+   </span>
+   <!--  modal -->
+   <!-- Button trigger modal -->
+   <span class="col-7">
+     <!-- <a href="#" class="btn " data-toggle="modal" data-target="#staticBackdrop" style="" >
+     Ajoutez</a> -->
+     <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">ajoutez</button>
+     
+   </span>
+ </span>
+ <!-- Modal -->
+ <span class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <span class="modal-dialog modal-dialog-centered">
+     <span class="modal-content">
+       
+       <span class="modal-body">
+         <%c.lits.each do |l| %>
+         <input type="checkbox" class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+         <%= l.title%><br>
+         <%end%>
+       </span>
+       <span class="modal-footer">
+         <button type="button" class="myButton" data-dismiss="modal">Close</button>
+         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+         
+       </span>
+       
+     </span>
+   </span>
+ </span>
+ <%end%>
+</span><br>
+<span class="card-body" style="padding-left:0px;">
+
+ 
+ <%Salon.all.each do |c|%><br>
+ 
+ <span class="row">
+   <span class="col-6">
+     <%= c.title%>
+     <p class="salon1"></p>
+   </span>
+   <!--  modal -->
+   <!-- Button trigger modal -->
+   <span class="col-7">
+     <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
+     Ajoutez</a> -->
+     <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button>
+     
+   </span>
+ </span>
+ <!-- Modal -->
+ <span class="modal fade" id="salon" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <span class="modal-dialog modal-dialog-centered">
+     <span class="modal-content">
+       
+       <span class="modal-body">
+         <%c.canapes.each do |l| %>
+         <input type="checkbox" class="checkbox" name="salon_ids[]" value="<%=l.title%>" >
+         <%= l.title%><br>
+         <%end%>
+       </span>
+       <span class="modal-footer">
+         <button type="button" class="myButton" data-dismiss="modal">Close</button>
+         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+         
+       </span>
+       
+     </span>
+   </span>
+ </span>
+ <%end%>
+</span>
+<span class="card-body" style="padding-left:0px;">
+
+ 
+ <%Autre.all.each do |c|%><br>
+ 
+ <span class="row">
+   <span class="col-6">
+     <%= c.title%>
+     <p class="autre1"></p>
+   </span>
+   <!--  modal -->
+   <!-- Button trigger modal -->
+   <span class="col-7">
+     <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
+     Ajoutez</a> -->
+     <button type="button" class="myButton" data-toggle="modal" data-target="#autre">ajoutez</button>
+     
+   </span>
+ </span>
+ <!-- Modal -->
+ <span class="modal fade" id="autre" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <span class="modal-dialog modal-dialog-centered">
+     <span class="modal-content">
+       
+       <span class="modal-body">
+         <%c.autrelits.each do |l| %>
+         <input type="checkbox" class="checkbox" name="[]" value="<%=l.title%>" >
+         <%= l.title%><br>
+         <%end%>
+       </span>
+       <span class="modal-footer">
+         <button type="button" class="myButton" data-dismiss="modal">Close</button>
+         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+         
+       </span>
+       
+     </span>
+   </span>
+ </span>
+ <%end%>
+</span>
+
+</span>
+
+
+</div>
+<!--  Cinqiéme Partie------------------------------------------------->
+<div class="container1">
+
+          
+         
+         
+           <h5 style="padding-left:2px;">Equipement</h5><br>
+           <%Equipement.all.each do |e|%><br>
+           <input class="list" type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
+           <%= e.title%><br>
+           <%end%>
+        
+       
+ 
+</div>
+
+<!-- sixiéme Partie------------------------------------------------->
+<div class="container1">
+
+      <h5>Règle de la maison</h5>
+
+      <span class="containo" style="width:633px;">
+   
+      <%Regle.all.each do |d|%><br>
+      <input class="mivadika" type="checkbox" name="regle_ids[]" value="<%=d.id%>">
+      <%= d.title%>e<br>
+      <%end%><br><br>
+      <h6> Arriveé <br> De </h6>
+      <input type="time" name="arrive[]">
+      <input type="time" name="arrive[]">
+
+      <span> à </sapn>
+      <input type="time" name="depart[]">
+      <input type="time" name="depart[]">
+
+      <h6> Départ <br> De </h6>
+      <input type="time" name="arrive[]">
+      <input type="time" name="arrive[]">
+
+      <span>  à </sapn>
+      <input type="time" name="depart[]">
+      <input type="time" name="depart[]">
+
+
+
+
+</div>
+<!-- Septe Partie------------------------------------------------->
+
+<div class="container">
+ <h2> photo</h2>
+</div>
+
+<div class="container" style="width:688px; weight:255px;">
+
+<h5 style="margin-bottom:44px;">Condition d'annulation </h5>
+       
+        <span>
+        <label class="btn btn-secondary for="option1"> 1 jours</label>
+
+        
+        <label class="btn btn-secondary" for="option2">7 jours</label>
+
+        <label class="btn btn-secondary" for="option3">14 jours</label>
+
+        
+        <label class="btn btn-secondary" for="option4">30 jours</label>
+        </span>
+    
+        <span class="none">
+
+        <input type="radio" class="btn-check"  name="condition[]" 
+        value="1 jours" id="option1" autocomplete="off"/>
+        <input type="radio" class="btn-check" style ="visibility:none;"name="condition[]"
+        id="option2" autocomplete="off" value="7 jours" />
+
+        <input type="radio" class="btn-check" name="condition[]" 
+        id="option3" autocomplete="off"  value="14 jours" />
+        <input type="radio" class="btn-check" name="condition[]" 
+        value="30 jours"  id="option4" autocomplete="off" />
+       <span>
+      
+</div>
+
+<!-- Huitiéme Partie------------------------------------------------->
+<div class="container">
+ <h4> calendrier </h4>
+</div>
+
+<!-- Neuviéme Partie------------------------------------------------->
+
+<div class="container1">
+
+ 
+
+
+<h5 style="margin-bottom:24px;position:relative;top:-39px;"> Information sur l'hébergement</h5>
+
+  <h5 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h5>
+  <h6 style="font-size:15px;color:#696565;">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </p>
+  
+
+
+    <h5 > Adresse de l'hébergement</h5><br>
+    <a  href="#"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+    <section style="font-size:15px; color:#696565; ">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </section><br>
+
+    <h5> Emplacement sur la carte</h5><br>
+    <a href="#" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+
+
+</div>
+
+<div class="container1" style="width:555px;">
+<h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Quelques informations importante avant d'inscrire votre hébergement:</h5>
+
+
+  <h5 style="font-size:17px;" > Les réservations sont elle confirmées immediatement?</h5>
+  <h6  style="color:#696565;">Oui, des qu'un client éffectue une réservation,celle ci confirmées immédiatement </h6><br>
+
+    <h5 style="font-size:17px;"> Puis je choisir qui séjourne dans mon hébergement?</h5>
+    <h6 style="color:#696565;" >Non tout nos utilisateurs peuvent réservé  une date </h6><br>
+    
+
+
+
+    <h5 style="font-size:17px;"> Puis je choisir les jours pour lesqueles je recois les réservations ?</h5>
+    <h6 style="color:#696565;" >Oui, il vous suffit de vous assurer  de votre calendrier est a jour.Fermez tout les dates pour lesquelles 
+      vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
+    </h6><br>
+</div>
+<div class="container1" style="width:533px;">
+<h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Et voila! Vous avez fait tout le nécessaire ain de pouvoir acceillir vos Premieres clients</h5>
+<h6 > Une fois votre inscription terminer, vous pourrez:</h6>
+             <ul style="color:#696565;margin-left:22px;"  >
+              <li>Gérer votre hébergement à partir de votre de bord</li>
+              <li>Recevoir des réservations des clients qui se rendent sur notre site et gagner de l'argent</li>
+              <li>Garder le contrôle des réservations de tous les sites sur lesquelles vous êtes inscrit(e) en synchronisant votre calendrier </li>
+             
+             </ul>
+         
+             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+              <label for="vehicle1"> J'atteste qu'il s'agit d'une activité d'hébergement légale disposant de toutes les autorisation</label><br>
+              <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+              <label for="vehicle2"> J'ai lu etj'accepte kes condition générale de RunBnB</label><br>
+
+
+
+</div>
+
+
+<span class="b">
+<span name ="prev" class="button">Precédent</span>
+<span name= "next" class="button">Continuer</span>
+</span>
+
+</section>
+
+
+
+
+    
+
+</body>
+
+<script>
+var div = document.getElementsByTagName('div');
+var button = document.getElementsByClassName('button');
+var p = document.getElementsByTagName('p');
+var section = document.getElementsByTagName('section')[0];
+section.onsubmit =()=>{return false}
+
+var current_div = 0;
+div[current_div].style.display = "block";
+if (current_div == 0)
+ {
+     button[0].style.display = "none";
+     p[0].style.backgroundColor = "royalblue" ;
+     
+
+
+
+ }
+
+
+
+     
+ button[1].onclick = ()=>{
+     current_div++;
+     var back_div = current_div -1;
+     if ((current_div >0)&& (current_div < 12)) 
+     {
+         button[0].style.display = "block";
+         div[current_div].style.display= "block";
+         div[back_div].style.display = "none";
+         p[current_div].style.backgroundColor ="royalblue";
+         p[back_div].style.backgroundColor = "#ededed" ;
+
+         if (current_div ==10)
+         {
+             buttton[1].innerHTML = "vita"
+         }
+
+     }
+     else 
+     {
+         if (current_div >11)
+         {
+            section.onsubmit =()=>{return true}
+
+         }
+     }
+
+ }
+
+ button[0].onclick = ()=>
+ {
+     current_div--;
+     var back_div =current_div +1;
+     div[current_div].style.display= "block";
+         div[back_div].style.display = "none";
+         p[current_div].style.backgroundColor ="royalblue";
+         p[back_div].style.backgroundColor = "#ededed" ;
+
+ }
+
+    
+    </script>
+    <script type="text/javascript">
+  
+    function getSelectedCheckboxValues(name) {
+    const checkboxes = document.querySelectorAll(`input[name="chambre_ids[]"]:checked`);
+    let values = [];
+    checkboxes.forEach((checkbox) => {
+    values.push(checkbox.value);
+    });
+    return values;
+    }
+    const btn = document.querySelector('#btn');
+    btn.addEventListener('click', (event) => {
+      document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
+    alert(getSelectedCheckboxValues('values'));
+    });
+    
+      function chercher(){
+    var ville = $("#ville").val();
+    if(ville != ""){
+    $.ajax({
+    url: "https://nominatim.openstreetmap.org/search", // URL de Nominatim
+    type: 'get', // Requête de type GET
+    data: "q="+ville+"&format=json&addressdetails=1&limit=1&polygon_svg=1" // Données envoyées (q -> adresse complète, format -> format attendu pour la réponse, limit -> nombre de réponses attendu, polygon_svg -> fournit les données de polygone de la réponse en svg)
+    }).done(function (response) {
+    if(response != ""){
+    userlat = response[0]['lat'];
+    userlon = response[0]['lon'];
+    }
+    }).fail(function (error) {
+    alert(error);
+    });
+    }
+    }
+    
+    </script>
+
