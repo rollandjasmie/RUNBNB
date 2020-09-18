@@ -86,8 +86,53 @@ p{
   background: #f96816;
   outline: none;
   
-  
   }
+
+  .bt  {
+    background-color: white ; 
+    border: 1px solid black;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+  }
+  
+   .bt:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+   .bt:hover {
+    background-color: rgb(233, 80, 10);
+  }
+  .button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.row{
+  box-shadow:
+
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 1.5px 10px rgba(0, 0, 0, 0.06),
+  0 2.3px 7.9px rgba(0, 0, 0, 0.052),
+  0 4.8px 12.4px rgba(0, 0, 0, 0.056),
+  0 2px 2px rgba(0, 0, 0, 0.2)
+;
+
+  
+  
+
+
+ 
+  background: white;
+  border-radius: 5px;
+  
+  
+}
+
 
 
 
@@ -271,9 +316,11 @@ p{
 </div>
 
 <!-- Quatriéme Partie------------------------------------------------->
-<div class="container">
+<div class="container" style="top:66px;">
 
-<h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-3px">Où les clients peuvent-ils dormir ?</h5>
+<h5 style="margin-bottom:24px;position:relative;top:-59px;"> Information sur l'hébergement</h5>
+
+<h6 style="margin-bottom:14px;position:relative;top:23px">Où les clients peuvent-ils dormir ?</h6>
 
 
 <span class="card-body" style="padding-left:0px;">
@@ -281,17 +328,16 @@ p{
  
  <%Chambre.all.each do |c|%><br>
  
- <span class="row">
+ <span class="row" data-toggle="modal" data-target="#staticBackdrop">
    <span class="col-6">
      <%= c.title%>
-     <p class="za"></p>
+     <small class="za"></small>
    </span>
    <!--  modal -->
    <!-- Button trigger modal -->
    <span class="col-7">
-     <!-- <a href="#" class="btn " data-toggle="modal" data-target="#staticBackdrop" style="" >
-     Ajoutez</a> -->
-     <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">ajoutez</button>
+    
+     <!-- <button type="button" class="button_ajout_lit" data-toggle="modal" data-target="#staticBackdrop" style="width:77px;"></button> -->
      
    </span>
  </span>
@@ -322,20 +368,20 @@ p{
  
  <%Salon.all.each do |c|%><br>
  
- <span class="row">
+ <span class="row" data-toggle="modal" data-target="#staticBackdrop">
    <span class="col-6">
      <%= c.title%>
-     <p class="salon1"></p>
+     <small class="salon1"></small>
    </span>
    <!--  modal -->
    <!-- Button trigger modal -->
    <span class="col-7">
      <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
      Ajoutez</a> -->
-     <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button>
+     <!-- <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button> -->
      
    </span>
- </span>
+ </span><br>
  <!-- Modal -->
  <span class="modal fade" id="salon" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
    <span class="modal-dialog modal-dialog-centered">
@@ -363,17 +409,17 @@ p{
  
  <%Autre.all.each do |c|%><br>
  
- <span class="row">
+ <span class="row" data-toggle="modal" data-target="#staticBackdrop">
    <span class="col-6">
      <%= c.title%>
-     <p class="autre1"></p>
+     <samll class="autre1"></small>
    </span>
    <!--  modal -->
    <!-- Button trigger modal -->
    <span class="col-7">
      <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
      Ajoutez</a> -->
-     <button type="button" class="myButton" data-toggle="modal" data-target="#autre">ajoutez</button>
+     <!--  <button type="button" class="myButton" data-toggle="modal" data-target="#autre">ajoutez</button> -->
      
    </span>
  </span>
@@ -410,7 +456,8 @@ p{
           
          
          
-           <h5 style="padding-left:2px;">Equipement</h5><br>
+<h5 style="margin-bottom:24px;position:relative;top:-43px"> Quelle epuipement proposer vous? </h5>
+
            <%Equipement.all.each do |e|%><br>
            <input class="list" type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
            <%= e.title%><br>
@@ -421,9 +468,9 @@ p{
 </div>
 
 <!-- sixiéme Partie------------------------------------------------->
-<div class="container1">
+<div class="container" style="height:533px;">
+      <h5 style="margin-bottom:24px;position:relative;top:-43px"> Règle de la maison </h5>
 
-      <h5>Règle de la maison</h5>
 
       <span class="containo" style="width:633px;">
    
@@ -434,22 +481,20 @@ p{
       <h6> Arriveé <br> De </h6>
       <input type="time" name="arrive[]">
       <input type="time" name="arrive[]">
-
-      <span> à </sapn>
+      <label style="margin-left:44px;"> à</label>
+      <span style="margin-left:59px;"> </sapn>
       <input type="time" name="depart[]">
       <input type="time" name="depart[]">
-
+      </sapn>
       <h6> Départ <br> De </h6>
       <input type="time" name="arrive[]">
       <input type="time" name="arrive[]">
-
-      <span>  à </sapn>
+      <label style="margin-left:44px;"> à</label>
+      <span style="margin-left:59px;"> 
       <input type="time" name="depart[]">
       <input type="time" name="depart[]">
 
-
-
-
+      </sapn>
 </div>
 <!-- Septe Partie------------------------------------------------->
 
@@ -462,15 +507,15 @@ p{
 <h5 style="margin-bottom:44px;">Condition d'annulation </h5>
        
         <span>
-        <label class="btn btn-secondary for="option1"> 1 jours</label>
+        <label class="bt button1"for="option1"> 1 jours</label>
 
         
-        <label class="btn btn-secondary" for="option2">7 jours</label>
+        <label class="bt button1" for="option2">7 jours</label>
 
-        <label class="btn btn-secondary" for="option3">14 jours</label>
+        <label class="bt button1" for="option3">14 jours</label>
 
         
-        <label class="btn btn-secondary" for="option4">30 jours</label>
+        <label class="bt button1" for="option4">30 jours</label>
         </span>
     
         <span class="none">
@@ -495,7 +540,7 @@ p{
 
 <!-- Neuviéme Partie------------------------------------------------->
 
-<div class="container1">
+<div class="container">
 
  
 
@@ -517,7 +562,7 @@ p{
 
 </div>
 
-<div class="container1" style="width:555px;">
+<div class="container" style="width:555px;height:333px;">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Quelques informations importante avant d'inscrire votre hébergement:</h5>
 
 
@@ -535,7 +580,7 @@ p{
       vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
     </h6><br>
 </div>
-<div class="container1" style="width:533px;">
+<div class="container" style="width:533px;margin-top:44px;margin-left:389px;">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Et voila! Vous avez fait tout le nécessaire ain de pouvoir acceillir vos Premieres clients</h5>
 <h6 > Une fois votre inscription terminer, vous pourrez:</h6>
              <ul style="color:#696565;margin-left:22px;"  >
@@ -545,7 +590,7 @@ p{
              
              </ul>
          
-             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
               <label for="vehicle1"> J'atteste qu'il s'agit d'une activité d'hébergement légale disposant de toutes les autorisation</label><br>
               <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
               <label for="vehicle2"> J'ai lu etj'accepte kes condition générale de RunBnB</label><br>
@@ -569,6 +614,7 @@ p{
 
 </body>
 
+
 <script>
 var div = document.getElementsByTagName('div');
 var button = document.getElementsByClassName('button');
@@ -587,51 +633,50 @@ if (current_div == 0)
 
 
  }
-
-
-
-     
  button[1].onclick = ()=>{
-     current_div++;
-     var back_div = current_div -1;
-     if ((current_div >0)&& (current_div < 12)) 
-     {
-         button[0].style.display = "block";
-         div[current_div].style.display= "block";
-         div[back_div].style.display = "none";
-         p[current_div].style.backgroundColor ="royalblue";
-         p[back_div].style.backgroundColor = "#ededed" ;
+  current_div++;
+  var back_div = current_div -1;
+  if ((current_div >0)&& (current_div < 12)) 
+  {
+      button[0].style.display = "block";
+      div[current_div].style.display= "block";
+      div[back_div].style.display = "none";
+      p[current_div].style.backgroundColor ="royalblue";
+      p[back_div].style.backgroundColor = "#ededed" ;
 
-         if (current_div ==10)
-         {
-             buttton[1].innerHTML = "vita"
-         }
+      if (current_div ==12)
+      {
+          buttton[1].innerHTML = "vita";
+      }
 
-     }
-     else 
-     {
-         if (current_div >11)
-         {
-            section.onsubmit =()=>{return true}
+  }
+  else 
+  {
+      if (current_div >10 )
+      {
+         section.onsubmit =()=>{return true}
 
-         }
-     }
+      }
+  }
 
- }
+}
 
- button[0].onclick = ()=>
- {
-     current_div--;
-     var back_div =current_div +1;
-     div[current_div].style.display= "block";
-         div[back_div].style.display = "none";
-         p[current_div].style.backgroundColor ="royalblue";
-         p[back_div].style.backgroundColor = "#ededed" ;
+button[0].onclick = ()=>
+{
+  current_div--;
+  var back_div =current_div +1;
+  div[current_div].style.display= "block";
+      div[back_div].style.display = "none";
+      p[current_div].style.backgroundColor ="royalblue";
+      p[back_div].style.backgroundColor = "#ededed" ;
 
- }
+}
 
-    
-    </script>
+
+
+
+
+</script>
     <script type="text/javascript">
   
     function getSelectedCheckboxValues(name) {
