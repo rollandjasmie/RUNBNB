@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="style.css">
 </head>
 <!DOCTYPE html>
@@ -168,7 +169,13 @@ p{
 .btn .btn-secondary{
   width: 33px !important;
 }
-
+#clicke1{
+  cursor: pointer;
+}
+.imgPreview{
+  max-width:250px;
+   max-height:250px;
+}  
     <div class="container-sm">100% wide until small breakpoint</div>
     <div class="container-md">100% wide until medium breakpoint</div>
     <div class="container-lg">100% wide until large breakpoint</div>
@@ -296,9 +303,17 @@ p{
        
                 <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal"><br>
                 
-            
-            <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 2)</span><br>
-            <a href="#">Ajouter</a>
+            <span id="caché">Trouvez votre adresse (ligne 2)
+
+            <%= text_field_tag :adresse2, "",placeholder:"votre adresse" ,class:'form-control'%><br>
+            </span><br>
+            <span  id="clicke" style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 2)<br>
+              
+              <span id="clicke1" style="color: blue"> Ajouter </span>
+
+           
+            </span>
+       
 
  
           
@@ -364,7 +379,6 @@ p{
  <%end%>
 </span><br>
 <span class="card-body" style="padding-left:0px;">
-
  
  <%Salon.all.each do |c|%><br>
  
@@ -405,7 +419,6 @@ p{
  <%end%>
 </span>
 <span class="card-body" style="padding-left:0px;">
-
  
  <%Autre.all.each do |c|%><br>
  
@@ -445,14 +458,11 @@ p{
  </span>
  <%end%>
 </span>
-
 </span>
-
-
 </div>
 <!--  Cinqiéme Partie------------------------------------------------->
-<div class="container1">
 
+<div class="container1">
           
          
          
@@ -468,10 +478,16 @@ p{
 </div>
 
 <!-- sixiéme Partie------------------------------------------------->
+<<<<<<< HEAD
 <div class="container" style="height:533px;">
       <h5 style="margin-bottom:24px;position:relative;top:-43px"> Règle de la maison </h5>
 
 
+=======
+
+<div class="container1">
+      <h5>Règle de la maison</h5>
+>>>>>>> e13160a83e21e0373fed60aedd390868aa3a7983
       <span class="containo" style="width:633px;">
    
       <%Regle.all.each do |d|%><br>
@@ -498,9 +514,38 @@ p{
 </div>
 <!-- Septe Partie------------------------------------------------->
 
-<div class="container">
+<div class="container1">
  <h2> photo</h2>
-</div>
+ <form name="myForm" method="post" enctype="multipart/form-data">
+  <div>
+    <input name="file" type="file" multiple accept=".png, .jpg, .jpeg, .gif"/>
+  </div> 
+  <div id="preview-file">
+
+  </div>
+
+  </div>
+</form>
+  <hr>
+  <div class="mise-en-page-lien" style="display: none;">
+    <div class="bloc-mise-en-page bloc-lien">
+      <h2>Liens Codepen</h2>
+      <ul>
+        <li><a href="https://codepen.io/Zonecss/pen/JBYMGZ" target="_blank">Prévisualiser retailler/supprimer  les images uploadées avec  input type=file</a></li>
+      </ul>
+    </div>
+    <div class="bloc-mise-en-page bloc-lien bloc-sites">
+      <h2>Sites</h2>
+      <ul>
+        <li><a href="https://www.zonecss.fr/#mzXojY00000.codepen" target="_blank" title="Glossaire CSS">Zone CSS</a></li>
+        <li><a href="http://www.aliasdmc.fr/#mzXojY00000.codepen" target="_blank" title="Glossaire HTML/JAVASCRIPT">Zone (X)HTML</a></li>
+        <li><a href="https://web-color.aliasdmc.fr/#mzXojY00000.codepen" target="_blank" title="Couleurs pour le WEb (#,rgb,hsl)">Couleurs Web</a></li>
+        <li><a href="https://outils-css.aliasdmc.fr/#mzXojY00000.codepen" target="_blank">Outils CSS</a></li>
+        <li><a href="https://outils-javascript.aliasdmc.fr/#mzXojY00000.codepen" target="_blank">Outils Javascript</a></li>
+      </ul>
+    </div>
+  </div>
+  </div>
 
 <div class="container" style="width:688px; weight:255px;">
 
@@ -712,3 +757,50 @@ button[0].onclick = ()=>
     }
     
     </script>
+
+      <script >
+      var cache = document.getElementById("caché")
+      var clicke1 = document.getElementById("clicke1")
+      var clicke = document.getElementById("clicke")
+       clicke1.onclick = function () {
+        cache.style.display= "block";
+        clicke.style.display="none"
+        }
+    </script>
+    <script type="text/javascript">
+      function createThumbnail(sFile,sId) {
+  var oReader = new FileReader();
+  oReader.addEventListener('load', function() {
+    var oImgElement = document.createElement('img');
+    oImgElement.classList.add('imgPreview') 
+    oImgElement.src = this.result;
+    document.getElementById('preview-'+sId).appendChild(oImgElement);
+  }, false);
+
+  oReader.readAsDataURL(sFile);
+
+}//function
+function changeInputFil(oEvent){
+  var oInputFile = oEvent.currentTarget,
+      sName = oInputFile.name,
+      aFiles = oInputFile.files,
+      aAllowedTypes = ['png', 'jpg', 'jpeg', 'gif'],
+      imgType;  
+  document.getElementById('preview-'+sName).innerHTML ='';
+  for (var i = 0 ; i < aFiles.length ; i++) {
+    imgType = aFiles[i].name.split('.');
+    imgType = imgType[imgType.length - 1];
+    if(aAllowedTypes.indexOf(imgType) != -1) {
+      createThumbnail(aFiles[i],sName);
+    }//if
+  }//for
+}//function 
+
+document.addEventListener('DOMContentLoaded',function(){
+ var aFileInput = document.forms['myForm'].querySelectorAll('[type=file]');
+  for(var k = 0; k < aFileInput.length;k++){
+    aFileInput[k].addEventListener('change', changeInputFil, false);
+  }//for
+});
+    </script>
+
