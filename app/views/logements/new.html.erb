@@ -87,8 +87,53 @@ p{
   background: #f96816;
   outline: none;
   
-  
   }
+
+  .bt  {
+    background-color: white ; 
+    border: 1px solid black;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+  }
+  
+   .bt:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+   .bt:hover {
+    background-color: rgb(233, 80, 10);
+  }
+  .button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.row{
+  box-shadow:
+
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 1.5px 10px rgba(0, 0, 0, 0.06),
+  0 2.3px 7.9px rgba(0, 0, 0, 0.052),
+  0 4.8px 12.4px rgba(0, 0, 0, 0.056),
+  0 2px 2px rgba(0, 0, 0, 0.2)
+;
+
+  
+  
+
+
+ 
+  background: white;
+  border-radius: 5px;
+  
+  
+}
+
 
 
 
@@ -211,6 +256,7 @@ p{
 
 
 <section class="welcome">
+  <%= form_tag url_for(action:'create'), methode: "post", multipart: true do%>
 
 <!-- Premiere parti -->
 <div class="container">
@@ -277,18 +323,19 @@ p{
 </div>
 <!-- Troisieme Partie --------------------------------------->
 
-<div class="container">
+<div class="container1">
 
          
-         <h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-33px"> Carte</h5>
          
 
 </div>
 
 <!-- Quatriéme Partie------------------------------------------------->
-<div class="container">
+<div class="container" style="top:66px;">
 
-<h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-3px">Où les clients peuvent-ils dormir ?</h5>
+<h5 style="margin-bottom:24px;position:relative;top:-59px;"> Information sur l'hébergement</h5>
+
+<h6 style="margin-bottom:14px;position:relative;top:23px">Où les clients peuvent-ils dormir ?</h6>
 
 
 <span class="card-body" style="padding-left:0px;">
@@ -296,17 +343,16 @@ p{
  
  <%Chambre.all.each do |c|%><br>
  
- <span class="row">
+ <span class="row" data-toggle="modal" data-target="#staticBackdrop">
    <span class="col-6">
      <%= c.title%>
-     <p class="za"></p>
+     <small class="za"></small>
    </span>
    <!--  modal -->
    <!-- Button trigger modal -->
    <span class="col-7">
-     <!-- <a href="#" class="btn " data-toggle="modal" data-target="#staticBackdrop" style="" >
-     Ajoutez</a> -->
-     <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">ajoutez</button>
+    
+     <!-- <button type="button" class="button_ajout_lit" data-toggle="modal" data-target="#staticBackdrop" style="width:77px;"></button> -->
      
    </span>
  </span>
@@ -336,20 +382,20 @@ p{
  
  <%Salon.all.each do |c|%><br>
  
- <span class="row">
+ <span class="row" data-toggle="modal" data-target="#staticBackdrop">
    <span class="col-6">
      <%= c.title%>
-     <p class="salon1"></p>
+     <small class="salon1"></small>
    </span>
    <!--  modal -->
    <!-- Button trigger modal -->
    <span class="col-7">
      <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
      Ajoutez</a> -->
-     <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button>
+     <!-- <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button> -->
      
    </span>
- </span>
+ </span><br>
  <!-- Modal -->
  <span class="modal fade" id="salon" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
    <span class="modal-dialog modal-dialog-centered">
@@ -376,17 +422,17 @@ p{
  
  <%Autre.all.each do |c|%><br>
  
- <span class="row">
+ <span class="row" data-toggle="modal" data-target="#staticBackdrop">
    <span class="col-6">
      <%= c.title%>
-     <p class="autre1"></p>
+     <samll class="autre1"></small>
    </span>
    <!--  modal -->
    <!-- Button trigger modal -->
    <span class="col-7">
      <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
      Ajoutez</a> -->
-     <button type="button" class="myButton" data-toggle="modal" data-target="#autre">ajoutez</button>
+     <!--  <button type="button" class="myButton" data-toggle="modal" data-target="#autre">ajoutez</button> -->
      
    </span>
  </span>
@@ -420,7 +466,8 @@ p{
           
          
          
-           <h5 style="padding-left:2px;">Equipement</h5><br>
+<h5 style="margin-bottom:24px;position:relative;top:-43px"> Quelle epuipement proposer vous? </h5>
+
            <%Equipement.all.each do |e|%><br>
            <input class="list" type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
            <%= e.title%><br>
@@ -432,8 +479,10 @@ p{
 
 <!-- sixiéme Partie------------------------------------------------->
 
-<div class="container1">
-      <h5>Règle de la maison</h5>
+<div class="container" style="height:533px;">
+      <h5 style="margin-bottom:24px;position:relative;top:-43px"> Règle de la maison </h5>
+
+
       <span class="containo" style="width:633px;">
    
       <%Regle.all.each do |d|%><br>
@@ -443,72 +492,56 @@ p{
       <h6> Arriveé <br> De </h6>
       <input type="time" name="arrive[]">
       <input type="time" name="arrive[]">
-
-      <span> à </sapn>
+      <label style="margin-left:44px;"> à</label>
+      <span style="margin-left:59px;"> </sapn>
       <input type="time" name="depart[]">
       <input type="time" name="depart[]">
-
+      </sapn>
       <h6> Départ <br> De </h6>
       <input type="time" name="arrive[]">
       <input type="time" name="arrive[]">
-
-      <span>  à </sapn>
+      <label style="margin-left:44px;"> à</label>
+      <span style="margin-left:59px;"> 
       <input type="time" name="depart[]">
       <input type="time" name="depart[]">
 
-
-
-
+      </sapn>
 </div>
 <!-- Septe Partie------------------------------------------------->
 
-<div class="container1">
+<div class="container">
  <h2> photo</h2>
- <form name="myForm" method="post" enctype="multipart/form-data">
-  <div>
-    <input name="file" type="file" multiple accept=".png, .jpg, .jpeg, .gif"/>
-  </div> 
-  <div id="preview-file">
+ <%= label_tag 'photos', id: "files-inputs" do %>
+
+                              <input id="up-1" type="file" name="photos[]" >
+                              <input id="up-2" type="file" name="photos[]" style="display:none" >
+                              <input id="up-3" type="file" name="photos[]" style="display:none" >
+                              <input id="up-4" type="file" name="photos[]" style="display:none" >
+                              <input id="up-5" type="file" name="photos[]" style="display:none" >
+                              <input id="up-6" type="file" name="photos[]" style="display:none" >
+                              <input id="up-7" type="file" name="photos[]" style="display:none" >
+                              <input id="up-8" type="file" name="photos[]" style="display:none" >
+                            <% end %>
+  
+<%=submit_tag 'cre'%>
+<%end%>
 
   </div>
 
-  </div>
-</form>
-  <hr>
-  <div class="mise-en-page-lien" style="display: none;">
-    <div class="bloc-mise-en-page bloc-lien">
-      <h2>Liens Codepen</h2>
-      <ul>
-        <li><a href="https://codepen.io/Zonecss/pen/JBYMGZ" target="_blank">Prévisualiser retailler/supprimer  les images uploadées avec  input type=file</a></li>
-      </ul>
-    </div>
-    <div class="bloc-mise-en-page bloc-lien bloc-sites">
-      <h2>Sites</h2>
-      <ul>
-        <li><a href="https://www.zonecss.fr/#mzXojY00000.codepen" target="_blank" title="Glossaire CSS">Zone CSS</a></li>
-        <li><a href="http://www.aliasdmc.fr/#mzXojY00000.codepen" target="_blank" title="Glossaire HTML/JAVASCRIPT">Zone (X)HTML</a></li>
-        <li><a href="https://web-color.aliasdmc.fr/#mzXojY00000.codepen" target="_blank" title="Couleurs pour le WEb (#,rgb,hsl)">Couleurs Web</a></li>
-        <li><a href="https://outils-css.aliasdmc.fr/#mzXojY00000.codepen" target="_blank">Outils CSS</a></li>
-        <li><a href="https://outils-javascript.aliasdmc.fr/#mzXojY00000.codepen" target="_blank">Outils Javascript</a></li>
-      </ul>
-    </div>
-  </div>
-  </div>
+<div class="container" style="width:688px; weight:255px;top:66px;">
 
-<div class="container" style="width:688px; weight:255px;">
-
-<h5 style="margin-bottom:44px;">Condition d'annulation </h5>
-       
+<h5 style="margin-bottom:24px;position:relative;top:-43px">Condition d'annulation </h5>
+<h6 style="margin-bottom:44px;">Combien de jours avant leur arrivée les clients peuvent-ils annuler leur réservation gratuitement ? </h6>
         <span>
-        <label class="btn btn-secondary for="option1"> 1 jours</label>
+        <label class="bt button1"for="option1"> 1 jours</label>
 
         
-        <label class="btn btn-secondary" for="option2">7 jours</label>
+        <label class="bt button1" for="option2">7 jours</label>
 
-        <label class="btn btn-secondary" for="option3">14 jours</label>
+        <label class="bt button1" for="option3">14 jours</label>
 
         
-        <label class="btn btn-secondary" for="option4">30 jours</label>
+        <label class="bt button1" for="option4">30 jours</label>
         </span>
     
         <span class="none">
@@ -533,7 +566,7 @@ p{
 
 <!-- Neuviéme Partie------------------------------------------------->
 
-<div class="container1">
+<div class="container">
 
  
 
@@ -555,7 +588,7 @@ p{
 
 </div>
 
-<div class="container1" style="width:555px;">
+<div class="container" style="width:555px;height:333px;">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Quelques informations importante avant d'inscrire votre hébergement:</h5>
 
 
@@ -573,17 +606,17 @@ p{
       vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
     </h6><br>
 </div>
-<div class="container1" style="width:533px;">
+<div class="container" style="width:533px;margin-top:44px;margin-left:389px;">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Et voila! Vous avez fait tout le nécessaire ain de pouvoir acceillir vos Premieres clients</h5>
 <h6 > Une fois votre inscription terminer, vous pourrez:</h6>
              <ul style="color:#696565;margin-left:22px;"  >
-              <li>Gérer votre hébergement à partir de votre de bord</li>
-              <li>Recevoir des réservations des clients qui se rendent sur notre site et gagner de l'argent</li>
+              <li>Gérer votre hébergement à partir de votre de bord</li><br>
+              <li>Recevoir des réservations des clients qui se rendent sur notre site et gagner de l'argent</li><br>
               <li>Garder le contrôle des réservations de tous les sites sur lesquelles vous êtes inscrit(e) en synchronisant votre calendrier </li>
              
              </ul>
          
-             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
               <label for="vehicle1"> J'atteste qu'il s'agit d'une activité d'hébergement légale disposant de toutes les autorisation</label><br>
               <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
               <label for="vehicle2"> J'ai lu etj'accepte kes condition générale de RunBnB</label><br>
@@ -607,6 +640,7 @@ p{
 
 </body>
 
+
 <script>
 var div = document.getElementsByTagName('div');
 var button = document.getElementsByClassName('button');
@@ -617,59 +651,85 @@ section.onsubmit =()=>{return false}
 var current_div = 0;
 div[current_div].style.display = "block";
 if (current_div == 0)
- {
-     button[0].style.display = "none";
-     p[0].style.backgroundColor = "royalblue" ;
-     
+{
+    button[0].style.display = "none";
+    p[0].style.backgroundColor = "royalblue";
+
+
+}
+
+button[1].onclick = ()=>{
+  current_div++;
+  var back_div = current_div - 1;
+  if ((current_div > 0) && (current_div < 12))
+  {
+    button[0].style.display = "block";
+    div[current_div].style.display = "block";
+    div[back_div].style.display = "none";
+    p[current_div].style.backgroundColor = "royalblue";
+    p[back_div].style.backgroundColor = "#ededed";
+    button[1].style.cssText ="float:right; margin-right:88px;"
+ 
 
 
 
- }
+    if (current_div == 11)
+    {
+      button[1].innerHTML = "vita";
+      button[0].style.display ="none";
+    }
+
+  }
+  else
+  {
+      if (current_div > 11) 
+      {
+        section.onsubmit =()=>{return true}
+
+      }
+  }
+}
+
+button[0].onclick = ()=>{     
+
+{
+    current_div--;
+    var back_div =current_div +1;
+    div[current_div].style.display= "block";
+        div[back_div].style.display = "none";
+        p[current_div].style.backgroundColor ="royalblue";
+        p[back_div].style.backgroundColor = "#ededed" ;
+        if (current_div < 12)
+          {
+            button[1].innerHTML = "Next";
+         
+
+        }
+      
+
+}
+
+if (current_div == 0) {
+  button[0].style.display = "none";
+
+}
 
 
 
-     
- button[1].onclick = ()=>{
-     current_div++;
-     var back_div = current_div -1;
-     if ((current_div >0)&& (current_div < 12)) 
-     {
-         button[0].style.display = "block";
-         div[current_div].style.display= "block";
-         div[back_div].style.display = "none";
-         p[current_div].style.backgroundColor ="royalblue";
-         p[back_div].style.backgroundColor = "#ededed" ;
+}
 
-         if (current_div ==10)
-         {
-             buttton[1].innerHTML = "vita"
-         }
 
-     }
-     else 
-     {
-         if (current_div >11)
-         {
-            section.onsubmit =()=>{return true}
 
-         }
-     }
 
- }
 
- button[0].onclick = ()=>
- {
-     current_div--;
-     var back_div =current_div +1;
-     div[current_div].style.display= "block";
-         div[back_div].style.display = "none";
-         p[current_div].style.backgroundColor ="royalblue";
-         p[back_div].style.backgroundColor = "#ededed" ;
 
- }
 
-    
-    </script>
+
+</script>
+
+</script>
+
+
     <script type="text/javascript">
   
     function getSelectedCheckboxValues(name) {
@@ -706,6 +766,7 @@ if (current_div == 0)
     
     </script>
 
+
       <script >
       var cache = document.getElementById("caché")
       var clicke1 = document.getElementById("clicke1")
@@ -715,40 +776,114 @@ if (current_div == 0)
         clicke.style.display="none"
         }
     </script>
-    <script type="text/javascript">
-      function createThumbnail(sFile,sId) {
-  var oReader = new FileReader();
-  oReader.addEventListener('load', function() {
-    var oImgElement = document.createElement('img');
-    oImgElement.classList.add('imgPreview') 
-    oImgElement.src = this.result;
-    document.getElementById('preview-'+sId).appendChild(oImgElement);
-  }, false);
 
-  oReader.readAsDataURL(sFile);
-
-}//function
-function changeInputFil(oEvent){
-  var oInputFile = oEvent.currentTarget,
-      sName = oInputFile.name,
-      aFiles = oInputFile.files,
-      aAllowedTypes = ['png', 'jpg', 'jpeg', 'gif'],
-      imgType;  
-  document.getElementById('preview-'+sName).innerHTML ='';
-  for (var i = 0 ; i < aFiles.length ; i++) {
-    imgType = aFiles[i].name.split('.');
-    imgType = imgType[imgType.length - 1];
-    if(aAllowedTypes.indexOf(imgType) != -1) {
-      createThumbnail(aFiles[i],sName);
-    }//if
-  }//for
-}//function 
-
-document.addEventListener('DOMContentLoaded',function(){
- var aFileInput = document.forms['myForm'].querySelectorAll('[type=file]');
-  for(var k = 0; k < aFileInput.length;k++){
-    aFileInput[k].addEventListener('change', changeInputFil, false);
-  }//for
+<script type="text/javascript">
+    var p1 = document.getElementById("up-1");
+    var p2 = document.getElementById("up-2");
+    var p3 = document.getElementById("up-3");
+    var p4 = document.getElementById("up-4");
+    var p5 = document.getElementById("up-5");
+    var p6 = document.getElementById("up-6");
+    var p7 = document.getElementById("up-7"); 
+    var p8 = document.getElementById("up-8");
+    p1.onclick = function (){
+      p2.style.display="block";
+      p1.style.display="none";
+    }
+     p2.onclick = function (){
+      p3.style.display="block";
+      p2.style.display="none";
+    }
+     p3.onclick = function (){
+      p4.style.display="block";
+      p3.style.display="none";
+    }
+     p4.onclick = function (){
+      p5.style.display="block";
+      p4.style.display="none";
+    }
+     p5.onclick = function (){
+      p6.style.display="block";
+      p5.style.display="none";
+    }
+     p6.onclick = function (){
+      p7.style.display="block";
+      p6.style.display="none";
+    }
+     p7.onclick = function (){
+      p8.style.display="block";
+      p7.style.display="none";
+    }
+    p8.onclick = function (){
+      p8.style.display="none";
+    }
+    
+  mapboxgl.accessToken = 'pk.eyJ1Ijoicm9sbGFuZGphc21pZSIsImEiOiJja2V2OXUyazYxbjJhMnduMGZ2NmU3YmRrIn0.qwoke-4A7fwXdW3JXu4cIw';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-79.4512, 43.6568],
+zoom: 13
 });
-    </script>
+ 
+/* given a query in the form "lng, lat" or "lat, lng" returns the matching
+* geographic coordinate(s) as search results in carmen geojson format,
+* https://github.com/mapbox/carmen/blob/master/carmen-geojson.md
+*/
+var coordinatesGeocoder = function (query) {
+// match anything which looks like a decimal degrees coordinate pair
+var matches = query.match(
+/^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
+);
+if (!matches) {
+return null;
+}
+ 
+function coordinateFeature(lng, lat) {
+return {
+center: [lng, lat],
+geometry: {
+type: 'Point',
+coordinates: [lng, lat]
+},
+place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+place_type: ['coordinate'],
+properties: {},
+type: 'Feature'
+};
+}
+var coord1 = Number(matches[1]);
+var coord2 = Number(matches[2]);
+var geocodes = [];
+ 
+if (coord1 < -90 || coord1 > 90) {
+// must be lng, lat
+geocodes.push(coordinateFeature(coord1, coord2));
+}
+ 
+if (coord2 < -90 || coord2 > 90) {
+// must be lat, lng
+geocodes.push(coordinateFeature(coord2, coord1));
+}
+ 
+if (geocodes.length === 0) {
+// else could be either lng, lat or lat, lng
+geocodes.push(coordinateFeature(coord1, coord2));
+geocodes.push(coordinateFeature(coord2, coord1));
+}
+alert(coord1) 
+return geocodes;
 
+};
+ 
+map.addControl(
+new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+localGeocoder: coordinatesGeocoder,
+zoom: 4,
+placeholder: 'Try: -40, 170',
+mapboxgl: mapboxgl
+})
+);
+
+</script>
