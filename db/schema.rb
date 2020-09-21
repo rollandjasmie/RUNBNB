@@ -86,10 +86,8 @@ ActiveRecord::Schema.define(version: 2020_09_15_061611) do
   create_table "chambres", force: :cascade do |t|
     t.string "title"
     t.bigint "logement_id"
-    t.bigint "lit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["lit_id"], name: "index_chambres_on_lit_id"
     t.index ["logement_id"], name: "index_chambres_on_logement_id"
   end
 
@@ -148,8 +146,8 @@ ActiveRecord::Schema.define(version: 2020_09_15_061611) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string "start_date"
+    t.string "end_date"
     t.bigint "logement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
