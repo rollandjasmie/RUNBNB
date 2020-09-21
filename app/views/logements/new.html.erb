@@ -19,14 +19,16 @@ p{
         display: inline-flex;
     }
 
-
+   main{
+     display:none;
+   }
     .container{
        position:relative;
        top:33px;
         width:500px;
         height:333px;
         padding:17px;
-        display:none;
+       display:block;
         background-color:#F4F4F4;
         border-radius:14px;
     }
@@ -38,7 +40,7 @@ p{
          height:412pxpx;
          padding-top:22px;
          padding:17px;
-         display:none;
+      
          background-color:#F4F4F4;
          border-radius:14px;
      }
@@ -257,7 +259,8 @@ p{
 
 <section class="welcome">
 
-<!-- Premiere parti -->
+<!-- Premiere parti ---------------------->
+<main>
 <div class="container">
 
             <h6>Quel est le nom de votre hébergement?</h6> <br>
@@ -277,8 +280,9 @@ p{
             
 
 </div>
+</main>
 <!-- Deuxieme Parte:!!----------------------------------------------->
-
+<main>
 <div class="container1" >
 
 
@@ -320,8 +324,9 @@ p{
       
 
 </div>
+</main>
 <!-- Troisieme Partie --------------------------------------->
-
+<main>
 <div class="container">
 
          
@@ -329,8 +334,9 @@ p{
          
 
 </div>
-
+</main>
 <!-- Quatriéme Partie------------------------------------------------->
+<main>
 <div class="container" style="top:66px;">
 
 <h5 style="margin-bottom:24px;position:relative;top:-59px;"> Information sur l'hébergement</h5>
@@ -460,8 +466,9 @@ p{
 </span>
 </span>
 </div>
+</main>
 <!--  Cinqiéme Partie------------------------------------------------->
-
+<main>
 <div class="container1">
           
          
@@ -476,18 +483,13 @@ p{
        
  
 </div>
-
+</main>
 <!-- sixiéme Partie------------------------------------------------->
-<<<<<<< HEAD
+<main>
 <div class="container" style="height:533px;">
       <h5 style="margin-bottom:24px;position:relative;top:-43px"> Règle de la maison </h5>
 
 
-=======
-
-<div class="container1">
-      <h5>Règle de la maison</h5>
->>>>>>> e13160a83e21e0373fed60aedd390868aa3a7983
       <span class="containo" style="width:633px;">
    
       <%Regle.all.each do |d|%><br>
@@ -512,45 +514,20 @@ p{
 
       </sapn>
 </div>
+</main>
 <!-- Septe Partie------------------------------------------------->
-
-<div class="container1">
+<main>
+<div class="container">
  <h2> photo</h2>
- <form name="myForm" method="post" enctype="multipart/form-data">
-  <div>
-    <input name="file" type="file" multiple accept=".png, .jpg, .jpeg, .gif"/>
-  </div> 
-  <div id="preview-file">
 
-  </div>
+</div>
+</main>
+<!-- Septe Partie------------------------------------------------->
+<main>
+<div class="container" style="width:688px; weight:255px;top:66px;">
 
-  </div>
-</form>
-  <hr>
-  <div class="mise-en-page-lien" style="display: none;">
-    <div class="bloc-mise-en-page bloc-lien">
-      <h2>Liens Codepen</h2>
-      <ul>
-        <li><a href="https://codepen.io/Zonecss/pen/JBYMGZ" target="_blank">Prévisualiser retailler/supprimer  les images uploadées avec  input type=file</a></li>
-      </ul>
-    </div>
-    <div class="bloc-mise-en-page bloc-lien bloc-sites">
-      <h2>Sites</h2>
-      <ul>
-        <li><a href="https://www.zonecss.fr/#mzXojY00000.codepen" target="_blank" title="Glossaire CSS">Zone CSS</a></li>
-        <li><a href="http://www.aliasdmc.fr/#mzXojY00000.codepen" target="_blank" title="Glossaire HTML/JAVASCRIPT">Zone (X)HTML</a></li>
-        <li><a href="https://web-color.aliasdmc.fr/#mzXojY00000.codepen" target="_blank" title="Couleurs pour le WEb (#,rgb,hsl)">Couleurs Web</a></li>
-        <li><a href="https://outils-css.aliasdmc.fr/#mzXojY00000.codepen" target="_blank">Outils CSS</a></li>
-        <li><a href="https://outils-javascript.aliasdmc.fr/#mzXojY00000.codepen" target="_blank">Outils Javascript</a></li>
-      </ul>
-    </div>
-  </div>
-  </div>
-
-<div class="container" style="width:688px; weight:255px;">
-
-<h5 style="margin-bottom:44px;">Condition d'annulation </h5>
-       
+<h5 style="margin-bottom:24px;position:relative;top:-43px">Condition d'annulation </h5>
+<h6 style="margin-bottom:44px;">Combien de jours avant leur arrivée les clients peuvent-ils annuler leur réservation gratuitement ? </h6>
         <span>
         <label class="bt button1"for="option1"> 1 jours</label>
 
@@ -577,15 +554,17 @@ p{
        <span>
       
 </div>
+</main>
 
 <!-- Huitiéme Partie------------------------------------------------->
+<main>
 <div class="container">
  <h4> calendrier </h4>
 </div>
-
+</main>
 <!-- Neuviéme Partie------------------------------------------------->
-
-<div class="container">
+<main>
+<div class="container" style="height:388px;">
 
  
 
@@ -606,8 +585,10 @@ p{
 
 
 </div>
-
-<div class="container" style="width:555px;height:333px;">
+</main>
+<!-- Neuviéme Partie------------------------------------------------->
+<main>
+<div class="container" style="width:555px;height:393px;top:66px;">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Quelques informations importante avant d'inscrire votre hébergement:</h5>
 
 
@@ -625,12 +606,15 @@ p{
       vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
     </h6><br>
 </div>
-<div class="container" style="width:533px;margin-top:44px;margin-left:389px;">
+
+</main>
+<main>
+<div class="container" style="width:533px;margin-top:44px;margin-left:389px; height:399px;">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Et voila! Vous avez fait tout le nécessaire ain de pouvoir acceillir vos Premieres clients</h5>
 <h6 > Une fois votre inscription terminer, vous pourrez:</h6>
              <ul style="color:#696565;margin-left:22px;"  >
-              <li>Gérer votre hébergement à partir de votre de bord</li>
-              <li>Recevoir des réservations des clients qui se rendent sur notre site et gagner de l'argent</li>
+              <li>Gérer votre hébergement à partir de votre de bord</li><br>
+              <li>Recevoir des réservations des clients qui se rendent sur notre site et gagner de l'argent</li><br>
               <li>Garder le contrôle des réservations de tous les sites sur lesquelles vous êtes inscrit(e) en synchronisant votre calendrier </li>
              
              </ul>
@@ -643,6 +627,7 @@ p{
 
 
 </div>
+</main>
 
 
 <span class="b">
@@ -661,67 +646,94 @@ p{
 
 
 <script>
-var div = document.getElementsByTagName('div');
+var main = document.getElementsByTagName('main');
 var button = document.getElementsByClassName('button');
 var p = document.getElementsByTagName('p');
 var section = document.getElementsByTagName('section')[0];
 section.onsubmit =()=>{return false}
 
-var current_div = 0;
-div[current_div].style.display = "block";
-if (current_div == 0)
- {
-     button[0].style.display = "none";
-     p[0].style.backgroundColor = "royalblue" ;
-     
-
-
-
- }
- button[1].onclick = ()=>{
-  current_div++;
-  var back_div = current_div -1;
-  if ((current_div >0)&& (current_div < 12)) 
-  {
-      button[0].style.display = "block";
-      div[current_div].style.display= "block";
-      div[back_div].style.display = "none";
-      p[current_div].style.backgroundColor ="royalblue";
-      p[back_div].style.backgroundColor = "#ededed" ;
-
-      if (current_div ==12)
-      {
-          buttton[1].innerHTML = "vita";
-      }
-
-  }
-  else 
-  {
-      if (current_div >10 )
-      {
-         section.onsubmit =()=>{return true}
-
-      }
-  }
-
-}
-
-button[0].onclick = ()=>
+var current_main = 0;
+main[current_main].style.display = "block";
+if (current_main == 0)
 {
-  current_div--;
-  var back_div =current_div +1;
-  div[current_div].style.display= "block";
-      div[back_div].style.display = "none";
-      p[current_div].style.backgroundColor ="royalblue";
-      p[back_div].style.backgroundColor = "#ededed" ;
+    button[0].style.display = "none";
+    p[0].style.backgroundColor = "royalblue";
+
 
 }
+
+button[1].onclick = ()=>{
+  current_main++;
+  var back_main = current_main - 1;
+  if ((current_main > 0) && (current_main < 12))
+  {
+    button[0].style.display = "block";
+    main[current_main].style.display = "block";
+    main[back_main].style.display = "none";
+    p[current_main].style.backgroundColor = "royalblue";
+    p[back_main].style.backgroundColor = "#ededed";
+    button[1].style.cssText ="float:right; margin-right:88px;"
+ 
+
+
+
+    if (current_main == 11)
+    {
+      button[1].innerHTML = "vita";
+      button[0].style.display ="none";
+    }
+
+  }
+  else
+  {
+      if (current_main > 11) 
+      {
+        section.onsubmit =()=>{return true}
+
+      }
+  }
+}
+
+button[0].onclick = ()=>{     
+
+{
+    current_main--;
+    var back_main =current_main +1;
+    main[current_main].style.display= "block";
+        main[back_main].style.display = "none";
+        p[current_main].style.backgroundColor ="royalblue";
+        p[back_main].style.backgroundColor = "#ededed" ;
+        if (current_main < 12)
+          {
+            button[1].innerHTML = "Next";
+         
+
+        }
+      
+
+}
+
+if (current_main == 0) {
+  button[0].style.display = "none";
+
+}
+
+
+
+}
+
+
+
 
 
 
 
 
 </script>
+
+</script>
+
+
     <script type="text/javascript">
   
     function getSelectedCheckboxValues(name) {
@@ -758,49 +770,5 @@ button[0].onclick = ()=>
     
     </script>
 
-      <script >
-      var cache = document.getElementById("caché")
-      var clicke1 = document.getElementById("clicke1")
-      var clicke = document.getElementById("clicke")
-       clicke1.onclick = function () {
-        cache.style.display= "block";
-        clicke.style.display="none"
-        }
-    </script>
-    <script type="text/javascript">
-      function createThumbnail(sFile,sId) {
-  var oReader = new FileReader();
-  oReader.addEventListener('load', function() {
-    var oImgElement = document.createElement('img');
-    oImgElement.classList.add('imgPreview') 
-    oImgElement.src = this.result;
-    document.getElementById('preview-'+sId).appendChild(oImgElement);
-  }, false);
 
-  oReader.readAsDataURL(sFile);
-
-}//function
-function changeInputFil(oEvent){
-  var oInputFile = oEvent.currentTarget,
-      sName = oInputFile.name,
-      aFiles = oInputFile.files,
-      aAllowedTypes = ['png', 'jpg', 'jpeg', 'gif'],
-      imgType;  
-  document.getElementById('preview-'+sName).innerHTML ='';
-  for (var i = 0 ; i < aFiles.length ; i++) {
-    imgType = aFiles[i].name.split('.');
-    imgType = imgType[imgType.length - 1];
-    if(aAllowedTypes.indexOf(imgType) != -1) {
-      createThumbnail(aFiles[i],sName);
-    }//if
-  }//for
-}//function 
-
-document.addEventListener('DOMContentLoaded',function(){
- var aFileInput = document.forms['myForm'].querySelectorAll('[type=file]');
-  for(var k = 0; k < aFileInput.length;k++){
-    aFileInput[k].addEventListener('change', changeInputFil, false);
-  }//for
-});
-    </script>
 
