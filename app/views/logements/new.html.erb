@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="style.css">
 </head>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="carrou.css">
@@ -138,6 +138,7 @@ p{
 
 
 <header>
+  <%= form_tag url_for(action:'create'), methode: "post" do%>
     <nav class=" tainer">
         <ul class="nu">
             
@@ -493,11 +494,10 @@ p{
 </div>
 
 <!-- Huitiéme Partie------------------------------------------------->
-<div class="container">
+<div class="container1">
  <h4> calendrier </h4><br>
- <input type="text" id="start_date" class="datepicker" placeholder="start date">
- <input type="text" id="end_date"  class="datepicker" placeholder="end_date">
-
+ <span type="text" id="start_date" class="datepicker" placeholder="start date" name="start_date[]">
+ <span type="text" id="end_date" class="datepicker" placeholder="end date" name="end_date[]">
 </div>
 
 <!-- Neuviéme Partie------------------------------------------------->
@@ -559,8 +559,9 @@ p{
 
 
 
+       <%= submit_tag 'creer'%>
+       <%end%>
 </div>
-
 
 <span class="b">
 <span name ="prev" class="button">Precédent</span>
@@ -595,9 +596,7 @@ if (current_div == 0)
 
  }
 
-
-
-     
+    
  button[1].onclick = ()=>{
      current_div++;
      var back_div = current_div -1;
@@ -655,34 +654,17 @@ if (current_div == 0)
     alert(getSelectedCheckboxValues('values'));
     });
     
-      function chercher(){
-    var ville = $("#ville").val();
-    if(ville != ""){
-    $.ajax({
-    url: "https://nominatim.openstreetmap.org/search", // URL de Nominatim
-    type: 'get', // Requête de type GET
-    data: "q="+ville+"&format=json&addressdetails=1&limit=1&polygon_svg=1" // Données envoyées (q -> adresse complète, format -> format attendu pour la réponse, limit -> nombre de réponses attendu, polygon_svg -> fournit les données de polygone de la réponse en svg)
-    }).done(function (response) {
-    if(response != ""){
-    userlat = response[0]['lat'];
-    userlon = response[0]['lon'];
-    }
-    }).fail(function (error) {
-    alert(error);
-    });
-    }
-    }
 
-    $( function() {
-    $( ".datepicker" ).datepicker();
-      minDate : 0
-      onSelect: function(date){
-        var option = maxDate;
-        if (this.id == "start_date") {
-          option = 'minDate'
+    $(function(){
+    var datepicker = $( ".datepicker").datepicker({
+       minDate: 0,
+       onSelect: function(date){
+        var option = this.id = 'start_date'? 'minDate' : 'maxDate';
+        datepicker.not('#'+this.id).datepicker('option',option,date);
+
         }
-      }
-    } );
+    }) 
+    });
 
     
     </script>
