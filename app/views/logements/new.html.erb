@@ -1,9 +1,8 @@
-
-<link rel="stylesheet" href="style.css">
 </head>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="carrou.css">
@@ -173,13 +172,7 @@ p{
 .btn .btn-secondary{
   width: 33px !important;
 }
-#clicke1{
-  cursor: pointer;
-}
-.imgPreview{
-  max-width:250px;
-   max-height:250px;
-}  
+
     <div class="container-sm">100% wide until small breakpoint</div>
     <div class="container-md">100% wide until medium breakpoint</div>
     <div class="container-lg">100% wide until large breakpoint</div>
@@ -190,6 +183,7 @@ p{
 
 
 <header>
+  <%= form_tag url_for(action:'create'), methode: "post" do%>
     <nav class=" tainer">
         <ul class="nu">
             
@@ -308,17 +302,9 @@ p{
        
                 <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal"><br>
                 
-            <span id="caché">Trouvez votre adresse (ligne 2)
-
-            <%= text_field_tag :adresse2, "",placeholder:"votre adresse" ,class:'form-control'%><br>
-            </span><br>
-            <span  id="clicke" style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 2)<br>
-              
-              <span id="clicke1" style="color: blue"> Ajouter </span>
-
-           
-            </span>
-       
+            
+            <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 2)</span><br>
+            <a href="#">Ajouter</a>
 
  
           
@@ -383,6 +369,7 @@ p{
  <%end%>
 </span><br>
 <span class="card-body" style="padding-left:0px;">
+
  
  <%Salon.all.each do |c|%><br>
  
@@ -396,11 +383,8 @@ p{
    <span class="col-7">
      <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
      Ajoutez</a> -->
-<<<<<<< HEAD
      <button type="button" class="" data-toggle="modal" data-target="#salon">ajoutez</button>
-=======
      <!-- <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button> -->
->>>>>>> 827315476854998d95fbec2e13ecf5fe3594cc32
      
    </span>
  </span><br>
@@ -427,6 +411,7 @@ p{
  <%end%>
 </span>
 <span class="card-body" style="padding-left:0px;">
+
  
  <%Autre.all.each do |c|%><br>
  
@@ -466,11 +451,15 @@ p{
  </span>
  <%end%>
 </span>
+
 </span>
+
+
 </div>
 <!--  Cinqiéme Partie------------------------------------------------->
 
 <div class="container1">
+
           
          
          
@@ -536,8 +525,6 @@ p{
 
   </div>
 
-<div class="container" style="width:688px; weight:255px;top:66px;">
-
 <h5 style="margin-bottom:24px;position:relative;top:-43px">Condition d'annulation </h5>
 <h6 style="margin-bottom:44px;">Combien de jours avant leur arrivée les clients peuvent-ils annuler leur réservation gratuitement ? </h6>
         <span>
@@ -568,11 +555,10 @@ p{
 </div>
 
 <!-- Huitiéme Partie------------------------------------------------->
-<div class="container">
+<div class="container1">
  <h4> calendrier </h4><br>
- <input type="text" id="start_date" class="datepicker" placeholder="start date">
- <input type="text" id="end_date"  class="datepicker" placeholder="end_date">
-
+ <span type="text" id="start_date" class="datepicker" placeholder="start date" name="start_date[]">
+ <span type="text" id="end_date" class="datepicker" placeholder="end date" name="end_date[]">
 </div>
 
 <!-- Neuviéme Partie------------------------------------------------->
@@ -634,8 +620,9 @@ p{
 
 
 
+       <%= submit_tag 'creer'%>
+       <%end%>
 </div>
-
 
 <span class="b">
 <span name ="prev" class="button">Precédent</span>
@@ -690,6 +677,24 @@ button[1].onclick = ()=>{
       button[0].style.display ="none";
     }
 
+    
+ button[1].onclick = ()=>{
+     current_div++;
+     var back_div = current_div -1;
+     if ((current_div >0)&& (current_div < 12)) 
+     {
+         button[0].style.display = "block";
+         div[current_div].style.display= "block";
+         div[back_div].style.display = "none";
+         p[current_div].style.backgroundColor ="royalblue";
+         p[back_div].style.backgroundColor = "#ededed" ;
+
+         if (current_div ==10)
+         {
+             buttton[1].innerHTML = "vita"
+         }
+
+
   }
   else
   {
@@ -729,13 +734,6 @@ if (current_div == 0) {
 
 }
 
-
-
-
-
-
-
-
 </script>
     <script type="text/javascript">
   
@@ -753,39 +751,18 @@ if (current_div == 0) {
     alert(getSelectedCheckboxValues('values'));
     });
     
-      function chercher(){
-    var ville = $("#ville").val();
-    if(ville != ""){
-    $.ajax({
-    url: "https://nominatim.openstreetmap.org/search", // URL de Nominatim
-    type: 'get', // Requête de type GET
-    data: "q="+ville+"&format=json&addressdetails=1&limit=1&polygon_svg=1" // Données envoyées (q -> adresse complète, format -> format attendu pour la réponse, limit -> nombre de réponses attendu, polygon_svg -> fournit les données de polygone de la réponse en svg)
-    }).done(function (response) {
-    if(response != ""){
-    userlat = response[0]['lat'];
-    userlon = response[0]['lon'];
-    }
-    }).fail(function (error) {
-    alert(error);
-    });
-    }
-    }
 
-    $( function() {
-    $( ".datepicker" ).datepicker();
-      minDate : 0
-      onSelect: function(date){
-        var option = maxDate;
-        if (this.id == "start_date") {
-          option = 'minDate'
+    $(function(){
+    var datepicker = $( ".datepicker").datepicker({
+       minDate: 0,
+       onSelect: function(date){
+        var option = this.id = 'start_date'? 'minDate' : 'maxDate';
+        datepicker.not('#'+this.id).datepicker('option',option,date);
+
         }
-      }
-    } );
-
-    
+    }) 
+    });  
     </script>
-
-
       <script >
       var cache = document.getElementById("caché")
       var clicke1 = document.getElementById("clicke1")
@@ -906,3 +883,4 @@ mapboxgl: mapboxgl
 );
 
 </script>
+
