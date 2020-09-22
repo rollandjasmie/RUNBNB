@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 p{
@@ -46,6 +47,19 @@ p{
          background-color:#F4F4F4;
          border-radius:14px;
      }
+     .container2{
+      position:relative;
+      top:33px;
+      margin-left:65px;
+       width:500px;
+       height:466px;
+       padding-top:22px;
+       padding:17px;
+       display:none;
+       background-color:#F4F4F4;
+       border-radius:14px;
+   }
+
 
      main{
       display: none;
@@ -475,7 +489,6 @@ p{
          
          
 <h5 style="margin-bottom:24px;position:relative;top:-43px"> Quelle epuipement proposer vous? </h5>
-
            <%Equipement.all.each do |e|%><br>
            <input class="list" type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
            <%= e.title%><br>
@@ -489,7 +502,6 @@ p{
 <main>
 <div class="container" style="height:533px;">
       <h5 style="margin-bottom:24px;position:relative;top:-43px"> Règle de la maison </h5>
-
 
       <span class="containo" style="width:633px;">
    
@@ -524,6 +536,8 @@ p{
   </div>
 </main>
 <main>
+<div class="container" style="width:688px; weight:255px;top:66px;">
+
 <div class="container" style="width:688px; weight:255px;top:66px;">
 
 <h5 style="margin-bottom:24px;position:relative;top:-43px">Condition d'annulation </h5>
@@ -564,12 +578,14 @@ p{
 </div>
 </main>
 <!-- Neuviéme Partie------------------------------------------------->
+
+<div class="container" style="height:444px; top:66px;">
 <main>
 <div class="container">
 <h5 style="margin-bottom:24px;position:relative;top:-39px;"> Information sur l'hébergement</h5>
 
   <h5 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h5>
-  <h6 style="font-size:15px;color:#696565;">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </p>
+  <h6 style="font-size:15px;color:#696565;">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </h6>
   
 
 
@@ -582,6 +598,10 @@ p{
 
 
 </div>
+<!-- Di------------------------------------------------->
+
+
+<div class="container" style="width:555px;height:444px; top:66px">
 </main>
 <main>
 <div class="container" style="width:555px;height:333px;">
@@ -602,6 +622,13 @@ p{
       vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
     </h6><br>
 </div>
+<<<<<<< HEAD
+
+<!-- Di------------------------------------------------->
+
+
+<div class="container" style="width:577px;margin-top:44px;margin-left:389px;height:433px;top:66px;">
+=======
 </main>
 
 
@@ -609,23 +636,22 @@ p{
 <div class="container" style="width:533px;margin-top:44px;margin-left:389px;">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Et voila! Vous avez fait tout le nécessaire ain de pouvoir acceillir vos Premieres clients</h5>
 <h6 > Une fois votre inscription terminer, vous pourrez:</h6>
-             <ul style="color:#696565;margin-left:22px;"  >
-              <li>Gérer votre hébergement à partir de votre de bord</li><br>
-              <li>Recevoir des réservations des clients qui se rendent sur notre site et gagner de l'argent</li><br>
-              <li>Garder le contrôle des réservations de tous les sites sur lesquelles vous êtes inscrit(e) en synchronisant votre calendrier </li>
-             
-             </ul>
+       
          
-              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-              <label for="vehicle1"> J'atteste qu'il s'agit d'une activité d'hébergement légale disposant de toutes les autorisation</label><br>
-              <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-              <label for="vehicle2"> J'ai lu etj'accepte kes condition générale de RunBnB</label><br>
-
+             <input type="checkbox">
+             <label for="vehicle1"> J’atteste qu’il s’agit d’une activité d’hébergement légale disposant de toutes les autorisations nécessaires pouvant être présentées sur demande Runbnb.com </label><br>
+             <input type="checkbox" >
+             <label for="vehicle2"> r</label><br>
+           
 
 
 </div>
 </main>
 
+
+
+
+<!-- Di------------------------------------------------->
 
 
 <span class="b">
@@ -677,7 +703,8 @@ button[1].onclick = ()=>{
 
     if (current_main == 11)
     {
-      button[1].innerHTML = "vita";
+      button[1].innerHTML = "Ouvrir mon hébergement à la réservation ";
+      button[1].style.cssText = "width:300px;left:412px;"
       button[0].style.display ="none";
     }
 
@@ -721,11 +748,15 @@ if (current_main == 0) {
 }
 
 
-</script>
+
+
+
+
+
 
 </script>
 
-
+</script>
     <script type="text/javascript">
   
     function getSelectedCheckboxValues(name) {
@@ -741,6 +772,18 @@ if (current_main == 0) {
       document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
     alert(getSelectedCheckboxValues('values'));
     });
+    
+    </script>
+
+
+      <script >
+      var cache = document.getElementById("caché")
+      var clicke1 = document.getElementById("clicke1")
+      var clicke = document.getElementById("clicke")
+       clicke1.onclick = function () {
+        cache.style.display= "block";
+        clicke.style.display="none"
+        }
     $(".datepicker").load("contenu.html"); // un élément portant l'id "content" existe dans contenu.html
 
     $(function($){
@@ -754,7 +797,6 @@ if (current_main == 0) {
     }) 
     });
     </script>
-
 <script type="text/javascript">
     var p1 = document.getElementById("up-1");
     var p2 = document.getElementById("up-2");
@@ -856,4 +898,5 @@ mapboxgl: mapboxgl
 })
 );
 </script>
+
 
