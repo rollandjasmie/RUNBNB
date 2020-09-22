@@ -26,6 +26,10 @@ p{
 
 
     .container{
+    
+      border-style: groove;
+    
+       border-box:1px;
        position:relative;
        top:33px;
         width:500px;
@@ -33,9 +37,11 @@ p{
         padding:17px;
         
         background-color:#F4F4F4;
-        border-radius:14px;
+     
     }
     .container1{
+ 
+      border-style: groove;
         position:relative;
         top:53px;
         margin-left:65px;
@@ -45,9 +51,11 @@ p{
          padding:17px;
          
          background-color:#F4F4F4;
-         border-radius:14px;
+     
      }
      .container2{
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      border:2px;
       position:relative;
       top:33px;
       margin-left:65px;
@@ -57,7 +65,7 @@ p{
        padding:17px;
        display:none;
        background-color:#F4F4F4;
-       border-radius:14px;
+ 
    }
 
 
@@ -341,7 +349,7 @@ p{
 </div>
 </main>
 <!-- Troisieme Partie --------------------------------------->
-<main>
+<main>   
 <div class="container">
 
          
@@ -356,7 +364,7 @@ p{
 
 <h5 style="margin-bottom:24px;position:relative;top:-59px;"> Information sur l'hébergement</h5>
 
-<h6 style="margin-bottom:14px;position:relative;top:23px">Où les clients peuvent-ils dormir ?</h6>
+<h6 style="margin-bottom:14px;position:relative;top:-23px">Où les clients peuvent-ils dormir ?</h6>
 
 
 <span class="card-body" style="padding-left:0px;">
@@ -484,11 +492,13 @@ p{
 </main>
 <!--  Cinqiéme Partie------------------------------------------------->
 <main>
-<div class="container1">
+
+<div class="container" style="height:688px; padding-top:0px;">
+
           
          
          
-<h5 style="margin-bottom:24px;position:relative;top:-43px"> Quelle epuipement proposer vous? </h5>
+<h5 style="margin-bottom:24px;position:relative;top:-40px"> Quelle epuipement proposer vous? </h5>
            <%Equipement.all.each do |e|%><br>
            <input class="list" type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
            <%= e.title%><br>
@@ -500,7 +510,7 @@ p{
 </main>
 <!-- sixiéme Partie------------------------------------------------->
 <main>
-<div class="container" style="height:533px;">
+<div class="container" style="height:533px; padding-top:0px">
       <h5 style="margin-bottom:24px;position:relative;top:-43px"> Règle de la maison </h5>
 
       <span class="containo" style="width:633px;">
@@ -509,6 +519,8 @@ p{
       <input class="mivadika" type="checkbox" name="regle_ids[]" value="<%=d.id%>">
       <%= d.title%>e<br>
       <%end%><br><br>
+
+  <hr>    
       <h6> Arriveé <br> De </h6>
       <input type="time" name="arrive[]">
       <input type="time" name="arrive[]">
@@ -538,9 +550,7 @@ p{
 <main>
 <div class="container" style="width:688px; weight:255px;top:66px;">
 
-<div class="container" style="width:688px; weight:255px;top:66px;">
-
-<h5 style="margin-bottom:24px;position:relative;top:-43px">Condition d'annulation </h5>
+<h5 style="margin-bottom:24px;position:relative;top:-53px">Condition d'annulation </h5>
 <h6 style="margin-bottom:44px;">Combien de jours avant leur arrivée les clients peuvent-ils annuler leur réservation gratuitement ? </h6>
         <span>
         <label class="bt button1"for="option1"> 1 jours</label>
@@ -579,32 +589,39 @@ p{
 </main>
 <!-- Neuviéme Partie------------------------------------------------->
 
-<div class="container" style="height:444px; top:66px;">
 <main>
-<div class="container">
-<h5 style="margin-bottom:24px;position:relative;top:-39px;"> Information sur l'hébergement</h5>
+<div class="container" style="height:564px; top:66px;">
 
-  <h5 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h5>
+ 
+
+
+<h5 style="margin-bottom:24px;position:relative;top:-49px;"> Information sur l'hébergement</h5>
+
+  <h6 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h6>
   <h6 style="font-size:15px;color:#696565;">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </h6>
   
+ <hr>
 
-
-    <h5 > Adresse de l'hébergement</h5><br>
+    <h6 > Adresse de l'hébergement</h6><br>
     <a  href="#"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
-    <section style="font-size:15px; color:#696565; ">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </section><br>
-
-    <h5> Emplacement sur la carte</h5><br>
+    <section style="font-size:15px; color:#696565; "> 2 rue de Kenval, 97434, Saint Gilles les Bains </section><br>
+ <hr>
+    <h6> Emplacement sur la carte</h6><br>
     <a href="#" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+ <hr>   
+    <h6> Nom de l'hébergement</h6><br>
+    
 
+    <section style="font-size:15px; color:#696565; "> La Villa Nath - Saint Gilles les Bains</section>
+    <a  href="#"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
 
 </div>
 <!-- Di------------------------------------------------->
 
 
-<div class="container" style="width:555px;height:444px; top:66px">
 </main>
 <main>
-<div class="container" style="width:555px;height:333px;">
+<div class="container" style="width:555px;height:380px;">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Quelques informations importante avant d'inscrire votre hébergement:</h5>
 
 
@@ -622,26 +639,33 @@ p{
       vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
     </h6><br>
 </div>
-<<<<<<< HEAD
 
 <!-- Di------------------------------------------------->
 
 
-<div class="container" style="width:577px;margin-top:44px;margin-left:389px;height:433px;top:66px;">
-=======
+
+
 </main>
 
 
 <main>
-<div class="container" style="width:533px;margin-top:44px;margin-left:389px;">
+
+<div class="container" style="width:577px;margin-top:44px;margin-left:369px;height:433px;top:66px;">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Et voila! Vous avez fait tout le nécessaire ain de pouvoir acceillir vos Premieres clients</h5>
 <h6 > Une fois votre inscription terminer, vous pourrez:</h6>
-       
+             <ul style="color:#696565;margin-left:22px;"  >
+              <li>Gérer votre hébergement à partir de votre de bord</li><br>
+              <li>Recevoir des réservations des clients qui se rendent sur notre site et gagner de l'argent</li><br>
+              <li>Garder le contrôle des réservations de tous les sites sur lesquelles vous êtes inscrit(e) en synchronisant votre calendrier </li>
+             
+             </ul>
+             
          
              <input type="checkbox">
-             <label for="vehicle1"> J’atteste qu’il s’agit d’une activité d’hébergement légale disposant de toutes les autorisations nécessaires pouvant être présentées sur demande Runbnb.com </label><br>
+             <label > J’atteste qu’il s’agit d’une activité d’hébergement légale disposant de  </label><br>
+             <label>toutes les autorisations nécessaires pouvant être présentées sur demande Runbnb.com</label></br>
              <input type="checkbox" >
-             <label for="vehicle2"> r</label><br>
+             <label> J’ai lu et j’accepte les Conditions Générales de Runbnb.com</label><br>
            
 
 
@@ -649,9 +673,6 @@ p{
 </main>
 
 
-
-
-<!-- Di------------------------------------------------->
 
 
 <span class="b">
@@ -724,8 +745,8 @@ button[0].onclick = ()=>{
 {
     current_main--;
     var back_main =current_main +1;
-    div[current_main].style.display= "block";
-        div[back_main].style.display = "none";
+    main[current_main].style.display= "block";
+        main[back_main].style.display = "none";
         p[current_main].style.backgroundColor ="royalblue";
         p[back_main].style.backgroundColor = "#ededed" ;
         if (current_main < 12)
