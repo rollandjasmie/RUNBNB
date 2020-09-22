@@ -50,7 +50,7 @@ class LogementsController < ApplicationController
       end 
     end  
     if params[:arrive] && params[:depart]
-        Regle.create(arrive: params[:arrive], depart: params[:depart],logement_id: @logement.id)
+        Departarrive.create(arrive: params[:arrive], depart: params[:depart])
     end
     if params[:condition]
       Condition.create(condition: params[:condition], logement_id: @logement.id) 
