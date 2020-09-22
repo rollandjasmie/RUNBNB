@@ -67,10 +67,8 @@ ActiveRecord::Schema.define(version: 2020_09_15_061611) do
   create_table "canapes", force: :cascade do |t|
     t.string "title"
     t.bigint "salon_id"
-    t.bigint "logement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["logement_id"], name: "index_canapes_on_logement_id"
     t.index ["salon_id"], name: "index_canapes_on_salon_id"
   end
 
