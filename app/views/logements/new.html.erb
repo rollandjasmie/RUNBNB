@@ -1,16 +1,15 @@
+
+ 
+
+<link rel="stylesheet" href="style.css">
 </head>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="style.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="carrou.css">
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="carrou.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 p{
@@ -22,16 +21,14 @@ p{
         display: inline-flex;
     }
 
-   main{
-     display:none;
-   }
+
     .container{
        position:relative;
        top:33px;
         width:500px;
         height:333px;
         padding:17px;
-       display:block;
+        display:none;
         background-color:#F4F4F4;
         border-radius:14px;
     }
@@ -43,10 +40,23 @@ p{
          height:412pxpx;
          padding-top:22px;
          padding:17px;
-      
+         display:none;
          background-color:#F4F4F4;
          border-radius:14px;
      }
+     .container2{
+      position:relative;
+      top:33px;
+      margin-left:65px;
+       width:500px;
+       height:466px;
+       padding-top:22px;
+       padding:17px;
+       display:none;
+       background-color:#F4F4F4;
+       border-radius:14px;
+   }
+
 
 
 
@@ -174,7 +184,13 @@ p{
 .btn .btn-secondary{
   width: 33px !important;
 }
-
+#clicke1{
+  cursor: pointer;
+}
+.imgPreview{
+  max-width:250px;
+   max-height:250px;
+}  
     <div class="container-sm">100% wide until small breakpoint</div>
     <div class="container-md">100% wide until medium breakpoint</div>
     <div class="container-lg">100% wide until large breakpoint</div>
@@ -185,7 +201,6 @@ p{
 
 
 <header>
-  <%= form_tag url_for(action:'create'), methode: "post" do%>
     <nav class=" tainer">
         <ul class="nu">
             
@@ -258,8 +273,7 @@ p{
 <section class="welcome">
   <%= form_tag url_for(action:'create'), methode: "post", multipart: true do%>
 
-<!-- Premiere parti ---------------------->
-<main>
+<!-- Premiere parti -->
 <div class="container">
 
             <h6>Quel est le nom de votre hébergement?</h6> <br>
@@ -279,9 +293,8 @@ p{
             
 
 </div>
-</main>
 <!-- Deuxieme Parte:!!----------------------------------------------->
-<main>
+
 <div class="container1" >
 
 
@@ -306,26 +319,33 @@ p{
        
                 <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal"><br>
                 
-            
-            <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 2)</span><br>
-            <a href="#">Ajouter</a>
+            <span id="caché">Trouvez votre adresse (ligne 2)
+
+            <%= text_field_tag :adresse2, "",placeholder:"votre adresse" ,class:'form-control'%><br>
+            </span><br>
+            <span  id="clicke" style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 2)<br>
+              
+              <span id="clicke1" style="color: blue"> Ajouter </span>
+
+           
+            </span>
+       
 
  
           
       
 
 </div>
-</main>
 <!-- Troisieme Partie --------------------------------------->
 
-<main>
-<div class="container">
+<div class="container1">
 
+         
+         
 
 </div>
-</main>
+
 <!-- Quatriéme Partie------------------------------------------------->
-<main>
 <div class="container" style="top:66px;">
 
 <h5 style="margin-bottom:24px;position:relative;top:-59px;"> Information sur l'hébergement</h5>
@@ -374,7 +394,6 @@ p{
  <%end%>
 </span><br>
 <span class="card-body" style="padding-left:0px;">
-
  
  <%Salon.all.each do |c|%><br>
  
@@ -388,7 +407,6 @@ p{
    <span class="col-7">
      <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
      Ajoutez</a> -->
-     <button type="button" class="" data-toggle="modal" data-target="#salon">ajoutez</button>
      <!-- <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button> -->
      
    </span>
@@ -416,7 +434,6 @@ p{
  <%end%>
 </span>
 <span class="card-body" style="padding-left:0px;">
-
  
  <%Autre.all.each do |c|%><br>
  
@@ -456,21 +473,14 @@ p{
  </span>
  <%end%>
 </span>
-
 </span>
-
-
 </div>
-</main>
 <!--  Cinqiéme Partie------------------------------------------------->
-<main>
 <div class="container1">
-
           
          
          
 <h5 style="margin-bottom:24px;position:relative;top:-43px"> Quelle epuipement proposer vous? </h5>
-
            <%Equipement.all.each do |e|%><br>
            <input class="list" type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
            <%= e.title%><br>
@@ -479,18 +489,9 @@ p{
        
  
 </div>
-</main>
 <!-- sixiéme Partie------------------------------------------------->
-
-<main>
 <div class="container" style="height:533px;">
       <h5 style="margin-bottom:24px;position:relative;top:-43px"> Règle de la maison </h5>
-
-
-
-
-
-
       <span class="containo" style="width:633px;">
    
       <%Regle.all.each do |d|%><br>
@@ -515,20 +516,8 @@ p{
 
       </sapn>
 </div>
-</main>
 <!-- Septe Partie------------------------------------------------->
-<<<<<<< HEAD
-<main>
-<div class="container">
- <h2> photo</h2>
 
-</div>
-</main>
-<!-- Septe Partie------------------------------------------------->
-<main>
-<div class="container" style="width:688px; weight:255px;top:66px;">
-=======
-<main>
 <div class="container">
  <h2> photo</h2>
  <%= label_tag 'photos', id: "files-inputs" do %>
@@ -547,8 +536,8 @@ p{
 <%end%>
 
   </div>
-  </main>
->>>>>>> fb067a4a7b9398e23559f1363a25b2cf4b132630
+
+<div class="container" style="width:688px; weight:255px;top:66px;">
 
 <h5 style="margin-bottom:24px;position:relative;top:-43px">Condition d'annulation </h5>
 <h6 style="margin-bottom:44px;">Combien de jours avant leur arrivée les clients peuvent-ils annuler leur réservation gratuitement ? </h6>
@@ -578,24 +567,15 @@ p{
        <span>
       
 </div>
-</main>
 
 <!-- Huitiéme Partie------------------------------------------------->
-<<<<<<< HEAD
-<main>
 <div class="container">
  <h4> calendrier </h4>
-=======
-<div class="container1">
- <h4> calendrier </h4><br>
- <span type="text" id="start_date" class="datepicker" placeholder="start date" name="start_date[]">
- <span type="text" id="end_date" class="datepicker" placeholder="end date" name="end_date[]">
->>>>>>> fb067a4a7b9398e23559f1363a25b2cf4b132630
 </div>
-</main>
+
 <!-- Neuviéme Partie------------------------------------------------->
-<main>
-<div class="container" style="height:388px;">
+
+<div class="container" style="height:444px; top:66px;">
 
  
 
@@ -603,7 +583,7 @@ p{
 <h5 style="margin-bottom:24px;position:relative;top:-39px;"> Information sur l'hébergement</h5>
 
   <h5 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h5>
-  <h6 style="font-size:15px;color:#696565;">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </p>
+  <h6 style="font-size:15px;color:#696565;">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </h6>
   
 
 
@@ -616,10 +596,10 @@ p{
 
 
 </div>
-</main>
-<!-- Neuviéme Partie------------------------------------------------->
-<main>
-<div class="container" style="width:555px;height:393px;top:66px;">
+<!-- Di------------------------------------------------->
+
+
+<div class="container" style="width:555px;height:444px; top:66px">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Quelques informations importante avant d'inscrire votre hébergement:</h5>
 
 
@@ -638,29 +618,26 @@ p{
     </h6><br>
 </div>
 
-</main>
-<main>
-<div class="container" style="width:533px;margin-top:44px;margin-left:389px; height:399px;">
+<!-- Di------------------------------------------------->
+
+
+<div class="container" style="width:577px;margin-top:44px;margin-left:389px;height:433px;top:66px;">
 <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Et voila! Vous avez fait tout le nécessaire ain de pouvoir acceillir vos Premieres clients</h5>
 <h6 > Une fois votre inscription terminer, vous pourrez:</h6>
-             <ul style="color:#696565;margin-left:22px;"  >
-              <li>Gérer votre hébergement à partir de votre de bord</li><br>
-              <li>Recevoir des réservations des clients qui se rendent sur notre site et gagner de l'argent</li><br>
-              <li>Garder le contrôle des réservations de tous les sites sur lesquelles vous êtes inscrit(e) en synchronisant votre calendrier </li>
-             
-             </ul>
+       
          
-              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-              <label for="vehicle1"> J'atteste qu'il s'agit d'une activité d'hébergement légale disposant de toutes les autorisation</label><br>
-              <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-              <label for="vehicle2"> J'ai lu etj'accepte kes condition générale de RunBnB</label><br>
+             <input type="checkbox">
+             <label for="vehicle1"> J’atteste qu’il s’agit d’une activité d’hébergement légale disposant de toutes les autorisations nécessaires pouvant être présentées sur demande Runbnb.com </label><br>
+             <input type="checkbox" >
+             <label for="vehicle2"> r</label><br>
+           
 
 
-
-       <%= submit_tag 'creer'%>
-       <%end%>
 </div>
-</main>
+
+
+<!-- Di------------------------------------------------->
+
 
 <span class="b">
 <span name ="prev" class="button">Precédent</span>
@@ -678,21 +655,15 @@ p{
 
 
 <script>
-var main = document.getElementsByTagName('main');
+var div = document.getElementsByTagName('div');
 var button = document.getElementsByClassName('button');
 var p = document.getElementsByTagName('p');
 var section = document.getElementsByTagName('section')[0];
 section.onsubmit =()=>{return false}
 
-<<<<<<< HEAD
-var current_main = 0;
-main[current_main].style.display = "block";
-if (current_main == 0)
-=======
 var current_div = 0;
 div[current_div].style.display = "block";
 if (current_div == 0)
->>>>>>> fb067a4a7b9398e23559f1363a25b2cf4b132630
 {
     button[0].style.display = "none";
     p[0].style.backgroundColor = "royalblue";
@@ -701,27 +672,6 @@ if (current_div == 0)
 }
 
 button[1].onclick = ()=>{
-<<<<<<< HEAD
-  current_main++;
-  var back_main = current_main - 1;
-  if ((current_main > 0) && (current_main < 12))
-  {
-    button[0].style.display = "block";
-    main[current_main].style.display = "block";
-    main[back_main].style.display = "none";
-    p[current_main].style.backgroundColor = "royalblue";
-    p[back_main].style.backgroundColor = "#ededed";
-    button[1].style.cssText ="float:right; margin-right:88px;"
- 
-
-
-
-    if (current_main == 11)
-    {
-      button[1].innerHTML = "vita";
-      button[0].style.display ="none";
-    }
-=======
   current_div++;
   var back_div = current_div - 1;
   if ((current_div > 0) && (current_div < 12))
@@ -738,37 +688,15 @@ button[1].onclick = ()=>{
 
     if (current_div == 11)
     {
-      button[1].innerHTML = "vita";
+      button[1].innerHTML = "Ouvrir mon hébergement à la réservation ";
+      button[1].style.cssText = "width:300px;left:412px;"
       button[0].style.display ="none";
     }
-
-    
- button[1].onclick = ()=>{
-     current_div++;
-     var back_div = current_div -1;
-     if ((current_div >0)&& (current_div < 12)) 
-     {
-         button[0].style.display = "block";
-         div[current_div].style.display= "block";
-         div[back_div].style.display = "none";
-         p[current_div].style.backgroundColor ="royalblue";
-         p[back_div].style.backgroundColor = "#ededed" ;
-
-         if (current_div ==10)
-         {
-             buttton[1].innerHTML = "vita"
-         }
-
->>>>>>> fb067a4a7b9398e23559f1363a25b2cf4b132630
 
   }
   else
   {
-<<<<<<< HEAD
-      if (current_main > 11) 
-=======
       if (current_div > 11) 
->>>>>>> fb067a4a7b9398e23559f1363a25b2cf4b132630
       {
         section.onsubmit =()=>{return true}
 
@@ -779,15 +707,6 @@ button[1].onclick = ()=>{
 button[0].onclick = ()=>{     
 
 {
-<<<<<<< HEAD
-    current_main--;
-    var back_main =current_main +1;
-    main[current_main].style.display= "block";
-        main[back_main].style.display = "none";
-        p[current_main].style.backgroundColor ="royalblue";
-        p[back_main].style.backgroundColor = "#ededed" ;
-        if (current_main < 12)
-=======
     current_div--;
     var back_div =current_div +1;
     div[current_div].style.display= "block";
@@ -795,25 +714,12 @@ button[0].onclick = ()=>{
         p[current_div].style.backgroundColor ="royalblue";
         p[back_div].style.backgroundColor = "#ededed" ;
         if (current_div < 12)
->>>>>>> fb067a4a7b9398e23559f1363a25b2cf4b132630
           {
             button[1].innerHTML = "Next";
          
 
         }
       
-<<<<<<< HEAD
-
-}
-
-if (current_main == 0) {
-  button[0].style.display = "none";
-
-}
-
-
-=======
->>>>>>> fb067a4a7b9398e23559f1363a25b2cf4b132630
 
 }
 
@@ -825,6 +731,10 @@ if (current_div == 0) {
 
 
 }
+
+
+
+
 
 
 
@@ -850,21 +760,27 @@ if (current_div == 0) {
     alert(getSelectedCheckboxValues('values'));
     });
     
-
-<<<<<<< HEAD
-
-=======
-    $(function(){
-    var datepicker = $( ".datepicker").datepicker({
-       minDate: 0,
-       onSelect: function(date){
-        var option = this.id = 'start_date'? 'minDate' : 'maxDate';
-        datepicker.not('#'+this.id).datepicker('option',option,date);
-
-        }
-    }) 
-    });  
+      function chercher(){
+    var ville = $("#ville").val();
+    if(ville != ""){
+    $.ajax({
+    url: "https://nominatim.openstreetmap.org/search", // URL de Nominatim
+    type: 'get', // Requête de type GET
+    data: "q="+ville+"&format=json&addressdetails=1&limit=1&polygon_svg=1" // Données envoyées (q -> adresse complète, format -> format attendu pour la réponse, limit -> nombre de réponses attendu, polygon_svg -> fournit les données de polygone de la réponse en svg)
+    }).done(function (response) {
+    if(response != ""){
+    userlat = response[0]['lat'];
+    userlon = response[0]['lon'];
+    }
+    }).fail(function (error) {
+    alert(error);
+    });
+    }
+    }
+    
     </script>
+
+
       <script >
       var cache = document.getElementById("caché")
       var clicke1 = document.getElementById("clicke1")
@@ -985,5 +901,3 @@ mapboxgl: mapboxgl
 );
 
 </script>
->>>>>>> fb067a4a7b9398e23559f1363a25b2cf4b132630
-
