@@ -1299,3 +1299,23 @@ if (current_div == 0)
     }
     
     </script>
+
+
+
+    $(function(){
+    var datepicker = $( ".datepicker").datepicker({
+       minDate: 0,
+       onSelect: function(date){
+        var option = this.id = 'start_date'? 'minDate' : 'maxDate';
+        datepicker.not('#'+this.id).datepicker('option',option,date);
+
+        }
+    }) 
+    });  
+
+
+    <div class="container1">
+ <h4> calendrier </h4><br>
+ <span type="text" id="start_date" class="datepicker" placeholder="start date" name="start_date[]">
+ <span type="text" id="end_date" class="datepicker" placeholder="end date" name="end_date[]">
+</div>
