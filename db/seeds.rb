@@ -15,10 +15,10 @@ Logement.destroy_all
 	puts"logement"
 
 Regle.destroy_all
-		Regle.create!(title:"Hébergement fumeur",depart:"",arrive:"",logement_id: b.id)
-		Regle.create!(title:"Animaux domestique admis",depart:"",arrive:"",logement_id: b.id)
-		Regle.create!(title:"Enfant bienvenue",depart:"",arrive:"",logement_id: b.id)
-		Regle.create!(title:"Fêtes/événements autorisés",depart:"",arrive:"",logement_id: b.id)
+		Regle.create!(title:"Hébergement fumeur")
+		Regle.create!(title:"Animaux domestique admis")
+		Regle.create!(title:"Enfant bienvenue")
+		Regle.create!(title:"Fêtes/événements autorisés")
 		puts"regle"
 
 Equipement.destroy_all

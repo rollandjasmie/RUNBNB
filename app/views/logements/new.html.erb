@@ -288,6 +288,7 @@ p{
 <section class="welcome">
 
 <!-- Premiere parti -->
+  <%= form_tag url_for(action:'create'), methode: "post", multipart: true do%>
 <main>
 <div class="container">
 
@@ -335,7 +336,7 @@ p{
        
                 <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal"><br>
                 
-            <span id="caché">Trouvez votre adresse (ligne 2)
+            <span id="caché" style="display: none;">Trouvez votre adresse (ligne 2)
 
             <%= text_field_tag :adresse2, "",placeholder:"votre adresse" ,class:'form-control'%><br>
             </span><br>
@@ -544,7 +545,28 @@ p{
 <main>
 <div class="container">
  <h2> photo</h2>
+ <%= label_tag 'photos', id: "files-inputs" do %>
 
+                              <input id="up-1" class="photo-js" type="file" name="photos[]" >
+                              <input id="up-2" class="photo-js" type="file" name="photos[]" style="display:none" >
+                              <input id="up-3" class="photo-js" type="file" name="photos[]" style="display:none" >
+                              <input id="up-4" class="photo-js" type="file" name="photos[]" style="display:none" >
+                              <input id="up-5" class="photo-js" type="file" name="photos[]" style="display:none" >
+                              <input id="up-6" class="photo-js" type="file" name="photos[]" style="display:none" >
+                              <input id="up-7" class="photo-js" type="file" name="photos[]" style="display:none" >
+                              <input id="up-8" class="photo-js" type="file" name="photos[]" style="display:none" >
+                            <% end %>
+  
+<%=submit_tag 'cre'%>
+<%end%>
+<img id="addImage-up-1" alt="mandona" style="display: none; width: 100px;"></img>
+<img id="addImage-up-2" alt="mandona" style="display: none; width: 100px;"></img>
+<img id="addImage-up-3" alt="mandona" style="display: none; width: 100px;"></img>
+<img id="addImage-up-4" alt="mandona" style="display: none; width: 100px;"></img>
+<img id="addImage-up-5" alt="mandona" style="display: none; width: 100px;"></img>
+<img id="addImage-up-6" alt="mandona" style="display: none; width: 100px;"></img>
+<img id="addImage-up-7" alt="mandona" style="display: none; width: 100px;"></img>
+<img id="addImage-up-8" alt="mandona" style="display: none; width: 100px;"></img>
   </div>
 </main>
 <main>
@@ -919,4 +941,20 @@ mapboxgl: mapboxgl
 })
 );
 </script>
+<script >
+  function shwoMyImage(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $('#addImage-'+input.id).attr('src', e.target.result);
+        $('#addImage-'+input.id).show();
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $(".photo-js").change(function() {
+    shwoMyImage(this);
+  });
+</script
 
