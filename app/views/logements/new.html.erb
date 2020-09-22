@@ -1,0 +1,922 @@
+
+<link rel="stylesheet" href="style.css">
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="carrou.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+p{
+        width: 30px;
+        height: 5px;
+        border-radius: 2px;
+        background: #ededed;
+        margin:2px 2px;
+        display: inline-flex;
+    }
+
+
+    .container{
+    
+      border-style: groove;
+    
+       border-box:1px;
+       position:relative;
+       top:33px;
+        width:500px;
+        height:333px;
+        padding:17px;
+        
+        background-color:#F4F4F4;
+     
+    }
+    .container1{
+ 
+      border-style: groove;
+        position:relative;
+        top:53px;
+        margin-left:65px;
+         width:500px;
+         height:412pxpx;
+         padding-top:22px;
+         padding:17px;
+         
+         background-color:#F4F4F4;
+     
+     }
+     .container2{
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      border:2px;
+      position:relative;
+      top:33px;
+      margin-left:65px;
+       width:500px;
+       height:466px;
+       padding-top:22px;
+       padding:17px;
+       display:none;
+       background-color:#F4F4F4;
+ 
+   }
+
+
+     main{
+      display: none;
+     }
+
+
+
+
+    .button{
+      
+        position:relative;
+        top:123px;
+        margin-left:77px;
+        padding: 10px;
+        width: 100px;
+        border: none;
+        outline:none;
+        cursor:pointer;
+        border-radius:5px;
+        background:rgb(233, 80, 10);
+        font-size:12px;
+        font-weight: bold;
+        color: whitesmoke;
+        float:left
+     
+
+    }
+
+.checkbox {
+  
+    margin-top: 4px;
+    width: 75px;
+   
+    
+  } 
+  input[type='checkbox'] {
+  -webkit-appearance:none;
+  
+  width:20px;
+  height:20px;
+  background:white;
+  border:2px solid rgb(141, 135, 135);
+  border-radius:5px;
+  
+  }
+  input[type='checkbox']:checked {
+  background: #f96816;
+  outline: none;
+  
+  }
+
+  .bt  {
+    background-color: white ; 
+    border: 1px solid black;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+  }
+  
+   .bt:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+   .bt:hover {
+    background-color: rgb(233, 80, 10);
+  }
+  .button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.row{
+  box-shadow:
+
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 1.5px 10px rgba(0, 0, 0, 0.06),
+  0 2.3px 7.9px rgba(0, 0, 0, 0.052),
+  0 4.8px 12.4px rgba(0, 0, 0, 0.056),
+  0 2px 2px rgba(0, 0, 0, 0.2)
+;
+
+  
+  
+
+
+ 
+  background: white;
+  border-radius: 5px;
+  
+  
+}
+
+
+
+
+
+
+
+
+      .col-6{
+          color:black;
+      }
+
+      .list{
+          padding:0px;
+      }
+
+      span{
+          color:black;
+      }
+
+       .mivadika{
+          float:right;
+      }
+      .miakatro{
+        position:absolute;
+        top:-222px;
+        display:block;
+        font-size:12px;
+      
+      }
+      .none{
+  display:none;
+}
+.btn .btn-secondary{
+  width: 33px !important;
+}
+#clicke1{
+  cursor: pointer;
+}
+.imgPreview{
+  max-width:250px;
+   max-height:250px;
+}  
+    <div class="container-sm">100% wide until small breakpoint</div>
+    <div class="container-md">100% wide until medium breakpoint</div>
+    <div class="container-lg">100% wide until large breakpoint</div>
+    <div class="container-xl">100% wide until extra large breakpoint</div>
+   
+</style>
+
+
+
+<header>
+    <nav class=" tainer">
+        <ul class="nu">
+            
+           <li class="i"> Nom et emplacement <br>
+            <section>
+                <p></p>
+                <p></p> 
+                <p></p>
+
+            </section>
+              
+
+
+           </div>
+
+       
+           </li>
+            <li class="i">Configuration de l'hébergement <br>
+             <section>
+                <p></p>
+                <p></p> 
+                <p></p>
+
+             </section>
+         
+  
+            
+            
+            </li>
+            <li class="i">Photo <br>
+          <section>
+            <p></p>
+      
+          </section>
+                
+              
+           
+
+
+            </li>
+            <li class="i">Tarifs et calendrier <br>
+                <section>
+                    <p></p>
+                    <p></p> 
+                    
+                </section>
+                    
+              
+                
+            </li>
+            <li class="i">Révision et finalisation <br>
+                <section>
+                    <p></p>
+                    <p></p> 
+                    <p></p>
+
+                </section>
+                   
+           
+            </li>
+            
+        </ul> 
+            
+        </nav>
+  
+
+</header>
+
+
+<section class="welcome">
+
+<!-- Premiere parti -->
+<main>
+<div class="container">
+
+            <h6>Quel est le nom de votre hébergement?</h6> <br>
+                        
+                            
+            <input type="text"  class="form-control" name="name" placeholder="nom de l'hébergement"><br>
+
+
+            <h6>Choisissez le type d’hébergement que vous souhaitez inscrire sur RunBnB :</h6>
+
+            <%= select_tag 'categorie', options_for_select(["Appartement","Maison/Vila","Bangalow/Châlet","Hotel","chambre d'hote/Gite"]), class:'custom-select custom-select-sm' , style:"width: 300px"%><br><br>
+
+
+            <h6>Que peuvent réserver les clients ?</h6>
+            <%= select_tag 'types', options_for_select(["Chambre privée","Hébergement entier"]),class:'custom-select custom-select-sm',style:"width: 300px"%>
+
+            
+
+</div>
+</main>
+<!-- Deuxieme Parte:!!----------------------------------------------->
+<main>
+<div class="container1" >
+
+
+          <p3 style="font-size:16px; margin-bottom:24px;position:relative;top:-53px;"> Ou se situe l'hébergement que vous inscrivez?</h5><br><br>
+     
+            <span style="font-size:12px; color:#2E2725;">Pays/région</span><br>
+          
+                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Pays/région"><br>
+                
+      
+            <span style="font-size:12px; color:#2E2725;">Ville</span>
+        
+                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez une ville"><br>
+                
+            
+            <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 1)</span>
+        
+                <%= text_field_tag :adresse, "" ,class:'form-control'%><br>
+                
+            
+            <span style="font-size:12px; color:#2E2725;">Code postal</span>
+       
+                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal"><br>
+                
+            <span id="caché">Trouvez votre adresse (ligne 2)
+
+            <%= text_field_tag :adresse2, "",placeholder:"votre adresse" ,class:'form-control'%><br>
+            </span><br>
+            <span  id="clicke" style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 2)<br>
+              
+              <span id="clicke1" style="color: blue"> Ajouter </span>
+
+           
+            </span>
+       
+</div>
+</main>
+<!-- Troisieme Partie --------------------------------------->
+<main>   
+<div class="container">
+
+         
+         <h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-33px"> Carte</h5>
+         
+
+</div>
+</main>
+<!-- Quatriéme Partie------------------------------------------------->
+<main>
+<div class="container" style="top:66px;">
+
+<h5 style="margin-bottom:24px;position:relative;top:-59px;"> Information sur l'hébergement</h5>
+
+<h6 style="margin-bottom:14px;position:relative;top:-23px">Où les clients peuvent-ils dormir ?</h6>
+
+
+<span class="card-body" style="padding-left:0px;">
+
+ 
+ <%Chambre.all.each do |c|%><br>
+ 
+ <span class="row" data-toggle="modal" data-target="#staticBackdrop">
+   <span class="col-6">
+     <%= c.title%>
+     <small class="za"></small>
+   </span>
+   <!--  modal -->
+   <!-- Button trigger modal -->
+   <span class="col-7">
+    
+     <!-- <button type="button" class="button_ajout_lit" data-toggle="modal" data-target="#staticBackdrop" style="width:77px;"></button> -->
+     
+   </span>
+ </span>
+ <!-- Modal -->
+ <span class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <span class="modal-dialog modal-dialog-centered">
+     <span class="modal-content">
+       
+       <span class="modal-body">
+         <%c.lits.each do |l| %>
+         <input type="checkbox" class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+         <%= l.title%><br>
+         <%end%>
+       </span>
+       <span class="modal-footer">
+         <button type="button" class="myButton" data-dismiss="modal">Close</button>
+         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+         
+       </span>
+       
+     </span>
+   </span>
+ </span>
+ <%end%>
+</span><br>
+<span class="card-body" style="padding-left:0px;">
+ 
+ <%Salon.all.each do |c|%><br>
+ 
+ <span class="row" data-toggle="modal" data-target="#staticBackdrop">
+   <span class="col-6">
+     <%= c.title%>
+     <small class="salon1"></small>
+   </span>
+   <!--  modal -->
+   <!-- Button trigger modal -->
+   <span class="col-7">
+     <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
+     Ajoutez</a> -->
+     <!-- <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button> -->
+     
+   </span>
+ </span><br>
+ <!-- Modal -->
+ <span class="modal fade" id="salon" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <span class="modal-dialog modal-dialog-centered">
+     <span class="modal-content">
+       
+       <span class="modal-body">
+         <%c.canapes.each do |l| %>
+         <input type="checkbox" class="checkbox" name="salon_ids[]" value="<%=l.title%>" >
+         <%= l.title%><br>
+         <%end%>
+       </span>
+       <span class="modal-footer">
+         <button type="button" class="myButton" data-dismiss="modal">Close</button>
+         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+         
+       </span>
+       
+     </span>
+   </span>
+ </span>
+ <%end%>
+</span>
+<span class="card-body" style="padding-left:0px;">
+ 
+ <%Autre.all.each do |c|%><br>
+ 
+ <span class="row" data-toggle="modal" data-target="#staticBackdrop">
+   <span class="col-6">
+     <%= c.title%>
+     <samll class="autre1"></small>
+   </span>
+   <!--  modal -->
+   <!-- Button trigger modal -->
+   <span class="col-7">
+     <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
+     Ajoutez</a> -->
+     <!--  <button type="button" class="myButton" data-toggle="modal" data-target="#autre">ajoutez</button> -->
+     
+   </span>
+ </span>
+ <!-- Modal -->
+ <span class="modal fade" id="autre" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <span class="modal-dialog modal-dialog-centered">
+     <span class="modal-content">
+       
+       <span class="modal-body">
+         <%c.autrelits.each do |l| %>
+         <input type="checkbox" class="checkbox" name="[]" value="<%=l.title%>" >
+         <%= l.title%><br>
+         <%end%>
+       </span>
+       <span class="modal-footer">
+         <button type="button" class="myButton" data-dismiss="modal">Close</button>
+         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+         
+       </span>
+       
+     </span>
+   </span>
+ </span>
+ <%end%>
+</span>
+</span>
+</div>
+</main>
+<!--  Cinqiéme Partie------------------------------------------------->
+<main>
+
+<div class="container" style="height:688px; padding-top:0px;">
+
+          
+         
+         
+<h5 style="margin-bottom:24px;position:relative;top:-40px"> Quelle epuipement proposer vous? </h5>
+           <%Equipement.all.each do |e|%><br>
+           <input class="list" type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
+           <%= e.title%><br>
+           <%end%>
+        
+       
+ 
+</div>
+</main>
+<!-- sixiéme Partie------------------------------------------------->
+<main>
+<div class="container" style="height:533px; padding-top:0px">
+      <h5 style="margin-bottom:24px;position:relative;top:-43px"> Règle de la maison </h5>
+
+      <span class="containo" style="width:633px;">
+   
+      <%Regle.all.each do |d|%><br>
+      <input class="mivadika" type="checkbox" name="regle_ids[]" value="<%=d.id%>">
+      <%= d.title%>e<br>
+      <%end%><br><br>
+
+  <hr>    
+      <h6> Arriveé <br> De </h6>
+      <input type="time" name="arrive[]">
+      <input type="time" name="arrive[]">
+      <label style="margin-left:44px;"> à</label>
+      <span style="margin-left:59px;"> </sapn>
+      <input type="time" name="depart[]">
+      <input type="time" name="depart[]">
+      </sapn>
+      <h6> Départ <br> De </h6>
+      <input type="time" name="arrive[]">
+      <input type="time" name="arrive[]">
+      <label style="margin-left:44px;"> à</label>
+      <span style="margin-left:59px;"> 
+      <input type="time" name="depart[]">
+      <input type="time" name="depart[]">
+
+      </sapn>
+</div>
+</main>
+<!-- Septe Partie------------------------------------------------->
+<main>
+<div class="container">
+ <h2> photo</h2>
+
+  </div>
+</main>
+<main>
+<div class="container" style="width:688px; weight:255px;top:66px;">
+
+<h5 style="margin-bottom:24px;position:relative;top:-53px">Condition d'annulation </h5>
+<h6 style="margin-bottom:44px;">Combien de jours avant leur arrivée les clients peuvent-ils annuler leur réservation gratuitement ? </h6>
+        <span>
+        <label class="bt button1"for="option1"> 1 jours</label>
+
+        
+        <label class="bt button1" for="option2">7 jours</label>
+
+        <label class="bt button1" for="option3">14 jours</label>
+
+        
+        <label class="bt button1" for="option4">30 jours</label>
+        </span>
+    
+        <span class="none">
+
+        <input type="radio" class="btn-check"  name="condition[]" 
+        value="1 jours" id="option1" autocomplete="off"/>
+        <input type="radio" class="btn-check" style ="visibility:none;"name="condition[]"
+        id="option2" autocomplete="off" value="7 jours" />
+
+        <input type="radio" class="btn-check" name="condition[]" 
+        id="option3" autocomplete="off"  value="14 jours" />
+        <input type="radio" class="btn-check" name="condition[]" 
+        value="30 jours"  id="option4" autocomplete="off" />
+       <span>
+      
+</div>
+</main>
+<!-- Huitiéme Partie------------------------------------------------->
+<main>
+ <div class="container1">
+   <h4> calendrier </h4><br>
+   <span type="text" id="start_date" class="datepicker" placeholder="start date" name="start_date[]">
+   <span type="text" id="end_date" class="datepicker" placeholder="end date" name="end_date[]">
+</div>
+</main>
+<!-- Neuviéme Partie------------------------------------------------->
+
+<main>
+<div class="container" style="height:564px; top:66px;">
+
+ 
+
+
+<h5 style="margin-bottom:24px;position:relative;top:-49px;"> Information sur l'hébergement</h5>
+
+  <h6 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h6>
+  <h6 style="font-size:15px;color:#696565;">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </h6>
+  
+ <hr>
+
+    <h6 > Adresse de l'hébergement</h6><br>
+    <a  href="#"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+    <section style="font-size:15px; color:#696565; "> 2 rue de Kenval, 97434, Saint Gilles les Bains </section><br>
+ <hr>
+    <h6> Emplacement sur la carte</h6><br>
+    <a href="#" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+ <hr>   
+    <h6> Nom de l'hébergement</h6><br>
+    
+
+    <section style="font-size:15px; color:#696565; "> La Villa Nath - Saint Gilles les Bains</section>
+    <a  href="#"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+
+</div>
+<!-- Di------------------------------------------------->
+
+
+</main>
+<main>
+<div class="container" style="width:555px;height:380px;">
+<h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Quelques informations importante avant d'inscrire votre hébergement:</h5>
+
+
+  <h5 style="font-size:17px;" > Les réservations sont elle confirmées immediatement?</h5>
+  <h6  style="color:#696565;">Oui, des qu'un client éffectue une réservation,celle ci confirmées immédiatement </h6><br>
+
+    <h5 style="font-size:17px;"> Puis je choisir qui séjourne dans mon hébergement?</h5>
+    <h6 style="color:#696565;" >Non tout nos utilisateurs peuvent réservé  une date </h6><br>
+    
+
+
+
+    <h5 style="font-size:17px;"> Puis je choisir les jours pour lesqueles je recois les réservations ?</h5>
+    <h6 style="color:#696565;" >Oui, il vous suffit de vous assurer  de votre calendrier est a jour.Fermez tout les dates pour lesquelles 
+      vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
+    </h6><br>
+</div>
+
+<!-- Di------------------------------------------------->
+
+
+
+
+</main>
+
+
+<main>
+
+<div class="container" style="width:577px;margin-top:44px;margin-left:369px;height:433px;top:66px;">
+<h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Et voila! Vous avez fait tout le nécessaire ain de pouvoir acceillir vos Premieres clients</h5>
+<h6 > Une fois votre inscription terminer, vous pourrez:</h6>
+             <ul style="color:#696565;margin-left:22px;"  >
+              <li>Gérer votre hébergement à partir de votre de bord</li><br>
+              <li>Recevoir des réservations des clients qui se rendent sur notre site et gagner de l'argent</li><br>
+              <li>Garder le contrôle des réservations de tous les sites sur lesquelles vous êtes inscrit(e) en synchronisant votre calendrier </li>
+             
+             </ul>
+             
+         
+             <input type="checkbox">
+             <label > J’atteste qu’il s’agit d’une activité d’hébergement légale disposant de  </label><br>
+             <label>toutes les autorisations nécessaires pouvant être présentées sur demande Runbnb.com</label></br>
+             <input type="checkbox" >
+             <label> J’ai lu et j’accepte les Conditions Générales de Runbnb.com</label><br>
+           
+
+
+</div>
+</main>
+
+
+
+
+<span class="b">
+<span name ="prev" class="button">Precédent</span>
+<span name= "next" class="button">Continuer</span>
+</span>
+
+</section>
+
+
+
+
+    
+
+</body>
+
+
+<script>
+var main = document.getElementsByTagName('main');
+var button = document.getElementsByClassName('button');
+var p = document.getElementsByTagName('p');
+var section = document.getElementsByTagName('section')[0];
+section.onsubmit =()=>{return false}
+
+var current_main = 0;
+main[current_main].style.display = "block";
+if (current_main == 0)
+{
+    button[0].style.display = "none";
+    p[0].style.backgroundColor = "royalblue";
+
+
+}
+
+button[1].onclick = ()=>{
+  current_main++;
+  var back_main = current_main - 1;
+  if ((current_main > 0) && (current_main < 12))
+  {
+    button[0].style.display = "block";
+    main[current_main].style.display = "block";
+    main[back_main].style.display = "none";
+    p[current_main].style.backgroundColor = "royalblue";
+    p[back_main].style.backgroundColor = "#ededed";
+    button[1].style.cssText ="float:right; margin-right:88px;"
+ 
+
+
+
+    if (current_main == 11)
+    {
+      button[1].innerHTML = "Ouvrir mon hébergement à la réservation ";
+      button[1].style.cssText = "width:300px;left:412px;"
+      button[0].style.display ="none";
+    }
+
+  }
+  else
+  {
+      if (current_main > 11) 
+      {
+        section.onsubmit =()=>{return true}
+
+      }
+  }
+}
+
+button[0].onclick = ()=>{     
+
+{
+    current_main--;
+    var back_main =current_main +1;
+    main[current_main].style.display= "block";
+        main[back_main].style.display = "none";
+        p[current_main].style.backgroundColor ="royalblue";
+        p[back_main].style.backgroundColor = "#ededed" ;
+        if (current_main < 12)
+          {
+            button[1].innerHTML = "Next";
+         
+
+        }
+      
+
+}
+
+if (current_main == 0) {
+  button[0].style.display = "none";
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+</script>
+
+</script>
+    <script type="text/javascript">
+  
+    function getSelectedCheckboxValues(name) {
+    const checkboxes = document.querySelectorAll(`input[name="chambre_ids[]"]:checked`);
+    let values = [];
+    checkboxes.forEach((checkbox) => {
+    values.push(checkbox.value);
+    });
+    return values;
+    }
+    const btn = document.querySelector('#btn');
+    btn.addEventListener('click', (event) => {
+      document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
+    alert(getSelectedCheckboxValues('values'));
+    });
+    
+    </script>
+
+
+      <script >
+      var cache = document.getElementById("caché")
+      var clicke1 = document.getElementById("clicke1")
+      var clicke = document.getElementById("clicke")
+       clicke1.onclick = function () {
+        cache.style.display= "block";
+        clicke.style.display="none"
+        }
+    $(".datepicker").load("contenu.html"); // un élément portant l'id "content" existe dans contenu.html
+
+    $(function($){
+    var datepicker = $( ".datepicker").datepicker({
+       minDate: 0,
+       onSelect: function(date){
+        var option = this.id = 'start_date'? 'minDate' : 'maxDate';
+        datepicker.not('#'+this.id).datepicker('option',option,date);
+
+        }
+    }) 
+    });
+    </script>
+<script type="text/javascript">
+    var p1 = document.getElementById("up-1");
+    var p2 = document.getElementById("up-2");
+    var p3 = document.getElementById("up-3");
+    var p4 = document.getElementById("up-4");
+    var p5 = document.getElementById("up-5");
+    var p6 = document.getElementById("up-6");
+    var p7 = document.getElementById("up-7");
+    var p8 = document.getElementById("up-8");
+    p1.onclick = function (){
+      p2.style.display="block";
+      p1.style.display="none";
+    }
+     p2.onclick = function (){
+      p3.style.display="block";
+      p2.style.display="none";
+    }
+     p3.onclick = function (){
+      p4.style.display="block";
+      p3.style.display="none";
+    }
+     p4.onclick = function (){
+      p5.style.display="block";
+      p4.style.display="none";
+    }
+     p5.onclick = function (){
+      p6.style.display="block";
+      p5.style.display="none";
+    }
+     p6.onclick = function (){
+      p7.style.display="block";
+      p6.style.display="none";
+    }
+     p7.onclick = function (){
+      p8.style.display="block";
+      p7.style.display="none";
+    }
+    p8.onclick = function (){
+      p8.style.display="none";
+    }
+  mapboxgl.accessToken = 'pk.eyJ1Ijoicm9sbGFuZGphc21pZSIsImEiOiJja2V2OXUyazYxbjJhMnduMGZ2NmU3YmRrIn0.qwoke-4A7fwXdW3JXu4cIw';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-79.4512, 43.6568],
+zoom: 13
+});
+/* given a query in the form "lng, lat" or "lat, lng" returns the matching
+* geographic coordinate(s) as search results in carmen geojson format,
+* https://github.com/mapbox/carmen/blob/master/carmen-geojson.md
+*/
+var coordinatesGeocoder = function (query) {
+// match anything which looks like a decimal degrees coordinate pair
+var matches = query.match(
+/^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
+);
+if (!matches) {
+return null;
+}
+function coordinateFeature(lng, lat) {
+return {
+center: [lng, lat],
+geometry: {
+type: 'Point',
+coordinates: [lng, lat]
+},
+place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+place_type: ['coordinate'],
+properties: {},
+type: 'Feature'
+};
+}
+var coord1 = Number(matches[1]);
+var coord2 = Number(matches[2]);
+var geocodes = [];
+if (coord1 < -90 || coord1 > 90) {
+// must be lng, lat
+geocodes.push(coordinateFeature(coord1, coord2));
+}
+if (coord2 < -90 || coord2 > 90) {
+// must be lat, lng
+geocodes.push(coordinateFeature(coord2, coord1));
+}
+if (geocodes.length === 0) {
+// else could be either lng, lat or lat, lng
+geocodes.push(coordinateFeature(coord1, coord2));
+geocodes.push(coordinateFeature(coord2, coord1));
+}
+alert(coord1)
+return geocodes;
+};
+map.addControl(
+new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+localGeocoder: coordinatesGeocoder,
+zoom: 4,
+placeholder: 'Try: -40, 170',
+mapboxgl: mapboxgl
+})
+);
+</script>
+
