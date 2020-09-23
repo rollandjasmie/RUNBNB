@@ -539,21 +539,16 @@ display: none;
 
   <hr>    
       <h6> Arriveé <br> De </h6>
-      <input type="time" name="arrive[]">
-      <input type="time" name="arrive[]">
+       <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h30","15h:00","15h:30","16h:00","16h:30","17h:00","17h:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
       <label style="margin-left:44px;"> à</label>
       <span style="margin-left:59px;"> </sapn>
-      <input type="time" name="depart[]">
-      <input type="time" name="depart[]">
+         <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
       </sapn>
       <h6> Départ <br> De </h6>
-      <input type="time" name="arrive[]">
-      <input type="time" name="arrive[]">
-      <label style="margin-left:44px;"> à</label>
-      <span style="margin-left:59px;"> 
-      <input type="time" name="depart[]">
-      <input type="time" name="depart[]">
-
+ <%= select_tag 'depart', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%> 
+ <label style="margin-left:44px;"> à</label>
+ <span style="margin-left:59px;"> 
+<%= select_tag 'depart', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
       </sapn>
 </div>
 </main>
