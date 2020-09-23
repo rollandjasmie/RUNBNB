@@ -18,9 +18,8 @@ class LogementsController < ApplicationController
            code: params[:code],ville: params[:ville],adresse2:params[:adresse2],logement_id: @logement.id)
     @adresse = @adr.save 
 
-    if params[:chambre_ids] && params[:number]
+    if params[:chambre_ids]
       @chambre = params[:chambre_ids]
- 
       @chambre.each do |c|
           @a = Chambre.create(logement_id: @logement.id,lit_id: c.to_i,)
       end 
@@ -33,7 +32,7 @@ class LogementsController < ApplicationController
      if params[:autre_ids]
       @autre = params[:autre_ids]
       @autre.each do |a|
-        Autre.create(logement_id: @logement.id, autrelits_id: s.id)
+        Autre.create(logement_id: @logement.id, autrelits_id: a.id)
       end
     end
     end

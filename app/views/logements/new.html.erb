@@ -428,7 +428,7 @@ display: none;
  
  <%Salon.all.each do |c|%><br>
  
- <span class="row" data-toggle="modal" data-target="#staticBackdrop">
+ <span class="row" data-toggle="modal" data-target="#salon">
    <span class="col-6">
      <%= c.title%>
      <small class="salon1"></small>
@@ -455,7 +455,7 @@ display: none;
        </span>
        <span class="modal-footer">
          <button type="button" class="myButton" data-dismiss="modal">Close</button>
-         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+         <button type="button" class="myButton" id="as" data-dismiss="modal">Save</button>
          
        </span>
        
@@ -468,7 +468,7 @@ display: none;
  
  <%Autre.all.each do |c|%><br>
  
- <span class="row" data-toggle="modal" data-target="#staticBackdrop">
+ <span class="row" data-toggle="modal" data-target="#autre">
    <span class="col-6">
      <%= c.title%>
      <samll class="autre1"></small>
@@ -489,13 +489,13 @@ display: none;
        
        <span class="modal-body">
          <%c.autrelits.each do |l| %>
-         <input type="checkbox" class="checkbox" name="[]" value="<%=l.title%>" >
+         <input type="checkbox" class="checkbox" name="autre_ids[]" value="<%=l.title%>" >
          <%= l.title%><br>
          <%end%>
        </span>
        <span class="modal-footer">
          <button type="button" class="myButton" data-dismiss="modal">Close</button>
-         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+         <button type="button" class="myButton" id="at" data-dismiss="modal">Save</button>
          
        </span>
        
@@ -542,7 +542,7 @@ display: none;
        <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h30","15h:00","15h:30","16h:00","16h:30","17h:00","17h:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
       <label style="margin-left:44px;"> à</label>
       <span style="margin-left:59px;"> </sapn>
-         <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
+         <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
       </sapn>
       <h6> Départ <br> De </h6>
  <%= select_tag 'depart', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%> 
@@ -806,7 +806,7 @@ if (current_main == 0) {
 </script>
     <script type="text/javascript">
   
-    function getSelectedCheckboxValues(name) {
+    function chambre(name) {
     const checkboxes = document.querySelectorAll(`input[name="chambre_ids[]"]:checked`);
     let values = [];
     checkboxes.forEach((checkbox) => {
@@ -816,12 +816,41 @@ if (current_main == 0) {
     }
     const btn = document.querySelector('#btn');
     btn.addEventListener('click', (event) => {
-      document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
-    alert(getSelectedCheckboxValues('values'));
+      document.querySelector('.za').innerHTML = chambre('values')
+    alert(chambre('values'));
     });
-    
-    </script>
+  
+   
+    function getSelectedCheckboxValues(name) {
+    const checkboxes = document.querySelectorAll(`input[name="salon_ids[]"]:checked`);
+    let valeur = [];
+    checkboxes.forEach((checkbox) => {
+    valeur.push(checkbox.value);
+    });
+    return valeur;
+    }
+    const ba = document.querySelector('#as');
+    ba.addEventListener('click', (event) => {
+      document.querySelector('.salon1').innerHTML = getSelectedCheckboxValues('valeur')
+    alert(getSelectedCheckboxValues('valeur'));
+    });
 
+
+     function autre(name) {
+    const checkboxes = document.querySelectorAll(`input[name="autre_ids[]"]:checked`);
+    let valeur = [];
+    checkboxes.forEach((checkbox) => {
+    valeur.push(checkbox.value);
+    });
+    return valeur;
+    }
+    const bn = document.querySelector('#at');
+    bn.addEventListener('click', (event) => {
+      document.querySelector('.autre1').innerHTML = autre('valeur')
+    alert(autre('valeur'));
+    });
+
+    </script>
 
       <script >
       var cache = document.getElementById("caché")
@@ -884,8 +913,8 @@ if (current_main == 0) {
     p8.onclick = function (){
       p8.style.display="none";
     }
-  </script>
 
+  </script>
 <script >
   function shwoMyImage(input) {
     if (input.files && input.files[0]) {
@@ -931,4 +960,5 @@ coordinates.innerHTML =
  
 marker.on('dragend', onDragEnd);
 </script>
+
 
