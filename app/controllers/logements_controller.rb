@@ -10,6 +10,10 @@ class LogementsController < ApplicationController
   end
 
   def create
+    puts "-"*500
+    puts params.inspect
+    puts "-"*500
+
   	@logement = Logement.new(categorie: params[:categorie],types: params[:types],name: params[:name],user_id: current_user.id)
     @logement.save
     @logement.photos.attach(params[:photos])
@@ -18,30 +22,23 @@ class LogementsController < ApplicationController
            code: params[:code],ville: params[:ville],adresse2:params[:adresse2],logement_id: @logement.id)
     @adresse = @adr.save 
 
-    if params[:chambre_ids]
-      @chambre = params[:chambre_ids]
-      @chambre.each do |c|
-          @a = Chambre.create(logement_id: @logement.id,lit_id: c.to_i,)
-      end 
-    if params[:salon_ids]
-      @salon = params[:salon_ids]
-      @salon.each do |s|
-        Salon.create(logement_id: @logement.id, canape_id: s.id)
+    @a = Chambre.create(logement_id: @logement.id,title: params[:title])
+    @chmbre = @a.save
+
+    if params[:lit_ids]
+      @lits = params[:lit_ids]
+      @lits.each do |l,valeur|
+        LitChambre.create(chambre_id: @a.id, lit_id: l, number: valeur)
       end
     end
-     if params[:autre_ids]
-      @autre = params[:autre_ids]
-      @autre.each do |a|
-        Autre.create(logement_id: @logement.id, autrelits_id: a.id)
-      end
-    end
-    end
+    
     if params[:equipement_ids]
       @equipement = params[:equipement_ids]
       @equipement.each do |e|
         Chambrequipement.create(chambre_id: @a.id, equipement_id: e.to_i)
       end    
     end
+
     if params[:regle_ids]
       @equipement = params[:regle_ids]
       @equipement.each do |e|

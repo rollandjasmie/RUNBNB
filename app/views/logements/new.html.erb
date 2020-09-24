@@ -321,15 +321,12 @@ display: none;
             <h6>Que peuvent réserver les clients ?</h6>
             <%= select_tag 'types', options_for_select(["Chambre privée","Hébergement entier"]),class:'custom-select custom-select-sm',style:"width: 300px"%>
 
-            
 
 </div>
 </main>
 <!-- Deuxieme Parte:!!----------------------------------------------->
 <main>
 <div class="container1" >
-
-
           <p3 style="font-size:16px; margin-bottom:24px;position:relative;top:-53px;"> Ou se situe l'hébergement que vous inscrivez?</h5><br><br>
      
             <span style="font-size:12px; color:#2E2725;">Pays/région</span><br>
@@ -389,7 +386,7 @@ display: none;
  
  <%Chambre.all.each do |c|%><br>
  
- <span class="row" data-toggle="modal" data-target="#staticBackdrop">
+ <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
    <span class="col-6">
      <%= c.title%>
      <small class="za"></small>
@@ -403,15 +400,21 @@ display: none;
    </span>
  </span>
  <!-- Modal -->
- <span class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+ <span class="modal fade" id="<%=c.title%>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
    <span class="modal-dialog modal-dialog-centered">
      <span class="modal-content">
        
        <span class="modal-body">
-         <%c.lits.each do |l| %>
-         <input type="checkbox" class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+         <% c.lits.each do |l| %>
          <%= l.title%><br>
+         <input type="checkbox" class="checkbox" id="chambre" name="lit_ids[<%=l.id%>]" value="<%=l.title%>">
+         <div> 
+           <span class="decrement-js btn-primary">-</span>
+            <input type="text" name="lit_ids[<%=l.id%>]" value="0" id="number">
+            <span class="incremente-js btn-primary">+</span>
+         </div>
          <%end%>
+
        </span>
        <span class="modal-footer">
          <button type="button" class="myButton" data-dismiss="modal">Close</button>
@@ -424,87 +427,6 @@ display: none;
  </span>
  <%end%>
 </span><br>
-<span class="card-body" style="padding-left:0px;">
- 
- <%Salon.all.each do |c|%><br>
- 
- <span class="row" data-toggle="modal" data-target="#salon">
-   <span class="col-6">
-     <%= c.title%>
-     <small class="salon1"></small>
-   </span>
-   <!--  modal -->
-   <!-- Button trigger modal -->
-   <span class="col-7">
-     <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
-     Ajoutez</a> -->
-     <!-- <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button> -->
-     
-   </span>
- </span><br>
- <!-- Modal -->
- <span class="modal fade" id="salon" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-   <span class="modal-dialog modal-dialog-centered">
-     <span class="modal-content">
-       
-       <span class="modal-body">
-         <%c.canapes.each do |l| %>
-         <input type="checkbox" class="checkbox" name="salon_ids[]" value="<%=l.title%>" >
-         <%= l.title%><br>
-         <%end%>
-       </span>
-       <span class="modal-footer">
-         <button type="button" class="myButton" data-dismiss="modal">Close</button>
-         <button type="button" class="myButton" id="as" data-dismiss="modal">Save</button>
-         
-       </span>
-       
-     </span>
-   </span>
- </span>
- <%end%>
-</span>
-<span class="card-body" style="padding-left:0px;">
- 
- <%Autre.all.each do |c|%><br>
- 
- <span class="row" data-toggle="modal" data-target="#autre">
-   <span class="col-6">
-     <%= c.title%>
-     <samll class="autre1"></small>
-   </span>
-   <!--  modal -->
-   <!-- Button trigger modal -->
-   <span class="col-7">
-     <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
-     Ajoutez</a> -->
-     <!--  <button type="button" class="myButton" data-toggle="modal" data-target="#autre">ajoutez</button> -->
-     
-   </span>
- </span>
- <!-- Modal -->
- <span class="modal fade" id="autre" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-   <span class="modal-dialog modal-dialog-centered">
-     <span class="modal-content">
-       
-       <span class="modal-body">
-         <%c.autrelits.each do |l| %>
-         <input type="checkbox" class="checkbox" name="autre_ids[]" value="<%=l.title%>" >
-         <%= l.title%><br>
-         <%end%>
-       </span>
-       <span class="modal-footer">
-         <button type="button" class="myButton" data-dismiss="modal">Close</button>
-         <button type="button" class="myButton" id="at" data-dismiss="modal">Save</button>
-         
-       </span>
-       
-     </span>
-   </span>
- </span>
- <%end%>
-</span>
-</span>
 </div>
 </main>
 <!--  Cinqiéme Partie------------------------------------------------->
@@ -663,10 +585,7 @@ display: none;
 
     <h5 style="font-size:17px;"> Puis je choisir qui séjourne dans mon hébergement?</h5>
     <h6 style="color:#696565;" >Non tout nos utilisateurs peuvent réservé  une date </h6><br>
-    
-
-
-
+   
     <h5 style="font-size:17px;"> Puis je choisir les jours pour lesqueles je recois les réservations ?</h5>
     <h6 style="color:#696565;" >Oui, il vous suffit de vous assurer  de votre calendrier est a jour.Fermez tout les dates pour lesquelles 
       vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
@@ -807,47 +726,19 @@ if (current_main == 0) {
     <script type="text/javascript">
   
     function chambre(name) {
-    const checkboxes = document.querySelectorAll(`input[name="chambre_ids[]"]:checked`);
+    const checkboxes = document.querySelectorAll(`input[id="chambre"]:checked`);
     let values = [];
     checkboxes.forEach((checkbox) => {
     values.push(checkbox.value);
     });
+
     return values;
     }
+
     const btn = document.querySelector('#btn');
     btn.addEventListener('click', (event) => {
       document.querySelector('.za').innerHTML = chambre('values')
     alert(chambre('values'));
-    });
-  
-   
-    function getSelectedCheckboxValues(name) {
-    const checkboxes = document.querySelectorAll(`input[name="salon_ids[]"]:checked`);
-    let valeur = [];
-    checkboxes.forEach((checkbox) => {
-    valeur.push(checkbox.value);
-    });
-    return valeur;
-    }
-    const ba = document.querySelector('#as');
-    ba.addEventListener('click', (event) => {
-      document.querySelector('.salon1').innerHTML = getSelectedCheckboxValues('valeur')
-    alert(getSelectedCheckboxValues('valeur'));
-    });
-
-
-     function autre(name) {
-    const checkboxes = document.querySelectorAll(`input[name="autre_ids[]"]:checked`);
-    let valeur = [];
-    checkboxes.forEach((checkbox) => {
-    valeur.push(checkbox.value);
-    });
-    return valeur;
-    }
-    const bn = document.querySelector('#at');
-    bn.addEventListener('click', (event) => {
-      document.querySelector('.autre1').innerHTML = autre('valeur')
-    alert(autre('valeur'));
     });
 
     </script>
@@ -960,5 +851,19 @@ coordinates.innerHTML =
  
 marker.on('dragend', onDragEnd);
 </script>
+  
+<script type="text/javascript">
+    $(".decrement-js").click(function(){
+      input = $($(this)).parent().find("input")[0]
+      $(input).val(parseInt($(input).val())-1)
+    })
+    $(".incremente-js").click(function(){
+      input = $($(this)).parent().find("input")[0]
+      $(input).val(
+        parseInt($(input).val())+1
+        )
+    })
+      // 
 
+</script>
 
