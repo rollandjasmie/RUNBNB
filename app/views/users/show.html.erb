@@ -42,7 +42,7 @@
     <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 35px;">
              
               <%if @user.avatar.attached?%>
-	                    <%= image_tag @user.avatar, alt: 'avatar', class:"chip", style:"width:40px; height:40px" ,alt:"Person", width:"96", height:"96"%>
+                      <%= image_tag @user.avatar, alt: 'avatar', class:"chip", style:"width:40px; height:40px" ,alt:"Person", width:"96", height:"96"%>
                         <%else%>
                         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="chip" alt="avatar" style="width:40px; height:40px" alt="Person" width="96" height="96",>
                         <%end%>
@@ -100,7 +100,7 @@
     <h5 style="position:absolute;top:188px;">Infos personnelles</h5>
     <span style="color: #4283FF ;"><h6 style="font-weight:bold;  ">Prénom et Nom </h6> 
     <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong" style="margin-left:316px;position:absolute;top:302px" >Modifier</button>
-    </span>	
+    </span> 
 
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -180,7 +180,7 @@
           <div class="modal-body">
            
               <%= form_for(@user) do |f| %>
-            <%= f.date_field :date_of_birth	 %><br>
+            <%= f.date_field :date_of_birth  %><br>
         
           </div>
           <div class="modal-footer">
@@ -442,7 +442,7 @@
                 <div class="card">
                     <div class="text-center">
                     <%if @user.avatar.attached?%>
-	                    <%= image_tag @user.avatar, alt: 'avatar', class:"avatar img-circle img-thumbnail"%>
+                      <%= image_tag @user.avatar, alt: 'avatar', class:"avatar img-circle img-thumbnail"%>
                         <%else%>
                         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
                         <%end%>
@@ -507,8 +507,13 @@
       $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
     })
+  </script>
 
 
       
 </body>
 </html>
+
+
+
+
