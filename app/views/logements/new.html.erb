@@ -46,12 +46,12 @@ p{
         position:relative;
         top:53px;
         margin-left:65px;
-         width:500px;
-         height:412pxpx;
-         padding-top:22px;
-         padding:17px;
+        width:500px;
+        height:412pxpx;
+        padding-top:22px;
+        padding:17px;
          
-         background-color:#F4F4F4;
+        background-color:#F4F4F4;
      
      }
      .container2{
@@ -60,14 +60,28 @@ p{
       position:relative;
       top:33px;
       margin-left:65px;
-       width:500px;
-       height:466px;
-       padding-top:22px;
-       padding:17px;
-       display:none;
-       background-color:#F4F4F4;
+      width:500px;
+      height:466px;
+      padding-top:22px;
+      padding:17px;
+      display:none;
+      background-color:#F4F4F4;
  
    }
+
+    .content-box{
+    
+      
+    
+       border-box:0px;
+       position:relative;
+       top:33px;
+       width:400px;
+        height:300px;
+        padding:17px;
+        margin-left:65px;
+        
+        background-color:transparent;}
 
 
      main{
@@ -394,10 +408,10 @@ display: none;
 </main>
 <!-- Troisieme Partie --------------------------------------->
 <main>   
-<div class="container">
+<div class="content-box">
 
          
-         <h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-33px"> Carte</h5>
+         
 <div id="map"></div>
 <div id="coordinates" class="coordinates"></div>
 
@@ -799,15 +813,19 @@ var p = document.getElementsByTagName('p');
 var section = document.getElementsByTagName('section')[0];
 section.onsubmit =()=>{return false}
 
+
+
 var current_main = 0;
 main[current_main].style.display = "block";
 if (current_main == 0)
 {
     button[0].style.display = "none";
     p[0].style.backgroundColor = "royalblue";
-
+    
 
 }
+
+  
 
 button[1].onclick = ()=>{
   current_main++;
@@ -818,10 +836,9 @@ button[1].onclick = ()=>{
     main[current_main].style.display = "block";
     main[back_main].style.display = "none";
     p[current_main].style.backgroundColor = "royalblue";
-    p[back_main].style.backgroundColor = "#ededed";
+    p[back_main].style.backgroundColor = "green";
     button[1].style.cssText ="float:right; margin-right:88px;"
- 
-
+  
 
 
     if (current_main == 11)
@@ -829,6 +846,7 @@ button[1].onclick = ()=>{
       button[1].innerHTML = "Ouvrir mon hébergement à la réservation ";
       button[1].style.cssText = "width:300px;left:412px;"
       button[0].style.display ="none";
+      
     }
 
   }
@@ -837,16 +855,21 @@ button[1].onclick = ()=>{
       if (current_main > 11) 
       {
         section.onsubmit =()=>{return true}
+        
 
       }
   }
 }
+
+
 
 button[0].onclick = ()=>{     
 
 {
     current_main--;
     var back_main =current_main +1;
+    
+    
     main[current_main].style.display= "block";
         main[back_main].style.display = "none";
         p[current_main].style.backgroundColor ="royalblue";
@@ -854,17 +877,26 @@ button[0].onclick = ()=>{
         if (current_main < 12)
           {
             button[1].innerHTML = "Next";
+            
+            
          
 
         }
+
+        
+        
+        
       
 
 }
+
+
 
 if (current_main == 0) {
   button[0].style.display = "none";
 
 }
+
 
 
 
@@ -955,7 +987,7 @@ if (current_main == 0) {
     p1.onclick = function (){
       p2.style.display="block";
       p1.style.display="none";
-      p12.style.display="none"
+      p12.style.display="none";
     }
      p2.onclick = function (){
       p3.style.display="block";
