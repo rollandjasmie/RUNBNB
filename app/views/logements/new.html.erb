@@ -258,13 +258,13 @@ display: none;
 
 <header>
   <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
-    <nav class=" tainer">
+    <nav class=" tainer"  style="margin-top:23px;">
         <ul class="nu">
             
            <li class="i"> Nom et emplacement <br>
             <section>
                 <p></p>
-                <p></p> 
+                <p ></p> 
                 <p></p>
 
             </section>
@@ -589,14 +589,13 @@ display: none;
                                   <button class="btn-upload" id="12" style="display: block;">Choisir le fichier</button>
                                   <input id="up-1" class="photo-js" type="file" name="photos[]" >
                                 </div>
-                              <input id="up-2" class="photo-js" type="file" name="photos[]" style="display:none" >
-                              <input id="up-3" class="photo-js" type="file" name="photos[]" style="display:none" >
-                              <input id="up-4" class="photo-js" type="file" name="photos[]" style="display:none" >
-                              <input id="up-5" class="photo-js" type="file" name="photos[]" style="display:none" >
-                              <input id="up-6" class="photo-js" type="file" name="photos[]" style="display:none" >
-                              <input id="up-7" class="photo-js" type="file" name="photos[]" style="display:none" >
-                              <input id="up-8" class="photo-js" type="file" name="photos[]" style="display:none" >
-                            <% end %>
+<%for x in 2..8 do%>
+                              <input id="up-<%=x%>" class="photo-js" type="file" name="photos[]" style="display:none" >
+                            
+                              
+   
+<%end%>
+                                      <% end %>
   
 <img id="addImage-up-1" alt="" style="display: none; width: 100px;"></img>
 <img id="addImage-up-2" alt="" style="display: none; width: 100px;"></img>
@@ -853,7 +852,7 @@ button[0].onclick = ()=>{
         p[back_main].style.backgroundColor = "#ededed" ;
         if (current_main < 12)
           {
-            button[1].innerHTML = "Next";
+            button[1].innerHTML = "Continuer";
          
 
         }

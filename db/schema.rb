@@ -169,7 +169,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_114528) do
     t.string "name"
     t.string "first_name"
     t.string "adresse"
-    t.integer "mobile"
+    t.string "mobile"
     t.string "date_of_birth"
     t.string "sexe"
     t.integer "urgence"
