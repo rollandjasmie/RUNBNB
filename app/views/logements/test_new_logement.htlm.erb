@@ -1319,3 +1319,8 @@ if (current_div == 0)
  <span type="text" id="start_date" class="datepicker" placeholder="start date" name="start_date[]">
  <span type="text" id="end_date" class="datepicker" placeholder="end date" name="end_date[]">
 </div>
+    <%if user_signed_in?%>
+      <a href="<%=user_path(current_user.id)%>">Mon profil</a>
+      <%=link_to 'se deconecter', destroy_user_session_path, method: :delete%>
+       <a href="<%=new_logement_path%>">creer un hébérgement</a>
+      <% end %>

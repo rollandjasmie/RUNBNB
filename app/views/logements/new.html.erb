@@ -207,7 +207,7 @@ p{
   max-width:250px;
    max-height:250px;
 }
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+#map { position: absolute; top: 30px; bottom: 0; width: 100%; }
 .coordinates {
 background: rgba(0, 0, 0, 0.5);
 color: #fff;
@@ -220,7 +220,33 @@ font-size: 11px;
 line-height: 18px;
 border-radius: 3px;
 display: none;
-}  
+}
+.parent-div {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.parent-div input[type=file] {
+  left: 0;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  font-size: 90px;
+}
+
+.btn-upload {
+  background-color: #fff;
+  border: 3px solid #000;
+  color: #000;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.datepicker{
+  margin-left:110px;
+}   
     <div class="container-sm">100% wide until small breakpoint</div>
     <div class="container-md">100% wide until medium breakpoint</div>
     <div class="container-lg">100% wide until large breakpoint</div>
@@ -231,6 +257,7 @@ display: none;
 
 
 <header>
+  <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
     <nav class=" tainer">
         <ul class="nu">
             
@@ -300,7 +327,7 @@ display: none;
 </header>
 
 
-<section class="welcome">
+<section class="welcome" onkeypress="refuserToucheEntree(event);">
 
 <!-- Premiere parti -->
   <%= form_tag url_for(action:'create'), methode: "post", multipart: true do%>
@@ -310,7 +337,7 @@ display: none;
             <h6>Quel est le nom de votre hébergement?</h6> <br>
                         
                             
-            <input type="text"  class="form-control" name="name" placeholder="nom de l'hébergement"><br>
+            <input type="text"  class="form-control" name="name" placeholder="nom de l'hébergement" ><br>
 
 
             <h6>Choisissez le type d’hébergement que vous souhaitez inscrire sur RunBnB :</h6>
@@ -334,22 +361,23 @@ display: none;
      
             <span style="font-size:12px; color:#2E2725;">Pays/région</span><br>
           
-                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Pays/région"><br>
+                <input type="text" name="pays[]" class="form-control" id="" placeholder="Pays/région"><br>
                 
       
             <span style="font-size:12px; color:#2E2725;">Ville</span>
         
-                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez une ville"><br>
+                <input type="text" name="ville[]" class="form-control" id="ville" placeholder="entrez une ville" ><br>
                 
             
             <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 1)</span>
         
-                <%= text_field_tag :adresse, "" ,class:'form-control'%><br>
+                <input type="text" name="adresse[]" class="form-control" id="ville1" placeholder="entrez une ville" ><br>
+
                 
             
             <span style="font-size:12px; color:#2E2725;">Code postal</span>
        
-                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="entrez votre Code postal"><br>
+                <input type="text" name="code[]" class="form-control" id="" placeholder="entrez votre Code postal"><br>
                 
             <span id="caché" style="display: none;">Trouvez votre adresse (ligne 2)
 
@@ -539,7 +567,7 @@ display: none;
 
   <hr>    
       <h6> Arriveé <br> De </h6>
-       <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h30","15h:00","15h:30","16h:00","16h:30","17h:00","17h:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
+       <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h30","15h:00","15h:30","16h:00","16h:30","17h:00","17h:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary",onclick:"getValue();"%>
       <label style="margin-left:44px;"> à</label>
       <span style="margin-left:59px;"> </sapn>
          <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
@@ -557,8 +585,10 @@ display: none;
 <div class="container">
  <h2> photo</h2>
  <%= label_tag 'photos', id: "files-inputs" do %>
-
-                              <input id="up-1" class="photo-js" type="file" name="photos[]" >
+                                <div class="parent-div">
+                                  <button class="btn-upload" id="12" style="display: block;">Choisir le fichier</button>
+                                  <input id="up-1" class="photo-js" type="file" name="photos[]" >
+                                </div>
                               <input id="up-2" class="photo-js" type="file" name="photos[]" style="display:none" >
                               <input id="up-3" class="photo-js" type="file" name="photos[]" style="display:none" >
                               <input id="up-4" class="photo-js" type="file" name="photos[]" style="display:none" >
@@ -568,16 +598,14 @@ display: none;
                               <input id="up-8" class="photo-js" type="file" name="photos[]" style="display:none" >
                             <% end %>
   
-<%=submit_tag 'cre'%>
-<%end%>
-<img id="addImage-up-1" alt="mandona" style="display: none; width: 100px;"></img>
-<img id="addImage-up-2" alt="mandona" style="display: none; width: 100px;"></img>
-<img id="addImage-up-3" alt="mandona" style="display: none; width: 100px;"></img>
-<img id="addImage-up-4" alt="mandona" style="display: none; width: 100px;"></img>
-<img id="addImage-up-5" alt="mandona" style="display: none; width: 100px;"></img>
-<img id="addImage-up-6" alt="mandona" style="display: none; width: 100px;"></img>
-<img id="addImage-up-7" alt="mandona" style="display: none; width: 100px;"></img>
-<img id="addImage-up-8" alt="mandona" style="display: none; width: 100px;"></img>
+<img id="addImage-up-1" alt="" style="display: none; width: 100px;"></img>
+<img id="addImage-up-2" alt="" style="display: none; width: 100px;"></img>
+<img id="addImage-up-3" alt="" style="display: none; width: 100px;"></img>
+<img id="addImage-up-4" alt="" style="display: none; width: 100px;"></img>
+<img id="addImage-up-5" alt="" style="display: none; width: 100px;"></img>
+<img id="addImage-up-6" alt="" style="display: none; width: 100px;"></img>
+<img id="addImage-up-7" alt="" style="display: none; width: 100px;"></img>
+<img id="addImage-up-8" alt="" style="display: none; width: 100px;"></img>
   </div>
 </main>
 <main>
@@ -613,13 +641,20 @@ display: none;
 </div>
 </main>
 <!-- Huitiéme Partie------------------------------------------------->
-<main>
- <div class="container1">
+
+   <main>
+ <div class="container" style="width:800px; height:440px">
    <h4> calendrier </h4><br>
-   <span type="text" id="start_date" class="datepicker" placeholder="start date" name="start_date[]">
-   <span type="text" id="end_date" class="datepicker" placeholder="end date" name="end_date[]">
+   <label style="color:#696565;">Cliquez sur chaque date individuellement. Toutes les dates visibles sont disponibles à la réservation. Ne vous inquitez pas, vous pourrez toujours ajouter ou supprimer des dates plus tard.</label>
+   <br>
+   <br>
+   <div class="bx--form-item">
+   <input type="text" id="start_date" class="datepicker" placeholder=" date de début " name="start_date[]">
+   <input type="text" id="end_date" class="datepicker  " placeholder="date de fin" name="end_date[]">
+   <div>
 </div>
 </main>
+
 <!-- Neuviéme Partie------------------------------------------------->
 
 <main>
@@ -636,12 +671,46 @@ display: none;
  <hr>
 
     <h6 > Adresse de l'hébergement</h6><br>
-    <a  href="#"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
-    <section style="font-size:15px; color:#696565; "> 2 rue de Kenval, 97434, Saint Gilles les Bains </section><br>
+    <!-- Button trigger modal -->
+<a  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
+ Modifier   
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <span style="font-size:12px; color:#2E2725;">Ville</span>
+        
+                <input type="text" name="ville[]" class="form-control" id="ville2" placeholder="entrez une ville" ><br>
+                
+            
+            <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 1)</span>
+        
+                <%= text_field_tag :adresse, "" ,class:'form-control',id:"ville3"%><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Save change</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <section style="font-size:15px; color:#696565; " id="az"></section><br>
+  
  <hr>
     <h6> Emplacement sur la carte</h6><br>
     <a href="#" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
- <hr>   
+ <hr>   <%=submit_tag 'cre'%>
+<%end%>
+
     <h6> Nom de l'hébergement</h6><br>
     
 
@@ -722,7 +791,7 @@ display: none;
 
 </body>
 
-
+<script type="text/javascript">noPressEnter(document.body);</script>
 <script>
 var main = document.getElementsByTagName('main');
 var button = document.getElementsByClassName('button');
@@ -853,9 +922,11 @@ if (current_main == 0) {
     var p6 = document.getElementById("up-6");
     var p7 = document.getElementById("up-7");
     var p8 = document.getElementById("up-8");
+    var p12 = document.getElementById('12');
     p1.onclick = function (){
       p2.style.display="block";
       p1.style.display="none";
+      p12.style.display="none"
     }
      p2.onclick = function (){
       p3.style.display="block";
@@ -931,4 +1002,38 @@ coordinates.innerHTML =
  
 marker.on('dragend', onDragEnd);
 </script>
+<script >
+function getValue() {
+    // Sélectionner l'élément input et récupérer sa valeur
+      var h1 = document.createElement('label');
+    var input = document.getElementById("ville").value;
+    var input1 = document.getElementById("ville1").value;
+    // Afficher la valeur
+h1.innerText = input + "-"+ input1;
+      document.getElementById("az").appendChild(h1)
 
+
+
+}
+
+</script>
+<script type="text/javascript">
+  function refuserToucheEntree(event)
+{
+    // Compatibilité IE / Firefox
+    if(!event && window.event) {
+        event = window.event;
+    }
+    // IE
+    if(event.keyCode == 13) {
+        event.returnValue = false;
+        event.cancelBubble = true;
+    }
+    // DOM
+    if(event.which == 13) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+}
+
+</script>
