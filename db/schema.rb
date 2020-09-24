@@ -141,9 +141,13 @@ ActiveRecord::Schema.define(version: 2020_09_22_114528) do
   end
 
   create_table "regles", force: :cascade do |t|
+    t.string "depart"
+    t.string "arrive"
     t.string "title"
+    t.bigint "logement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["logement_id"], name: "index_regles_on_logement_id"
   end
 
   create_table "reservations", force: :cascade do |t|
