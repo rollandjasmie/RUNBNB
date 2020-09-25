@@ -381,15 +381,13 @@ display: none;
 <h6 style="margin-bottom:14px;position:relative;top:-23px">Où les clients peuvent-ils dormir ?</h6>
 
 
-<span class="card-body" style="padding-left:0px;">
+<div class="card-body" style="padding-left:0px;" id="options">
 
- 
  <%Chambre.all.each do |c|%><br>
- 
  <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
    <span class="col-6">
      <%= c.title%>
-     <small class="za"></small>
+     <small class="block_<%=c.id%>"></small>
    </span>
    <!--  modal -->
    <!-- Button trigger modal -->
@@ -407,7 +405,7 @@ display: none;
        <span class="modal-body">
          <% c.lits.each do |l| %>
          <%= l.title%><br>
-         <input type="checkbox" class="checkbox" id="chambre" name="lit_ids[<%=l.id%>]" value="<%=l.title%>">
+         <input type="checkbox" class="checkbox options_list" data-value="<%=l.title%>" data-type="<%=c.id%>" data-id="<%=l.id%>" name="lit_ids[<%=l.id%>]" value="<%=l.title%>">
          <div> 
            <span class="decrement-js btn-primary">-</span>
             <input type="text" name="lit_ids[<%=l.id%>]" value="0" id="number">
@@ -418,7 +416,7 @@ display: none;
        </span>
        <span class="modal-footer">
          <button type="button" class="myButton" data-dismiss="modal">Close</button>
-         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+         <button type="button" class="myButton savebutton" data-idchambre="<%=c.id%>" data-dismiss="modal">Save</button>
          
        </span>
        
@@ -426,7 +424,7 @@ display: none;
    </span>
  </span>
  <%end%>
-</span><br>
+</div><br>
 </div>
 </main>
 <!--  Cinqiéme Partie------------------------------------------------->
@@ -724,22 +722,36 @@ if (current_main == 0) {
 
 </script>
     <script type="text/javascript">
-  
-    function chambre(name) {
-    const checkboxes = document.querySelectorAll(`input[id="chambre"]:checked`);
+    function chambre() {
+    const parent = document.getElementById('options')
+    const checkboxes = parent.querySelectorAll(`input[class="checkbox options_list"]:checked`);
     let values = [];
+
     checkboxes.forEach((checkbox) => {
-    values.push(checkbox.value);
+      var target = ".block_" + checkbox.getAttribute('data-type');
+
+      document.querySelector(target).innerHTML =  null;
     });
 
+    checkboxes.forEach((checkbox) => {
+      var target = ".block_" + checkbox.getAttribute('data-type');
+
+      //console.log(checkbox.getAttribute('data-type'));
+      var val = checkbox.getAttribute('data-value');
+
+      document.querySelector(target).innerHTML +=  val
+    });
     return values;
     }
 
-    const btn = document.querySelector('#btn');
-    btn.addEventListener('click', (event) => {
-      document.querySelector('.za').innerHTML = chambre('values')
-    alert(chambre('values'));
-    });
+    $(document).on('click', '.savebutton', function() {
+
+      chambre()
+    })
+    //const btn = document.querySelector('.savebutton');
+   // btn.addEventListener('click', (event) => {
+      //document.querySelector('.za').innerHTML = chambre('values')
+    //});
 
     </script>
 
