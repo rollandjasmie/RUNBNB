@@ -16,6 +16,80 @@
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.decrement-js  {
+  text-align: center;
+  width: 33px;
+  border-radius: 12px;
+  display: inline-flex;
+  justify-content: stretch;
+}
+.decrement-js  input {
+  vertical-align: middle;
+  -moz-appearance: textfield;
+  box-sizing: content-box;
+  margin: 0;
+  text-align: center;
+}
+.decrement-js  input::-webkit-inner-spin-button,
+.decrement-js  input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.incremente-js {
+  text-align: center;
+    width: 33px;
+  border-radius: 12px;
+  display: inline-flex;
+  justify-content: stretch;
+
+}
+
+.incremente-js input{
+  text-align: center;
+   vertical-align: middle;
+  -moz-appearance: textfield;
+  box-sizing: content-box;
+  margin: 0;
+  text-align: center;
+
+}
+
+.incremente-js  input::-webkit-inner-spin-button,
+.incremente-js  input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+h3{
+  text-align: center;
+}
+
+.checkbox .options_list{
+  position: relative;
+  top:22px;
+}
+.containerz{
+  position:relative;
+  top:-34px;
+  margin-left:333px;
+}
+.containerz input{
+  width:33px;
+  font-size:15px;
+
+  padding: 5px;
+  border:none;
+  outline:none;
+  border-radius: 10px;
+}
+.containerz input:hover{
+  background: #C9C0A6;
+  color:#fff;
+}
+
+
 p{
         width: 30px;
         height: 5px;
@@ -221,6 +295,25 @@ line-height: 18px;
 border-radius: 3px;
 display: none;
 }  
+
+.nice-number {
+  display: inline-flex;
+  justify-content:strech;
+  width: 55px;
+}
+.nice-number input{
+  vertical-align: middle;
+  -moz-appearence:textfield;
+}
+
+.containerz {
+  position:relative;
+  top:33px;
+  margin-left: 333px;
+}
+
+
+
     <div class="container-sm">100% wide until small breakpoint</div>
     <div class="container-md">100% wide until medium breakpoint</div>
     <div class="container-lg">100% wide until large breakpoint</div>
@@ -308,8 +401,7 @@ display: none;
 <div class="container">
 
             <h6>Quel est le nom de votre hébergement?</h6> <br>
-                        
-                            
+              
             <input type="text"  class="form-control" name="name" placeholder="nom de l'hébergement"><br>
 
 
@@ -385,17 +477,17 @@ display: none;
 
  <%Chambre.all.each do |c|%><br>
  <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
+    <% if c.id == 3 || c.id == 2 || c.id == 1%>
    <span class="col-6">
      <%= c.title%>
      <small class="block_<%=c.id%>"></small>
    </span>
+     <% end%>
    <!--  modal -->
    <!-- Button trigger modal -->
-   <span class="col-7">
     
      <!-- <button type="button" class="button_ajout_lit" data-toggle="modal" data-target="#staticBackdrop" style="width:77px;"></button> -->
      
-   </span>
  </span>
  <!-- Modal -->
  <span class="modal fade" id="<%=c.title%>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -405,11 +497,11 @@ display: none;
        <span class="modal-body">
          <% c.lits.each do |l| %>
          <%= l.title%><br>
-         <input type="checkbox" class="checkbox options_list" data-value="<%=l.title%>" data-type="<%=c.id%>" data-id="<%=l.id%>" name="lit_ids[<%=l.id%>]" value="<%=l.title%>">
-         <div> 
-           <span class="decrement-js btn-primary">-</span>
-            <input type="text" name="lit_ids[<%=l.id%>]" value="0" id="number">
-            <span class="incremente-js btn-primary">+</span>
+         <input type="checkbox" class="checkbox options_list"   data-value="<%=l.title%>" data-type="<%=c.id%>" data-id="<%=l.id%>" name="lit_ids[<%=l.id%>]" value="<%=l.title%>">
+         <div class="containerz"> 
+           <span  class="decrement-js btn-primary"><h3>-</h3></span>
+            <input type="text" name="lit_ids[<%=l.id%>]" value="0" id="number" class="decrement-js btn-primary">
+            <span class="incremente-js btn-primary"><h3>+</h3></span>
          </div>
          <%end%>
 
@@ -876,6 +968,12 @@ marker.on('dragend', onDragEnd);
         )
     })
       // 
+
+</script>
+
+
+<script type="text/javascript">
+  
 
 </script>
 
