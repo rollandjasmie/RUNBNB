@@ -249,6 +249,9 @@
   .datepicker{
   margin-left:110px;
   }
+  .btn.active{background-color: #F47E54;
+    color: whitesmoke;}
+
   <div class="container-sm">100% wide until small breakpoint</div>
   <div class="container-md">100% wide until medium breakpoint</div>
   <div class="container-lg">100% wide until large breakpoint</div>
@@ -257,7 +260,7 @@
   </style>
   <header>
     <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
-    <nav class=" tainer">
+    <nav class=" tainer" style="margin-top: 23px;">
       <ul class="nu">
         
         <li class="i"> Nom et emplacement <br>
@@ -530,16 +533,16 @@
         <%end%><br><br>
         <hr>
         <h6> Arriveé <br> De </h6>
-        <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h30","15h:00","15h:30","16h:00","16h:30","17h:00","17h:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary",onclick:"getValue();"%>
+        <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h30","15h:00","15h:30","16h:00","16h:30","17h:00","17h:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn",onclick:"getValue();"%>
         <label style="margin-left:44px;"> à</label>
         <span style="margin-left:59px;"> </sapn>
-          <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
+          <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn"%>
           </sapn>
           <h6> Départ <br> De </h6>
-          <%= select_tag 'depart', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
+          <%= select_tag 'depart', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn"%>
           <label style="margin-left:44px;"> à</label>
           <span style="margin-left:59px;">
-            <%= select_tag 'depart', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
+            <%= select_tag 'depart', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn"%>
             </sapn>
           </div>
         </main>
@@ -610,23 +613,23 @@
             <!--   <span>
               <label class="bt" for="option1"> 1 jours</label>
               
-              <label class="bt" for="option2">7 jours</label>
+              <label class="bt" forContinuerContinuer="option2">7 jours</label>
               <label class="bt" for="option3">14 jours</label>
               
               <label class="bt" for="option4">30 jours</label>
             </span> -->
             
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-primary " for="option1">1 jour
+              <label  class="btn  active" for="option1" >1 jour
                 <input type="radio" name="condition[]" id="option1" value="1 jours">
               </label>
-              <label class="btn btn-primary" for="option2">7 jours
+              <label  class="btn active" for="option2" >7 jours
                 <input type="radio" name="condition[]" id="option2" value="7 jours">
               </label>
-              <label class="btn btn-primary"for="option3">14 jours
+              <label  class="btn active" for="option3" >14 jours
                 <input type="radio" name="condition[]" id="option3" value="14jours">
               </label>
-              <label class="btn btn-primary" for="option4">30 jours
+              <label  class="btn active" for="option4" >30 jours
                 <input type="radio" name="condition[]" id="option4" value="30 jours">
               </label>
             </div>
