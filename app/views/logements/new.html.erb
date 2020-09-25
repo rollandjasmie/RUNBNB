@@ -13,6 +13,11 @@
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+  #ui-datepicker-div{
+
+    width:318px;
+  }
   p{
   width: 30px;
   height: 5px;
@@ -252,6 +257,28 @@
   .btn.active{background-color: #F47E54;
     color: whitesmoke;}
 
+    .decrement-js.btn-primary{cursor: pointer;}
+    .incremente-js.btn-primary{cursor: pointer;}
+
+
+    .bu1{
+                  width:100px;
+                  height:27px;
+                  margin-left:55px;
+                  border-radius: 11px;
+                  background-color:white;
+                  text-align: center;
+                  font-size:12px;
+                  border: 1px #727C90;;
+                  color: #727C90;;
+                  border-style: solid;
+                  border-width: 2px;
+                  transition: all 0.5s;
+                  cursor: pointer;
+                  outline:none;
+                  outline: none !important;
+}
+
   <div class="container-sm">100% wide until small breakpoint</div>
   <div class="container-md">100% wide until medium breakpoint</div>
   <div class="container-lg">100% wide until large breakpoint</div>
@@ -339,8 +366,8 @@
   </main>
   <!-- Deuxieme Parte:!!----------------------------------------------->
   <main>
-    <div class="container1" >
-      <p3 style="font-size:16px; margin-bottom:24px;position:relative;top:-53px;"> Ou se situe l'hébergement que vous inscrivez?</h5><br><br>
+      <h5 style="position:relative;top:30px;left: 70px;"> Ou se situe l'hébergement que vous inscrivez?</h5><br><br>
+    <div class="container1" style="position:relative;top:10px;" >
         
         <span style="font-size:12px; color:#2E2725;">Pays/région</span><br>
         
@@ -387,11 +414,11 @@
 </main>
 <!-- Quatriéme Partie------------------------------------------------->
 <main>
-<div class="container" style="top:66px;">
+<h5 style="position:relative;top:30px;left: 80px;"> Information sur l'hébergement</h5>
+<div class="container" style="position:relative;top:70px;">
 
-<h5 style="margin-bottom:24px;position:relative;top:-59px;"> Information sur l'hébergement</h5>
 
-<h6 style="margin-bottom:14px;position:relative;top:-23px">Où les clients peuvent-ils dormir ?</h6>
+<h6 style="position:relative;top:15px;">Où les clients peuvent-ils dormir ?</h6>
 
 
 <div class="card-body" style="padding-left:0px;" id="options">
@@ -417,19 +444,21 @@
        
        <span class="modal-body">
          <% c.lits.each do |l| %>
-         <%= l.title%><br>
+         <div style="position: relative;top: 10px;">
          <input type="checkbox" class="checkbox options_list" data-value="<%=l.title%>" data-type="<%=c.id%>" data-id="<%=l.id%>" name="lit_ids[<%=l.id%>]" value="<%=l.title%>">
-         <div> 
-           <span class="decrement-js btn-primary">-</span>
-            <input type="text" name="lit_ids[<%=l.id%>]" value="0" id="number">
-            <span class="incremente-js btn-primary">+</span>
+        <span style="position: relative;left: 20px;bottom: 3px;"> <%= l.title%> </span>
+       </div>
+         <div style="float: right;position: relative;bottom: 20px;"> 
+           <span class="decrement-js btn-primary" style="padding: 0px 11px;margin:0px 15px;border-radius: 50px;">-</span>
+            <input type="text" name="lit_ids[<%=l.id%>]" value="0" id="number"style="width: 30px;text-align: center;">
+            <span class="incremente-js btn-primary" style="padding: 0px 8px;margin:0px 15px;border-radius: 50px;">+</span>
          </div>
          <%end%>
 
        </span>
        <span class="modal-footer">
-         <button type="button" class="myButton" data-dismiss="modal">Close</button>
-         <button type="button" class="myButton savebutton" data-idchambre="<%=c.id%>" data-dismiss="modal">Save</button>
+         <button type="button" class="btn" data-dismiss="modal">Close</button>
+         <button type="button" class="btn savebutton" data-idchambre="<%=c.id%>" data-dismiss="modal">Save</button>
          
        </span>
        
@@ -443,14 +472,14 @@
 
   <!--  Cinqiéme Partie------------------------------------------------->
   <main>
-    <div class="container" style="height:688px; padding-top:0px;">
+      <h5  style="position:relative;top:30px;left: 80px;"> Quelle epuipement proposer vous? </h5>
+    <div class="container" style="height:400px; position:relative;top:70px;">
       
       
       
-      <h5 style="margin-bottom:24px;position:relative;top:-40px"> Quelle epuipement proposer vous? </h5>
       <%Equipement.all.each do |e|%><br>
       <input class="list" type="checkbox" name="equipement_ids[]" value="<%=e.id%>">
-      <%= e.title%><br>
+      <span style="position: relative;left: 20px;bottom: 4px;"><%= e.title%></span>
       <%end%>
       
       
@@ -459,29 +488,209 @@
   </main>
   <!-- sixiéme Partie------------------------------------------------->
   <main>
-    <div class="container" style="height:533px; padding-top:0px">
-      <h5 style="margin-bottom:24px;position:relative;top:-43px"> Règle de la maison </h5>
+      <h5 style="position:relative;top:30px;left: 80px;"> Règle de la maison </h5>
+<div class="container" style="height:533px;  position:relative;top:70px;>
       <span class="containo" style="width:633px;">
-        
-        <%Regle.all.each do |d|%><br>
-        <input class="mivadika" type="checkbox" name="regle_ids[]" value="<%=d.id%>">
-        <%= d.title%>e<br>
-        <%end%><br><br>
-        <hr>
-        <h6> Arriveé <br> De </h6>
-        <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h30","15h:00","15h:30","16h:00","16h:30","17h:00","17h:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn",onclick:"getValue();"%>
-        <label style="margin-left:44px;"> à</label>
-        <span style="margin-left:59px;"> </sapn>
-          <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn"%>
-          </sapn>
-          <h6> Départ <br> De </h6>
-          <%= select_tag 'depart', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn"%>
-          <label style="margin-left:44px;"> à</label>
-          <span style="margin-left:59px;">
-            <%= select_tag 'depart', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn"%>
-            </sapn>
-          </div>
-        </main>
+      <br>
+      <input class="mivadika" type="checkbox" name="regle_ids[]" value="9">
+      Hébergement fumeure<br>
+      <br>
+      <input class="mivadika" type="checkbox" name="regle_ids[]" value="10">
+      Animaux domestique admise<br>
+      <br>
+      <input class="mivadika" type="checkbox" name="regle_ids[]" value="11">
+      Enfant bienvenuee<br>
+      <br>
+      <input class="mivadika" type="checkbox" name="regle_ids[]" value="12">
+      Fêtes/événements autorisése<br>
+      <br><br>
+  <hr>
+      <h6> Arriveé <br> De </h6>
+       <select name="arrive" id="arrive" class=" bu1 btn-light" onclick="getValue();"><option value="00h:00">00h:00</option>
+<option value="00h:30">00h:30</option>
+<option value="01h:00">01h:00</option>
+<option value="01h:30">01h:30</option>
+<option value="02h:00">02h:00</option>
+<option value="02h:30">02h:30</option>
+<option value="03h:00">03h:00</option>
+<option value="03h:30">03h:30</option>
+<option value="04h:00">04h:00</option>
+<option value="04h:30">04h:30</option>
+<option value="05h:00">05h:00</option>
+<option value="05h:30">05h:30</option>
+<option value="07h:00">07h:00</option>
+<option value="07h:30">07h:30</option>
+<option value="08h:00">08h:00</option>
+<option value="08h:30">08h:30</option>
+<option value="09h:00">09h:00</option>
+<option value="09h:30">09h:30</option>
+<option value="10h:00">10h:00</option>
+<option value="10h:30">10h:30</option>
+<option value="11h:00">11h:00</option>
+<option value="11h:30">11h:30</option>
+<option value="12h:00">12h:00</option>
+<option value="12h:30">12h:30</option>
+<option value="13h:00">13h:00</option>
+<option value="13h:30">13h:30</option>
+<option value="14h:00">14h:00</option>
+<option value="14h30">14h30</option>
+<option value="15h:00">15h:00</option>
+<option value="15h:30">15h:30</option>
+<option value="16h:00">16h:00</option>
+<option value="16h:30">16h:30</option>
+<option value="17h:00">17h:00</option>
+<option value="17h:30">17h:30</option>
+<option value="18h:00">18h:00</option>
+<option value="19h:30">19h:30</option>
+<option value="20h:00">20h:00</option>
+<option value="20h:30">20h:30</option>
+<option value="21h:00">21h:00</option>
+<option value="21h:30">21h:30</option>
+<option value="22h:00">22h:00</option>
+<option value="22h:30">22h:30</option>
+<option value="23h:00">23h:00</option>
+<option value="23h:30">23h:30</option></select>
+      <label style="margin-left:44px;"> à</label>
+      <span style="margin-left:59px;"> </sapn>
+         <select name="arrive" id="arrive" class="bu1 btn-light" style="margin-left:18px"><option value="00h:00">00h:00</option>
+<option value="00h:30">00h:30</option>
+<option value="01h:00">01h:00</option>
+<option value="01h:30">01h:30</option>
+<option value="02h:00">02h:00</option>
+<option value="02h:30">02h:30</option>
+<option value="03h:00">03h:00</option>
+<option value="03h:30">03h:30</option>
+<option value="04h:00">04h:00</option>
+<option value="04h:30">04h:30</option>
+<option value="05h:00">05h:00</option>
+<option value="05h:30">05h:30</option>
+<option value="07h:00">07h:00</option>
+<option value="07h:30">07h:30</option>
+<option value="08h:00">08h:00</option>
+<option value="08h:30">08h:30</option>
+<option value="09h:00">09h:00</option>
+<option value="09h:30">09h:30</option>
+<option value="10h:00">10h:00</option>
+<option value="10h:30">10h:30</option>
+<option value="11h:00">11h:00</option>
+<option value="11h:30">11h:30</option>
+<option value="12h:00">12h:00</option>
+<option value="12h:30">12h:30</option>
+<option value="13h:00">13h:00</option>
+<option value="13h:30">13h:30</option>
+<option value="14h:00">14h:00</option>
+<option value="14h:30">14h:30</option>
+<option value="15h:00">15h:00</option>
+<option value="15h:30">15h:30</option>
+<option value="16h:00">16h:00</option>
+<option value="16h:30">16h:30</option>
+<option value="17h:00">17h:00</option>
+<option value="17:30">17:30</option>
+<option value="18h:00">18h:00</option>
+<option value="19h:30">19h:30</option>
+<option value="20h:00">20h:00</option>
+<option value="20h:30">20h:30</option>
+<option value="21h:00">21h:00</option>
+<option value="21h:30">21h:30</option>
+<option value="22h:00">22h:00</option>
+<option value="22h:30">22h:30</option>
+<option value="23h:00">23h:00</option>
+<option value="23h:30">23h:30</option></select>
+      </sapn>
+      <h6> Départ <br> De </h6>
+ <select name="depart" id="depart" class="bu1 btn-light"><option value="00h:00">00h:00</option>
+<option value="00h:30">00h:30</option>
+<option value="01h:00">01h:00</option>
+<option value="01h:30">01h:30</option>
+<option value="02h:00">02h:00</option>
+<option value="02h:30">02h:30</option>
+<option value="03h:00">03h:00</option>
+<option value="03h:30">03h:30</option>
+<option value="04h:00">04h:00</option>
+<option value="04h:30">04h:30</option>
+<option value="05h:00">05h:00</option>
+<option value="05h:30">05h:30</option>
+<option value="07h:00">07h:00</option>
+<option value="07h:30">07h:30</option>
+<option value="08h:00">08h:00</option>
+<option value="08h:30">08h:30</option>
+<option value="09h:00">09h:00</option>
+<option value="09h:30">09h:30</option>
+<option value="10h:00">10h:00</option>
+<option value="10h:30">10h:30</option>
+<option value="11h:00">11h:00</option>
+<option value="11h:30">11h:30</option>
+<option value="12h:00">12h:00</option>
+<option value="12h:30">12h:30</option>
+<option value="13h:00">13h:00</option>
+<option value="13h:30">13h:30</option>
+<option value="14h:00">14h:00</option>
+<option value="14h:30">14h:30</option>
+<option value="15h:00">15h:00</option>
+<option value="15h:30">15h:30</option>
+<option value="16h:00">16h:00</option>
+<option value="16h:30">16h:30</option>
+<option value="17h:00">17h:00</option>
+<option value="17:30">17:30</option>
+<option value="18h:00">18h:00</option>
+<option value="19h:30">19h:30</option>
+<option value="20h:00">20h:00</option>
+<option value="20h:30">20h:30</option>
+<option value="21h:00">21h:00</option>
+<option value="21h:30">21h:30</option>
+<option value="22h:00">22h:00</option>
+<option value="22h:30">22h:30</option>
+<option value="23h:00">23h:00</option>
+<option value="23h:30">23h:30</option></select>
+ <label style="margin-left:44px;"> à</label>
+ <span style="margin-left:59px;">
+<select name="depart" id="depart" class="bu1 btn-light" style="margin-left:18px"><option value="00h:00">00h:00</option>
+<option value="00h:30">00h:30</option>
+<option value="01h:00">01h:00</option>
+<option value="01h:30">01h:30</option>
+<option value="02h:00">02h:00</option>
+<option value="02h:30">02h:30</option>
+<option value="03h:00">03h:00</option>
+<option value="03h:30">03h:30</option>
+<option value="04h:00">04h:00</option>
+<option value="04:30">04:30</option>
+<option value="05h:00">05h:00</option>
+<option value="05h:30">05h:30</option>
+<option value="07h:00">07h:00</option>
+<option value="07h:30">07h:30</option>
+<option value="08h:00">08h:00</option>
+<option value="08h:30">08h:30</option>
+<option value="09h:00">09h:00</option>
+<option value="09h:30">09h:30</option>
+<option value="10h:00">10h:00</option>
+<option value="10h:30">10h:30</option>
+<option value="11h:00">11h:00</option>
+<option value="11h:30">11h:30</option>
+<option value="12h:00">12h:00</option>
+<option value="12h:30">12h:30</option>
+<option value="13h:00">13h:00</option>
+<option value="13h:30">13h:30</option>
+<option value="14h:00">14h:00</option>
+<option value="14:30">14:30</option>
+<option value="15h:00">15h:00</option>
+<option value="15h:30">15h:30</option>
+<option value="16h:00">16h:00</option>
+<option value="16h:30">16h:30</option>
+<option value="17h:00">17h:00</option>
+<option value="17:30">17:30</option>
+<option value="18h:00">18h:00</option>
+<option value="19h:30">19h:30</option>
+<option value="20h:00">20h:00</option>
+<option value="20h:30">20h:30</option>
+<option value="21h:00">21h:00</option>
+<option value="21h:30">21h:30</option>
+<option value="22h:00">22h:00</option>
+<option value="22h:30">22h:30</option>
+<option value="23h:00">23h:00</option>
+<option value="23h:30">23h:30</option></select>
+      </sapn>
+</div>
+</main>
         <!-- Septe Partie------------------------------------------------->
         <main>
           <div class="container" style="height: 800px; background-color: white!important;border: none!important;">
@@ -543,8 +752,9 @@
           </div>
         </main>
         <main>
-          <div class="container" style="width:688px; weight:255px;top:66px;">
-            <h5 style="margin-bottom:24px;position:relative;top:-53px">Condition d'annulation </h5>
+            <h5 style="position:relative;top:30px;left: 80px;">Condition d'annulation </h5>
+          <div class="container" style="width:688px; weight:255px;position:relative;top:70px;">
+            <span style="position:relative;top:30px;">
             <h6 style="margin-bottom:44px;">Combien de jours avant leur arrivée les clients peuvent-ils annuler leur réservation gratuitement ? </h6>
             <!--   <span>
               <label class="bt" for="option1"> 1 jours</label>
@@ -569,6 +779,7 @@
                 <input type="radio" name="condition[]" id="option4" value="30 jours">
               </label>
             </div>
+            </span>
             <!--
             <span class="none">
               <input type="radio" class="btn-check"  name="condition[]"
@@ -598,9 +809,9 @@
                 </main>
                 <!-- Neuviéme Partie------------------------------------------------->
                 <main>
+                    <h5 style="position:relative;top:30px;left: 80px;"> Information sur l'hébergement</h5>
                   <div class="container" style="height:564px; top:66px;">
                     
-                    <h5 style="margin-bottom:24px;position:relative;top:-49px;"> Information sur l'hébergement</h5>
                     <h6 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h6>
                     <h6 style="font-size:15px;color:#696565;">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </h6>
                     
@@ -653,15 +864,15 @@
               <!-- Di------------------------------------------------->
             </main>
             <main>
-              <div class="container" style="width:555px;height:380px;">
-                <h5 style="margin-bottom:24px;position:relative;top:-60px; font-size:17px;"> Quelques informations importante avant d'inscrire votre hébergement:</h5>
+                <span style="position: relative;left:80px;top:30px;font-size:20px;"> Quelques informations importante avant d'inscrire votre hébergement:</span>
+              <div class="container" style="width:555px;height:280px;position: relative;top:80px;">
                 <h5 style="font-size:17px;" > Les réservations sont elle confirmées immediatement?</h5>
-                <h6  style="color:#696565;">Oui, des qu'un client éffectue une réservation,celle ci confirmées immédiatement </h6><br>
+                <h6  style="color:#696565;font-size:14px;">Oui, des qu'un client éffectue une réservation,celle ci confirmées immédiatement </h6><br>
                 <h5 style="font-size:17px;"> Puis je choisir qui séjourne dans mon hébergement?</h5>
-                <h6 style="color:#696565;" >Non tout nos utilisateurs peuvent réservé  une date </h6><br>
+                <h6 style="color:#696565;font-size:14px;" >Non tout nos utilisateurs peuvent réservé  une date </h6><br>
                 
                 <h5 style="font-size:17px;"> Puis je choisir les jours pour lesqueles je recois les réservations ?</h5>
-                <h6 style="color:#696565;" >Oui, il vous suffit de vous assurer  de votre calendrier est a jour.Fermez tout les dates pour lesquelles
+                <h6 style="color:#696565;font-size:14px;" >Oui, il vous suffit de vous assurer  de votre calendrier est a jour.Fermez tout les dates pour lesquelles
                 vous ne souhaiter pas recevoir de réservation. Si vous recu des réservations via d'autre site, veuillez également férmez les dates en question
                 </h6><br>
               </div>
