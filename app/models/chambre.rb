@@ -4,5 +4,8 @@ class Chambre < ApplicationRecord
 	has_many :chambrequipements
 	has_many :equipements, through: :chambrequipements
 
+	has_many :LitChambres
+	has_many :lits, through: :LitChambres
+	
 	has_many :lits
 end
