@@ -278,6 +278,19 @@
                   outline:none;
                   outline: none !important;
 }
+    .content-box{
+    
+      
+    
+       border-box:0px;
+       position:relative;
+       top:33px;
+       width:400px;
+        height:300px;
+        padding:17px;
+        margin-left:65px;
+        
+        background-color:transparent;}
 
   <div class="container-sm">100% wide until small breakpoint</div>
   <div class="container-md">100% wide until medium breakpoint</div>
@@ -403,16 +416,15 @@
 </main>
 <!-- Troisieme Partie --------------------------------------->
 <main>   
-<div class="container">
+<div class="content-box">
 
          
-         <h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-33px"> Carte</h5>
+         
 <div id="map"></div>
 <div id="coordinates" class="coordinates"></div>
 
 </div>
-</main>
-<!-- Quatriéme Partie------------------------------------------------->
+</main><!-- Quatriéme Partie------------------------------------------------->
 <main>
 <h5 style="position:relative;top:30px;left: 80px;"> Information sur l'hébergement</h5>
 <div class="container" style="position:relative;top:70px;">
@@ -425,17 +437,18 @@
 
  <%Chambre.all.each do |c|%><br>
  <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
+  <%if c.id == 4 || c.id == 5 %>
    <span class="col-6">
      <%= c.title%>
      <small class="block_<%=c.id%>"></small>
    </span>
+   <%end%>
    <!--  modal -->
    <!-- Button trigger modal -->
-   <span class="col-7">
+  
     
      <!-- <button type="button" class="button_ajout_lit" data-toggle="modal" data-target="#staticBackdrop" style="width:77px;"></button> -->
-     
-   </span>
+  
  </span>
  <!-- Modal -->
  <span class="modal fade" id="<%=c.title%>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -1069,15 +1082,19 @@ var p = document.getElementsByTagName('p');
 var section = document.getElementsByTagName('section')[0];
 section.onsubmit =()=>{return false}
 
+
+
 var current_main = 0;
 main[current_main].style.display = "block";
 if (current_main == 0)
 {
     button[0].style.display = "none";
     p[0].style.backgroundColor = "royalblue";
-
+    
 
 }
+
+  
 
 button[1].onclick = ()=>{
   current_main++;
@@ -1088,10 +1105,9 @@ button[1].onclick = ()=>{
     main[current_main].style.display = "block";
     main[back_main].style.display = "none";
     p[current_main].style.backgroundColor = "royalblue";
-    p[back_main].style.backgroundColor = "#ededed";
+    p[back_main].style.backgroundColor = "green";
     button[1].style.cssText ="float:right; margin-right:88px;"
- 
-
+  
 
 
     if (current_main == 11)
@@ -1099,6 +1115,7 @@ button[1].onclick = ()=>{
       button[1].innerHTML = "Ouvrir mon hébergement à la réservation ";
       button[1].style.cssText = "width:300px;left:412px;"
       button[0].style.display ="none";
+      
     }
 
   }
@@ -1107,30 +1124,55 @@ button[1].onclick = ()=>{
       if (current_main > 11) 
       {
         section.onsubmit =()=>{return true}
-        }
-        }
-        }
-        button[0].onclick = ()=>{
-        {
-        current_main--;
-        var back_main =current_main +1;
-        main[current_main].style.display= "block";
+        
+
+      }
+  }
+}
+
+
+
+button[0].onclick = ()=>{     
+
+{
+    current_main--;
+    var back_main =current_main +1;
+    
+    
+    main[current_main].style.display= "block";
         main[back_main].style.display = "none";
         p[current_main].style.backgroundColor ="royalblue";
         p[back_main].style.backgroundColor = "#ededed" ;
         if (current_main < 12)
-        {
-        button[1].innerHTML = "Continuer";
-        
-        }
-        
-        }
-        if (current_main == 0) {
-        button[0].style.display = "none";
-        }
+          {
+            button[1].innerHTML = "Next";
+            
+            
+         
+
         }
 
+        
+        
+        
+      
+
+}
+
+
+
+if (current_main == 0) {
+  button[0].style.display = "none";
+
+}
+
+
+
+
+}
+
 </script>
+
 
 </script>
     <script type="text/javascript">

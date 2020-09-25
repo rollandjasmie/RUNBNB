@@ -10,20 +10,17 @@ class LogementsController < ApplicationController
   end
 
   def create
-    puts "-"*500
-    puts params.inspect
-    puts "-"*500
+ 
 
   	@logement = Logement.new(categorie: params[:categorie],types: params[:types],name: params[:name],user_id: current_user.id)
     @logement.save
     @logement.photos.attach(params[:photos])
 
-    @adr = Adresse.create(pays: params[:pays],adresse: params[:adresse],
+    @adr = Adresse.new(pays: params[:pays],adresse: params[:adresse],
            code: params[:code],ville: params[:ville],adresse2:params[:adresse2],logement_id: @logement.id)
     @adresse = @adr.save 
-
+  
     @a = Chambre.create(logement_id: @logement.id,title: params[:title])
-    @chmbre = @a.save
 
     if params[:lit_ids]
       @lits = params[:lit_ids]
