@@ -67,8 +67,10 @@ ActiveRecord::Schema.define(version: 2020_09_22_114528) do
   create_table "canapes", force: :cascade do |t|
     t.string "title"
     t.bigint "salon_id"
+    t.bigint "logement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["logement_id"], name: "index_canapes_on_logement_id"
     t.index ["salon_id"], name: "index_canapes_on_salon_id"
   end
 
@@ -84,8 +86,10 @@ ActiveRecord::Schema.define(version: 2020_09_22_114528) do
   create_table "chambres", force: :cascade do |t|
     t.string "title"
     t.bigint "logement_id"
+    t.bigint "lit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["lit_id"], name: "index_chambres_on_lit_id"
     t.index ["logement_id"], name: "index_chambres_on_logement_id"
   end
 
@@ -141,14 +145,18 @@ ActiveRecord::Schema.define(version: 2020_09_22_114528) do
   end
 
   create_table "regles", force: :cascade do |t|
+    t.string "depart"
+    t.string "arrive"
     t.string "title"
+    t.bigint "logement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["logement_id"], name: "index_regles_on_logement_id"
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.string "start_date"
-    t.string "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.bigint "logement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

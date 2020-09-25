@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="style.css">
 </head>
 <!DOCTYPE html>
@@ -6,7 +5,7 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link href="jquery.nice-number.css" rel="stylesheet">
 <link rel="stylesheet" href="carrou.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -15,7 +14,99 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.tainer{
+    background: #26AEDE;
+    width: 100%;
+    padding: 0px;
+    margin-top:33px;
+
+}
+.nice-number {
+  display: inline-flex;
+  justify-content: stretch;
+}
+
+.nice-number input {
+  vertical-align: middle;
+  -moz-appearance: textfield;
+  box-sizing: content-box;
+  margin: 0;
+  text-align: center;
+}
+
+.nice-number input::-webkit-inner-spin-button,
+.nice-number input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+button{
+    background-color:white ;
+    width:24px;
+   
+  
+    border:1px 
+    outline:none !important;
+    border-radius:14px;
+    font-size:20px;
+
+}
+button:hover{
+    background: royalblue;
+    color: #fff;
+
+}
+button:focus{
+  outline:none;
+}
+
+ul.nu{
+    list-style-type:none;
+    margin-left: 22px;
+    margin-right: 50px;
+
+}
+
+.i {
+    color: rgb(241, 238, 235);
+    text-decoration: none;
+
+}
+
+.nu li{
+    font-size: 13px;
+    padding: 20px 0px;
+    margin-left: 69px;
+
+     
+}
+nav.bar{
+    width: 100%;
+}
+
+.nu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+
+
+/* nav  blue */
+.i li{
+    width: 100%;
+    align-items: center;
+    
+}
+
+
 p{
+  
         width: 30px;
         height: 5px;
         border-radius: 2px;
@@ -24,6 +115,18 @@ p{
         display: inline-flex;
     }
 
+    #ui-datepicker-div{
+      width:345px;
+    }
+
+.datepicker{
+  margin-left:110px;
+  
+}
+
+.input:focus{
+  border-color:blue;
+}
 
     .container{
     
@@ -95,6 +198,23 @@ p{
      
 
     }
+    .button-modal{
+       position:relative;
+       right:23px;
+        margin-left:77px;
+        padding: 10px;
+        width: 55px;
+        border: none;
+        outline:none;
+        cursor:pointer;
+        border-radius:11px;
+        background:rgb(233, 80, 10);
+        font-size:12px;
+        font-weight: bold;
+        color: whitesmoke;
+        float:left
+
+    }
 
 .checkbox {
   
@@ -163,6 +283,51 @@ p{
   
   
 }
+.bu1{
+                  width:100px;
+                  height:27px;
+                  margin-left:55px;
+                  border-radius: 11px;
+                  background-color:white;
+                  text-align: center;
+                  font-size:12px;
+                  border: 1px #727c90;;
+                  color: #727c90;;
+                  border-style: solid;
+                  border-width: 2px;
+                  transition: all 0.5s;
+                  cursor: pointer;
+            
+             
+                  outline:none;
+                  outline: none !important;
+                
+}
+
+.containerz{
+  position:relative;
+  top:22px;
+  margin-left:333px;
+
+}
+
+.containerz input{
+
+  width:33px;
+  font-size:15px;
+  margin:0 10px !important;
+  padding: 5px;
+  border:none;
+  outline:none;
+  border-radius: 10px;
+
+
+}
+.containerz input:hover{
+  background: #c9c0a6;
+  color:#fff;
+}
+
 
 
 
@@ -206,16 +371,17 @@ p{
   max-width:250px;
    max-height:250px;
 }  
-    <div class="container-sm">100% wide until small breakpoint</div>
-    <div class="container-md">100% wide until medium breakpoint</div>
-    <div class="container-lg">100% wide until large breakpoint</div>
-    <div class="container-xl">100% wide until extra large breakpoint</div>
+  
+
+
+    
    
 </style>
 
 
 
 <header>
+<img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
     <nav class=" tainer">
         <ul class="nu">
             
@@ -360,6 +526,17 @@ p{
 </div>
 </main>
 <!-- Quatriéme Partie------------------------------------------------->
+<main>   
+<div class="container">
+
+         
+         <h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-33px"> Carte</h5>
+<div id="map"></div>
+<div id="coordinates" class="coordinates"></div>
+
+</div>
+</main>
+<!-- Quatriéme Partie------------------------------------------------->
 <main>
 <div class="container" style="top:66px;">
 
@@ -368,15 +545,13 @@ p{
 <h6 style="margin-bottom:14px;position:relative;top:-23px">Où les clients peuvent-ils dormir ?</h6>
 
 
-<span class="card-body" style="padding-left:0px;">
+<div class="card-body" style="padding-left:0px;" id="options">
 
- 
  <%Chambre.all.each do |c|%><br>
- 
- <span class="row" data-toggle="modal" data-target="#staticBackdrop">
+ <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
    <span class="col-6">
      <%= c.title%>
-     <small class="za"></small>
+     <small class="block_<%=c.id%>"></small>
    </span>
    <!--  modal -->
    <!-- Button trigger modal -->
@@ -387,19 +562,24 @@ p{
    </span>
  </span>
  <!-- Modal -->
- <span class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+ <span class="modal fade" id="<%=c.title%>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
    <span class="modal-dialog modal-dialog-centered">
      <span class="modal-content">
        
        <span class="modal-body">
-         <%c.lits.each do |l| %>
-         <input type="checkbox" class="checkbox" name="chambre_ids[]" value="<%=l.title%>" >
+         <% c.lits.each do |l| %>
          <%= l.title%><br>
+         <input type="checkbox" class="checkbox options_list" data-value="<%=l.title%>" data-type="<%=c.id%>" data-id="<%=l.id%>" name="lit_ids[<%=l.id%>]" value="<%=l.title%>">
+         <div> 
+           <span class="decrement-js btn-primary">-</span>
+            <input type="text" name="lit_ids[<%=l.id%>]" value="0" id="number">
+            <span class="incremente-js btn-primary">+</span>
+         </div>
          <%end%>
        </span>
        <span class="modal-footer">
          <button type="button" class="myButton" data-dismiss="modal">Close</button>
-         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
+         <button type="button" class="myButton savebutton" data-idchambre="<%=c.id%>" data-dismiss="modal">Save</button>
          
        </span>
        
@@ -407,95 +587,12 @@ p{
    </span>
  </span>
  <%end%>
-</span><br>
-<span class="card-body" style="padding-left:0px;">
- 
- <%Salon.all.each do |c|%><br>
- 
- <span class="row" data-toggle="modal" data-target="#staticBackdrop">
-   <span class="col-6">
-     <%= c.title%>
-     <small class="salon1"></small>
-   </span>
-   <!--  modal -->
-   <!-- Button trigger modal -->
-   <span class="col-7">
-     <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
-     Ajoutez</a> -->
-     <!-- <button type="button" class="myButton" data-toggle="modal" data-target="#salon">ajoutez</button> -->
-     
-   </span>
- </span><br>
- <!-- Modal -->
- <span class="modal fade" id="salon" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-   <span class="modal-dialog modal-dialog-centered">
-     <span class="modal-content">
-       
-       <span class="modal-body">
-         <%c.canapes.each do |l| %>
-         <input type="checkbox" class="checkbox" name="salon_ids[]" value="<%=l.title%>" >
-         <%= l.title%><br>
-         <%end%>
-       </span>
-       <span class="modal-footer">
-         <button type="button" class="myButton" data-dismiss="modal">Close</button>
-         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
-         
-       </span>
-       
-     </span>
-   </span>
- </span>
- <%end%>
-</span>
-<span class="card-body" style="padding-left:0px;">
- 
- <%Autre.all.each do |c|%><br>
- 
- <span class="row" data-toggle="modal" data-target="#staticBackdrop">
-   <span class="col-6">
-     <%= c.title%>
-     <samll class="autre1"></small>
-   </span>
-   <!--  modal -->
-   <!-- Button trigger modal -->
-   <span class="col-7">
-     <!-- <a href="#" class="bout1 " data-toggle="modal" data-target="#staticBackdrop" style="" >
-     Ajoutez</a> -->
-     <!--  <button type="button" class="myButton" data-toggle="modal" data-target="#autre">ajoutez</button> -->
-     
-   </span>
- </span>
- <!-- Modal -->
- <span class="modal fade" id="autre" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-   <span class="modal-dialog modal-dialog-centered">
-     <span class="modal-content">
-       
-       <span class="modal-body">
-         <%c.autrelits.each do |l| %>
-         <input type="checkbox" class="checkbox" name="[]" value="<%=l.title%>" >
-         <%= l.title%><br>
-         <%end%>
-       </span>
-       <span class="modal-footer">
-         <button type="button" class="myButton" data-dismiss="modal">Close</button>
-         <button type="button" class="myButton" id="btn" data-dismiss="modal">Save</button>
-         
-       </span>
-       
-     </span>
-   </span>
- </span>
- <%end%>
-</span>
-</span>
+</div><br>
 </div>
 </main>
 <!--  Cinqiéme Partie------------------------------------------------->
 <main>
-
 <div class="container" style="height:688px; padding-top:0px;">
-
           
          
          
@@ -513,31 +610,206 @@ p{
 <main>
 <div class="container" style="height:533px; padding-top:0px">
       <h5 style="margin-bottom:24px;position:relative;top:-43px"> Règle de la maison </h5>
-
       <span class="containo" style="width:633px;">
    
-      <%Regle.all.each do |d|%><br>
-      <input class="mivadika" type="checkbox" name="regle_ids[]" value="<%=d.id%>">
-      <%= d.title%>e<br>
-      <%end%><br><br>
+      <br>
+      <input class="mivadika" type="checkbox" name="regle_ids[]" value="9">
+      Hébergement fumeure<br>
+      <br>
+      <input class="mivadika" type="checkbox" name="regle_ids[]" value="10">
+      Animaux domestique admise<br>
+      <br>
+      <input class="mivadika" type="checkbox" name="regle_ids[]" value="11">
+      Enfant bienvenuee<br>
+      <br>
+      <input class="mivadika" type="checkbox" name="regle_ids[]" value="12">
+      Fêtes/événements autorisése<br>
+      <br><br>
 
   <hr>    
       <h6> Arriveé <br> De </h6>
-      <input type="time" name="arrive[]">
-      <input type="time" name="arrive[]">
+       <select name="arrive" id="arrive" class=" bu1 btn-light" onclick="getValue();"><option value="00h:00">00h:00</option>
+<option value="00h:30">00h:30</option>
+<option value="01h:00">01h:00</option>
+<option value="01h:30">01h:30</option>
+<option value="02h:00">02h:00</option>
+<option value="02h:30">02h:30</option>
+<option value="03h:00">03h:00</option>
+<option value="03h:30">03h:30</option>
+<option value="04h:00">04h:00</option>
+<option value="04h:30">04h:30</option>
+<option value="05h:00">05h:00</option>
+<option value="05h:30">05h:30</option>
+<option value="07h:00">07h:00</option>
+<option value="07h:30">07h:30</option>
+<option value="08h:00">08h:00</option>
+<option value="08h:30">08h:30</option>
+<option value="09h:00">09h:00</option>
+<option value="09h:30">09h:30</option>
+<option value="10h:00">10h:00</option>
+<option value="10h:30">10h:30</option>
+<option value="11h:00">11h:00</option>
+<option value="11h:30">11h:30</option>
+<option value="12h:00">12h:00</option>
+<option value="12h:30">12h:30</option>
+<option value="13h:00">13h:00</option>
+<option value="13h:30">13h:30</option>
+<option value="14h:00">14h:00</option>
+<option value="14h30">14h30</option>
+<option value="15h:00">15h:00</option>
+<option value="15h:30">15h:30</option>
+<option value="16h:00">16h:00</option>
+<option value="16h:30">16h:30</option>
+<option value="17h:00">17h:00</option>
+<option value="17h:30">17h:30</option>
+<option value="18h:00">18h:00</option>
+<option value="19h:30">19h:30</option>
+<option value="20h:00">20h:00</option>
+<option value="20h:30">20h:30</option>
+<option value="21h:00">21h:00</option>
+<option value="21h:30">21h:30</option>
+<option value="22h:00">22h:00</option>
+<option value="22h:30">22h:30</option>
+<option value="23h:00">23h:00</option>
+<option value="23h:30">23h:30</option></select>
       <label style="margin-left:44px;"> à</label>
       <span style="margin-left:59px;"> </sapn>
-      <input type="time" name="depart[]">
-      <input type="time" name="depart[]">
+         <select name="arrive" id="arrive" class="bu1 btn-light" style="margin-left:18px"><option value="00h:00">00h:00</option>
+<option value="00h:30">00h:30</option>
+<option value="01h:00">01h:00</option>
+<option value="01h:30">01h:30</option>
+<option value="02h:00">02h:00</option>
+<option value="02h:30">02h:30</option>
+<option value="03h:00">03h:00</option>
+<option value="03h:30">03h:30</option>
+<option value="04h:00">04h:00</option>
+<option value="04h:30">04h:30</option>
+<option value="05h:00">05h:00</option>
+<option value="05h:30">05h:30</option>
+<option value="07h:00">07h:00</option>
+<option value="07h:30">07h:30</option>
+<option value="08h:00">08h:00</option>
+<option value="08h:30">08h:30</option>
+<option value="09h:00">09h:00</option>
+<option value="09h:30">09h:30</option>
+<option value="10h:00">10h:00</option>
+<option value="10h:30">10h:30</option>
+<option value="11h:00">11h:00</option>
+<option value="11h:30">11h:30</option>
+<option value="12h:00">12h:00</option>
+<option value="12h:30">12h:30</option>
+<option value="13h:00">13h:00</option>
+<option value="13h:30">13h:30</option>
+<option value="14h:00">14h:00</option>
+<option value="14h:30">14h:30</option>
+<option value="15h:00">15h:00</option>
+<option value="15h:30">15h:30</option>
+<option value="16h:00">16h:00</option>
+<option value="16h:30">16h:30</option>
+<option value="17h:00">17h:00</option>
+<option value="17:30">17:30</option>
+<option value="18h:00">18h:00</option>
+<option value="19h:30">19h:30</option>
+<option value="20h:00">20h:00</option>
+<option value="20h:30">20h:30</option>
+<option value="21h:00">21h:00</option>
+<option value="21h:30">21h:30</option>
+<option value="22h:00">22h:00</option>
+<option value="22h:30">22h:30</option>
+<option value="23h:00">23h:00</option>
+<option value="23h:30">23h:30</option></select>
       </sapn>
       <h6> Départ <br> De </h6>
-      <input type="time" name="arrive[]">
-      <input type="time" name="arrive[]">
-      <label style="margin-left:44px;"> à</label>
-      <span style="margin-left:59px;"> 
-      <input type="time" name="depart[]">
-      <input type="time" name="depart[]">
-
+ <select name="depart" id="depart" class="bu1 btn-light"><option value="00h:00">00h:00</option>
+<option value="00h:30">00h:30</option>
+<option value="01h:00">01h:00</option>
+<option value="01h:30">01h:30</option>
+<option value="02h:00">02h:00</option>
+<option value="02h:30">02h:30</option>
+<option value="03h:00">03h:00</option>
+<option value="03h:30">03h:30</option>
+<option value="04h:00">04h:00</option>
+<option value="04h:30">04h:30</option>
+<option value="05h:00">05h:00</option>
+<option value="05h:30">05h:30</option>
+<option value="07h:00">07h:00</option>
+<option value="07h:30">07h:30</option>
+<option value="08h:00">08h:00</option>
+<option value="08h:30">08h:30</option>
+<option value="09h:00">09h:00</option>
+<option value="09h:30">09h:30</option>
+<option value="10h:00">10h:00</option>
+<option value="10h:30">10h:30</option>
+<option value="11h:00">11h:00</option>
+<option value="11h:30">11h:30</option>
+<option value="12h:00">12h:00</option>
+<option value="12h:30">12h:30</option>
+<option value="13h:00">13h:00</option>
+<option value="13h:30">13h:30</option>
+<option value="14h:00">14h:00</option>
+<option value="14h:30">14h:30</option>
+<option value="15h:00">15h:00</option>
+<option value="15h:30">15h:30</option>
+<option value="16h:00">16h:00</option>
+<option value="16h:30">16h:30</option>
+<option value="17h:00">17h:00</option>
+<option value="17:30">17:30</option>
+<option value="18h:00">18h:00</option>
+<option value="19h:30">19h:30</option>
+<option value="20h:00">20h:00</option>
+<option value="20h:30">20h:30</option>
+<option value="21h:00">21h:00</option>
+<option value="21h:30">21h:30</option>
+<option value="22h:00">22h:00</option>
+<option value="22h:30">22h:30</option>
+<option value="23h:00">23h:00</option>
+<option value="23h:30">23h:30</option></select> 
+ <label style="margin-left:44px;"> à</label>
+ <span style="margin-left:59px;"> 
+<select name="depart" id="depart" class="bu1 btn-light" style="margin-left:18px"><option value="00h:00">00h:00</option>
+<option value="00h:30">00h:30</option>
+<option value="01h:00">01h:00</option>
+<option value="01h:30">01h:30</option>
+<option value="02h:00">02h:00</option>
+<option value="02h:30">02h:30</option>
+<option value="03h:00">03h:00</option>
+<option value="03h:30">03h:30</option>
+<option value="04h:00">04h:00</option>
+<option value="04:30">04:30</option>
+<option value="05h:00">05h:00</option>
+<option value="05h:30">05h:30</option>
+<option value="07h:00">07h:00</option>
+<option value="07h:30">07h:30</option>
+<option value="08h:00">08h:00</option>
+<option value="08h:30">08h:30</option>
+<option value="09h:00">09h:00</option>
+<option value="09h:30">09h:30</option>
+<option value="10h:00">10h:00</option>
+<option value="10h:30">10h:30</option>
+<option value="11h:00">11h:00</option>
+<option value="11h:30">11h:30</option>
+<option value="12h:00">12h:00</option>
+<option value="12h:30">12h:30</option>
+<option value="13h:00">13h:00</option>
+<option value="13h:30">13h:30</option>
+<option value="14h:00">14h:00</option>
+<option value="14:30">14:30</option>
+<option value="15h:00">15h:00</option>
+<option value="15h:30">15h:30</option>
+<option value="16h:00">16h:00</option>
+<option value="16h:30">16h:30</option>
+<option value="17h:00">17h:00</option>
+<option value="17:30">17:30</option>
+<option value="18h:00">18h:00</option>
+<option value="19h:30">19h:30</option>
+<option value="20h:00">20h:00</option>
+<option value="20h:30">20h:30</option>
+<option value="21h:00">21h:00</option>
+<option value="21h:30">21h:30</option>
+<option value="22h:00">22h:00</option>
+<option value="22h:30">22h:30</option>
+<option value="23h:00">23h:00</option>
+<option value="23h:30">23h:30</option></select>
       </sapn>
 </div>
 </main>
@@ -569,6 +841,8 @@ p{
 <img id="addImage-up-8" alt="mandona" style="display: none; width: 100px;"></img>
   </div>
 </main>
+<!-- sept Partie------------------------------------------------->
+
 <main>
 <div class="container" style="width:688px; weight:255px;top:66px;">
 
@@ -603,10 +877,15 @@ p{
 </main>
 <!-- Huitiéme Partie------------------------------------------------->
 <main>
- <div class="container1">
+ <div class="container" style="width:800px; height:440px">
    <h4> calendrier </h4><br>
-   <span type="text" id="start_date" class="datepicker" placeholder="start date" name="start_date[]">
-   <span type="text" id="end_date" class="datepicker" placeholder="end date" name="end_date[]">
+   <label style="color:#696565;">Cliquez sur chaque date individuellement. Toutes les dates visibles sont disponibles à la réservation. Ne vous inquitez pas, vous pourrez toujours ajouter ou supprimer des dates plus tard.</label>
+   <br>
+   <br>
+   <div class="bx--form-item">
+   <input type="text" id="start_date" class="datepicker" placeholder=" date de début " name="start_date[]">
+   <input type="text" id="end_date" class="datepicker  " placeholder="date de fin" name="end_date[]">
+   <div>
 </div>
 </main>
 <!-- Neuviéme Partie------------------------------------------------->
@@ -712,6 +991,8 @@ p{
 </body>
 
 
+
+
 <script>
 var main = document.getElementsByTagName('main');
 var button = document.getElementsByClassName('button');
@@ -790,34 +1071,28 @@ if (current_main == 0) {
 
 }
 
-
-
-
-
-
-
-
 </script>
 
 </script>
     <script type="text/javascript">
   
-    function getSelectedCheckboxValues(name) {
-    const checkboxes = document.querySelectorAll(`input[name="chambre_ids[]"]:checked`);
+    function chambre(name) {
+    const checkboxes = document.querySelectorAll(`input[id="chambre"]:checked`);
     let values = [];
     checkboxes.forEach((checkbox) => {
     values.push(checkbox.value);
     });
+
     return values;
     }
+
     const btn = document.querySelector('#btn');
     btn.addEventListener('click', (event) => {
-      document.querySelector('.za').innerHTML = getSelectedCheckboxValues('values')
-    alert(getSelectedCheckboxValues('values'));
+      document.querySelector('.za').innerHTML = chambre('values')
+    alert(chambre('values'));
     });
-    
-    </script>
 
+    </script>
 
       <script >
       var cache = document.getElementById("caché")
@@ -880,68 +1155,8 @@ if (current_main == 0) {
     p8.onclick = function (){
       p8.style.display="none";
     }
-  mapboxgl.accessToken = 'pk.eyJ1Ijoicm9sbGFuZGphc21pZSIsImEiOiJja2V2OXUyazYxbjJhMnduMGZ2NmU3YmRrIn0.qwoke-4A7fwXdW3JXu4cIw';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-center: [-79.4512, 43.6568],
-zoom: 13
-});
-/* given a query in the form "lng, lat" or "lat, lng" returns the matching
-* geographic coordinate(s) as search results in carmen geojson format,
-* https://github.com/mapbox/carmen/blob/master/carmen-geojson.md
-*/
-var coordinatesGeocoder = function (query) {
-// match anything which looks like a decimal degrees coordinate pair
-var matches = query.match(
-/^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
-);
-if (!matches) {
-return null;
-}
-function coordinateFeature(lng, lat) {
-return {
-center: [lng, lat],
-geometry: {
-type: 'Point',
-coordinates: [lng, lat]
-},
-place_name: 'Lat: ' + lat + ' Lng: ' + lng,
-place_type: ['coordinate'],
-properties: {},
-type: 'Feature'
-};
-}
-var coord1 = Number(matches[1]);
-var coord2 = Number(matches[2]);
-var geocodes = [];
-if (coord1 < -90 || coord1 > 90) {
-// must be lng, lat
-geocodes.push(coordinateFeature(coord1, coord2));
-}
-if (coord2 < -90 || coord2 > 90) {
-// must be lat, lng
-geocodes.push(coordinateFeature(coord2, coord1));
-}
-if (geocodes.length === 0) {
-// else could be either lng, lat or lat, lng
-geocodes.push(coordinateFeature(coord1, coord2));
-geocodes.push(coordinateFeature(coord2, coord1));
-}
-alert(coord1)
-return geocodes;
-};
-map.addControl(
-new MapboxGeocoder({
-accessToken: mapboxgl.accessToken,
-localGeocoder: coordinatesGeocoder,
-zoom: 4,
-placeholder: 'Try: -40, 170',
-mapboxgl: mapboxgl
-})
-);
-</script>
 
+  </script>
 <script >
   function shwoMyImage(input) {
     if (input.files && input.files[0]) {
@@ -957,4 +1172,48 @@ mapboxgl: mapboxgl
   $(".photo-js").change(function() {
     shwoMyImage(this);
   });
-</script
+</script>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1Ijoicm9sbGFuZGphc21pZSIsImEiOiJja2V2OXUyazYxbjJhMnduMGZ2NmU3YmRrIn0.qwoke-4A7fwXdW3JXu4cIw';
+var coordinates = document.getElementById('coordinates');
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [55.5418558827792, -21.11980347123354],
+zoom: 9
+});
+ var geocoder = new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl
+});
+ 
+var marker = new mapboxgl.Marker({
+draggable: true
+})
+.setLngLat([55.5418558827792, -21.11980347123354])
+.addTo(map);
+ 
+function onDragEnd() {
+var lngLat = marker.getLngLat();
+coordinates.style.display = 'block';
+coordinates.innerHTML =
+'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+}
+ 
+marker.on('dragend', onDragEnd);
+</script>
+  
+<script type="text/javascript">
+    $(".decrement-js").click(function(){
+      input = $($(this)).parent().find("input")[0]
+      $(input).val(parseInt($(input).val())-1)
+    })
+    $(".incremente-js").click(function(){
+      input = $($(this)).parent().find("input")[0]
+      $(input).val(
+        parseInt($(input).val())+1
+        )
+    })
+      // 
+
+</script>

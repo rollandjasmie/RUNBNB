@@ -12,8 +12,87 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+<style>
+body{
+  overflow-x: hidden;
+}
+.bu1{
+                  width:200px;
+                  height:27px;
+                  float:right;
+                  border-radius: 20px;
+                  background-color:white;
+                  text-align: center;
+                  font-size:12px;
+                  border: 1px #f4511e ;
+                  color: #f4511e;
+                  border-style: solid;
+                  border-width: 2px;
+                  transition: all 0.5s;
+                  cursor: pointer;
+                  margin-right:90px;
+                  margin-top:24px;
+                  outline:none;
+                  outline: none !important;
+                
+}
+
+.bu1:hover{
+                  background-color: #f08340;
+                  color: white;
+                }
+.bu2{
+                  width:200px;
+                  height:27px;
+                  float:right;
+                  border-radius: 20px;
+                  background-color:#26AEDE;
+                  text-align: center;
+                  font-size:12px;
+                  
+                  color: white;
+                  border-style: solid;
+                  border-width: 2px;
+                  transition: all 0.5s;
+                  cursor: pointer;
+                  margin-right:90px;
+                  margin-top:24px;
+                  outline:none;
+                  outline: none !important;
+                  box-shadow: none !important;
+}
+
+.bu3{
+  width:120px;
+  height:30px;
+  position:absolute;
+  top:25px;
+  left:230px;
+  border-radius: 6px;
+  background-color: #f08340;
+  color: white;
+
+  text-align: center;
+  font-size:12px;
+  border: 1px #f4511e ;
+  
+  border-style: solid;
+  border-width: 2px;
+  transition: all 0.5s;
+  cursor: pointer;
+  outline:none;
+  outline: none !important;
+  box-shadow: none !important;
 
 
+}
+*:focus {
+    outline: 0 !important;
+}
+
+</style>
+
+  
 
 
 
@@ -21,12 +100,14 @@
 <body>
       <header>
 
-      <nav class="navbar navbar-expand-sm navbar-dark "  style="margin-top:55px;">
+      <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
+      <button class="bu3">Acueille du groupe </button>
+      <button class="bu1">Changer d'hébergement</button>
+      <button class="bu2">Ajouter un hébergement</button>
 
-
-  <div class="collapse navbar-collapse" id="navbarsExample03">
-    <ul class="navbar-nav mr-auto" style="margin-left:49px">
-      <li class="nav-item ">
+      <nav class="navbar navbar-dark bg-dark navbar-expand-sm" style="margin-top:12px;">
+   <ul class="navbar-nav mr-auto" style="margin-left:49px">
+      <li class="nav-item " style="margin-left:100px">
       <a class="nav-link"  href="#">Tout les hébergements</a>
 
       </li>
@@ -34,33 +115,61 @@
         <a class="nav-link"  ;href="#">Calendrier de tout les hébergements</a>
       </li>
       <li class="nav-item " >
-      <a class="nav-link" st href="#">Tout les reservations</a>
+      <a class="nav-link" st href="#">Toutes les reservations</a>
 
       </li>
       
+      
     </ul>
-    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 35px;">
-             
-              <%if @user.avatar.attached?%>
-	                    <%= image_tag @user.avatar, alt: 'avatar', class:"chip", style:"width:40px; height:40px" ,alt:"Person", width:"96", height:"96"%>
-                        <%else%>
-                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="chip" alt="avatar" style="width:40px; height:40px" alt="Person" width="96" height="96",>
-                        <%end%>
-                        Mon profile</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01" style="width: 222px;">
-              <a class="dropdown-item" style="color: black ;"   href="#">Action</a>
-              <a class="dropdown-item"style="color: black;" href="#">Another action</a>
-              <a class="dropdown-item" style="color: black;"href="#">Something else here</a>
-    </div>
+
+    <style>
+    .navbar-nav{
+      border-bottom: 3px solid transparent;
+    }
+    .navbar-nav a{
+      font-weight:bold;
+    }
+
+    .navbar-nav a:hover {
+  border-bottom: 3px solid white;
+}
+
+.navbar-nav a.active {
+  border-bottom: 3px solid white;
+}
+
+
     
-  </div>
+    </style>
+
+      <div class="collapse navbar-collapse" id="navbar-list-4"  >
+        <ul class="navbar-nav" >
+            <li class="nav-item dropdown" style="margin-left:200px" >
+           
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%if @user.avatar.attached?%>
+          
+            <%= image_tag @user.avatar, alt: 'avatar', class:"rounded-circle", style:"width:40px; height:40px" ,alt:"Person", width:"40", height:"40"%>
+            <%else%>
+            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="chip" alt="avatar" style="width:40px; height:40px" alt="Person" width="96" height="96",>
+            <%end%>
+
+            Mon compte
+          </a>
+            
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Mon profils</a>
+              <a class="dropdown-item" href="#">Déconnexion</a>
+            
+            </div>
+          </li>   
+        </ul>
+      </div>
+    </nav>
+
+    
 
 
-
-
-
-  </div>
-</nav>
       
       </header>
       
@@ -76,9 +185,18 @@
 
 
   <style>
+
+
+   .na-item.dropdown{
+     float:right;
+   }
+
+
    .jumbotron{
      background-color:white;
-    width:564px;
+     position:relative;
+     top:75px;
+    width:664px;
     height:720px;
     float:right;
     margin-top:78px;
@@ -96,10 +214,37 @@
       width:100px;
 
     }
+
+    .bg-dark {
+      background-color: #26AEDE !important;
+      margin-top:77px;
+    }
+    
+    .bg-custom-2 {
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    }
+
+    file {
+     
+       }
+
+       .label-file:hover {
+           color: #17a2b8;
+       }
+
+
+       .input-file {
+          border:none;
+           background-color:white;
+           cursor: pointer;
+           color: #17a2b8;
+       }
+
+
   </style>
-    <h5 style="position:absolute;top:188px;">Infos personnelles</h5>
-    <span style="color: #4283FF ;"><h6 style="font-weight:bold;  ">Prénom et Nom </h6> 
-    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong" style="margin-left:316px;position:absolute;top:302px" >Modifier</button>
+    <h6 style="position:absolute;top:-32px;font-weight:bold; color:#727c90 ">Infos personnelles</h6>
+    <span style="color: black ;position:absolute;top:22px;">Prénom et Nom 
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong" style="margin-left:400px;position:absolute;top:26px" >Modifier</button>
     </span>	
 
     <!-- Modal 1 -->
@@ -126,15 +271,19 @@
         </div>
       </div>
     </div>
-  <div class="inpu" style="margin-bottom:20px;position:absolute;top:319px">
+  <div class="inpu" style="margin-bottom:20px;position:absolute;top:55px;color:#727c90;">
   <%= @user.name %> <%= @user.first_name%>
 
   </div>
     <% end %><br>
+    <hr>
+
+
     <!-- Modal 2 -->
     
-    <span style="color: #4283FF;position:absolute;top:370px;font-weight:bold">Sexe
-    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong1"  style="margin-left:283px;position:absolute;top:15px">Modifier</button>
+    <span style=" color: black ;position:absolute;top:130px;">Sexe
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong1"  style="margin-left:477px;position:absolute;top:1
+    0px">Modifier</button>
 
     </span>
     <!-- Modal 1 -->
@@ -159,13 +308,15 @@
         </div>
       </div>
     </div><br>
-    <div class="inpu" style="margin-bottom:20px;position:absolute;top:400px">
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:152px;color:#727c90;">
 
     <%= @user.sexe%>
     </div>
-    <% end %><br><br>
-    <div style="color:#4283FF;  position:absolute;top:455px;font-weight:bold">Date de naissance  </div>
-    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong2" style="margin-left:316px;position:absolute;top:470px" >Modifier</button>
+    <% end %><br>
+
+    <hr>
+    <div style="color: black; position:absolute;top:199px">Date de naissance  </div>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong2" style="margin-left:510px;position:absolute;top:218px" >Modifier</button>
 
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -189,16 +340,17 @@
         </div>
       </div>
     </div><br>
-    <div class="inpu" style="margin-bottom:20px;position:absolute;top:485px">
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:231px;color:#727c90">
 
     <%= @user.date_of_birth%>
     </div>
-    <% end %><br><br>
-    
-    <span style="color: #4283FF; position:absolute;top:535px;font-weight:bold ">Adresse e-mail
+    <% end %><br>
+
+    <hr>
+    <span style="color: black; position:absolute;top:290px ">Adresse e-mail
 
     </span>
-    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong3" style="margin-left:316px; position:absolute;top:543px" >Modifier</button>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong3" style="margin-left:510px; position:absolute;top:293px" >Modifier</button>
 
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -221,14 +373,15 @@
         </div>
       </div>
     </div><br>
-    <div class="inpu" style="margin-bottom:20px;position:absolute;top:565px">
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:311px;color:#727c90">
 
     <%= @user.email%>
     </div>
-    <% end %><br><br>
+    <% end %><br>
+    <hr>
     
-    <span style="color: #4283FF; position:absolute;top:635px;font-weight:bold ">Numéro de téléphone</span>
-    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong4" style="margin-left:316px;position:absolute;top:649px">Modifier</button>
+    <span style="color: black; position:absolute;top:355px ">Numéro de téléphone</span>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong4" style="margin-left:510px;position:absolute;top:379px">Modifier</button>
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -250,14 +403,16 @@
         </div>
       </div>
     </div><br>
-    <div class="inpu" style="margin-bottom:20px;position:absolute;top:665px">
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:385px;color:#727c90">
 
     <%= @user.mobile%>
     </div>
     <% end %><br>
-    
-    <span style="color: #4283FF; position:absolute;top:719px;font-weight:bold">Adresse</span>
-    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong5" style="margin-left:316px; position:absolute;top:729px;">Modifier</button>
+
+
+    <hr>
+    <span style="color: black; position:absolute;top:444px">Adresse</span>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong5" style="margin-left:510px; position:absolute;top:459px;">Modifier</button>
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -279,14 +434,14 @@
         </div>
       </div>
     </div><br>
-    <div class="inpu" style="margin-bottom:20px;position:absolute;top:739px">
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:478px;color:#727c90">
 
     <%= @user.adresse%>
     </div>
-    <% end %><br><br>
-    
-    <span style="color: #4283FF; position:absolute;top:789px;font-weight:bold">Numéro d'urgence</span>
-    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong6" style="margin-left:316px;  position:absolute;top:814px;  ">Modifier</button>
+    <% end %><br>
+    <hr>
+    <span style="color: black; position:absolute;top:520px">Numéro d'urgence</span>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong6" style="margin-left:510px;  position:absolute;top:534px;  ">Modifier</button>
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle6" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -308,10 +463,13 @@
         </div>
       </div>
     </div><br>
-    <div class="inpu" style="margin-bottom:20px;position:absolute;top:829px">
+    <div class="inpu" style="margin-bottom:20px;position:absolute;top:550px;color:#727c90">
     <%= @user.urgence%>
     </div>
-    <% end %>
+    <% end %><br>
+    <hr>
+
+
   </div>
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -323,10 +481,21 @@
       <section>
 
    <style>
+             
+
                .navbar{
                  background-color:#26AEDE;
                }
 
+              
+              
+            
+               .dropdown-item:hover {background: #F47E54; color:white;}
+               .dropdown-item:active {background: #F47E54; color:#000;}
+               .dropdown-item:focus {background: #F47E54; color:#000;}
+             
+               
+           
 
                 .card {
                
@@ -338,9 +507,7 @@
                   position:relative;
                 }
                 
-                .card:hover {
-                  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-                }
+              
                 
                 .cotainer {
                   padding: 2px 16px;
@@ -350,6 +517,28 @@
                     color:#727c90;
   
               
+                }
+                .bu {
+                  width:85px;
+                  height:34px;
+                  
+                  border-radius: 4px;
+                  background-color:white;
+                  text-align: center;
+                  font-weight: 500;
+                  border: 1px #f4511e ;
+                  color: #f4511e;
+                  border-style: solid;
+                border-width: 2px;
+                  transition: all 0.5s;
+                  cursor: pointer;
+                  
+                  
+                }
+            
+                .bu:hover{
+                  background-color: #f08340;
+                  color: white;
                 }
 
                 @media (max-width:1189px){
@@ -423,10 +612,13 @@
                 
               
 
-                }
+                }ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+
+                    ataovy kely ilay button lodif
+                ffffffffffffffffffffffffffffffffffffffffffffffffff
  
           
-                
+               
 
              
 
@@ -435,8 +627,8 @@
                 <body>
                 
                 <h3 style="padding-left: 75px;">
-                    <p style="padding-top:33px; font-size:22px">Bonjour je m'appelle,<%= @user.name %></p>
-
+                    <p style="padding-top:33px; font-size:22px ;position:relative;left:400px">Bonjour, je m'appelle  <%= @user.name %></p>
+                 <small style="font-size:12px; color:#727c90; margin-left:77px;"> menbre depuis   <%= @date%> </small>
                 </h3>
                 
                 <div class="card">
@@ -445,19 +637,21 @@
 	                    <%= image_tag @user.avatar, alt: 'avatar', class:"avatar img-circle img-thumbnail"%>
                         <%else%>
                         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                        <%end%>
-                        <h6> Mettez votre photo de profil...</h6><br>
+                        <%end%><br>
+                    
                           <%= form_tag user_avatars_path(@user.id), multipart: true  do %>
-                          <%= file_field_tag :avatar, required: 'true'%>
-                     
-                          <%= submit_tag "mettre à jour" %>
+                            <label for="file" class="label-file">Mettre à jour la photo</label><br>
+                      <hr>
+                      <small>Pour confirmez votre identité, cliquez     </small>
+                      <input type="submit" name="commit" value="ici" class="input-file" >
+                            <input type="file" name="avatar" id="avatar" required="required" class="custom-file-input" style="bottom:97px;width:197px;left;16px">
              
                           
                         <% end %>
 
                         <div class="s"><br>
 
-                        <p class="d"> Obtener des réservations en rassurant les  voyageurs avec une identité confirmé</p>
+                        <small class="d"> Obtener des réservations en rassurant les  voyageurs avec une identité confirmé</small>
     
                     
                       </div>
@@ -466,19 +660,36 @@
 
                 
                 
-                  
-                
+          
                   
                 </div>
     
             
                <div class="bordure"><br><br><br>
+               <span style="margin-left:100px;color:black;"> <small>Lesquelles de mes informations sont<br> <span style="margin-left:122px; color:black;" >communiquées à des tiers ?<span></small><span>
                <p  class="p">Runbnb ne communique pas les coordonées de l'hôte  aux voyageur qu'aprés la confirmation de la réservation</p>
 
               </div>
          
          
             <style>
+          
+
+            .custom-file-input::-webkit-file-upload-button {
+              bottom:33px;
+              width:200px;
+           
+            }
+
+            .label-file {
+              font-size:12px;
+              cursor: pointer;
+              color: #00b1ca;
+          
+           
+          }
+
+
             .p{
               margin-top:55px;
               width:300px;
