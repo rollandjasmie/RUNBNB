@@ -3151,6 +3151,11 @@ fstream@^1.0.0, fstream@^1.0.12:
     mkdirp ">=0.5 0"
     rimraf "2"
 
+fullcalendar@^5.3.2:
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/fullcalendar/-/fullcalendar-5.3.2.tgz#9603ac9dd372de8546dc50ec9dc03317c08ddf87"
+  integrity sha512-yoNPnz51so+nWV+Ge/X1NECsTy+viP6nhHgRql5U3WvV7XL09yDIWXSCcuEaU4C/0ZmpUApgZ+e7wvWB0TYwRA==
+
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -6925,6 +6930,10 @@ svgo@^1.0.0:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+"t-datepicker@github:crazychicken/t-datepicker":
+  version "1.0.4"
+  resolved "https://codeload.github.com/crazychicken/t-datepicker/tar.gz/f4372a5954472277ead0928fe4f255c6665c7b47"
 
 tapable@^1.0.0, tapable@^1.1.3:
   version "1.1.3"

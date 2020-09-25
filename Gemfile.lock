@@ -58,8 +58,8 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    bcrypt (3.1.15)
-    bcrypt (3.1.15-java)
+    bcrypt (3.1.16)
+    bcrypt (3.1.16-java)
     better_errors (2.7.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -136,7 +136,7 @@ GEM
     pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     pg (1.2.3-x86-mingw32)
-    public_suffix (4.0.5)
+    public_suffix (4.0.6)
     puma (4.3.5)
       nio4r (~> 2.0)
     puma (4.3.5-java)
@@ -196,8 +196,6 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    simple_calendar (2.4.1)
-      rails (>= 3.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -266,7 +264,6 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.1)
   sass-rails (>= 6)
   selenium-webdriver
-  simple_calendar (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   table_print

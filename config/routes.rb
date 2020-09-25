@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :adresses
 	resources :logements, only:[:new,:create,:update,:index] do
+    resources :photos, only:[:create]
 		resources :adresses,only:[:new,:create,:update,:index]
     resources :informations, only:[:new,:create,:update,:edit]
 	end
