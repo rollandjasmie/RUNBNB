@@ -13,10 +13,15 @@ class LogementsController < ApplicationController
   	@logement = Logement.new(categorie: params[:categorie],types: params[:types],name: params[:name],user_id: current_user.id)
     @logement.save
     @logement.photos.attach(params[:photos])
+    adresse1 = []
+    tab2 = params[:adresse1]
+    adresse1.push(tab2)
 
-    @adr = Adresse.create(pays: params[:pays],adresse: params[:adresse],
-           code: params[:code],ville: params[:ville],adresse2:params[:adresse2],logement_id: @logement.id)
-    @adresse = @adr.save 
+
+    @adr = Adresse.create(pays: params[:pays],adresse1:adresse1,
+           code: params[:code],ville:params[:ville],adresse2:params[:adresse2],logement_id: @logement.id)
+    @adresse = @adr.save
+    Carte.create(longitude:params[:longitude],latitude:params[:latitude],logement_id:@logement.id) 
 
     if params[:chambre_ids]
       @chambre = params[:chambre_ids]

@@ -221,6 +221,7 @@ line-height: 18px;
 border-radius: 3px;
 display: none;
 }
+
 .parent-div {
   display: inline-block;
   position: relative;
@@ -337,7 +338,7 @@ display: none;
             <h6>Quel est le nom de votre hébergement?</h6> <br>
                         
                             
-            <input type="text"  class="form-control" name="name" placeholder="nom de l'hébergement" ><br>
+            <input type="text"  class="form-control" name="name" placeholder="nom de l'hébergement" id="nom1" ><br>
 
 
             <h6>Choisissez le type d’hébergement que vous souhaitez inscrire sur RunBnB :</h6>
@@ -360,24 +361,25 @@ display: none;
           <p3 style="font-size:16px; margin-bottom:24px;position:relative;top:-53px;"> Ou se situe l'hébergement que vous inscrivez?</h5><br><br>
      
             <span style="font-size:12px; color:#2E2725;">Pays/région</span><br>
-          
-                <input type="text" name="pays[]" class="form-control" id="" placeholder="Pays/région"><br>
+                      <%= text_field_tag :pays, "",placeholder:"Pays/région" ,class:'form-control'%><br>
+
                 
       
             <span style="font-size:12px; color:#2E2725;">Ville</span>
         
-                <input type="text" name="ville[]" class="form-control" id="ville" placeholder="entrez une ville" ><br>
-                
+            <input type="text" name="ville[]" class="form-control", placeholder="" id="ville1"><br>
+
+
             
             <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 1)</span>
-        
-                <input type="text" name="adresse[]" class="form-control" id="ville1" placeholder="entrez une ville" ><br>
+                            <%= text_field_tag :adresse1, "" ,class:'form-control',id:"adresse1"%><br>
 
-                
+        
             
             <span style="font-size:12px; color:#2E2725;">Code postal</span>
        
-                <input type="text" name="code[]" class="form-control" id="" placeholder="entrez votre Code postal"><br>
+                <%= text_field_tag :code, "",placeholder:"entrez votre Code postal" ,class:'form-control'%><br>
+
                 
             <span id="caché" style="display: none;">Trouvez votre adresse (ligne 2)
 
@@ -394,13 +396,11 @@ display: none;
 </main>
 <!-- Troisieme Partie --------------------------------------->
 <main>   
-<div class="container">
-
-         
-         <h5 style="margin-left:60px;margin-bottom:24px;position:relative;top:-33px"> Carte</h5>
-<div id="map"></div>
-<div id="coordinates" class="coordinates"></div>
-
+<div class="container"> 
+  <input type="" name="longitude" style="display: none;" value="o" id="carte1">
+  <input type="" name="latitude" value="o" style="display: none;" id="carte2">
+        <div id="map"></div>
+        <div id="coordinates" class="coordinates"></div>
 </div>
 </main>
 <!-- Quatriéme Partie------------------------------------------------->
@@ -567,7 +567,7 @@ display: none;
 
   <hr>    
       <h6> Arriveé <br> De </h6>
-       <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h30","15h:00","15h:30","16h:00","16h:30","17h:00","17h:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary",onclick:"getValue();"%>
+       <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h30","15h:00","15h:30","16h:00","16h:30","17h:00","17h:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary" %>
       <label style="margin-left:44px;"> à</label>
       <span style="margin-left:59px;"> </sapn>
          <%= select_tag 'arrive', options_for_select(["00h:00","00h:30","01h:00","01h:30","02h:00","02h:30","03h:00","03h:30","04h:00","04h:30","05h:00","05h:30","07h:00","07h:30","08h:00","08h:30","09h:00","09h:30","10h:00","10h:30","11h:00","11h:30","12h:00","12h:30","13h:00","13h:30","14h:00","14h:30","15h:00","15h:30","16h:00","16h:30","17h:00","17:30","18h:00","19h:30","20h:00","20h:30","21h:00","21h:30","22h:00","22h:30","23h:00","23h:30"]),class:"btn btn-primary"%>
@@ -586,7 +586,7 @@ display: none;
  <h2> photo</h2>
  <%= label_tag 'photos', id: "files-inputs" do %>
                                 <div class="parent-div">
-                                  <button class="btn-upload" id="12" style="display: block;">Choisir le fichier</button>
+                                  <button class="btn-upload" id="12" style="display: block;" >Choisir le fichier</button>
                                   <input id="up-1" class="photo-js" type="file" name="photos[]" >
                                 </div>
 <%for x in 2..8 do%>
@@ -680,7 +680,7 @@ display: none;
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Adresse</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -688,35 +688,87 @@ display: none;
       <div class="modal-body">
          <span style="font-size:12px; color:#2E2725;">Ville</span>
         
-                <input type="text" name="ville[]" class="form-control" id="ville2" placeholder="entrez une ville" ><br>
+                <input type="text" name="ville[]" class="form-control" id="ville2" placeholder="entrez une ville" value=""><br>
                 
             
             <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 1)</span>
         
-                <%= text_field_tag :adresse, "" ,class:'form-control',id:"ville3"%><br>
+               <input type="text" name="adresse1" class='form-control'id="adresse4"  placeholder="entrez votre adresse" value="" v><br>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Save change</button>
+      <div class="modal-footer"> 
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="getVal()" >Save change</button>
       
       </div>
     </div>
   </div>
 </div>
-    <section style="font-size:15px; color:#696565; " id="az"></section><br>
+    <section style="font-size:15px; color:#696565;" >
+      <label id="az"></label>
+    </section><br>
   
  <hr>
     <h6> Emplacement sur la carte</h6><br>
-    <a href="#" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
- <hr>   <%=submit_tag 'cre'%>
-<%end%>
+    <a  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenterC">
+ Modifier   
+</a>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenterC" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">carte</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <span style="font-size:12px; color:#2E2725;">Carte</span>
+        
+                
+            
+      <div class="modal-footer"> 
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Save change</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+ <hr>  
     <h6> Nom de l'hébergement</h6><br>
     
+<a  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenterA">
+ Modifier   
+</a>
 
-    <section style="font-size:15px; color:#696565; "> La Villa Nath - Saint Gilles les Bains</section>
-    <a  href="#"  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenterA" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Nom</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <span style="font-size:12px; color:#2E2725;">Nom</span>
+        
+                <input type="text" name="name" class="form-control" placeholder="entrez une ville" id="nomm" value=""><br>
+                
+            
+      <div class="modal-footer"> 
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="getVa()" >Save change</button>
+      
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+    <section style="font-size:15px; color:#696565;"> 
+      <label id="aza"></label>
+    </section>
 <!-- Di------------------------------------------------->
 
 
@@ -767,6 +819,8 @@ display: none;
              <label>toutes les autorisations nécessaires pouvant être présentées sur demande Runbnb.com</label></br>
              <input type="checkbox" >
              <label> J’ai lu et j’accepte les Conditions Générales de Runbnb.com</label><br>
+             <%=submit_tag 'Ouvrir mon hébergement à la réservation', class:"button3",style:"position:absolute; top:500px"%>
+
            
 
 
@@ -780,7 +834,7 @@ display: none;
 <span name ="prev" class="button">Precédent</span>
 <span name= "next" class="button">Continuer</span>
 </span>
-
+<%end%>
 </section>
 
 
@@ -788,9 +842,9 @@ display: none;
 
     
 
+
 </body>
 
-<script type="text/javascript">noPressEnter(document.body);</script>
 <script>
 var main = document.getElementsByTagName('main');
 var button = document.getElementsByClassName('button');
@@ -828,6 +882,8 @@ button[1].onclick = ()=>{
       button[1].innerHTML = "Ouvrir mon hébergement à la réservation ";
       button[1].style.cssText = "width:300px;left:412px;"
       button[0].style.display ="none";
+            button[1].style.display ="none";
+
     }
 
   }
@@ -869,11 +925,7 @@ if (current_main == 0) {
 
 }
 
-</script>
 
-</script>
-    <script type="text/javascript">
-  
     function chambre(name) {
     const checkboxes = document.querySelectorAll(`input[name="chambre_ids[]"]:checked`);
     let values = [];
@@ -918,9 +970,7 @@ if (current_main == 0) {
     alert(autre('valeur'));
     });
 
-    </script>
 
-      <script >
       var cache = document.getElementById("caché")
       var clicke1 = document.getElementById("clicke1")
       var clicke = document.getElementById("clicke")
@@ -940,8 +990,7 @@ if (current_main == 0) {
         }
     }) 
     });
-    </script>
-<script type="text/javascript">
+
     var p1 = document.getElementById("up-1");
     var p2 = document.getElementById("up-2");
     var p3 = document.getElementById("up-3");
@@ -984,8 +1033,7 @@ if (current_main == 0) {
       p8.style.display="none";
     }
 
-  </script>
-<script >
+
   function shwoMyImage(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -1000,8 +1048,7 @@ if (current_main == 0) {
   $(".photo-js").change(function() {
     shwoMyImage(this);
   });
-</script>
-<script>
+
   mapboxgl.accessToken = 'pk.eyJ1Ijoicm9sbGFuZGphc21pZSIsImEiOiJja2V2OXUyazYxbjJhMnduMGZ2NmU3YmRrIn0.qwoke-4A7fwXdW3JXu4cIw';
 var coordinates = document.getElementById('coordinates');
 var map = new mapboxgl.Map({
@@ -1026,26 +1073,53 @@ var lngLat = marker.getLngLat();
 coordinates.style.display = 'block';
 coordinates.innerHTML =
 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+let carte1 = document.getElementById("carte1")
+let carte2 = document.getElementById("carte2")
+
+carte1.value = lngLat.lng
+carte2.value = lngLat.lat
 }
  
 marker.on('dragend', onDragEnd);
-</script>
-<script >
+
 function getValue() {
     // Sélectionner l'élément input et récupérer sa valeur
-      var h1 = document.createElement('label');
-    var input = document.getElementById("ville").value;
-    var input1 = document.getElementById("ville1").value;
+    var h1 = document.getElementById('az');
+    var ville1 = document.getElementById("ville1").value;
+    var adresse1 = document.getElementById("adresse1").value;
+    var adresse2 = document.getElementById("adresse4")
+    var ville2 = document.getElementById("ville2")
+
+    var d3 = document.getElementById("aza")
+    var nom1 = document.getElementById("nom1").value
+    var s = document.getElementById("nomm")
+
+
     // Afficher la valeur
-h1.innerText = input + "-"+ input1;
-      document.getElementById("az").appendChild(h1)
+    h1.textContent = ville1 + "  "+ adresse1;
+    d3.textContent = nom1
+    s.value = nom1 
+
+      ville2.value = ville1
+      adresse2.value = adresse1
+}
+function getVal (){
+  var adresse6 = document.getElementById("adresse4").value
+  var ville6 = document.getElementById("ville2").value
+  var h3 = document.getElementById('az');
+   h3.textContent = ville6 + "  "+ adresse6;
+
+
+}
+function getVa () {
+  ss = document.getElementById("nomm").value
+  var d33 = document.getElementById("aza")
+  d33.textContent = ss
 
 
 
 }
 
-</script>
-<script type="text/javascript">
   function refuserToucheEntree(event)
 {
     // Compatibilité IE / Firefox
@@ -1064,6 +1138,7 @@ h1.innerText = input + "-"+ input1;
     }
 }
 
+  let cor =document.querySelector("#coordinates")
+  console.log(cor)
 </script>
-
 

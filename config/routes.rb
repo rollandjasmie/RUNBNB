@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cartes/index'
+  get 'cartes/show'
   root to: "users#index"
   # devise_scope :user do
   #   get "/some/route" => "some_devise_controller"

@@ -9,6 +9,7 @@ class Logement < ApplicationRecord
     has_many :reservations
 
     has_many :equipements
+    has_one  :cartes
 	has_many :adresses
 	has_many :chambres
     has_many :salons

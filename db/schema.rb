@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_114528) do
+ActiveRecord::Schema.define(version: 2020_09_27_093100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2020_09_22_114528) do
 
   create_table "adresses", force: :cascade do |t|
     t.string "pays"
-    t.string "adresse"
+    t.string "adresse1", default: [], array: true
     t.integer "code"
-    t.string "ville"
+    t.string "ville", default: [], array: true
     t.bigint "logement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(version: 2020_09_22_114528) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["salon_id"], name: "index_canapes_on_salon_id"
+  end
+
+  create_table "cartes", force: :cascade do |t|
+    t.float "longitude"
+    t.float "latitude"
+    t.bigint "logement_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["logement_id"], name: "index_cartes_on_logement_id"
   end
 
   create_table "chambrequipements", force: :cascade do |t|
