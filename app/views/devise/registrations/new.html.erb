@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <header>
     <nav class="navbar">
@@ -14,7 +15,25 @@
         </div>
     </nav>
 </header>
+=======
+<link rel="stylesheet" href="/css/sign-in-up.css">
+>>>>>>> 9dabd1888a022f62f6abdcc3f66cf9f39636e730
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="col">
+                <div>
+                    <img src="/image/logo.jpg"  class="logo" alt="" style="width: 150px;">
+                </div>
+            </div>
+            <div class="col"  style="position: relative;left: 45px;">
+                <div class="item">
+                    <a class="anchor" href="#">Deja partenaire?</a>
+                    <a href="/users/sign_in"  class='btn'>Se connecter</a>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div id="wrapper">
         <div id="left">
             <div id="showcase1" style="position: relative;right:40px;">
@@ -41,10 +60,8 @@
         <div class="right" >
             <div class="carrer_lava">
                 <div class="signin" style="height:918px;">
-
                     <h2 style="font-size: 20px"><strong>Créer un profil partenaire </strong></h2>
                     <div style="position: relative;top: 30px;">
-
                         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                         <div>
                             <label>Nom</label>
@@ -72,22 +89,18 @@
                             <label>Confirmer mot de passe</label>
                             <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"text-input", placeholder:"***********", required: 'true' %>
                         </div>
-
                         <div style="position: relative;bottom: 20px;">
-                           
+                            
                             <%= f.submit "Commencer" ,class:"button3"  %>
                             <center>
                             <div class="small">
                                 <small>Vous avec un déja un compte? cliquez<span href=""> &nbsp ici &nbsp  </span>pour poursuivre l'inscription</samll>
-
                             </div>
                         </div>
-
                         </center>
                     </div>
                     <% end %>
                 </div>
-
             </div>
         </div>
     </div>

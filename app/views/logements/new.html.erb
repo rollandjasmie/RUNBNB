@@ -1,8 +1,10 @@
-</head>
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/logements.css">
+<link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="carrou.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
@@ -12,287 +14,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-  <style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-  #ui-datepicker-div{
-  width:318px;
-  }
-  p{
-  width: 30px;
-  height: 5px;
-  border-radius: 2px;
-  background: #ededed;
-  margin:2px 2px;
-  display: inline-flex;
-  }
-  .container{
-  
-  border-style: groove;
-  
-  border-box:1px;
-  position:relative;
-  top:33px;
-  width:500px;
-  height:333px;
-  padding:17px;
-  
-  background-color:#F4F4F4;
-  
-  }
-  .container1{
-  
-  border-style: groove;
-  position:relative;
-  top:53px;
-  margin-left:65px;
-  width:500px;
-  height:412pxpx;
-  padding-top:22px;
-  padding:17px;
-  
-  background-color:#F4F4F4;
-  
-  }
-  .container2{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  border:2px;
-  position:relative;
-  top:33px;
-  margin-left:65px;
-  width:500px;
-  height:466px;
-  padding-top:22px;
-  padding:17px;
-  display:none;
-  background-color:#F4F4F4;
-  
-  }
-  main{
-  display: none;
-  }
-  .button{
-  
-  position:relative;
-  top:123px;
-  margin-left:77px;
-  padding: 10px;
-  width: 100px;
-  border: none;
-  outline:none;
-  cursor:pointer;
-  border-radius:5px;
-  background:rgb(233, 80, 10);
-  font-size:12px;
-  font-weight: bold;
-  color: whitesmoke;
-  float:left
-  
-  }
-  .checkbox {
-  
-  margin-top: 4px;
-  width: 75px;
-  
-  
-  }
-  input[type='checkbox'] {
-  -webkit-appearance:none;
-  
-  width:20px;
-  height:20px;
-  background:white;
-  border:2px solid rgb(141, 135, 135);
-  border-radius:5px;
-  
-  }
-  input[type='checkbox']:checked {
-  background: #f96816;
-  outline: none;
-  
-  }
-  .bt  {
-  background-color: white ;
-  border: 1px solid black;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  float: left;
-  }
-  
-  .bt:not(:last-child) {
-  border-right: none; /* Prevent double borders */
-  }
-  
-  .bt:hover {
-  background-color: rgb(233, 80, 10);
-  }
-  .button1 {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  }
-  .row{
-  box-shadow:
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 1.5px 10px rgba(0, 0, 0, 0.06),
-  0 2.3px 7.9px rgba(0, 0, 0, 0.052),
-  0 4.8px 12.4px rgba(0, 0, 0, 0.056),
-  0 2px 2px rgba(0, 0, 0, 0.2)
-  ;
-  
-  
-  
-  background: white;
-  border-radius: 5px;
-  
-  
-  }
-  .col-6{
-  color:black;
-  }
-  .list{
-  padding:0px;
-  }
-  span{
-  color:black;
-  }
-  .mivadika{
-  float:right;
-  }
-  .miakatro{
-  position:absolute;
-  top:-222px;
-  display:block;
-  font-size:12px;
-  
-  }
-  .none{
-  display:none;
-  }
-  .btn .btn-secondary{
-  width: 33px !important;
-  }
-  #clicke1{
-  cursor: pointer;
-  }
-  .imgPreview{
-  max-width:250px;
-  max-height:250px;
-  }
-  #map { position: absolute; top: 30px; bottom: 0; width: 100%; }
-  .coordinates {
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  position: absolute;
-  bottom: 40px;
-  left: 10px;
-  padding: 5px 10px;
-  margin: 0;
-  font-size: 11px;
-  line-height: 18px;
-  border-radius: 3px;
-  display: none;
-  }
-  .parent-div {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  }
-  .parent-div input[type=file] {
-  left: 0;
-  top: 0;
-  opacity: 0;
-  position: absolute;
-  font-size: 90px;
-  }
-  .btn-upload {
-  background-color: #fff;
-  border: 1px solid #000;
-  color: #000;
-  padding: 10px 25px;
-  border-radius: 10px;
-  font-size: 22px;
-  font-weight: bold;
-  }
-  /*ex-photo*/
-  .label-file {
-  
-  color: #00b1ca;
-  }
-  .inserer{
-  
-  border-style: groove;
-  
-  border-box:1px;
-  position:relative;
-  
-  right: 20px;
-  width:500px;
-  height:333px;
-  padding:17px;
-  
-  background-color:#F4F4F4;
-  }
-  .sary{
-  
-  border-style: groove;
-  
-  border-box:1px;
-  position:relative;
-  
-  right: 20px;
-  width:500px;
-  height:333px;
-  padding:17px;
-  
-  background-color:#F4F4F4;
-  }
-  /*fin*/
-  .datepicker{
-  margin-left:110px;
-  }
-  .btn.active{background-color: #F47E54;
-  color: whitesmoke;}
-  .decrement-js.btn-primary{cursor: pointer;}
-  .incremente-js.btn-primary{cursor: pointer;}
-  .bu1{
-  width:100px;
-  height:27px;
-  margin-left:55px;
-  border-radius: 11px;
-  background-color:white;
-  text-align: center;
-  font-size:12px;
-  border: 1px #727C90;;
-  color: #727C90;;
-  border-style: solid;
-  border-width: 2px;
-  transition: all 0.5s;
-  cursor: pointer;
-  outline:none;
-  outline: none !important;
-  }
-  .content-box{
-  
-  
-  
-  border-box:0px;
-  position:relative;
-  top:33px;
-  width:400px;
-  height:300px;
-  padding:17px;
-  margin-left:65px;
-  
-  background-color:transparent;}
-  <div class="container-sm">100% wide until small breakpoint</div>
-  <div class="container-md">100% wide until medium breakpoint</div>
-  <div class="container-lg">100% wide until large breakpoint</div>
-  <div class="container-xl">100% wide until extra large breakpoint</div>
-  
-  </style>
+</head>  
   <header>
     <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
     <nav class=" tainer" style="margin-top: 23px;">
@@ -408,8 +130,8 @@
 <main>
 <div class="content-box">
   
-   <input type="" name="longitude" style="display: block;" value="o" id="carte1">
-  <input type="" name="latitude" value="o" style="display: block;" id="carte2">
+   <input type="text" name="longitude" style="display: none;" value="" id="carte1">
+  <input type="text" name="latitude" value="" style="display: none;" id="carte2">
   <div id="map"></div>
   <div id="coordinates" class="coordinates"></div>
 </div>
@@ -484,7 +206,7 @@
 <!-- sixiéme Partie------------------------------------------------->
 <main>
   <h5 style="position:relative;top:30px;left: 80px;"> Règle de la maison </h5>
-  <div class="container" style="height:533px;  position:relative;top:70px;>
+  <div class="container" style="height:533px;  position:relative;top:70px;">
     <span class="containo" style="width:633px;">
       <br>
       <input class="mivadika" type="checkbox" name="regle_ids[]" value="9">
@@ -1124,9 +846,7 @@
     button[0].style.display = "none";
     }
     }
-    </script>
-    </script>
-    <script type="text/javascript">
+
     function chambre() {
     const parent = document.getElementById('options')
     const checkboxes = parent.querySelectorAll(`input[class="checkbox options_list"]:checked`);
@@ -1150,8 +870,8 @@
     // btn.addEventListener('click', (event) => {
     //document.querySelector('.za').innerHTML = chambre('values')
     //});
-    </script>
-    <script >
+
+
     var cache = document.getElementById("caché")
     var clicke1 = document.getElementById("clicke1")
     var clicke = document.getElementById("clicke")
@@ -1171,8 +891,7 @@
 
     })
     });
-    </script>
-    <script type="text/javascript">
+
     var p1 = document.getElementById("up-1");
     var p2 = document.getElementById("up-2");
     var p3 = document.getElementById("up-3");
@@ -1236,8 +955,7 @@
     p19.style.display="none";
     
     }
-    </script>
-    <script >
+   
     function shwoMyImage(input) {
     if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -1252,43 +970,7 @@
     shwoMyImage(this);
 
     });
-    </script>
-    <script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoicm9sbGFuZGphc21pZSIsImEiOiJja2V2OXUyazYxbjJhMnduMGZ2NmU3YmRrIn0.qwoke-4A7fwXdW3JXu4cIw';
-    var coordinates = document.getElementById('coordinates');
-    var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [55.5418558827792, -21.11980347123354],
-    zoom: 9
-    });
-    var geocoder = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl
-    });
 
-    
-    var marker = new mapboxgl.Marker({
-    draggable: true
-    })
-    .setLngLat([55.5418558827792, -21.11980347123354])
-    .addTo(map);
-    
-    function onDragEnd() {
-    var lngLat = marker.getLngLat();
-    coordinates.style.display = 'block';
-    let carte1 = document.getElementById("carte1");
-    let carte2 = document.getElementById("carte2");
-    carte1.value = lngLat.lng
-    carte2.value = lngLat.lat
-    console.log(lngLat)
-    coordinates.innerHTML =
-    'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
-    }
-    
-    marker.on('dragend', onDragEnd);
-    </script>
-    <script >
     function getValue() {
     // Sélectionner l'élément input et récupérer sa valeur
     var h1 = document.createElement('label');
@@ -1320,7 +1002,6 @@
     }
     }
     </script>
-    </script>
     <script>
     mapboxgl.accessToken = 'pk.eyJ1Ijoicm9sbGFuZGphc21pZSIsImEiOiJja2V2OXUyazYxbjJhMnduMGZ2NmU3YmRrIn0.qwoke-4A7fwXdW3JXu4cIw';
     var coordinates = document.getElementById('coordinates');
@@ -1346,6 +1027,11 @@
     coordinates.style.display = 'block';
     coordinates.innerHTML =
     'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    let carte1 = document.getElementById("carte1")
+    let carte2 = document.getElementById("carte2")
+
+    carte1.value = lngLat.lng;
+    carte2.value = lngLat.lat;
     }
     
     marker.on('dragend', onDragEnd);
@@ -1392,7 +1078,7 @@ function getVal (){
   var adresse6 = document.getElementById("adresse4").value
   var ville6 = document.getElementById("ville2").value
   var h3 = document.getElementById('az');
-   h3.textContent = ville6 + "-"+ adresse6;
+   h3.textContent = ville6 + "  "+ adresse6;
 
 
 }
