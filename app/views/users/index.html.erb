@@ -1,32 +1,22 @@
-<div style="text-align: center;color: red; ">
-	<a href="<%=adresses_path	%>">geoloca</a>
-	<%if user_signed_in?%>
-	<% else %>
-	<a href="<%= new_user_registration_path %>">S'inscrire</a>
-	<a href="<%= new_user_session_path %>">Se connecter</a>
-	<a href="<%=new_logement_path%>">creer un hébérgement</a>
-	<% end %>
-</div>
-<h1 style="text-align: center;color: red; ">
-WELCOME
-</h1>
+<body>
+
 <!-- accueil -->
 <link rel="stylesheet" type="text/css" href="/css/user.css">
 <header>
-	<nav class="navbar">
+	<nav class="navbar pt-3">
 		<div class="col" style="    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-"">
-			<img src="image/logo.jpg"  class="logo" alt="" style="width: 150px;position: relative;left: 35px;">
+			padding-right: 0px;
+			padding-top: 0px;
+			padding-bottom: 0px;
+			">
+			<img src="image/logo.jpg"  class="logo" alt="" style="width: 150px;position: relative;left: 60px;">
 		</div>
 		
 		<div class="col" style="position: relative;top: 10px;left:300px;">
 			<p>Ajouter un hébergement</p>
 		</div>
-		<div class="col" style="position: relative;left:50px;">
-			<button href="<%=new_logement_path%>" type="button" class="btn  btn-sm">Propriétaire</button>
+		<div class="col" style="position: relative;left:30px;">
+			<a href="<%=new_logement_path%>" type="button" class="btn  btn-sm">Propriétaire</a>
 			<button type="button" class="btn  btn-sm">Voyageurs</button>
 		</div>
 		
@@ -154,11 +144,7 @@ WELCOME
 		</a>
 	</div>
 	
-
-
 	<!-- carousss2 -->
-
-
 	<hr style="position: relative;top: 150px;left: 250px;">
 	<div class="container2"style="position: relative;top: 200px;height: 1000px">
 		<h1 style="font-size: 14px; ">Decouvrir : <span>(voir toutes les destinations)</span></h1>
@@ -234,7 +220,7 @@ WELCOME
 					
 				</div>
 			</div>
-				</div>
+		</div>
 		<a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
 			<span class="carousel-control" aria-hidden="true" style="width:50px !important;
 				height:50px !important; position: relative;right: 40px !important;bottom:280px !important;">
@@ -253,8 +239,7 @@ WELCOME
 			</span>
 			<span class="sr-only">Next</span>
 		</a>
-	<hr class="barre-foot">
-		</div>
-			<h3 style="position: relative;left: 450px !important;bottom:280px !important;">Espace propriétaire</h3>
-	
-
+		<hr class="barre-foot">
+	</div>
+	<h3 style="position: relative;left: 450px !important;bottom:280px !important;">Espace propriétaire</h3>
+	</body>
