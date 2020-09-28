@@ -408,7 +408,8 @@
 <main>
 <div class="content-box">
   
-  
+   <input type="" name="longitude" style="display: block;" value="o" id="carte1">
+  <input type="" name="latitude" value="o" style="display: block;" id="carte2">
   <div id="map"></div>
   <div id="coordinates" class="coordinates"></div>
 </div>
@@ -852,39 +853,40 @@
                   <a href="#" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
                   <hr>
                   
-                  <h6> Nom de l'hébergement</h6><br>
-                  
-                  <a  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenterA">
-                    Modifier
-                  </a>
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModalCenterA" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <span style="font-size:12px; color:#2E2725;">Ville</span>
-                          
-                          <input type="text" name="name" class="form-control" id="ville2" placeholder="entrez une ville" id="nomm" value=""><br>
-                          
-                          
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="getVa()" >Save change</button>
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <section style="font-size:15px; color:#696565;">
-                    <label id="aza"></label>
-                  </section>
-                </div>
+                  <hr>  
+    <h6> Nom de l'hébergement</h6><br>
+    
+<a  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenterA">
+ Modifier   
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenterA" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Nom</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <span style="font-size:12px; color:#2E2725;">Nom</span>
+        
+                <input type="text" name="name" class="form-control" placeholder="entrez une ville" id="nomm" value=""><br>
+                
+            
+      <div class="modal-footer"> 
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="getVa()" >Save change</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <section style="font-size:15px; color:#696565;"> 
+      <label id="aza"></label>
+    </section>
                 <!-- Di------------------------------------------------->
               </main>
               <main>
@@ -1275,6 +1277,11 @@
     function onDragEnd() {
     var lngLat = marker.getLngLat();
     coordinates.style.display = 'block';
+    let carte1 = document.getElementById("carte1");
+    let carte2 = document.getElementById("carte2");
+    carte1.value = lngLat.lng
+    carte2.value = lngLat.lat
+    console.log(lngLat)
     coordinates.innerHTML =
     'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
     }
@@ -1370,10 +1377,13 @@ function getValue() {
 
     var d3 = document.getElementById("aza")
     var nom1 = document.getElementById("nom1").value
+    var s = document.getElementById("nomm")
+
 
     // Afficher la valeur
-    h1.textContent = ville1 + "-"+ adresse1;
-    d3.textContent = nom1 
+    h1.textContent = ville1 + "  "+ adresse1;
+    d3.textContent = nom1
+    s.value = nom1  
 
       ville2.value = ville1
       adresse2.value = adresse1

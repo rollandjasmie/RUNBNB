@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'index/create'
+  get 'index/update'
   root to: "users#index"
   # devise_scope :user do
   #   get "/some/route" => "some_devise_controller"

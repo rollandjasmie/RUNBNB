@@ -17,9 +17,11 @@ class LogementsController < ApplicationController
     @logement.save
     @logement.photos.attach(params[:photos])
 
-    @adr = Adresse.new(pays: params[:pays],adresse: params[:adresse],
+    @adr = Adresse.new(pays: params[:pays],adresse1: params[:adresse1],
            code: params[:code],ville: params[:ville],adresse2:params[:adresse2],logement_id: @logement.id)
-    @adresse = @adr.save 
+    @adresse = @adr.save
+    Carte.create(longitude:params[:longitude],latitude:params[:latitude],logement_id:@logement.id) 
+ 
   
     @a = Chambre.create(logement_id: @logement.id,title: params[:title])
 
