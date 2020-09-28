@@ -2,6 +2,13 @@
 height: 300px;
 width: 1200px;
 }*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
 .barre-foot{position: relative;top:160px;left: 250px;}
 .conteneur{background-image: url('https://v.seloger.com/s/width/798/visuels/2/a/l/y/2alyzjn61zhukagkp2vwcch7hdjtrs4nit6cuf7y8.jpg');
  background-position: 50% 63%; /* Center the image */
@@ -9,3 +16,15 @@ width: 1200px;
   background-size: cover; /* Resize the background image to cover the entire container */
 height: 300px;
 width: 1200px;}
+
+.navbar {
+    position:absolute;
+    background-color: rgb(255, 255, 255);
+   
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+}

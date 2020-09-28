@@ -3,19 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       
+        <link rel="stylesheet" type="text/css" href="/css/user.css">
         <title>Sign in -plural</title>
     </head>
-
-   
-
-
-
-
-
     <body>
-   <header>
-            <nav class="navbar">
+        <header>
+            <nav class="navbar pt-3 pl-4">
                 <div class="col">
                     <div>
                         <img src="/image/logo.jpg"  class="logo" alt="" style="width: 150px;">
@@ -23,7 +16,7 @@
                 </div>
                 <div class="col" style="position: relative;left: 80px;">
                     <div class="item">
-                      
+                        
                         <a href="/users/sign_up"  class='btn'>S'inscrire</a>
                     </div>
                 </div>
@@ -40,59 +33,36 @@
                     </div>
                 </div>
             </div>
-            <div class="autre-text">
-                <h3 class="text"><strong>Inscrivez votre
-                <span>hébergement</span>  sur  Runbnb.com </strong>
-                </h2>
-                
-            </div>>
-
-
-
+           
+         
             <div id="right">
-            <div class="carrer"style="height: 450px;position: relative;top: 50px;">    
+                <div class="carrer"style="height: 450px;position: relative;top: 50px;left:32px;">
                     <h2 style=";position: relative;top: 20px;"><strong>Se connecter</strong></h2>
-                <div id="signin" style=";position: relative;top: 20px;">
-                    
+                    <div id="signin" style=";position: relative;top: 20px;">
+                        
                         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                         <%= render "devise/shared/error_messages", resource: resource %>
-
                         <div>
                             <label>Adress e-mail</label>
                             <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"text-input",placeholder:"Entrez votre e-mail"%>
-
-
                         </div>
                         <div>
                             <label>Mot de passe</label>
-                                <%= f.password_field :password, autocomplete: "current-password", class:"text-input",placeholder:"Entrez votre mot de passe"%>
-
+                            <%= f.password_field :password, autocomplete: "current-password", class:"text-input",placeholder:"Entrez votre mot de passe"%>
                         </div>
-
-                            <%= f.submit "Se connecter",class:"button3" %>
-                            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %><br />
-                            <small> <%= link_to "Mot de passe oublié?", new_password_path(resource_name) %></small>
-                            <% end %>
-
-                </div>
-                <% end %>
-
+                        <%= f.submit "Se connecter",class:"button3" %>
+                        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %><br />
+                        <small> <%= link_to "Mot de passe oublié?", new_password_path(resource_name) %></small>
+                        <% end %>
+                    </div>
+                    <% end %>
                     
-
-             
-
-
+                    
                 </div>
-
             </div>
-
-
         </div>
     </body>
 
+
 </html>
-
-
-  
-
 
