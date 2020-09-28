@@ -11,7 +11,8 @@ body{
 font-family: 'Roboto', sans-serif;
 font-weight: 300;
 background: #fff !important;
-
+overflow-x: hidden!important;
+overflow-y: scroll!important;
 
 }
 h1,h2,h3,h4{
@@ -238,7 +239,7 @@ text-decoration: none;
 
 .autre-text{
 position: absolute;
-top: 888pxs;
+top: 888px;
 }
 }
 @media(max-width:768px){
@@ -261,16 +262,7 @@ margin: 0;
 padding: 0;
 
 }
-body{
-font-family: 'Roboto', sans-serif;
-font-weight: 300;
-background: #fff;
 
-overflow: scroll;
-}
-h1,h2,h3,h4{
-font-weight: 300;
-}
 #wrapper{
 display: flex;
 flex-direction: row;
