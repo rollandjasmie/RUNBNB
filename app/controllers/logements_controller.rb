@@ -17,7 +17,7 @@ class LogementsController < ApplicationController
     @logement.save
     @logement.photos.attach(params[:photos])
 
-    @adr = Adresse.new(pays: params[:pays],adresse1: params[:adresse1],
+    @adr = Adresse.new(pays: params[:pays],ville1: params[:adresse1],
            code: params[:code],ville: params[:ville],adresse2:params[:adresse2],logement_id: @logement.id)
     @adresse = @adr.save
     Carte.create(longitude:params[:longitude],latitude:params[:latitude],logement_id:@logement.id) 
@@ -46,7 +46,7 @@ class LogementsController < ApplicationController
       end 
     end  
     if params[:arrive] && params[:depart]
-        Departarrive.create(arrive: params[:arrive], depart: params[:depart])
+        Departarrive.create(arrive: params[:arrive],arrive2: params[:arrive2], depart: params[:depart], depart2: params[:depart2])
     end
     if params[:condition]
       Condition.create(condition: params[:condition], logement_id: @logement.id) 
