@@ -9,10 +9,8 @@ class LogementsController < ApplicationController
   def show
     
   end
-
   def create
  
-
   	@logement = Logement.new(categorie: params[:categorie],types: params[:types],name: params[:name],user_id: current_user.id)
     @logement.save
     @logement.photos.attach(params[:photos])
@@ -65,5 +63,4 @@ class LogementsController < ApplicationController
   end   
   end
 end
-
 
