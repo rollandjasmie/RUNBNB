@@ -2,11 +2,13 @@
 class LogementsController < ApplicationController
   before_action :authenticate_user!
   def index
+    @logement = Logement.all
   end
   def new
   	@logement = Logement.new
   end
   def show
+    @log = Logement.find(params[:id])
     
   end
   def create
@@ -58,7 +60,7 @@ class LogementsController < ApplicationController
   
 
   if @adr.save
-    redirect_to '/'
+    redirect_to '/logements'
        
   end   
   end
