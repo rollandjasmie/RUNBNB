@@ -86,42 +86,50 @@ body{
   box-shadow: none !important;
 
 }
+.bu4{
+                  width:200px;
+                  height:27px;
+                  float:right;
+                  border-radius: 20px;
+                  background-color:#26AEDE;
+                  text-align: center;
+                  font-size:12px;
+                  text-decoration: none;
+                  color: white;
+                  border-style: solid;
+                  border-width: 2px;
+                  transition: all 0.5s;
+                  cursor: pointer;
+                  margin-right:90px;
+                  margin-top:24px;
+                  outline:none;
+                  outline: none !important;
+                  box-shadow: none !important;
+}
 *:focus {
     outline: 0 !important;
 }
 
 </style>
-
-  
-
-
-
-</style>
-
-  
-
-
-
-
 <body>
       <header>
 
       <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
       <button class="bu3">Acueille du groupe </button>
       <button class="bu1">Changer d'hébergement</button>
-      <button class="bu2">Ajouter un hébergement</button>
+      <a href="<%=new_logement_path%>" class="bu4">Ajouter un hébergement</a>
 
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm" style="margin-top:12px;">
    <ul class="navbar-nav mr-auto" style="margin-left:-66px">
       <li class="nav-item " style="margin-left:100px">
-      <a class="nav-link"  href="#">Tout les hébergements</a>
+      <a class="nav-link" style="cursor: pointer;"  >Tout les hébergements</a>
 
       </li>
       <li class="nav-item  ">
-        <a class="nav-link"  ;href="#">Calendrier de tout les hébergements</a>
+        <a class="nav-link" style="cursor: pointer;"  ;>Calendrier de tout les hébergements</a>
       </li>
       <li class="nav-item " >
-      <a class="nav-link" st href="#">Toutes les reservations</a>
+      <a class="nav-link" style="cursor: pointer;">Toutes les reservations</a>
 
       </li>
       
@@ -177,9 +185,8 @@ body{
           </a>
             
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Mon profils</a>
-              <a class="dropdown-item" href="#">Déconnexion</a>
-            
+              <%=link_to 'Déconnexion', destroy_user_session_path,class:"dropdown-item", method: :delete%>
+
             </div>
           </li>   
         </ul>
@@ -289,12 +296,13 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div>
   <div class="inpu" style="margin-bottom:20px;position:absolute;top:55px;color:#727c90;">
   <%= @user.name %> <%= @user.first_name%>
 
   </div>
-    <% end %><br>
+    <br>
     <hr>
 
 
@@ -326,12 +334,13 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:152px;color:#727c90;">
 
     <%= @user.sexe%>
     </div>
-    <% end %><br>
+    <br>
 
     <hr>
     <div style="color: black; position:absolute;top:199px">Date de naissance  </div>
@@ -358,12 +367,13 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:231px;color:#727c90">
 
     <%= @user.date_of_birth%>
     </div>
-    <% end %><br>
+    <br>
 
     <hr>
     <span style="color: black; position:absolute;top:290px ">Adresse e-mail
@@ -391,12 +401,13 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:311px;color:#727c90">
 
     <%= @user.email%>
     </div>
-    <% end %><br>
+    <br>
     <hr>
     
     <span style="color: black; position:absolute;top:355px ">Numéro de téléphone</span>
@@ -421,12 +432,13 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:385px;color:#727c90">
 
     <%= @user.mobile%>
     </div>
-    <% end %><br>
+    <br>
 
 
     <hr>
@@ -452,12 +464,13 @@ body{
     </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:478px;color:#727c90">
 
     <%= @user.adresse%>
     </div>
-    <% end %><br>
+    <br>
     <hr>
     <span style="color: black; position:absolute;top:520px">Numéro d'urgence</span>
     <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong6" style="margin-left:510px;  position:absolute;top:534px;  ">Modifier</button>
@@ -481,11 +494,12 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:550px;color:#727c90">
     <%= @user.urgence%>
     </div>
-    <% end %><br>
+    <br>
     <hr>
 
 

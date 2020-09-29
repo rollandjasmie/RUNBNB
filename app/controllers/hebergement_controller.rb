@@ -16,4 +16,7 @@ class HebergementController < ApplicationController
 
   def delete
   end
+  def photo
+    
+  end
 end
