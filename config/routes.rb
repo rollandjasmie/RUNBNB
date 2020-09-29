@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'hebergement/delete'
   get 'index/create'
   get 'index/update'
-  root to: "users#show"
+  root to: "users#index"
   # devise_scope :user do
   #   get "/some/route" => "some_devise_controller"
   # end
