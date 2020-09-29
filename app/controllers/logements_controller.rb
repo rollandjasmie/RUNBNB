@@ -3,13 +3,13 @@ class LogementsController < ApplicationController
   before_action :authenticate_user!
   def index
     @logement = Logement.all
+    @logemen = Logement.find(1)
   end
   def new
   	@logement = Logement.new
   end
   def show
-    @log = Logement.find(params[:id])
-    
+
   end
   def create
  
