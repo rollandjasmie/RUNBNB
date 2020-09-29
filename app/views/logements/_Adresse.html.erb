@@ -1,0 +1,32 @@
+  <main>
+    <h5 style="position:relative;top:30px;left: 70px;"> Ou se situe l'hébergement que vous inscrivez?</h5><br><br>
+    <div class="container1" style="position:relative;top:10px;" >
+      
+      <span style="font-size:12px; color:#2E2725;">Pays/région</span><br>
+      <%= text_field_tag :pays, "",placeholder:"Pays/région" ,class:'form-control'%><br>
+      
+      
+      <span style="font-size:12px; color:#2E2725;">Ville</span>
+      
+      <input type="text" name="ville[]" class="form-control", placeholder="" id="ville1"><br>
+
+      
+      <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 1)</span>
+      <%= text_field_tag :adresse1, "" ,class:'form-control',id:"adresse1"%><br>
+
+      
+      <span style="font-size:12px; color:#2E2725;">Code postal</span>
+      
+      <%= text_field_tag :code, "",placeholder:"entrez votre Code postal" ,class:'form-control'%><br>
+      
+      <span id="caché" style="display: none;">Trouvez votre adresse (ligne 2)
+        <%= text_field_tag :adresse2, "",placeholder:"votre adresse" ,class:'form-control'%><br>
+      </span><br>
+      <span  id="clicke" style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 2)<br>
+        
+        <span id="clicke1" style="color: blue"> Ajouter </span>
+        
+      </span>
+      
+    </div>
+  </main>

@@ -1,0 +1,85 @@
+ <main>
+                <h5 style="position:relative;top:30px;left: 80px;"> Information sur l'hébergement</h5>
+                <div class="container" style="height:564px; top:66px;">
+                  
+                  <h6 style="margin-bottom:24px;position:relative;top:9px;"> Vérifier les informations sur votre hébergement</h6>
+                  <h6 style="font-size:15px;color:#696565;">Si vous souhaitez modifier les informations mieux,vaut le faire maitenant. <br> En effet il est plus difficile de les mettres à jour par la suite </h6>
+                  
+                  <hr>
+                  <h6 > Adresse de l'hébergement</h6><br>
+                  <!-- Button trigger modal -->
+                  <a  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter">
+                    Modifier
+                  </a>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <span style="font-size:12px; color:#2E2725;">Ville</span>
+                          
+                          <input type="text" name="ville[]" class="form-control" id="ville2" placeholder="entrez une ville" value=""><br>
+                          
+                          
+                          <span style="font-size:12px; color:#2E2725;">Trouvez votre adresse (ligne 1)</span>
+                          
+                          <input type="text" name="adresse1" class='form-control'id="adresse4"  placeholder="entrez votre adresse" value="" v><br>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="getVal()" >Save change</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <section style="font-size:15px; color:#696565;" >
+                    <label id="az"></label>
+                  </section><br>
+                  
+                  
+                  <hr>
+                  <h6> Emplacement sur la carte</h6><br>
+                  <a href="#" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+                  <hr>
+                  
+                  <hr>  
+    <h6> Nom de l'hébergement</h6><br>
+    
+<a  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenterA">
+ Modifier   
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenterA" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Nom</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <span style="font-size:12px; color:#2E2725;">Nom</span>
+        
+                <input type="text" name="name" class="form-control" placeholder="entrez une ville" id="nomm" value=""><br>
+                
+            
+      <div class="modal-footer"> 
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="getVa()" >Save change</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <section style="font-size:15px; color:#696565;"> 
+      <label id="aza"></label>
+    </section>
+                  </main>

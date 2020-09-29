@@ -1,0 +1,13 @@
+ <main>
+    <span style="position: relative;left:80px;top:30px;font-size:20px;">Inscrivez votre hébergement sur RunBnB et commencez à recevoir des clients en un rien de temps !</span>
+    <div class="container"style="position: relative;top:80px;">
+      <h6>Quel est le nom de votre hébergement?</h6> <br>
+
+      <input type="text"  class="form-control" name="name" placeholder="nom de l'hébergement" id="nom1" ><br>
+      <h6>Choisissez le type d’hébergement que vous souhaitez inscrire sur RunBnB :</h6>
+      <%= select_tag 'categorie', options_for_select(["Appartement","Maison/Vila","Bangalow/Châlet","Hotel","chambre d'hote/Gite"]), class:'custom-select custom-select-sm' , style:"width: 300px"%><br><br>
+      <h6>Que peuvent réserver les clients ?</h6>
+      <%= select_tag 'types', options_for_select(["Chambre privée","Hébergement entier"]),class:'custom-select custom-select-sm',style:"width: 300px"%>
+      
+    </div>
+  </main>
