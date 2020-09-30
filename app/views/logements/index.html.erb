@@ -14,8 +14,12 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row"><%=@logemen.id%></th>
-                <td><a href="<%=hebergement_show_path(@logement.ids)%>"><%=@logemen.name%></a> </td> 
+               <%@logement.each do |i| %>
+              <tr>
+                <th scope="row"><%=i.id%></th>
+                <td><a href="/logements/<%=i.id%>/hebergement"><%=i.name%></a> </td> 
+              </tr>
+                <% end %>
                         
               </tr>
               <tr>

@@ -1,0 +1,15 @@
+
+<div class="container">
+	<small>Pièce et Espace</small>
+	<%@logement.chambres.each do |c|%>
+			<%if c.title == nil%>
+			<%else%>
+			<h5><%=c.title%> :</h5>
+			<h5><%c.lits.each do |l|%></h5><br>
+					<%=l.title%> :
+					<%=c.LitChambres.number%>
+			<%end%>
+			</p>
+			<%end%>
+	<%end%>
+</div>

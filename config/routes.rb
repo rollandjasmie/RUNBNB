@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-  get 'hebergement/index'
-  get 'hebergement/show'
-  get 'hebergement/create'
-  get 'hebergement/update'
-  get 'hebergement/edit'
-  get 'hebergement/delete'
-  get 'index/create'
-  get 'index/update'
+
   root to: "users#show"
   # devise_scope :user do
   #   get "/some/route" => "some_devise_controller"
@@ -23,6 +16,7 @@ Rails.application.routes.draw do
     resources :photos, only:[:create]
 		resources :adresses,only:[:new,:create,:update,:index]
     resources :informations, only:[:new,:create,:update,:edit]
+    get 'hebergement',to: 'hebergement#show', as: 'hebergement'
 	end
 
 end
