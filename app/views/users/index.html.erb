@@ -1,5 +1,29 @@
 
-<body>
+<style type="text/css">
+.bu4{
+    width:200px;
+    height:27px;
+    position:absolute;
+    top:-40px;
+    left:-20px;
+    float:right;
+    border-radius: 20px;
+    background-color:#26AEDE;
+    text-align: center;
+    font-size:12px;
+    text-decoration: none;
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-right:90px;
+    margin-top:24px;
+    outline:none;
+    outline: none !important;
+    box-shadow: none !important;
+}
+</style>
 
 
 <!-- accueil -->
@@ -15,10 +39,15 @@
 		</div>
 		
 		<div class="col" style="position: relative;top: 10px;left:300px;">
-			<p>Ajouter un hébergement</p>
+			<a href="<%=new_logement_path%>" class="bu4" >Ajouter un hébergement</a>
 		</div>
 		<div class="col" style="position: relative;left:30px;">
-			<a href="<%=new_logement_path%>" type="button" class="btn  btn-sm">Propriétaire</a>
+		
+			<%if user_signed_in?%>
+   				<a href="/users/<%=current_user.id%>" type="button" class="btn  btn-sm">Propriétaire</a>
+   			<% else %>
+   			<a href="/users/sign_in" type="button" class="btn  btn-sm">Propriétaire</a>
+      		<% end %>
 			<button type="button" class="btn  btn-sm">Voyageurs</button>
 		</div>
 		
@@ -244,4 +273,4 @@
 		<hr class="barre-foot">
 	</div>
 	<h3 style="position: relative;left: 450px !important;bottom:280px !important;">Espace propriétaire</h3>
-	</body>
+	
