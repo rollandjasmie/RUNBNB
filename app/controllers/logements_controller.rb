@@ -2,17 +2,18 @@
 class LogementsController < ApplicationController
   before_action :authenticate_user!
   def index
+    @logement = Logement.all
+    @logemen = Logement.find(2)
+    @user = User.find(current_user.id)
   end
   def new
   	@logement = Logement.new
   end
   def show
-    
-  end
 
+  end
   def create
  
-
   	@logement = Logement.new(categorie: params[:categorie],types: params[:types],name: params[:name],user_id: current_user.id)
     @logement.save
     @logement.photos.attach(params[:photos])
@@ -60,10 +61,9 @@ class LogementsController < ApplicationController
   
 
   if @adr.save
-    redirect_to '/'
+    redirect_to '/logements'
        
   end   
   end
 end
-
 

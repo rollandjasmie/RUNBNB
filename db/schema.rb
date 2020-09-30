@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2020_09_29_065441) do
 
   create_table "adresses", force: :cascade do |t|
     t.string "pays"
-    t.string "adresse1", default: [], array: true
+    t.string "adresse"
     t.integer "code"
-    t.string "ville", default: [], array: true
+    t.string "ville"
     t.bigint "logement_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,0 +1,2 @@
+module HebergementHelper
+end

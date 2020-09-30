@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Profil</title>
+    
 </head>
 <style>
 body{
@@ -86,22 +86,42 @@ body{
   box-shadow: none !important;
 
 }
+.bu4{
+                  width:200px;
+                  height:27px;
+                  float:right;
+                  border-radius: 20px;
+                  background-color:#26AEDE;
+                  text-align: center;
+                  font-size:12px;
+                  text-decoration: none;
+                  color: white;
+                  border-style: solid;
+                  border-width: 2px;
+                  transition: all 0.5s;
+                  cursor: pointer;
+                  margin-right:90px;
+                  margin-top:24px;
+                  outline:none;
+                  outline: none !important;
+                  box-shadow: none !important;
+}
 *:focus {
     outline: 0 !important;
 }
 
+.navbar-nav{
+  border-bottom: 3px solid transparent;
+}
+.navbar-nav a{
+  font-weight:bold;
+}
+
+.navbar-nav a:hover {
+border-bottom: 3px solid white;
+}
+
 </style>
-
-  
-
-
-
-</style>
-
-  
-
-
-
 
 <body>
       <header>
@@ -109,60 +129,27 @@ body{
       <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
       <button class="bu3">Acueille du groupe </button>
       <button class="bu1">Changer d'hébergement</button>
-      <button class="bu2">Ajouter un hébergement</button>
+      <a href="<%=new_logement_path%>" class="bu4">Ajouter un hébergement</a>
 
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm" style="margin-top:12px;">
-   <ul class="navbar-nav mr-auto" style="margin-left:-55px">
+   <ul class="navbar-nav mr-auto" style="margin-left:-66px">
+
       <li class="nav-item " style="margin-left:100px">
-      <a class="nav-link"  href="#">Tout les hébergements</a>
+      <a class="nav-link"  href="<%=logements_path%>">Tout les hébergements</a>
 
       </li>
-      <li class="nav-item  ">
-        <a class="nav-link"  ;href="#">Calendrier de tout les hébergements</a>
+      <li class="nav-item">
+        <a class="nav-link" style="cursor: pointer;">Calendrier de tout les hébergements</a>
       </li>
-      <li class="nav-item " >
-      <a class="nav-link" st href="#">Toutes les reservations</a>
+      <li class="nav-item">
+      <a class="nav-link" style="cursor: pointer;">Toutes les reservations</a>
 
       </li>
-      
       
     </ul>
-
-    <style>
-    .navbar-nav{
-      border-bottom: 3px solid transparent;
-    }
-    .navbar-nav a{
-      font-weight:bold;
-    }
-
-    .navbar-nav a:hover {
-  border-bottom: 3px solid white;
-}
-
-.navbar-nav a.active {
-  border-bottom: 3px solid white;
-}
-
-
-    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 35px;">
-             
-              <%if @user.avatar.attached?%>
-                      <%= image_tag @user.avatar, alt: 'avatar', class:"chip", style:"width:40px; height:40px" ,alt:"Person", width:"96", height:"96"%>
-                        <%else%>
-                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="chip" alt="avatar" style="width:40px; height:40px" alt="Person" width="96" height="96",>
-                        <%end%>
-                        Mon profile</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01" style="width: 222px;">
-              <a class="dropdown-item" style="color: black ;"   href="#">Action</a>
-              <a class="dropdown-item"style="color: black;" href="#">Another action</a>
-              <a class="dropdown-item" style="color: black;"href="#">Something else here</a>
-    </div>
-    
-    </style>
-
       <div class="collapse navbar-collapse" id="navbar-list-4"  >
-        <ul class="navbar-nav" style="padding-left:33px;">
+        <ul class="navbar-nav" style="padding-left: 33px;" >
+
             <li class="nav-item dropdown" style="margin-left:200px" >
            
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -177,9 +164,8 @@ body{
           </a>
             
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Mon profils</a>
-              <a class="dropdown-item" href="#">Déconnexion</a>
-            
+              <%=link_to 'Déconnexion', destroy_user_session_path,class:"dropdown-item", method: :delete%>
+
             </div>
           </li>   
         </ul>
@@ -289,12 +275,13 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div>
   <div class="inpu" style="margin-bottom:20px;position:absolute;top:55px;color:#727c90;">
   <%= @user.name %> <%= @user.first_name%>
 
   </div>
-    <% end %><br>
+    <br>
     <hr>
 
 
@@ -326,12 +313,13 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:152px;color:#727c90;">
 
     <%= @user.sexe%>
     </div>
-    <% end %><br>
+    <br>
 
     <hr>
     <div style="color: black; position:absolute;top:199px">Date de naissance  </div>
@@ -358,12 +346,13 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:231px;color:#727c90">
 
     <%= @user.date_of_birth%>
     </div>
-    <% end %><br>
+    <br>
 
     <hr>
     <span style="color: black; position:absolute;top:290px ">Adresse e-mail
@@ -391,12 +380,13 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:311px;color:#727c90">
 
     <%= @user.email%>
     </div>
-    <% end %><br>
+    <br>
     <hr>
     
     <span style="color: black; position:absolute;top:355px ">Numéro de téléphone</span>
@@ -421,12 +411,13 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:385px;color:#727c90">
 
     <%= @user.mobile%>
     </div>
-    <% end %><br>
+    <br>
 
 
     <hr>
@@ -452,12 +443,13 @@ body{
     </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:478px;color:#727c90">
 
     <%= @user.adresse%>
     </div>
-    <% end %><br>
+    <br>
     <hr>
     <span style="color: black; position:absolute;top:520px">Numéro d'urgence</span>
     <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong6" style="margin-left:510px;  position:absolute;top:534px;  ">Modifier</button>
@@ -481,11 +473,12 @@ body{
           </div>
         </div>
       </div>
+      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:550px;color:#727c90">
     <%= @user.urgence%>
     </div>
-    <% end %><br>
+    <br>
     <hr>
 
 
