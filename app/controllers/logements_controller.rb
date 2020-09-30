@@ -2,15 +2,20 @@
 class LogementsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @logement = Logement.all
-    @logemen = Logement.find(1)
+    user = User.find(current_user.id)
+    @logement = user.logements
   end
+
+
   def new
   	@logement = Logement.new
   end
-  def show
 
+
+  def show
   end
+
+  
   def create
  
   	@logement = Logement.new(categorie: params[:categorie],types: params[:types],name: params[:name],user_id: current_user.id)

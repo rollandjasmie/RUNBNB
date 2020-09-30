@@ -45,7 +45,47 @@
                   
                   <hr>
                   <h6> Emplacement sur la carte</h6><br>
-                  <a href="#" role="button" style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px" >Modifier</a>
+
+
+<a  style="color: rgb(0, 162, 255);position: relative;top:-60px;left:333px;cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenterc">
+ Modifier   
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenterc" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Carte</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<div class="content-box">
+  
+   <input type="text" name="longitude" style="display: none;" value="" id="carte1">
+  <input type="text" name="latitude" value="" style="display: none;" id="carte2">
+  <div id="map"></div>
+  <div id="coordinates" class="coordinates"></div>
+</div>        
+                
+            
+      <div class="modal-footer"> 
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="getVa()" >Save change</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <section style="font-size:15px; color:#696565;"> 
+      <label id="aza"></label>
+    </section>
+
+
+
+
                   <hr>
                   
         

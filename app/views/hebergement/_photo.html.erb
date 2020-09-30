@@ -1,0 +1,28 @@
+<style type="text/css">
+	.photo{
+		width: 100px
+
+	}
+</style>
+
+
+
+
+<a href="/logements/<%=photo.id%>/photos
+"><p>modifier</p></a>
+
+<% if photo.photos.attached? %>
+
+	<% num = 0%>
+	<% photo.photos.each do |p|%>
+	<%= image_tag (photo.photos[num]), class:"photo" %>
+	<% num +=1 %>
+	<% end %>
+	<p><%=photo.photos.count%> photos</p>
+	
+
+<% else %>
+	
+	<p>tsisy a</p>
+
+<% end %>

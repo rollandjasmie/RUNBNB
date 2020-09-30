@@ -13,23 +13,13 @@
               </tr>
             </thead>
             <tbody>
+                <%@logement.each do |i| %>
               <tr>
-                <th scope="row"><%=@logemen.id%></th>
-                <td><a href="<%=hebergement_show_path(@logement.ids)%>"><%=@logemen.name%></a> </td> 
-                        
+                <th scope="row"><%=i.id%></th>
+                <td><a href="/logements/<%=i.id%>/hebergement"><%=i.name%></a> </td> 
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
+                <% end %>
+
             </tbody>
           </table>
  </section>
