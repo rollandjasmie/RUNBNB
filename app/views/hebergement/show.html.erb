@@ -1,4 +1,116 @@
 
-<%= render :partial => 'photo', locals: { photo: @logement } %>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/css/photo.css">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		
+		
+		<title>Hello, world!</title>
+	</head>
+	
+	<header>
+		<div class="row">
+			<div class="col">
+				<nav class="navbar" style="height: 80px;">
+					
+					<img src="/image/logo.jpg"  class="logo" alt="" style="width: 150px">
+					
+				</nav>
+			</div>
+			<div class="col">
+				<button class="btn btn-sm btn-primary" style="position: relative;top: 32px;right:100px;">Accueil du groupe</button>
+			</div>
+			<div class="col">
+				<h1 class="nath" style="position: relative;top: 38px;left:50px;width:400px;">La Villa Nath - Saint Gilles Les Bains 6388771</h1>
+			</div>
+			<div class="col">
+				<button class="btn btn-outline-primary" style="position: relative;top: 28px;width:250px;">Changer d'hébergement</button>
+			</div>
+		</div>
+	</div>
+	<nav class="nav nav-pills flex-column flex-sm-row" style="height: 60px">
+		<a class="flex-sm-fill text-sm-center nav-link focus" href="#"><small>accueil</small></a>
+		<a class="flex-sm-fill text-sm-center nav-link focus" href="#"><small>Tarifs et calendrier</small></a>
+		<a class="flex-sm-fill text-sm-center nav-link focus" href="#"><small>Promotions</small></a>
+		<a class="flex-sm-fill text-sm-center nav-link focus" href="#"><small>Réservations</small></a>
+		<a class="flex-sm-fill text-sm-center nav-link focus" href="#"><small>Hébergement</small></a>
+		<a class="flex-sm-fill text-sm-center nav-link focus" href="#"><small>Boîte de réception</small></a>
+		<a class="flex-sm-fill text-sm-center nav-link focus" href="#"><small>Comptabilité</small></a>
+		<a class="flex-sm-fill text-sm-center nav-link focus" href="#"><small>Commentaires clients</small></a>
+		
+	</nav>
+</header>
+<div class="heb">
+	<div class="row">
+		<div class="col">
+			<h1 class="nath2 pt-5" style="position: relative;top: 38px;left:50px;width:500px;"><b>La Villa Nath - Saint Gilles Les Bains</b> 6388771</h1>
+		</div>
+		<div class="col">
+			<button class="btn btn-primary " style="position: relative;top: 80px;width: 185px;">Prévisualiser l’annonce</button>
+		</div>
+		<div class="col">
+			<button class="btn btn-outline-primary " style="position: relative;top: 80px;right:200px;">Voir le calendrier</button>
+		</div>
+	</div>
+</div>
+<div id="sub_menu" class="MENU" >
+	
+		<a class="MeNu " data-turbolinks="false" href="#"><small>Détails de l’annonce</small></a>
+		<a class="MeNu " data-turbolinks="false" href="#"><small>Paramètres de réservations</small></a>
+		<a class="MeNu " data-turbolinks="false" href="#"><small>Frais complémenaire</small></a>
+		<a class="MeNu " data-turbolinks="false"  href="#"><small>Taxe de séjour locale </small></a>
+		<a class="MeNu " data-turbolinks="false"  href="#"><small>Co-géstinonaire </small></a>
+	
+	<hr class="hr">
+</div>
+<%= render :partial => 'photo', locals: { photo: @photo } %>
+<hr class="hr2">
+<!-- titre et description -->
+
 <%= render :partial => 'chambre', locals: { chambre: @logement } %>
+<script>
+	// var selected = 0;
+
+	const sub_menu = document.getElementById('sub_menu');
+
+	const menus = sub_menu.querySelectorAll('a');
+
+	menus.forEach(function (menu, index) {
+	  /* if (index === selected) {
+	    menu.classList.add("active");
+	  } */
+
+	  menu.addEventListener("click", function() {
+	    resetClass()
+	    this.classList.add("active");
+	  });
+	})
+
+	function resetClass() {
+	  menus.forEach(function (menu, index) {
+	    menu.classList.remove("active");
+	  })
+	}
+
+	console.log(menus);
+</script>
+</body>
+</html>
 
