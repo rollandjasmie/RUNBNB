@@ -3,15 +3,7 @@ class HebergementController < ApplicationController
   end
 
   def show
-    @photo = Logement.find(params[:logement_id])
-    
-
-
-
-
-    puts "*"*500
-      puts @photo.id
-    puts "*"*500
+    @logement = Logement.find(params[:logement_id])
 
   end
 
