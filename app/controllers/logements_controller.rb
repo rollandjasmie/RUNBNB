@@ -29,13 +29,34 @@ class LogementsController < ApplicationController
  
   
     @a = Chambre.create(logement_id: @logement.id,title: params[:title])
+    @salon = Salon.create(logement_id: @logement.id, title: params[:title])
+    @autre = Autre.create(logement_id: @logement_id, title: params[:title])
 
     if params[:lit_ids]
       @lits = params[:lit_ids]
       @lits.each do |l,valeur|
-        LitChambre.create(chambre_id: @a.id, lit_id: l, number: valeur)
+    
+        LitChambre.create(chambre_id: @a.id, lit_id: l.to_i, number: valeur)
       end
     end
+
+    if params[:canape_ids]
+      @canapes = params[:canape_ids]
+      @canapes.each do |l,valeur|
+    
+        Saloncanape.create(salon_id: @salon.id, canape_id: l.to_i, nombresalon: valeur)
+      end
+    end
+
+    if params[:autre_ids]
+      @canapes = params[:autre_ids]
+      @canapes.each do |l,valeur|
+    
+        Litautre.create(autre_id: @autre.id, autrelit_id: l.to_i, nombreautre: valeur)
+      end
+    end
+
+
     
     if params[:equipement_ids]
       @equipement = params[:equipement_ids]

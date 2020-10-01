@@ -1,0 +1,12 @@
+
+<div class="container">
+	<%chambre.chambres.each do |cha|%>
+		<h5><%=cha.title%> :</h5><br> 
+		<%cha.LitChambres.each do|lit|%>
+			<%if lit.number > 0%>
+			<p><%=lit.lit.title%> : <%=lit.number%></p>
+
+			<%end%>
+		<%end%>
+	<%end%>
+</div>
