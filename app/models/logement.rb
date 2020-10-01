@@ -13,7 +13,8 @@ class Logement < ApplicationRecord
 	has_many :chambres
 
     has_one  :carte
-  
+    has_many :salons
+    has_many :autres
     has_many_attached :photos, dependent: :destroy
 
 end

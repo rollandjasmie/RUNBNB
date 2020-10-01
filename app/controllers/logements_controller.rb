@@ -29,8 +29,8 @@ class LogementsController < ApplicationController
  
   
     @a = Chambre.create(logement_id: @logement.id,title: params[:title])
-    @salon = Salon.create(logement_id: @logement.id, title: params[:title])
-    @autre = Autre.create(logement_id: @logement_id, title: params[:title])
+    @salon = Salon.create(logement_id: @logement.id, title: params[:titlee])
+    @autre = Autre.create(logement_id: @logement_id, title: params[:titleee])
 
     if params[:lit_ids]
       @lits = params[:lit_ids]

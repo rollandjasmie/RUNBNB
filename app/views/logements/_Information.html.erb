@@ -3,20 +3,25 @@
   <div class="container" style="position:relative;top:70px;">
     <h6 style="position:relative;top:15px;">Où les clients peuvent-ils dormir ?</h6>
 
-    <div class="card-body" style="padding-left:0px;" id="options">
+    <div class="" style="padding-left:0px;" id="options">
+          <input type="text" name="title" value=""  id="t2"   style="display: block;">
       <%Chambre.all.each do |c|%><br>
       <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
-        <span class="col-6">
-          <%= c.title%>
+
+          <% if c.id == 1%>
+
+          <span id="tilt" data-title='<%= c.title%>'> <%= c.title%> </span>
+
+          <% end %>
+
           <small class="block_<%=c.id%>"></small>
-        </span>
-        <!--  modal -->
-        <!-- Button trigger modal -->
-        
-        
-        <!-- <button type="button" class="button_ajout_lit" data-toggle="modal" data-target="#staticBackdrop" style="width:77px;"></button> -->
-        
-      </span>
+          <script type="text/javascript">
+            function titre(){
+            
+            $('#t2').value= $('#tilt').data().title
+          }
+
+          </script>
       <!-- Modal -->
       <span class="modal fade" id="<%=c.title%>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <span class="modal-dialog modal-dialog-centered">
@@ -37,30 +42,28 @@
             </span>
             <span class="modal-footer">
               <button type="button" class="btn" data-dismiss="modal">Close</button>
-              <button type="button" class="btn savebutton" data-idchambre="<%=c.id%>" data-dismiss="modal">Save</button>
+              <button type="button" class="btn savechambre" data-idchambre="<%=c.id%>" data-dismiss="modal">Save</button>
               
             </span>
             
           </span>
         </span>
       </span>
+    </span>
       <%end%>
     </div>
 
-    <div class="card-body" style="padding-left:0px;" id="options_salon">
+    <div class="" style="padding-left:0px;" id="options_salon">
       <%Salon.all.each do |c|%><br>
       <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
-        <span class="col-6">
-          <%= c.title%>
+        <% if c.id == 1%>
+        
+         <%= c.title%>
+        
+        <input type="text" name="titlee" value="<%=c.title%>" style="display: none;">
+        <% end %>          
+
           <small class="salon_<%=c.id%>"></small>
-        </span>
-        <!--  modal -->
-        <!-- Button trigger modal -->
-        
-        
-        <!-- <button type="button" class="button_ajout_lit" data-toggle="modal" data-target="#staticBackdrop" style="width:77px;"></button> -->
-        
-      </span>
       <!-- Modal -->
       <span class="modal fade" id="<%=c.title%>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <span class="modal-dialog modal-dialog-centered">
@@ -81,32 +84,29 @@
             </span>
             <span class="modal-footer">
               <button type="button" class="btn" data-dismiss="modal">Close</button>
-              <button type="button" class="btn savebutton" data-idchambre="<%=c.id%>" data-dismiss="modal">Save</button>
+              <button type="button" class="btn savesalon" data-idchambre="<%=c.id%>" data-dismiss="modal">Save</button>
               
             </span>
             
           </span>
         </span>
       </span>
+    </span>
       <%end%>
-    </div><br>
+    </div>
 
-     <div class="card-body" style="padding-left:0px;" id="options_autre">
+     <div class="" style="padding-left:0px;" id="options_autre">
       <%Autre.all.each do |c|%><br>
-      <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
-        <span class="col-6">
+      <span class="row" data-toggle="modal" data-target="#s">
+      <% if c.id == 1%>
+          
           <%= c.title%>
+          <input type="text" name="titlee" value="<%=c.title%>" style="display: none;">
+          <% end %>
+
           <small class="autre_<%=c.id%>"></small>
-        </span>
-        <!--  modal -->
-        <!-- Button trigger modal -->
-        
-        
-        <!-- <button type="button" class="button_ajout_lit" data-toggle="modal" data-target="#staticBackdrop" style="width:77px;"></button> -->
-        
-      </span>
       <!-- Modal -->
-      <span class="modal fade" id="<%=c.title%>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <span class="modal fade" id="s" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <span class="modal-dialog modal-dialog-centered">
           <span class="modal-content">
             
@@ -116,22 +116,25 @@
                 <input type="checkbox" class="checkbox options_autre" data-value="<%=l.title%>" data-type="<%=c.id%>" data-id="<%=l.id%>" name="lit_ids[<%=l.id%>]" value="<%=l.title%>">
                 <span style="position: relative;left: 20px;bottom: 3px;"> <%= l.title%> </span>
 
+                <span class="plus">
                 <span class="decrement-js btn-primary" style="padding: 0px 11px;margin:0px 15px;border-radius: 50px;">-</span>
                 <input type="text" name="lit_ids[<%=l.id%>]"  value="0" class="nombre_lit" style="width: 30px;text-align: center;">
                 <span class="incremente-js btn-primary" style="padding: 0px 8px;margin:0px 15px;border-radius: 50px;">+</span>
+                </span>
             </div>
               <%end%>
 
             </span>
             <span class="modal-footer">
               <button type="button" class="btn" data-dismiss="modal">Close</button>
-              <button type="button" class="btn savebutton" data-idchambre="<%=c.id%>" data-dismiss="modal">Save</button>
+              <button type="button" class="btn saveautre" data-idchambre="<%=c.id%>" data-dismiss="modal">Save</button>
               
             </span>
             
           </span>
         </span>
       </span>
+    </span>
       <%end%>
     </div><br>
   </div>

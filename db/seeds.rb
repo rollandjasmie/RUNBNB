@@ -57,6 +57,7 @@ puts"creer"
 		Canape.destroy_all
 				Canape.create!(title:"Canapé-lit",salon_id: s1.id)
 				Canape.create!(title:"Canapé",salon_id: s1.id)
+				
 		Autrelit.destroy_all
 
 				 Autrelit.create!(title:"Lit double",autre_id: a1.id)

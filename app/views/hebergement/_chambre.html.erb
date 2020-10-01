@@ -5,7 +5,23 @@
 		<%cha.LitChambres.each do|lit|%>
 			<%if lit.number > 0%>
 			<p><%=lit.lit.title%> : <%=lit.number%></p>
+			<%end%>
+		<%end%>
+	<%end%>
 
+	<%chambre.salons.each do |cha|%>
+		<h5><%=cha.title%> :</h5><br> 
+		<%cha.saloncanape.each do|lit|%>
+			<%if lit.number > 0%>
+			<p><%=lit.canape.title%> : <%=lit.number%></p>
+			<%end%>
+		<%end%>
+	<%end%>
+		<%chambre.autres.each do |cha|%>
+		<h5><%=cha.title%> :</h5><br> 
+		<%cha.autrelit.each do|lit|%>
+			<%if lit.number > 0%>
+			<p><%=lit.autrelit.title%> : <%=lit.number%></p>
 			<%end%>
 		<%end%>
 	<%end%>
