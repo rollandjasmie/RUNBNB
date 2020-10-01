@@ -9,6 +9,7 @@
 
 <script src="https://kit.fontawesome.com/63571d01e6.js" crossorigin="anonymous"></script>
 
+
     <title>Profil</title>
     
 
@@ -131,9 +132,9 @@ border-bottom: 3px solid white;
       <header>
 
       <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
-      <button class="bu3">Acueille du groupe </button>
+      <button class="bu3">Accueil du groupe </button>
       <button class="bu1">Changer d'hébergement</button>
-      <a href="<%=new_logement_path%>" class="bu4" style="text-decoration:none;padding-top: 2px;<script src="https://kit.fontawesome.com/63571d01e6.js" crossorigin="anonymous"></script>Ajouter un hébergement</a>
+      <a href="<%=new_logement_path%>" class="bu4" style="text-decoration:none;padding-top: 2px;">Ajouter un hébergement</a>
 
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm" style="margin-top:12px;">
    <ul class="navbar-nav mr-auto" style="margin-left:-66px">
@@ -276,10 +277,10 @@ border-bottom: 3px solid white;
           </div>
           <div class="modal-footer">
             <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      <% end %>
           </div>
         </div>
       </div>
-      <% end %>
     </div>
   <div class="inpu" style="margin-bottom:20px;position:absolute;top:55px;color:#727c90;">
   <%= @user.name %> <%= @user.first_name%>
