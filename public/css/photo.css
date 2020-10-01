@@ -1,0 +1,61 @@
+* {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+/* h1{margin-left: 50px;} */
+.nav.nav-pills {
+background-color: #26AEDE;
+}
+.nav.nav-pills a {
+color: white;
+padding-top: 19px;
+padding-bottom: 17px;
+}
+.logo{margin-left: 12px;}
+a:hover{background: rgba(250,250 ,250,0.2);}
+a.focus:focus{background: rgba(250,250 ,250,0.2)}
+.nath{font-size:16px;}
+.nath2{font-size:20px;}
+
+.MENU{position: relative;top: 100px;left: 30px;}
+.MENU a{margin:20px;
+font-size: 18px;
+color: black;
+display: inline-block;
+height: 40px;
+}
+.MENU a:hover{
+font-size: 18px;
+color: black;
+text-decoration: none;
+}
+.MENU a.active{
+font-size: 18px;
+
+border-style: none none solid none ;
+border-color: orange;
+border-width: 5px;
+}
+.hr{position:relative;
+left:22px;
+bottom: 36px;
+width: 854px;
+border-width: 2px;}
+.photo-modif{height: 300px;position: relative;top:50px;}
+.photo-titre{font-size:20px;}
+.photo_block{position: relative;top:20px;left: 50px;height: 200px;}
+.piece-modif{height: 300px;}
+.piece-titre{font-size:20px;}
+.cls li{font-size: 13px;
+	margin-bottom: 15px;
+padding-left: 50px;: }
+.PT li{font-size: 13px;
+	margin-bottom: 15px;
+padding-left: 250px;: }
+
+.hr2{position:relative;
+left:50px;
+bottom: 10px;
+width: 854px;
+border-width: 2px;}
