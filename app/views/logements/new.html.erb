@@ -17,6 +17,17 @@
 </head>
 
 
+<style>
+
+
+@media(max-width:768px;){
+  nav.tainer{
+    width:800px !importante;
+  }
+}
+
+</style>
+
 
 
 
@@ -25,7 +36,7 @@
   <body>
   <header>
     <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
-    <nav class=" tainer" style="margin-top: 23px;">
+    <nav class=" tainer" style="margin-top: 23px; ">
       <ul class="nu">
         
         <li class="i"> Nom et emplacement <br>
@@ -212,6 +223,7 @@
     }
     }
 
+// options sur le fonction chambre
     function chambre() {
     const parent = document.getElementById('options')
     const checkboxes = parent.querySelectorAll(`input[class="checkbox options_list"]:checked`);
@@ -242,6 +254,72 @@
     }
     $(document).on('click', '.savebutton', function() {
     chambre()
+    })
+
+// option sur le fonction salon
+    function salon() {
+    const parent = document.getElementById('options_salon')
+    const checkboxes = parent.querySelectorAll(`input[class="checkbox options_salon"]:checked`);
+
+    const n = document.getElementById('nombre_canape')
+    const nombre = n.querySelectorAll('input[class="nombre_lit"]');
+    let values = [];
+
+    nombre.forEach((number) => {
+      var n = ".salon_" + number.getAttribute('value');
+
+      console.log(number.getAttribute('value'));
+
+    });
+    checkboxes.forEach((checkbox) => {
+    var target = ".salon_" + checkbox.getAttribute('data-type');
+    document.querySelector(target).innerHTML =  null;
+    });
+
+    checkboxes.forEach((checkbox) => {
+    var target = ".salon_" + checkbox.getAttribute('data-type');
+    //console.log(checkbox.getAttribute('data-type'));
+    var val = checkbox.getAttribute('data-value');
+    var quantity = checkbox.parentNode.querySelector(".nombre_lit").value
+    document.querySelector(target).innerHTML +=  val + "&nbsp(" + quantity + ")" + ","
+    });
+    return values;
+    }
+    $(document).on('click', '.savebutton', function() {
+    salon()
+    })
+
+// modal sur les fonction autre
+     function autre() {
+    const parent = document.getElementById('options_autre')
+    const checkboxes = parent.querySelectorAll(`input[class="checkbox options_autre"]:checked`);
+
+    const n = document.getElementById('nombre_autre')
+    const nombre = n.querySelectorAll('input[class="nombre_lit"]');
+    let values = [];
+
+    nombre.forEach((number) => {
+      var n = ".autre_" + number.getAttribute('value');
+
+      console.log(number.getAttribute('value'));
+
+    });
+    checkboxes.forEach((checkbox) => {
+    var target = ".autre_" + checkbox.getAttribute('data-type');
+    document.querySelector(target).innerHTML =  null;
+    });
+
+    checkboxes.forEach((checkbox) => {
+    var target = ".autre_" + checkbox.getAttribute('data-type');
+    //console.log(checkbox.getAttribute('data-type'));
+    var val = checkbox.getAttribute('data-value');
+    var quantity = checkbox.parentNode.querySelector(".nombre_lit").value
+    document.querySelector(target).innerHTML +=  val + "&nbsp(" + quantity + ")" + ","
+    });
+    return values;
+    }
+    $(document).on('click', '.savebutton', function() {
+    autre()
     })
     //const btn = document.querySelector('.savebutton');
     // btn.addEventListener('click', (event) => {

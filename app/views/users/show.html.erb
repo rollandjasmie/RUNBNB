@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+<script src="https://kit.fontawesome.com/63571d01e6.js" crossorigin="anonymous"></script>
 
     <title>Profil</title>
     
+
 </head>
 <style>
 body{
@@ -106,6 +106,10 @@ body{
                   outline: none !important;
                   box-shadow: none !important;
 }
+a.b4{
+  text-decoration: none;
+}
+
 *:focus {
     outline: 0 !important;
 }
@@ -129,7 +133,7 @@ border-bottom: 3px solid white;
       <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
       <button class="bu3">Acueille du groupe </button>
       <button class="bu1">Changer d'hébergement</button>
-      <a href="<%=new_logement_path%>" class="bu4">Ajouter un hébergement</a>
+      <a href="<%=new_logement_path%>" class="bu4" style="text-decoration:none;padding-top: 2px;<script src="https://kit.fontawesome.com/63571d01e6.js" crossorigin="anonymous"></script>Ajouter un hébergement</a>
 
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm" style="margin-top:12px;">
    <ul class="navbar-nav mr-auto" style="margin-left:-66px">
@@ -637,9 +641,9 @@ border-bottom: 3px solid white;
                 </head>
                 <body>
                 
-                <h3 style="padding-left: 75px;">
-                    <p style="padding-top:33px; font-size:22px ;position:relative;left:400px">Bonjour, je m'appelle  <%= @user.name %></p>
-                 <small style="font-size:12px; color:#727c90; margin-left:77px;"> menbre depuis   <%= @date%> </small>
+                <h3 class="rf">
+                    <p class="pa" style="padding-top:33px; font-size:22px ;position:relative;left:400px">Bonjour, je m'appelle  <%= @user.name %></p>
+                 <small class="baba"> menbre depuis   <%= @date%> </small>
                 </h3>
                 
                 <div class="card">
@@ -677,13 +681,14 @@ border-bottom: 3px solid white;
     
             
                <div class="bordure"><br><br><br>
-               <span style="margin-left:100px;color:black;"> <small>Lesquelles de mes informations sont<br> <span style="margin-left:122px; color:black;" >communiquées à des tiers ?<span></small><span>
+               <span class= "coco"> <small>Lesquelles de mes informations sont<br> <span class="caca" >communiquées à des tiers ?<span></small><span>
                <p  class="p">Runbnb ne communique pas les coordonées de l'hôte  aux voyageur qu'aprés la confirmation de la réservation</p>
 
               </div>
          
          
             <style>
+
           
 
             .custom-file-input::-webkit-file-upload-button {
@@ -699,7 +704,26 @@ border-bottom: 3px solid white;
           
            
           }
+            .rf{
+            padding-left: 75px;
+            }
 
+            .coco{
+              margin-left:100px;
+              color:black;
+            }
+
+            .caca{
+              margin-left:122px;
+               color:black;
+            }
+
+           .baba{
+                font-size:12px; 
+                color:#727c90;
+                 margin-left:77px;
+                 
+              }
 
             .p{
               margin-top:55px;
@@ -709,7 +733,35 @@ border-bottom: 3px solid white;
               color:#727c90;
 
             }
-        
+            @media(max-width: 1024px){
+              .rf{
+                padding-left: 0px;
+
+              }
+              .card{
+                right:22px;
+              }
+
+              .input-file{
+                margin-left:13px;
+              }
+
+                .baba{
+                font-size:12px; 
+                color:#727c90;
+                 margin-left:106px;
+                 
+              }
+              .coco{
+                  margin-left: 66px;
+              }
+              .caca{
+              margin-left:88px;
+               color:black;
+            }
+
+            }
+
             
             </style>
 

@@ -3,8 +3,8 @@ class HebergementController < ApplicationController
   end
 
   def show
-     @photo = Logement.find(params[:logement_id])
-  end
+    @logement = Logement.find(params[:logement_id])
+ end
 
   def create
   end
