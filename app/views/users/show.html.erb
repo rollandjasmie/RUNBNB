@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Profil</title>
+    
 </head>
 <style>
 body{
@@ -110,7 +110,19 @@ body{
     outline: 0 !important;
 }
 
+.navbar-nav{
+  border-bottom: 3px solid transparent;
+}
+.navbar-nav a{
+  font-weight:bold;
+}
+
+.navbar-nav a:hover {
+border-bottom: 3px solid white;
+}
+
 </style>
+
 <body>
       <header>
 
@@ -121,56 +133,23 @@ body{
 
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm" style="margin-top:12px;">
    <ul class="navbar-nav mr-auto" style="margin-left:-66px">
+
       <li class="nav-item " style="margin-left:100px">
       <a class="nav-link"  href="<%=logements_path%>">Tout les hébergements</a>
 
       </li>
-      <li class="nav-item  ">
-        <a class="nav-link" style="cursor: pointer;"  ;>Calendrier de tout les hébergements</a>
+      <li class="nav-item">
+        <a class="nav-link" style="cursor: pointer;">Calendrier de tout les hébergements</a>
       </li>
-      <li class="nav-item " >
+      <li class="nav-item">
       <a class="nav-link" style="cursor: pointer;">Toutes les reservations</a>
 
       </li>
       
-      
     </ul>
-
-    <style>
-    .navbar-nav{
-      border-bottom: 3px solid transparent;
-    }
-    .navbar-nav a{
-      font-weight:bold;
-    }
-
-    .navbar-nav a:hover {
-  border-bottom: 3px solid white;
-}
-
-.navbar-nav a.active {
-  border-bottom: 3px solid white;
-}
-
-
-    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 35px;">
-             
-              <%if @user.avatar.attached?%>
-                      <%= image_tag @user.avatar, alt: 'avatar', class:"chip", style:"width:40px; height:40px" ,alt:"Person", width:"96", height:"96"%>
-                        <%else%>
-                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="chip" alt="avatar" style="width:40px; height:40px" alt="Person" width="96" height="96",>
-                        <%end%>
-                        Mon profile</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01" style="width: 222px;">
-              <a class="dropdown-item" style="color: black ;"   href="#">Action</a>
-              <a class="dropdown-item"style="color: black;" href="#">Another action</a>
-              <a class="dropdown-item" style="color: black;"href="#">Something else here</a>
-    </div>
-    
-    </style>
-
       <div class="collapse navbar-collapse" id="navbar-list-4"  >
         <ul class="navbar-nav" style="padding-left: 33px;" >
+
             <li class="nav-item dropdown" style="margin-left:200px" >
            
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

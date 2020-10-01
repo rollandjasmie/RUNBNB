@@ -1,7 +1,8 @@
 class PhotosController < ApplicationController
 	
 	def index
-  	
+		@photo = Logement.find(params[:logement_id])
+
   	end
   	def show
   		

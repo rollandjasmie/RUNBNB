@@ -1326,3 +1326,53 @@ if (current_div == 0)
        <a href="<%=new_logement_path%>">creer un hébérgement</a>
 
       <% end %>
+
+
+
+---------------------------------------------
+
+<div class="chip">
+  <img src="img_avatar.png" alt="Person" width="96" height="96">
+  John Doe
+</div>
+
+<a class="nav-link dropdown-toggle" style="color:white;" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 35px;">
+             
+<%if @user.avatar.attached?%>
+        <%= image_tag @user.avatar, alt: 'avatar', class:"chip", style:"width:40px; height:40px" ,alt:"Person", width:"96", height:"96"%>
+          <%else%>
+          <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="chip" alt="avatar" style="width:40px; height:40px" alt="Person" width="96" height="96",>
+          <%end%>
+          Mon profile</a>
+<div class="dropdown-menu" aria-labelledby="dropdown01" style="width: 222px;">
+<a class="dropdown-item" style="color: black ;"   href="#">Action</a>
+<a class="dropdown-item"style="color: black;" href="#">Another action</a>
+<a class="dropdown-item" style="color: black;"href="#">Something else here</a>
+</div>
+
+
+
+<div class="collapse navbar-collapse" id="navbar-list-4"  >
+<ul class="navbar-nav" style="padding-left: 33px;" >
+
+<li class="nav-item dropdown" style="margin-left:200px" >
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<%if @user.avatar.attached?%>
+
+<%= image_tag @user.avatar, alt: 'avatar', class:"rounded-circle", style:"width:40px; height:40px" ,alt:"Person", width:"40", height:"40"%>
+<%else%>
+<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="chip" alt="avatar" style="width:40px; height:40px" alt="Person" width="96" height="96",>
+<%end%>
+
+Mon compte
+</a>
+
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<%=link_to 'Déconnexion', destroy_user_session_path,class:"dropdown-item", method: :delete%>
+
+</div>
+</li>   
+</ul>
+</div>
+</nav>
