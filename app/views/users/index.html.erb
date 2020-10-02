@@ -2,12 +2,12 @@
 <style type="text/css">
 .bu4{
     width:200px;
-    height:27px;
+    height:30px;
     position:absolute;
     top:-40px;
     left:-20px;
     float:right;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color:#26AEDE;
     text-align: center;
     font-size:12px;
@@ -23,6 +23,11 @@
     outline: none !important;
     box-shadow: none !important;
 }
+.bu4:hover{text-decoration: none;
+color: white;
+font-weight: bold;
+width:205px;
+    height:30px;}
 </style>
 
 
@@ -39,7 +44,7 @@
 		</div>
 		
 		<div class="col" style="position: relative;top: 10px;left:300px;">
-			<a href="<%=new_logement_path%>" class="bu4" >Ajouter un hébergement</a>
+			<a href="<%=new_logement_path%>" class="bu4" style="padding-top: 4px">Ajouter un hébergement</a>
 		</div>
 		<div class="col" style="position: relative;left:30px;">
 		

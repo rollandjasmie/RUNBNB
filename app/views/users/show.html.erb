@@ -36,12 +36,13 @@ body{
                   margin-top:24px;
                   outline:none;
                   outline: none !important;
-                
+                position: relative;top: 10px;
 }
 
 .bu1:hover{
-                  background-color: #f08340;
+                  background-color: #f4511e;
                   color: white;
+
                 }
 .bu2{
                   width:200px;
@@ -68,10 +69,10 @@ body{
   width:120px;
   height:30px;
   position:absolute;
-  top:25px;
+  top:35px;
   left:230px;
   border-radius: 6px;
-  background-color: #f08340;
+  background-color: #f4511e;
   color: white;
 
   text-align: center;
@@ -89,7 +90,7 @@ body{
 }
 .bu4{
                   width:200px;
-                  height:27px;
+                  height:30px;
                   float:right;
                   border-radius: 20px;
                   background-color:#26AEDE;
@@ -106,25 +107,25 @@ body{
                   outline:none;
                   outline: none !important;
                   box-shadow: none !important;
+                  position: relative;top: 10px;
 }
+
 a.b4{
   text-decoration: none;
 }
+
+
+.bu4:hover{text-decoration: none;
+color: white;
+font-weight: bold;
+width:205px;
+    height:30px;}
 
 *:focus {
     outline: 0 !important;
 }
 
-.navbar-nav{
-  border-bottom: 3px solid transparent;
-}
-.navbar-nav a{
-  font-weight:bold;
-}
 
-.navbar-nav a:hover {
-border-bottom: 3px solid white;
-}
 
 </style>
 
@@ -134,7 +135,9 @@ border-bottom: 3px solid white;
       <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
       <button class="bu3">Accueil du groupe </button>
       <button class="bu1">Changer d'hébergement</button>
-      <a href="<%=new_logement_path%>" class="bu4" style="text-decoration:none;padding-top: 2px;">Ajouter un hébergement</a>
+
+      <a href="<%=new_logement_path%>" class="bu4" style="padding-top: 4px">Ajouter un hébergement</a>
+
 
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm" style="margin-top:12px;">
    <ul class="navbar-nav mr-auto" style="margin-left:-66px">
@@ -152,8 +155,32 @@ border-bottom: 3px solid white;
       </li>
       
     </ul>
+
+
+    <style>
+    .navbar-nav{
+      border-bottom: 3px solid transparent;
+    }
+    .navbar-nav a{
+
+      font-size: 14px;
+    }
+
+    .navbar-nav a:hover {
+  border-bottom: 3px solid white;
+}
+
+.navbar-nav a.active {
+  border-bottom: 3px solid white;
+}
+
+    </style>
+
+
+    
+
       <div class="collapse navbar-collapse" id="navbar-list-4"  >
-        <ul class="navbar-nav" style="padding-left: 33px;" >
+        <ul class="navbar-nav" style="padding-left: 180px;" >
 
             <li class="nav-item dropdown" style="margin-left:200px" >
            
@@ -254,7 +281,7 @@ border-bottom: 3px solid white;
   </style>
     <h6 style="position:absolute;top:-32px;font-weight:bold; color:#727c90 ">Infos personnelles</h6>
     <span style="color: black ;position:absolute;top:22px;">Prénom et Nom 
-    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong" style="margin-left:400px;position:absolute;top:26px" >Modifier</button>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong" style="margin-left:450px;position:absolute;top:26px" >Modifier</button>
     </span> 
 
     <!-- Modal 1 -->
@@ -293,7 +320,7 @@ border-bottom: 3px solid white;
     <!-- Modal 2 -->
     
     <span style=" color: black ;position:absolute;top:130px;">Sexe
-    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong1"  style="margin-left:477px;position:absolute;top:1
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong1"  style="margin-left:530px;position:absolute;top:1
     0px">Modifier</button>
 
     </span>
@@ -328,7 +355,7 @@ border-bottom: 3px solid white;
 
     <hr>
     <div style="color: black; position:absolute;top:199px">Date de naissance  </div>
-    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong2" style="margin-left:510px;position:absolute;top:218px" >Modifier</button>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong2" style="margin-left:565px;position:absolute;top:218px" >Modifier</button>
 
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -363,7 +390,7 @@ border-bottom: 3px solid white;
     <span style="color: black; position:absolute;top:290px ">Adresse e-mail
 
     </span>
-    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong3" style="margin-left:510px; position:absolute;top:293px" >Modifier</button>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong3" style="margin-left:565px; position:absolute;top:293px" >Modifier</button>
 
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -395,7 +422,7 @@ border-bottom: 3px solid white;
     <hr>
     
     <span style="color: black; position:absolute;top:355px ">Numéro de téléphone</span>
-    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong4" style="margin-left:510px;position:absolute;top:379px">Modifier</button>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong4" style="margin-left:565px;position:absolute;top:379px">Modifier</button>
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -427,7 +454,7 @@ border-bottom: 3px solid white;
 
     <hr>
     <span style="color: black; position:absolute;top:444px">Adresse</span>
-    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong5" style="margin-left:510px; position:absolute;top:459px;">Modifier</button>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong5" style="margin-left:565px; position:absolute;top:459px;">Modifier</button>
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -457,7 +484,7 @@ border-bottom: 3px solid white;
     <br>
     <hr>
     <span style="color: black; position:absolute;top:520px">Numéro d'urgence</span>
-    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong6" style="margin-left:510px;  position:absolute;top:534px;  ">Modifier</button>
+    <button type="button" class="bu" data-toggle="modal" data-target="#exampleModalLong6" style="margin-left:565px;  position:absolute;top:534px;  ">Modifier</button>
     <!-- Modal 1 -->
     <div class="modal fade" id="exampleModalLong6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle6" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -554,7 +581,7 @@ border-bottom: 3px solid white;
                 }
             
                 .bu:hover{
-                  background-color: #f08340;
+                  background-color: #f4511e;
                   color: white;
                 }
 
@@ -642,9 +669,11 @@ border-bottom: 3px solid white;
                 </head>
                 <body>
                 
-                <h3 class="rf">
-                    <p class="pa" style="padding-top:33px; font-size:22px ;position:relative;left:400px">Bonjour, je m'appelle  <%= @user.name %></p>
-                 <small class="baba"> menbre depuis   <%= @date%> </small>
+
+                <h3 style="padding-left: 75px;">
+                    <p style="padding-top:33px; font-size:22px ;position:relative;left:434px">Bonjour, je m'appelle  <%= @user.name %></p>
+                 <small style="font-size:12px; color:#727c90; margin-left:77px;"> menbre depuis   <%= @date%> </small>
+
                 </h3>
                 
                 <div class="card">
