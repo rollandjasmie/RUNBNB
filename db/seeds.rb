@@ -70,7 +70,10 @@ puts"creer"
 				 Autrelit.create!(title:"Futon",autre_id: a1.id)
 
 
-
+      <input type="text" name="title" value=""  id="t2"   style="display: none;">
+  <script type="text/javascript">   
+            $('#t2').val($('#t1').data().title)
+          </script>
 
 
 
