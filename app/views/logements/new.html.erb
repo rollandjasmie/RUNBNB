@@ -1,31 +1,23 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/css/logements.css">
+<link rel="stylesheet" type="text/css" href="/css/logements.css">
 <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="carrou.css">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="carrou.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-</head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
 
 
 <style>
-
-
-@media(max-width:768px;){
-  nav.tainer{
-    width:800px !importante;
-  }
-}
-
+    @media(max-width:768px; ) {
+        nav.tainer {
+            width: 800px !importante;
+        }
+    }
 </style>
 
 
@@ -33,129 +25,129 @@
 
 
 
-  <body>
-  <header>
-    <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
-    <nav class=" tainer" style="margin-top: 23px; ">
-      <ul class="nu">
-        
-        <li class="i"> Nom et emplacement <br>
-          <section style="margin-left:9px;">
-            <p></p>
-            <p></p>
-            <p></p>
-          </section>
-          
-        </div>
-        
-      </li>
-      <li class="i">Configuration de l'hébergement <br>
-        <section style="margin-left: 33px;">
-          <p></p>
-          <p></p>
-          <p></p>
-        </section>
-        
-        
-        
-        
-      </li>
-      <li class="i">Photo <br>
-        <section>
-          <p></p>
-          
-        </section>
-        
-        
-        
-      </li>
-      <li class="i">Tarifs et calendrier <br>
-        <section style="margin-left: 20px;">
-          <p></p>
-          <p></p>
-          
-        </section>
-        
-        
-        
-      </li>
-      <li class="i">Révision et finalisation <br>
-        <section style="margin-left:12px;">
-          <p></p>
-          <p></p>
-          <p></p>
-        </section>
-        
-        
-      </li>
-      
-    </ul>
-    
-  </nav>
-  
-</header>
-<section class="welcome" onkeypress="refuserToucheEntree(event);">
+<body>
+    <header>
+        <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
+        <nav class=" tainer" style="margin-top: 23px; ">
+            <ul class="nu">
 
-  <!-- Premiere parti -->
+                <li class="i"> Nom et emplacement <br>
+                    <section style="margin-left:9px;">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </section>
 
-<%= form_tag url_for(action:'create'), methode: "post", multipart: true do%>
-  
-  <%= render "nom" %> 
+                    </div>
 
-<!-- Deuxieme Parte:!!----------------------------------------------->
-
-  <%= render "Adresse" %>
-<!-- Troisieme Partie --------------------------------------->
- 
-  <%= render "Map" %>
-
-<!-- Quatriéme Partie------------------------------------------------->
-
-  <%= render "Information" %>
-
-<!--  Cinqiéme Partie------------------------------------------------->
-  
-  <%= render "epuipement" %>
-
-<!-- sixiéme Partie------------------------------------------------->
-
-  <%= render "regle" %>
-
-<!-- Septe Partie------------------------------------------------->
-
-   <%= render "image" %>
+                </li>
+                <li class="i">Configuration de l'hébergement <br>
+                    <section style="margin-left: 33px;">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </section>
 
 
-   <%= render "Condition" %>
-
- <!-- Huitiéme Partie------------------------------------------------->
-
-    <%= render "calendrier" %>
-
- <!-- Neuviéme Partie------------------------------------------------->
-
-    <%= render "modifier" %>
-
- <!-- Di------------------------------------------------->
-  
-    <%= render "importante" %>
-
-    <%= render "ouvrir" %>
-              
-              
-              <span class="b">
-                <span name ="prev" class="button">Precédent</span>
-                <span name= "next" class="button">Continuer</span>
-              </span>
-               <%end%>
-            </section>
-            
-          </body>
-   <script type="text/javascript" src="/packs/logement.js">
-         
 
 
-   </script>
-<script>noPressEnter(document.body);</script>
+                </li>
+                <li class="i">Photo <br>
+                    <section>
+                        <p></p>
+
+                    </section>
 
 
+
+                </li>
+                <li class="i">Tarifs et calendrier <br>
+                    <section style="margin-left: 20px;">
+                        <p></p>
+                        <p></p>
+
+                    </section>
+
+
+
+                </li>
+                <li class="i">Révision et finalisation <br>
+                    <section style="margin-left:12px;">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </section>
+
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+    <section class="welcome" onkeypress="refuserToucheEntree(event);">
+
+        <!-- Premiere parti -->
+
+        <%= form_tag url_for(action:'create'), methode: "post", multipart: true do%>
+
+        <%= render "nom" %>
+
+        <!-- Deuxieme Parte:!!----------------------------------------------->
+
+        <%= render "Adresse" %>
+        <!-- Troisieme Partie --------------------------------------->
+
+        <%= render "Map" %>
+
+        <!-- Quatriéme Partie------------------------------------------------->
+
+        <%= render "Information" %>
+
+        <!--  Cinqiéme Partie------------------------------------------------->
+
+        <%= render "epuipement" %>
+
+        <!-- sixiéme Partie------------------------------------------------->
+
+        <%= render "regle" %>
+
+        <!-- Septe Partie------------------------------------------------->
+
+        <%= render "image" %>
+
+
+        <%= render "Condition" %>
+
+        <!-- Huitiéme Partie------------------------------------------------->
+
+        <%= render "calendrier" %>
+
+        <!-- Neuviéme Partie------------------------------------------------->
+
+        <%= render "modifier" %>
+
+        <!-- Di------------------------------------------------->
+
+        <%= render "importante" %>
+
+        <%= render "ouvrir" %>
+
+
+        <span class="b">
+            <span name="prev" class="button">Precédent</span>
+            <span name="next" class="button">Continuer</span>
+        </span>
+        <%end%>
+    </section>
+
+</body>
+<script type="text/javascript" src="/javascript/logement.js">
+
+
+
+</script>
+<script>
+    noPressEnter(document.body);
+</script>
