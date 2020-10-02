@@ -12,14 +12,7 @@ top:50px;}
  
  .logo{margin-left: 50px;}
 
-/*.boutton{width: 100px;
-	    margin-top: 50px;
-		border-color: #F47E54;
 
-		color: #F47E54;
-		background-color: white;
-		box-shadow: 0;
-		}*/
 
 .myButton {
 	background-color:#ffffff;
@@ -53,9 +46,6 @@ top: 40px;}
 
 
 
-/*
-
-dmlsgjqmelkfgjqmlkefhjmlskfhj*/
 
 
 
@@ -77,7 +67,7 @@ dmlsgjqmelkfgjqmlkefhjmlskfhj*/
   
   border-style: groove;
   
-  border-box:1px;
+  border:1px;
   position:relative;
   top:33px;
   width:500px;
@@ -273,7 +263,7 @@ dmlsgjqmelkfgjqmlkefhjmlskfhj*/
   
   border-style: groove;
   
-  border-box:1px;
+  border:1px;
   position:relative;
   
   right: 20px;
@@ -284,12 +274,9 @@ dmlsgjqmelkfgjqmlkefhjmlskfhj*/
   background-color:#F4F4F4;
   }
   .sary{
-  
   border-style: groove;
-  
-  border-box:1px;
+  border:1px;
   position:relative;
-  
   right: 20px;
   width:500px;
   height:333px;
@@ -326,7 +313,7 @@ dmlsgjqmelkfgjqmlkefhjmlskfhj*/
   
   
   
-  border-box:0px;
+  border:0px;
   position:relative;
   top:33px;
   width:400px;
