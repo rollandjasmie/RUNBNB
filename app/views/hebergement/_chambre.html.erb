@@ -1,0 +1,31 @@
+
+<div class="piece-modif " style="position: relative;top: 50px;left:50px;">
+	<div style="display: flex;">
+		<h1 class="piece-titre pt-2 " style="position: relative;width:500px;"><b>Pièces et espaces</h1>
+		<a class="btn btn-outline-primary " href=" " style="position: relative;left:200px;">Modifier</a>
+	</div>
+	<div style="display: flex;">
+		<div class="cls pt-5">
+			<li>Chambre : 1</li>
+			<li>Lits : 2</li>
+			<li>Salles de bain : 1</li>
+		</div>
+		<div class="PT pt-5">
+			<li>Parties du logement supplémentaires : 4</li>
+			<li>Toutes les parties du logement sont
+			réservées aux voyageurs</li>
+			
+		</div>
+	</div>
+</div>
+<div class="container">
+	<%chambre.chambres.each do |cha|%>
+		<h5><%=cha.title%> :</h5><br> 
+		<%cha.LitChambres.each do|lit|%>
+			<%if lit.number > 0%>
+			<p><%=lit.lit.title%> : <%=lit.number%></p>
+
+			<%end%>
+		<%end%>
+	<%end%>
+</div>
