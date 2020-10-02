@@ -33,58 +33,13 @@ body{
                   margin-top:24px;
                   outline:none;
                   outline: none !important;
-                position: relative;top: 10px;
+                
 }
 
 .bu1:hover{
-                  background-color: #f4511e;
+                  background-color: #f08340;
                   color: white;
-
                 }
-.bu3{
-  width:120px;
-  height:30px;
-  position:absolute;
-  top:35px;
-  left:230px;
-  border-radius: 6px;
-  background-color: #f4511e;
-  color: white;
-
-  text-align: center;
-  font-size:12px;
-  border: 1px #f4511e ;
-  
-  border-style: solid;
-  border-width: 2px;
-  transition: all 0.5s;
-  cursor: pointer;
-  outline:none;
-  outline: none !important;
-  box-shadow: none !important;
-
-}
-.bu4{
-                  width:200px;
-                  height:30px;
-                  float:right;
-                  border-radius: 20px;
-                  background-color:#26AEDE;
-                  text-align: center;
-                  font-size:12px;
-                  text-decoration: none;
-                  color: white;
-                  border-style: solid;
-                  border-width: 2px;
-                  transition: all 0.5s;
-                  cursor: pointer;
-                  margin-right:90px;
-                  margin-top:24px;
-                  outline:none;
-                  outline: none !important;
-                  box-shadow: none !important;
-                  position: relative;top: 10px;
-}
 .bu2{
                   width:200px;
                   height:27px;
@@ -106,40 +61,14 @@ body{
                   box-shadow: none !important;
 }
 
-.bu1{
-                  width:200px;
-                  height:27px;
-                  float:right;
-                  border-radius: 20px;
-                  background-color:white;
-                  text-align: center;
-                  font-size:12px;
-                  border: 1px #f4511e ;
-                  color: #f4511e;
-                  border-style: solid;
-                  border-width: 2px;
-                  transition: all 0.5s;
-                  cursor: pointer;
-                  margin-right:90px;
-                  margin-top:24px;
-                  outline:none;
-                  outline: none !important;
-                position: relative;top: 10px;
-}
-
-.bu1:hover{
-                  background-color: #f4511e;
-                  color: white;
-
-                }
 .bu3{
   width:120px;
   height:30px;
   position:absolute;
-  top:35px;
+  top:25px;
   left:230px;
   border-radius: 6px;
-  background-color: #f4511e;
+  background-color: #f08340;
   color: white;
 
   text-align: center;
@@ -157,10 +86,11 @@ body{
 }
 .bu4{
                   width:200px;
-                  height:30px;
+                  height:27px;
                   float:right;
                   border-radius: 20px;
                   background-color:#26AEDE;
+                  padding-top: 2px;
                   text-align: center;
                   font-size:12px;
                   text-decoration: none;
@@ -174,7 +104,6 @@ body{
                   outline:none;
                   outline: none !important;
                   box-shadow: none !important;
-                  position: relative;top: 10px;
 }
 *:focus {
     outline: 0 !important;
@@ -210,9 +139,8 @@ body{
     .navbar-nav{
       border-bottom: 3px solid transparent;
     }
-      .navbar-nav a{
-      
-      font-size: 14px;
+    .navbar-nav a{
+      font-weight:bold;
     }
 
     .navbar-nav a:hover {
@@ -224,12 +152,24 @@ body{
 }
 
 
- 
+    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 35px;">
+             
+              <%if @user.avatar.attached?%>
+                      <%= image_tag @user.avatar, alt: 'avatar', class:"chip", style:"width:40px; height:40px" ,alt:"Person", width:"96", height:"96"%>
+                        <%else%>
+                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="chip" alt="avatar" style="width:40px; height:40px" alt="Person" width="96" height="96",>
+                        <%end%>
+                        Mon profile</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01" style="width: 222px;">
+              <a class="dropdown-item" style="color: black ;"   href="#">Action</a>
+              <a class="dropdown-item"style="color: black;" href="#">Another action</a>
+              <a class="dropdown-item" style="color: black;"href="#">Something else here</a>
+    </div>
     
     </style>
 
       <div class="collapse navbar-collapse" id="navbar-list-4"  >
-        <ul class="navbar-nav" style="padding-left: 180px;" >
+        <ul class="navbar-nav" style="padding-left: 33px;" >
             <li class="nav-item dropdown" style="margin-left:200px" >
            
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
