@@ -4,8 +4,7 @@ class HebergementController < ApplicationController
 
   def show
     @logement = Logement.find(params[:logement_id])
-
-  end
+ end
 
   def create
   end

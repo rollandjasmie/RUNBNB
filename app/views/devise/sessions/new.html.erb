@@ -52,7 +52,7 @@
                         </div>
                         <%= f.submit "Se connecter",class:"button3" %>
                         <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %><br />
-                        <small> <%= link_to "Mot de passe oublié?", new_password_path(resource_name) %></small>
+                        <small class="small"> <%= link_to "Mot de passe oublié?", new_password_path(resource_name) %></small>
                         <% end %>
                     </div>
                     <% end %>
@@ -62,21 +62,23 @@
             </div>
         </div>
     </body>
-<<<<<<< HEAD
-<<<<<<< HEAD
+    <style>
+    .small{
+        margin-left:133px;
+    }
 
-</html>
+@media(max-width:768px){
+    .small{
+        margin-left: 0;
+    }
+} 
 
+@media(max-width:425px){
+    .item{
+        position:absolute;
+        top:-10px;
+        left:111px;
+    }
+}
+</style>
 
-  
-
-
-=======
-</html>
->>>>>>> 9dabd1888a022f62f6abdcc3f66cf9f39636e730
-=======
-
-
-</html>
-
->>>>>>> 02b2fa6d608e3f7962ebfddae074ce512a6531a8
