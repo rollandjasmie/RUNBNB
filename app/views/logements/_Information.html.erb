@@ -3,13 +3,16 @@
     <div class="container" style="position:relative;top:70px;">
         <h6 style="position:relative;top:15px;">Où les clients peuvent-ils dormir ?</h6>
 
-        <div class="card-body" id="options" style="height:75px">
-            <%Chambre.all.each do |c|%><br>
+        <div class="card-body" id="options" style="height:75px;">
+            <%Chambre.all.each do |c| %><br>
             <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
                 <% if c.id == 1 %>
+                <div style="padding-left: 30px;">
                 <%= c.title%>
+            </div>
                 <% end %>
-                <small class="block_<%=c.id%>"></small>
+
+                <small class="block_<%=c.id%> pl-3 mr-3"></small>
 
             </span>
             <!-- Modal -->
@@ -21,7 +24,10 @@
                             <% Lit.all.each do |l| %>
                             <div id="nombre">
                                 <input type="checkbox" class="checkbox options_list" data-value="<%=l.title%>" data-type="<%=c.id%>" data-id="<%=l.id%>" name="lit_ids[<%=l.id%>]" value="<%=l.title%>">
-                                <span style="position: relative;left: 20px;bottom: 3px;"> <%= l.title%> </span>
+                                <span style="position: relative;left: 20px;bottom: 3px;">
+                                 
+                                 <%= l.title%> </span>
+                            
 
                                 <span class="incremente-js btn-primary" style="padding: 0px 8px;margin:0px 15px;border-radius: 50px;float:right">+</span>
                                 <input type="text" name="lit_ids[<%=l.id%>]" value="0" class="nombre_lit" style="width: 30px;text-align: center;float:right;">
@@ -47,9 +53,11 @@
             <%Salon.all.each do |c|%><br>
             <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
                 <% if c.id == 1 %>
+                  <div style="padding-left: 30px;">
                 <%= c.title%>
+                  </div>
                 <% end %>
-                <small class="salon_<%=c.id%>"></small>
+                <small class="salon_<%=c.id%> pl-3 mr-3"></small>
 
 
             </span>
@@ -89,10 +97,12 @@
             <%Autre.all.each do |c|%><br>
             <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
                 <% if c.id == 1 %>
+                     <div style="padding-left: 30px;">
                 <%= c.title%>
+            </div>
                 <% end %>
 
-                <small class="autre_<%=c.id%>"></small>
+                <small class="autre_<%=c.id%> pl-3 mr-3"></small>
 
             </span>
             <!-- Modal -->

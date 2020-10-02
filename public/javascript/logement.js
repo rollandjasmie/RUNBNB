@@ -94,7 +94,7 @@ function chambre() {
     //console.log(checkbox.getAttribute('data-type'));
     var val = checkbox.getAttribute('data-value');
     var quantity = checkbox.parentNode.querySelector(".nombre_lit").value
-    document.querySelector(target).innerHTML +=  val + "&nbsp(" + quantity + ")" + ","
+    document.querySelector(target).innerHTML +=  val + "&nbsp(" + quantity + ")" + ","+"&nbsp"
 });
     return values;
 }
@@ -127,7 +127,7 @@ function salon() {
     //console.log(checkbox.getAttribute('data-type'));
     var val = checkbox.getAttribute('data-value');
     var quantity = checkbox.parentNode.querySelector(".nombre_lit").value
-    document.querySelector(target).innerHTML +=  val + "&nbsp(" + quantity + ")" + ","
+    document.querySelector(target).innerHTML +=  val + "&nbsp(" + quantity + ")" + ","+"&nbsp"
 });
     return values;
 }
@@ -160,7 +160,7 @@ function autre() {
     //console.log(checkbox.getAttribute('data-type'));
     var val = checkbox.getAttribute('data-value');
     var quantity = checkbox.parentNode.querySelector(".nombre_lit").value
-    document.querySelector(target).innerHTML +=  val + "&nbsp(" + quantity + ")" + ","
+    document.querySelector(target).innerHTML +=  val + "&nbsp(" + quantity + ")" + ","+"&nbsp"
 });
     return values;
 }
