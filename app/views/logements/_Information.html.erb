@@ -7,7 +7,7 @@
             <%Chambre.all.each do |c| %><br>
             <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
                 <% if c.id == 1 %>
-                <div style="padding-left: 30px;">
+                <div style="padding-left: 14px;">
                 <%= c.title%>
             </div>
                 <% end %>
@@ -53,7 +53,7 @@
             <%Salon.all.each do |c|%><br>
             <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
                 <% if c.id == 1 %>
-                  <div style="padding-left: 30px;">
+                  <div style="padding-left: 14px;">
                 <%= c.title%>
                   </div>
                 <% end %>
@@ -97,7 +97,7 @@
             <%Autre.all.each do |c|%><br>
             <span class="row" data-toggle="modal" data-target="#<%=c.title%>">
                 <% if c.id == 1 %>
-                     <div style="padding-left: 30px;">
+                     <div style="padding-left: 14px;">
                 <%= c.title%>
             </div>
                 <% end %>
