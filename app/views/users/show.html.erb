@@ -301,10 +301,10 @@ width:205px;
     
     
     
-          </div>
           <div class="modal-footer">
             <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
       <% end %>
+          </div>
           </div>
         </div>
       </div>
@@ -339,13 +339,13 @@ width:205px;
     <%= form_for(@user) do |f| %>    
     <%= f.text_field :sexe %><br>
     
-          </div>
           <div class="modal-footer">
           <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      <% end %>
+          </div>
           </div>
         </div>
       </div>
-      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:152px;color:#727c90;">
 
@@ -372,13 +372,13 @@ width:205px;
               <%= form_for(@user) do |f| %>
             <%= f.date_field :date_of_birth  %><br>
         
-          </div>
           <div class="modal-footer">
            <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      <% end %>
+          </div>
           </div>
         </div>
       </div>
-      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:231px;color:#727c90">
 
@@ -406,13 +406,13 @@ width:205px;
            
               <%= form_for(@user) do |f| %>    
             <%= f.email_field :email %><br>
-          </div>
           <div class="modal-footer">
             <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      <% end %>
+          </div>
           </div>
         </div>
       </div>
-      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:311px;color:#727c90">
 
@@ -435,15 +435,15 @@ width:205px;
           </div>
           <div class="modal-body">
            
-              <%= form_for(@user) do |f| %>    
+            <%= form_for(@user) do |f| %>    
             <%= f.telephone_field :mobile %><br>
-          </div>
           <div class="modal-footer">
             <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+            <% end %>
+          </div>
           </div>
         </div>
       </div>
-      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:385px;color:#727c90">
 
@@ -469,13 +469,13 @@ width:205px;
            <%= form_for(@user) do |f| %>    
             <%= f.text_field :adresse %><br>
     
-          </div>
           <div class="modal-footer">
         <%= f.submit 'Enregistrer', class:"btn btn-primary" %> 
+      <% end %>
+          </div>
     </div>
         </div>
       </div>
-      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:478px;color:#727c90">
 
@@ -499,13 +499,13 @@ width:205px;
            
               <%= form_for(@user) do |f| %>    
             <%= f.telephone_field :urgence %><br>
-          </div>
           <div class="modal-footer">
             <%= f.submit 'Enregistrer', class:"btn btn-primary" %>
+      <% end %>
+          </div>
           </div>
         </div>
       </div>
-      <% end %>
     </div><br>
     <div class="inpu" style="margin-bottom:20px;position:absolute;top:550px;color:#727c90">
     <%= @user.urgence%>
