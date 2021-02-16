@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_065441) do
+ActiveRecord::Schema.define(version: 2020_10_01_065017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,30 @@ ActiveRecord::Schema.define(version: 2020_09_29_065441) do
     t.string "adresse2"
     t.string "ville1"
     t.index ["logement_id"], name: "index_adresses_on_logement_id"
+  end
+
+  create_table "autrelits", force: :cascade do |t|
+    t.string "title"
+    t.bigint "autre_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["autre_id"], name: "index_autrelits_on_autre_id"
+  end
+
+  create_table "autres", force: :cascade do |t|
+    t.string "title"
+    t.bigint "logement_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["logement_id"], name: "index_autres_on_logement_id"
+  end
+
+  create_table "canapes", force: :cascade do |t|
+    t.string "title"
+    t.bigint "salon_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["salon_id"], name: "index_canapes_on_salon_id"
   end
 
   create_table "cartes", force: :cascade do |t|
@@ -110,6 +134,16 @@ ActiveRecord::Schema.define(version: 2020_09_29_065441) do
     t.index ["lit_id"], name: "index_lit_chambres_on_lit_id"
   end
 
+  create_table "litautres", force: :cascade do |t|
+    t.integer "nombreautre"
+    t.bigint "autre_id"
+    t.bigint "autrelit_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["autre_id"], name: "index_litautres_on_autre_id"
+    t.index ["autrelit_id"], name: "index_litautres_on_autrelit_id"
+  end
+
   create_table "lits", force: :cascade do |t|
     t.string "title"
     t.bigint "chambre_id"
@@ -152,16 +186,34 @@ ActiveRecord::Schema.define(version: 2020_09_29_065441) do
     t.index ["logement_id"], name: "index_reservations_on_logement_id"
   end
 
+  create_table "saloncanapes", force: :cascade do |t|
+    t.integer "nombresalon"
+    t.bigint "salon_id"
+    t.bigint "canape_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["canape_id"], name: "index_saloncanapes_on_canape_id"
+    t.index ["salon_id"], name: "index_saloncanapes_on_salon_id"
+  end
+
+  create_table "salons", force: :cascade do |t|
+    t.string "title"
+    t.bigint "logement_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["logement_id"], name: "index_salons_on_logement_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name"
     t.string "first_name"
     t.string "adresse"
-    t.integer "mobile"
+    t.string "mobile"
     t.string "date_of_birth"
     t.string "sexe"
-    t.integer "urgence"
+    t.string "urgence"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

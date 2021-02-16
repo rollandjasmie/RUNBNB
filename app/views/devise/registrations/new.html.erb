@@ -1,19 +1,14 @@
-
-
 <link rel="stylesheet" href="/css/sign-in-up.css">
 
 
-<style>
-
-
-</style>
 
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/css/user.css">
-        <title>Sign in -plural</title>
+        <link rel="stylesheet" href="/css/sign-in-up.css">
+        <title>Runbnb</title>
     </head>
     <body>
         <header >
@@ -22,10 +17,11 @@
                     <div>
                         <img src="/image/logo.jpg"  class="logo" alt="" style="width: 150px;">
                     </div>
+
                 </div>
             <div class="col"  style="position: relative;left: 80px;">
                 <div class="item">
-                    <a class="anchor" href="#">Deja partenaire?</a>
+                    <a class="anchor" style="color: blue;    " >Déja partenaire?</a>
                     <a href="/users/sign_in"  class='btn'>Se connecter</a>
                 </div>
             </div>
@@ -52,7 +48,17 @@
         height:888px;
         }
         }
-        
+        /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
         </style>
         <div class="right pt-4" >
             <div class="carrer_lava" style="position: relative;left: 55px;">
@@ -69,16 +75,17 @@
                             <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",class:"text-input", placeholder:"Entrez votre prénom", required: 'true' %>
                         </div>
                         <div>
-                            <label>Adress e-mail</label>
+                            <label>Adresse e-mail</label>
                             <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"text-input", placeholder:"Entrez votre e-mail", required: 'true' %>
                         </div>
                         <div>
                             <label>Numéro de téléphone</label>
-                            <%= f.number_field :mobile, autofocus: true, autocomplete: "mobile", class:"text-input",placeholder:"Votre numéro", required: 'true' %>
+                            <input type="number"  name="mobile" autocomplete="mobile"  class="text-input" placeholder="Votre numéro"  required>
+
                         </div>
                         <div>
                             <label>Date de naissance</label>
-                            <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth",class:"text-input", placeholder:"Entrez votre date de naissance", required: 'true' %>
+                            <input type="date" class="text-input" name="date_of_birth" placeholder="Entrez votre date de naissance" min="1930-01-01" max="2030-12-31" required>
                         </div>
                         <div>
                             <label>Mot de passe</label>
@@ -91,7 +98,7 @@
                             <%= f.submit "Commencer" ,class:"button3"  %>
                             <center>
                             <div class="small">
-                                <small>Vous avec un déja un compte? cliquez<span href=""> &nbsp ici &nbsp  </span>pour poursuivre l'inscription</samll>
+                                <small>Vous avec un déja un compte? cliquez<span href=""> &nbsp ici &nbsp  </span>pour poursuivre l'inscription</small>
                             </div>
                         </div>
                         </center>
@@ -103,4 +110,3 @@
     </div>
 </body>
 </html>
-

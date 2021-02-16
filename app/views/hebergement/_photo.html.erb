@@ -1,28 +1,47 @@
+<link rel="stylesheet" type="text/css" href="/css/photo.css">
 <style type="text/css">
-	.photo{
-		width: 100px
-
-	}
+    .photo {
+        width: 100px
+    }
 </style>
+<div class="photo-modif ">
+    <div style="display: flex;">
+        <h1 class="photo-titre pt-5" style="position: relative;left:50px;width:500px;"><b>Photo</h1>
+        <a class="btn btn-outline-primary " href="/logements/<%=photo.id%>/photos
+		" style="position: relative;top: 40px;left:250px;">Modifier</a>
+    </div>
+    <div class="photo_block pt-5 ">
+        <% if photo.photos.attached? %>
+        <div class="affichage" style="display: flex;">
+            <div>
+                <% if photo.photos.count < 4 %>
+                <% number = photo.photos.count %>
+                <% for num in 0..(number-1) %>
 
 
+                <%= image_tag (photo.photos[num]), class:"photo", style:"margin-right: 35px;" %>
+
+                <% end %>
 
 
-<a href="/logements/<%=photo.id%>/photos
-"><p>modifier</p></a>
+                <% else %>
 
-<% if photo.photos.attached? %>
+                <% for num in 0..3 %>
 
-	<% num = 0%>
-	<% photo.photos.each do |p|%>
-	<%= image_tag (photo.photos[num]), class:"photo" %>
-	<% num +=1 %>
-	<% end %>
-	<p><%=photo.photos.count%> photos</p>
-	
 
-<% else %>
-	
-	<p>tsisy a</p>
+                <%= image_tag (photo.photos[num]), class:"photo", style:"margin-right: 35px;" %>
 
-<% end %>
+                <% end %>
+                <% end %>
+            </div>
+            <div style="padding-left: 200px;">
+                <p><%=photo.photos.count%> photos</p>
+            </div>
+        </div>
+
+        <% else %>
+
+        <p><small>Aucune photo à afficher</small></p>
+        <% end %>
+    </div>
+</div>

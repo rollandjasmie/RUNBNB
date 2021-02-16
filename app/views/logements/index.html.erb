@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://kit.fontawesome.com/63571d01e6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/63571d01e6.js" crossorigin="anonymous"></script>
+    
+
+    <title>tableau de bord</title>
 </head>
 <style>
 body{
@@ -88,6 +90,7 @@ body{
                   float:right;
                   border-radius: 20px;
                   background-color:#26AEDE;
+                  padding-top: 2px;
                   text-align: center;
                   font-size:12px;
                   text-decoration: none;
@@ -110,22 +113,22 @@ body{
 <body>
       <header>
 
-      <img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px">
-      <button class="bu3">Acueille du groupe </button>
+      <a href="/"><img src="/assets/logo.jpg" style="width:160px; height:60px;margin-left:33px;margin-top:12px"></a>
+      <button class="bu3">Accueil du groupe </button>
       <button class="bu1">Changer d'hébergement</button>
-      <a href="<%=new_logement_path%>" class="bu4">Ajouter un hébergement</a>
+      <a href="<%=new_logement_path%>" class="bu4" style="text-decoration:none; padding-top: 2px;"> Ajouter un hébergement</a>
 
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm" style="margin-top:12px;">
    <ul class="navbar-nav mr-auto" style="margin-left:-66px">
       <li class="nav-item " style="margin-left:100px">
-      <a class="nav-link"  href="<%=logements_path%>">Tout les hébergements</a>
+      <a class="nav-link"  href="<%=logements_path%>">Tous les hébergements</a>
 
       </li>
       <li class="nav-item  ">
-        <a class="nav-link" style="cursor: pointer;"  ;>Calendrier de tout les hébergements</a>
+        <a class="nav-link" style="cursor: pointer;"  ;>Calendrier de tous les hébergements</a>
       </li>
       <li class="nav-item " >
-      <a class="nav-link" style="cursor: pointer;">Toutes les reservations</a>
+      <a class="nav-link" style="cursor: pointer;">Tous les réservations</a>
 
       </li>
       
@@ -133,12 +136,13 @@ body{
     </ul>
 
     <style>
+    .nav-link{
+      font-size:14px;
+    }
     .navbar-nav{
       border-bottom: 3px solid transparent;
     }
-    .navbar-nav a{
-      font-weight:bold;
-    }
+   
 
     .navbar-nav a:hover {
   border-bottom: 3px solid white;
@@ -166,8 +170,8 @@ body{
     </style>
 
       <div class="collapse navbar-collapse" id="navbar-list-4"  >
-        <ul class="navbar-nav" style="padding-left: 33px;" >
-            <li class="nav-item dropdown" style="margin-left:200px" >
+        <ul class="navbar-nav" style="padding-left: 180px;"  >
+            <li class="nav-item dropdown" style="margin-left:160px" >
            
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%if @user.avatar.attached?%>
@@ -181,6 +185,7 @@ body{
           </a>
             
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a href="/users/<%=current_user.id%>" class="dropdown-item">Mon profil</a>
               <%=link_to 'Déconnexion', destroy_user_session_path,class:"dropdown-item", method: :delete%>
 
             </div>
@@ -292,7 +297,9 @@ body{
   text-align: center;
 }
 
-
+.chips{
+  font-size: 
+}
 
 .chip img {
   float: left;
@@ -315,7 +322,7 @@ body{
 
 
 <div class="cont2">
-<h6> Page d'acceuille du groupe </h6><br>
+<h6> Page d'accueil du groupe </h6><br>
 <form action="/action">
   <input type="text" id="f"  style="width:277px;"placeholder="Filtrez un indentifiant, nom ou adresse">
 </form> 
@@ -324,11 +331,11 @@ body{
 <table class="table">
 <thead>
   <tr>
-    <th scope="col">Identiiant </th>
+    <th scope="col">Identifiant </th>
     <th scope="col">Nom</th>
     <th scope="col">Adresse</th>
     <th scope="col">Status</th>
-    <th scope="col" style="font-size: 14px;">Arrive/Depart<br>Aujourdhui et demain</th>
+    <th scope="col" style="font-size: 14px;">Arrivé/Départ<br>Aujourdhui et demain</th>
     <th scope="col" style="font-size: 14px;">Message des clients</th>
     <th scope="col"style="font-size: 14px;">Message de runbnb</th>
   </tr>
@@ -339,7 +346,13 @@ body{
           
                 <th scope="row"><%=i.id%> </th>
                 
-                <td > <div class="chip"> <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="Person" width="96" height="96">
+                <td > <div class="chip"> 
+                  <% if i.photos.attached? %>
+                  <%=image_tag i.photos[0]%>
+                  <% else %>
+                  <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="Person" width="96" height="96">
+                  <% end %>
+                  
                  </div><a  href="/logements/<%=i.id%>/hebergement"><%=i.name%></a> </td> 
                  <td style="font-size:12px;">22 Chemin Canne Bobon</td>
                  <td style="font-size:12px; color:red;">Férmer non réservable </td>
